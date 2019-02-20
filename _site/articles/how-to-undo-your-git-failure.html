@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lorem ipsum dolor sit amet, his eu liber nobis senserit, ne option debitis adipiscing duo, has in eirmod ancillae.">
+
+  <title>portfolYOU</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/portfolYOU/assets/favicon.ico">
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Animate CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" type="text/css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/portfolYOU/assets/css/style.css" type="text/css">
+
+</head>
+
+
+<body class="container my-5">
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+  <a class="navbar-brand" href="/portfolYOU/"><h5><b>portfolYOU</b></h5></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+      
+      
+        
+      
+        
+      
+        
+          <a class="nav-item nav-link" href="/portfolYOU/projects/">Projects</a>
+        
+      
+        
+          <a class="nav-item nav-link active " href="/portfolYOU/articles/">Articles</a>
+        
+      
+        
+          <a class="nav-item nav-link" href="/portfolYOU/about/">About</a>
+        
+      
+        
+          <a class="nav-item nav-link" href="/portfolYOU/elements/">Elements</a>
+        
+      
+        
+          <a class="nav-item nav-link" href="/portfolYOU/docs/">Docs</a>
+        
+      
+    </div>
+  </div>
+
+</nav>
+  <div class="col-lg-10 mx-auto mt-5 article">
+  <h1><b>How to undo your git failure?</b></h1>
+
+<p class="article-metadata text-muted">
+  25 September 2015 -  
+  <b>
+  
+  
+    6 mins read time
+  
+  </b>
+
+  <br>
+
+  
+    Tags: 
+    
+      <span class="badge badge-pill text-primary border border-primary">Git</span>
+    
+  
+
+</p>
+
+<p>Source: <a href="https://blog.usejournal.com/how-to-undo-your-git-failure-b76e31ecac74">Rafał Krókowski</a></p>
+
+<p>So I bet you just wanted to add a little feature to your app. That little feature took a few days to finish, because you’re a software developer and your task estimation skills are comparable with those of Elon Musk’s. The team have moved quite a bit since your checkout, so under all that pressure, you decided to merge your branch into master. You were scared but you went for it. And that’s exactly when all hell broke loose.</p>
+
+<p>Maybe you tried to merge and 10 conflicts appeared out of nowhere. Maybe you tried to squash few commits into one. Or you’ve felt adventurous that day and tried the scary-sounding rebase. And now, it looks like all your changes and commits are gone, you wiped out half of the master branch and you’ve just wasted everybody’s work, while shitting your pants at the same time.</p>
+
+<p>Trust me, I’ve been there. And there is a way out!</p>
+
+<h2 id="so-how-were-going-to-handle-this">So how we’re going to handle this?</h2>
+<p>Well, it depends on how bad it already is. I’m going to start with explaining the most basic types of undo, that is reverting or amending a single commit. If you are familiar with those, feel free to skip to the part when I talk about fixing bad rebase/merge or the one on how to undo all the changes you’ve ever made on a branch.</p>
+
+<h2 id="undo-one-changereverting-and-amending-commits">Undo one change — reverting and amending commits!</h2>
+
+<p>There are two most popular ways to undo just one last commit. The first one is usually used, when you made a typo or forgot to add a file to the commit you’ve just made and you wanna fix it without anyone noticing. If that’s the case, you can just git add all the files that you’ve forgotten and run:</p>
+
+<figure class="figure w-100">
+  <img src="https://cdn-images-1.medium.com/max/1600/1*npt0fA8NmIkhGmTqagbxSg.png" class="figure-img img-fluid rounded" alt="git commit --amend" />
+  
+    <figcaption class="figure-caption text-center">git commit --amend</figcaption>
+  
+</figure>
+
+<p>Git will ask you to write a new commit message (although you can skip it by adding the <strong>–no-edit</strong> flag) and you’re good to go. If you check your commits, the embarrassing one just disappeared and no-one will know about this change — it’s really as simple as that!</p>
+
+<p>But remember, that the second you push your changes to the remote, you’re accountable for that commit. If you want to somehow do the same thing as before, you should let other developers know, that you messed up and you’re fixing it. The answer will be the following command:</p>
+
+<figure class="figure w-100">
+  <img src="https://cdn-images-1.medium.com/max/1600/1*wWqGIikEoOmzBaFCkjcZ-w.png" class="figure-img img-fluid rounded" alt="git revert HEAD" />
+  
+    <figcaption class="figure-caption text-center">git revert HEAD</figcaption>
+  
+</figure>
+
+<p>This command will first undo your most recent changes by adding new commit, which will <strong>revert</strong> them. Think of it as an antimatter of commits — the sum of the bad one and this reverted one equals no changes at all. Then it’ll add a second commit, that would this time consist of your new committed changes. That way, when you push the revert commit, nobody would have inconsistent, amended commits and their git would know about the changes.</p>
+
+<p>You may also be wondering what does the capitalized <strong>HEAD</strong> mean. Well:</p>
+
+<blockquote>
+  <p>HEAD is a pointer or a reference to the last commit in the currently checked-out branch.</p>
+</blockquote>
+
+<p>You may not care about it now, but that will turn out to be a pretty important knowledge if you happen to mess up something bigger than just that recent commit’s message.</p>
+
+<h2 id="undo-multiple-changesgit-reflog-to-the-rescue">Undo multiple changes — git reflog to the rescue!</h2>
+
+<blockquote>
+  <p>Reflog is like a Big Brother of your workflow. It watches your every step!</p>
+</blockquote>
+
+<p>Opening reflog for the first time is somehow similar to finding out how much Google knows about you. It’s kinda creepy, but eye-opening and often — life saving. You are probably aware of the fact, that git knows your commit history — it was built for that purpose. But I encourage you to run:</p>
+
+<figure class="figure w-100">
+  <img src="https://cdn-images-1.medium.com/max/1600/1*3s9b9yYYZMUw_KlqluMNRA.png" class="figure-img img-fluid rounded" alt="git reflog" />
+  
+    <figcaption class="figure-caption text-center">git reflog</figcaption>
+  
+</figure>
+
+<p>Weird right? Well, at least when you’re working on a project with other people, there should be a lot of <strong>pulling, merging, rebasing, cloning and switching between branches</strong> in here. Everything you did with your committed changes, you can find in that reflog. If you’re reading this after messing something up big time, you can probably see it few lines below.</p>
+
+<p>Remember, when a few paragraphs back, we talked about the HEAD pointer? In the reflog, you can see the current HEAD, with an offset to the specific git action that you’ve made. So, for example, <strong>HEAD@{0}</strong> is the same as just HEAD, but you can probably see, that the most recent moment, when everything was fine, probably has a bigger offset than that. And that is all you need to know to get out of this trouble!</p>
+
+<p>Now, you just have to pick a point in that reflog history, that you’d like to go back to, exit reflog (by simply typing q) and run:</p>
+
+<figure class="figure w-100">
+  <img src="https://cdn-images-1.medium.com/max/1600/1*TkZjeONornt35VtWneaP1w.png" class="figure-img img-fluid rounded" alt="git reset --hard HEAD@{Your offset of choice}" />
+  
+    <figcaption class="figure-caption text-center">git reset --hard HEAD@{Your offset of choice}</figcaption>
+  
+</figure>
+
+<p>And that’s all! Now you’re back in that moment you’ve picked. Pretty damn cool, huh? But there is one more, really useful case for doing the hard reset and that is squashing all the changes into one simple commit before merging your branch.</p>
+
+<h2 id="undo-all-the-changeswith-ninja-level-fancy-git-command">Undo all the changes—with ninja-level, fancy git command!</h2>
+
+<p>So you’d like to squash all your commits into one without opening Vim? (or Emacs, I don’t judge) Don’t want to scroll all the way to the bottom of your reflog to find where your branch has actually begun? Prepare for a next level git command. After you type (or copy-paste, like I do) this into your terminal, make sure to enlarge the font so everybody in the office can see that you’re a Git God himself (even though you have no clue whatsoever about what you just did). Here it is, in all its glory:</p>
+
+<figure class="figure w-100">
+  <img src="https://cdn-images-1.medium.com/max/1600/1*BqFHbD3uUVJ-kWJIFOKF8A.png" class="figure-img img-fluid rounded" alt="git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))" />
+  
+    <figcaption class="figure-caption text-center">git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))</figcaption>
+  
+</figure>
+
+<p>I know, it’s a lot, but stay with me on that one. As you can probably see, these are three separate commands piped together (so the output of inner command is the input of outer one) and I’ll explain them one-by-one:</p>
+
+<ul>
+  <li><strong>git rev-parse –abbrev-rev HEAD</strong> will return the name of the branch you’re currently on</li>
+  <li><strong>git merge-base master $(name of your branch)</strong> will find the best common ancestor between master and your branch, which will probably be the moment you first created this branch and return this action’s hash</li>
+  <li><strong>git reset $(hash of the branch creation)</strong> will, as you probably guessed by now, undo all the commits, merges, rebases etc. while preserving your changes to the code</li>
+</ul>
+
+<p>So now, you’ll have all of your changes untracked and you can add them in bulk to the single commit, pick a name and you’re good to go!</p>
+
+
+<footer>
+  This Article is <b>open source</b>. Noticed a typo? </br>
+  Or something unclear? Improve this article on 
+  <a href="https://github.com/YoussefRaafatNasry/portfolYOU/edit/master/_posts/2015-09-25-how-to-undo-your-git-failure.md">GitHub</a>.
+</footer>
+</div>
+  <footer class="mt-5 text-center text-muted wow animated fadeIn" data-wow-delay=".30s">
+  <small>
+    <i class="fas fa-code"></i> with <i class="fas fa-heart"></i>
+    by <strong>John Doe</strong> | 
+    © <script>document.write(new Date().getFullYear())</script>
+  </small>
+</footer>
+  <!-- GitHub Buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<!-- wow.js CDN & Activation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+<script> new WOW().init(); </script>
+
+<!-- Card Animation jQuery -->
+<script src="/portfolYOU/assets/js/card-animation.js"></script>
+
+<!-- Simple-Jekyll-Search CDN -->
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
+        noResultsText: '<li class="list-group-item">No results found</li>',
+        json: '/portfolYOU/search.json'
+      })
+</script>
+</body>
+
+</html>

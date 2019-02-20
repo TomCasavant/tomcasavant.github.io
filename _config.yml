@@ -1,21 +1,53 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+title: Tom Casavant
+description: >- # this means to ignore newlines until "baseurl:"
+	Open Source Programming
+baseurl: "/tomcasavant.github.io"  # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+repo: https://github.com/tomcasavant/tomcasavant.github.io
+
 
 # Build settings
 markdown: kramdown
+# plugins:
+# - jekyll-feed
+
+
+# Author Info
+author:
+  name     : Tom Casavant
+  image    : https://ssl.gstatic.com/images/branding/product/1x/avatar_square_blue_512dp.png
+  email    : tfcasavant@gmail.com
+  github   : https://github.com/tomcasavant
+  twitter  : https://twitter.com/mrpresidenttom
+  linkedin : TODO
+  facebook : TODO
+
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name
+
+
+# Default values for collections
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "page"
+
+
+# Posts default Permalink
+permalink: articles/:title
+
+
+# Exclude from processing.
+exclude:
+- README.md
+- CONTRIBUTING.md
+- LICENSE
+- Gemfile
+- Gemfile.lock
