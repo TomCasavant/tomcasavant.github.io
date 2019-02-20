@@ -1,11 +1,23 @@
-- name: HTML5
+- name: Python
   percentage: 90
   color: danger
 
-- name: CSS3
+- name: Java
   percentage: 80
   color:
 
-- name: Sass
+- name: C++
   percentage: 70
-  color: dark
+  color: 
+
+- name: C
+  percentage: 65
+  color: 
+
+- name: Javascript
+  percentage: 50
+  color: 
+
+- name: Matlab
+  percentage: 45
+  color:
