@@ -1,6 +1,6 @@
 ---
 layout:     post
-name:       "Markov Chain&#58; A Harry Potter Quote/Tweet Generator"
+title:       "Markov Chain&#58; A Harry Potter Quote/Tweet Generator"
 date:       2017-02-22 22:57:58
 categories: ai
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg

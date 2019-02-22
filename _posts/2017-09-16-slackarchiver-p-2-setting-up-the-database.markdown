@@ -1,9 +1,9 @@
 ---
 layout:     post
-name:      "SlackArchiver (p.2)&#58; Setting up the Database"
+title:      "SlackArchiver (p.2)&#58; Setting up the Database"
 date:       2017-09-16 17:57:25
 categories: archive
-image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg
+image: htt://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg
 
 ---
 In the previous post, we developed a program that can read all previous slack posts, as well as actively listen for current slack posts. Now, we need to create a new function that will take all the data it reads, and put it into a database (we'll be using Mongo as our database manager). This function is actually quite simple, it opens the database, then for every slack post it was given it will check to see if that post is already in the database. If it isn't in the database it will add it to the database. Here is that function: 

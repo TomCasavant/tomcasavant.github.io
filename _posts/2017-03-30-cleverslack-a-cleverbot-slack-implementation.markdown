@@ -1,6 +1,6 @@
 ---
 layout:     post
-name:       "CleverSlack&#58; A Cleverbot/Slack Implementation"
+title:       "CleverSlack&#58; A Cleverbot/Slack Implementation"
 date:       2017-03-30 00:49:53
 categories: chat-ai
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg

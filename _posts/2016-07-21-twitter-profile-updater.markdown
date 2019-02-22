@@ -1,6 +1,6 @@
 ---
 layout:     post
-name:       "Twitter Profile Updater"
+title:       "Twitter Profile Updater"
 date:       2016-07-21 22:11:06
 categories: images
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg

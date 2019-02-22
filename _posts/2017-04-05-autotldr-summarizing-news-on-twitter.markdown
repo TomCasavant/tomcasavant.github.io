@@ -1,6 +1,6 @@
 ---
 layout:     post
-name:       "AutoTLDR&#58; Summarizing News on Twitter"
+title:       "AutoTLDR&#58; Summarizing News on Twitter"
 date:       2017-04-05 23:24:20
 categories: news
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg

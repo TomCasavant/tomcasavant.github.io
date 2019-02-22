@@ -1,6 +1,6 @@
 ---
 layout:     post
-name:      "NFL Win-Chain (Dijkstra's Algorithm)"
+title:      "NFL Win-Chain (Dijkstra's Algorithm)"
 date:       2019-01-28 20:29:55
 categories: algorithm
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg

@@ -1,6 +1,6 @@
 ---
 layout:     post
-name:        "Programming a python Controller for Pianobar (Pandora) with your Wii Remote"
+title:        "Programming a python Controller for Pianobar (Pandora) with your Wii Remote"
 date:       2015-03-02 23:05:28
 categories: controller
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg

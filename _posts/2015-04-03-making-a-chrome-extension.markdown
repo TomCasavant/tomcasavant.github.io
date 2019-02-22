@@ -1,6 +1,6 @@
 ---
 layout:     post
-name:        "Making a Chrome Extension"
+title:        "Making a Chrome Extension"
 date:       2015-04-03 17:36:00
 categories: chrome
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg

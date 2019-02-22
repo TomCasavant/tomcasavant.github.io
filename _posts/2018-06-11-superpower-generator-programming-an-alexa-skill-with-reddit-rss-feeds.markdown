@@ -1,6 +1,6 @@
 ---
 layout:     post
-name:      "Superpower Generator&#58; Programming an Alexa skill with Reddit RSS Feeds"
+title:      "Superpower Generator&#58; Programming an Alexa skill with Reddit RSS Feeds"
 date:       2018-06-11 19:46:01
 categories: alexa
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg

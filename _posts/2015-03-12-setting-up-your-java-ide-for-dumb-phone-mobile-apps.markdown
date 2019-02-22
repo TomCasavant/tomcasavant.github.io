@@ -1,6 +1,6 @@
 ---
 layout:     post
-name:       "Setting up your Java IDE for &#34;Dumb&#34; phone mobile apps"
+title:       "Setting up your Java IDE for &#34;Dumb&#34; phone mobile apps"
 date:       2015-03-12 21:26:47
 categories: apps
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg

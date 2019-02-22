@@ -1,5 +1,5 @@
 ---
-name: NFL Win-Chain (Dijkstra's Algorithm)
+title: NFL Win-Chain (Dijkstra's Algorithm)
 tools: [Python]
 direct_link: 
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg

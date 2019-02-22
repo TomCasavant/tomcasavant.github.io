@@ -1,6 +1,6 @@
 ---
 layout:     post
-name:      "SlackArchiver (p.3)&#58; Setting up your Docker"
+title:      "SlackArchiver (p.3)&#58; Setting up your Docker"
 date:       2017-09-17 01:34:53
 categories: archive
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg

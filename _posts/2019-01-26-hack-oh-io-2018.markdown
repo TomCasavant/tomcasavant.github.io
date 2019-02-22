@@ -1,6 +1,6 @@
 ---
 layout:     post
-name:      "Hack OH/IO 2018"
+title:      "Hack OH/IO 2018"
 date:       2019-01-26 22:37:09
 categories: hack
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg

@@ -1,6 +1,6 @@
 ---
 layout:     post
-name:       "Playlist Creator&#58; A Python Spotify Creation"
+title:       "Playlist Creator&#58; A Python Spotify Creation"
 date:       2017-03-30 20:25:12
 categories: music
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg

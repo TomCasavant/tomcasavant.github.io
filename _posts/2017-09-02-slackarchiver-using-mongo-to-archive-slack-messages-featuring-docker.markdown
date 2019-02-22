@@ -1,6 +1,6 @@
 ---
 layout:     post
-name:      "SlackArchiver&#58; Using Mongo to archive Slack messages (Featuring &#34;Docker&#34;)"
+title:      "SlackArchiver&#58; Using Mongo to archive Slack messages (Featuring &#34;Docker&#34;)"
 date:       2017-09-02 19:36:10
 categories: archive
 image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg
