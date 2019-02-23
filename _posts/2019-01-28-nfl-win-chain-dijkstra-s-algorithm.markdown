@@ -3,7 +3,7 @@ layout:     post
 title:      "NFL Win-Chain (Dijkstra's Algorithm)"
 date:       2019-01-28 20:29:55
 categories: algorithm
-image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg
+
 
 ---
 Last semester I was taking a course at OSU called Foundations of Software Engineering. Towards the end of the course we learned about different algorithms to find paths between different nodes on a graph. One such algorithm was called Dijkstra's algorithm. I wanted to experiment with this algorithm, so I decided to write a program that would create nodes for each of the 32 NFL teams and have them connected via the wins between them, i.e. if the Bengals beat the Steelers then the Bengals would have a line pointing from themselves towards the Steelers. 

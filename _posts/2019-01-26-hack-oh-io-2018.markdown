@@ -2,8 +2,7 @@
 layout:     post
 title:      "Hack OH/IO 2018"
 date:       2019-01-26 22:37:09
-categories: hack
-image: https://thenextscoop.com/wp-content/uploads/2019/01/web-design-2019.jpg
+categories: hacks
 
 ---
 Back in November, my brother and I decided to participate in the Hack OH/IO program ([http://hack.osu.edu/)](http://hack.osu.edu/) that takes place at The Ohio State University. We started out with a plan to build a RC car out of a raspberry pi and hardware provided by the Hack OH/IO organization. Unfortunately when we arrived to the hackathon it seemed that their parts list was incorrect. They did not have engines, wheels, axels, or basically anything else that we needed to build the car. So, we had a better idea. We decided that we would purchase an RC car from Target and attach it to a raspberry pi. The end goal being that we could control the RC car over WiFi via a computer. 
