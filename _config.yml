@@ -10,7 +10,7 @@ title: Tom Casavant
 email: tfcasavant@gmail.com
 description: Open Source Programming
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://www.tomcasavant.com" # the base hostname & protocol for your site
 twitter_username: MrPresidentTom
 github_username:  tomcasavant
 paginate: 5
