@@ -1,20 +1,20 @@
 <!DOCTYPE html>
+<html>
 
-<!--
-  portfolYOU Jekyll theme by Youssef Raafat
-  Free for personal and commercial use under the MIT license
-  https://github.com/YoussefRaafatNasry/portfolYOU
--->
+  {% include head.html %}
 
-<html lang="en">
+  <body class="{% if site.theme-dark %} dark {% else %} light {% endif %} ">
 
-{% include head.html %}
+    {% include header.html %}
 
-<body class="container my-5">
-  {% include navbar.html %}
-  {{ content }}
-  {% include footer.html %}
-  {% include scripts.html %}
-</body>
+    <div class="page-content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+  </body>
 
 </html>

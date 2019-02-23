@@ -1,6 +1,19 @@
-<div class="col-lg-4 col-md-8 text-center mx-auto mt-4">
-  <img src="{{ site.author.image }}" alt="{{ site.title }}"class="img-fluid rounded-circle mb-3 wow animated zoomIn" data-wow-delay=".1s">
-  <p class="text-muted wow animated slideInUp" data-wow-delay=".25s">{{ site.description }}</p>
-  <hr class="text-muted wow animated fadeIn" data-wow-delay=".40s">
-  {% include social.html %}
+
+<div class="wrapper">
+  <center> <a href="/index.html"><div class="site-title">   {{site.title}} </div></a></center>
+</div>
+<div class="wrapper site-description">
+<center>  {{site.description}} </center>
+</div>
+<div class="wrapper">
+  <div class="trigger site-navigation">
+    <a class="page-link" href="{{site.url}}{{site.baseurl}}">HOME</a>
+
+    {% for sitePage in site.pages %}
+    {% if sitePage.title %}
+
+    <span class="exclamationMark">/</span><a class="page-link" href="{{sitePage.url | prepend: site.baseurl }}">{{sitePage.title}}</a>
+    {% endif %}
+    {% endfor %}
+  </div>
 </div>
