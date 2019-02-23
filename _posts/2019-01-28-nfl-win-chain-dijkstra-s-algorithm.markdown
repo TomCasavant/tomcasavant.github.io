@@ -50,7 +50,7 @@ The first step was to define the nodes themselves. I created a file called leagu
 
 Imagine each node as a circle on a graph with arrows pointing to the teams that they beat. The picture below shows 2 teams, the Bengals and the Steelers, each with one win against each other.
 
-![](http://www.tomcasavant.com/media/Diagram.png) *Bengals > Steelers*
+![](http://www.tomcasavant.com/media/Diagram.png "Bengals > Steelers")
 
 After creating the classes we have to fill the league with all the teams in the NFL. I searched around and found an api called nflgame (<https://github.com/BurntSushi/nflgame>) that would retrieve all the data I need for this project. I then proceeded to create a file called teamCreation.py to create the teams and create an interface for the user. The first step of this file would be to create functions to retrieve the data I need and to establish the nodes. 
     
