@@ -15,6 +15,7 @@ twitter_username: MrPresidentTom
 github_username:  tomcasavant
 paginate: 5
 theme-dark: true #Set to true to change to dark website theme
+icon-title: TomFace.png
 
 plugins: [jekyll-paginate, kramdown]
 # Build settings
