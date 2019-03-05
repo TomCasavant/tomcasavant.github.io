@@ -17,6 +17,5 @@ Nearing the end of the competition, I began programming the controller system. U
 
 With about 15 minutes remaining, we decided that the car was as complete as it was going to get and that it was ready for judging. A video of the car running can be found below
 
-{%video  https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/RCVideo.mp4?raw=true 1080px 608px preload:auto %}
 ![](https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/RCVideo.mp4?raw=true "Look at it go")
 ![](https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/Completed-car.jpg?raw=true "Judgment Day")
