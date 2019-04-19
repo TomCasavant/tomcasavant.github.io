@@ -5,6 +5,8 @@ date:       2019-04-18
 categories: python, gpx, running, heatmaps
 ---
 
+![](https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/heatmap.png?raw=true "Final generated heat map")
+
 I own a smart watch (vivosport) that tracks my runs and other activities. The watch has a built-in GPS which will track my location. All of this data eventually gets transferred to Garmin, where I can view individual activities and the results of said activities.
 
 ## Getting the Garmin Activity Data
@@ -26,7 +28,7 @@ Note that I didn't use a google maps libraries. This is because I decided the be
 
 ### The Code
 
-The entirety of this project can be found on my github at https://github.com/TomCasavant/GPXtoHeatmap
+The entirety of this project can be found on my github at [https://github.com/TomCasavant/GPXtoHeatmap](https://github.com/TomCasavant/GPXtoHeatmap).
 
 The first step to this project was getting all the points from the gpx files as such:
 
@@ -212,7 +214,7 @@ def generate_html(points, file_out):
     f.close()
 ~~~
 
-You can generate a google maps API key from here https://developers.google.com/maps/documentation/javascript/get-api-key.
+You can generate a google maps API key from here [https://developers.google.com/maps/documentation/javascript/get-api-key](https://developers.google.com/maps/documentation/javascript/get-api-key).
 
 Essentially, all you need to know is that get_outline() reads in the text file containing the html/javascript, then the generate_html() function takes that outline and fills it in with the appropriate content.
 
@@ -234,4 +236,4 @@ if __name__ == '__main__':
 Click allows us to define arguments from the command line. In this program I added three options '--output', '--input', and '--filter'. Which means a user could type in the following command to generate a heat map with bike routes from a folder called gpx_files and output it to output/my_heat_map.html.
 `python heatmap.py --output my_heat_map --input gpx_files --filter cycling`
 
-That's it. The heat map gets generated and can be open in your web browser where you can manipulate it to your desire. Once again, all of this code can be found on my github at https://github.com/TomCasavant/GPXtoHeatmap.
+That's it. The heat map gets generated and can be open in your web browser where you can manipulate it to your desire. Once again, all of this code can be found on my github at [https://github.com/TomCasavant/GPXtoHeatmap](https://github.com/TomCasavant/GPXtoHeatmap).
