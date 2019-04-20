@@ -8,7 +8,7 @@ categories: osu, finance, financial-aid, ohio-state
 Not long ago I had to deal with the unfortunate system that is *Ohio State bureaucracy*. This is that story.
 
 ## Dr. E: The Premise
-*Wednesday, October 31th 2018*: Midterm 2  
+##### *Wednesday, October 31th 2018*: Midterm 2  
 
   It was a cold Wednesday morning and by cold I mean a cool 62°F. I was on my way to my 8 AM software algorithms course. The course was taught by a professor that I had previously had a calculus course with. I will refer to him from here on out as Dr. E. I had an awful feeling in pit of my stomach as this wasn't your typical Wednesday morning. It was the kind of morning that occurs roughly 4-6 times a semester. The typical not-so-typical Wednesday morning. The reason being that later that day I would be partaking in one of the dreadful events that all students must complete on a semi-regular basis. I was taking a midterm. More specifically, at 8PM that night I would be taking the second of two midterms for Dr. E's algorithms course. It wasn't an all too difficult course, but nevertheless the apprehension was building for the exam.
 
@@ -16,21 +16,21 @@ Not long ago I had to deal with the unfortunate system that is *Ohio State burea
 
   I quickly forgot about that midterm and began to think of the midterms in my other classes.
 
-*Thursday, November 29th 2018*: The Group Chat Awakens
+##### *Thursday, November 29th 2018*: The Group Chat Awakens
 
   After a month of patient waiting, the group chat for my algorithms course began to stir. Grades were being entered for Midterm 2. One by one students were describing either their satisfaction or their distaste. Until only one of use remained. Me. My grade had not been entered. I chalked it up to a mistake and just waited for the exams to be handed back the next day for my results.
 
-*Friday, November 30th 2018*: The Results
+##### *Friday, November 30th 2018*: The Results
 
   At 8AM on Friday morning I arrived for my Dr E's course. As expected Dr. E handed the midterms out at the beginning of class. I got mine back and it was perfectly average. Exactly what I expected. Sure, it wasn't great, but it was something I could definitely work with.
 
-*Monday, December 10th 2018*: The Final
+##### *Monday, December 10th 2018*: The Final
 
   At this point in the class, I was confident I would not fail the class. With some quick calculations I found that the only way I could fail this class would be to get less than 10% of the final correct and that wasn't even counting the bonus assignment Dr. E claimed he would be putting in. That didn't alleviate any anxiousness for the final that morning, but it certainly gave me hope for my success.
 
   At 8AM I took the final. It was harder than expected. It wasn't awful though and at that point all I cared about was passing my other finals and then relaxing over winter break.
 
-*Wednesday, December 19th 2018*: Buckeyelink Grades Updated
+##### *Wednesday, December 19th 2018*: Buckeyelink Grades Updated
 
   Now, if you're not an OSU student you may be a bit confused at this part. Or you may not be. I really don't know how grading works at other colleges. However, here's a bit of an explanation for the uninformed. At OSU we have two grading systems: Carmen and Buckeyelink. Carmen is used to update students with their current grades in a course. Buckeyelink is used at the end of the semester to hold the final course grades. These grades are meant to remain unchanged after the conclusion of a course and typically OSU makes it difficult to change these grades after the course has closed.
 
@@ -38,18 +38,18 @@ Not long ago I had to deal with the unfortunate system that is *Ohio State burea
 
   Interestingly, many others in the course group chat seemed to be experiencing similar issues with their grades being lower than expected (what I didn't know at the time was that their grades did not drop as far as mine did - all I had known was that their grades were lower than expected). Thus we began our campaign to contact Dr. E to get answers about the final.
 
-*Thursday, December 20th 2018 - Monday, December 24 2018*: The Campaign for Information
+##### *Thursday, December 20th 2018 - Monday, December 24 2018*: The Campaign for Information
 
   Up until Christmas Eve, emails were sent to Dr. E trying to get information. Absolutely nobody got a reply. Eventually, the campaign died off and the era of acceptance began. I just accepted that I had done inexplicably awful on the final exam and that resulted in my grade drop.
 
   During this week I got notified by the advising office that I would not be admitted into my major due to my GPA being dropped from this class. I accepted it and moved on.
 
 ## The Financial Crisis
-*Monday, December 31st 2018*: Missing Money
+##### *Monday, December 31st 2018*: Missing Money
 
   I am fortunate enough to have most of my college education funded by scholarships. Unfortunately, when looking at my bill for the upcoming Spring semester I realized that my scholarships had not been applied. I was advised to wait until they got applied rather than trying to pay the whole thing in full and expect a refund. So that's what I did.
 
-*Monday, January 7th 2019*: A New Beginning
+##### *Monday, January 7th 2019*: A New Beginning
 
   The Spring semester had just begun. I was waitlisted for 2 of my classes due to the fact that they were major classes and I was not a member of my major yet. One of the professors for these classes informed me that I would be automatically enrolled after the first Friday of the semester. The other professor informed me that the class was full and that I would not be enrolled. Whatever, 1 for 2 was pretty good.
 
@@ -66,7 +66,7 @@ Not long ago I had to deal with the unfortunate system that is *Ohio State burea
   Thanks,
   Tom Casavant
 
-*Tuesday, January 8th 2019*: The Reply
+##### *Tuesday, January 8th 2019*: The Reply
 
   >To: Me
   >From: buckeyelink@osu.edu
@@ -87,7 +87,7 @@ Not long ago I had to deal with the unfortunate system that is *Ohio State burea
 
   Sweet! I just had to wait until Friday when I would get enrolled in the course. Then my financial aid will be applied and I won't have to worry about it.
 
-*Monday, January 14th 2019*: Waitlist? What waitlist?
+##### *Monday, January 14th 2019*: Waitlist? What waitlist?
 
   >To: Me
   >From: registrar@osu.edu
@@ -110,7 +110,7 @@ Not long ago I had to deal with the unfortunate system that is *Ohio State burea
 
   Whatever the reason, I was now only enrolled in 10 credit hours. I immediately contacted the professor for the course I was told I would be enrolled in.
 
-*Tuesday, January 15th 2019*: The Catch 22
+##### *Tuesday, January 15th 2019*: The Catch 22
 
   The professor responded to me the next day and informed me that I could be retroactively added to the course if I got a form signed by him and turned it into my advisor. I printed out the form, met my professor in his office, and got the form signed.
 
@@ -123,7 +123,7 @@ Not long ago I had to deal with the unfortunate system that is *Ohio State burea
   Or so I thought.
 
 ## There and Back Again
-*Tuesday, January 29th 2019*: Procrastination
+##### *Tuesday, January 29th 2019*: Procrastination
 
   Everyone procrastinates now and then. Some more than others. It's the human condition and it's what many of us do best. Procrastination, however, has the potential to cause many problems. When we procrastinate on a personal project (homework, chores...etc) it has little impact on those around us. Yet, if we procrastinate on projects that involve other people (such as group projects) it will almost assuredly cause others to struggle. Dr. E procrastinated on something that impacted others and it definitely caused issues.
 
@@ -145,13 +145,13 @@ Not long ago I had to deal with the unfortunate system that is *Ohio State burea
 
   He didn't have a grade for my midterm 2. Luckily for me, I am a hoarder when it comes to past papers. Unfortunately for me, that midterm was back at my house which is roughly 2 hours away. I contacted my brother and got word that I could get my midterm back by the following Monday.
 
-*Tuesday, February 4th 2019*: The Grade Update Process
+##### *Tuesday, February 4th 2019*: The Grade Update Process
 
   I retrieved my midterm from my brother Monday evening, and as such I had to wait until Tuesday to bring it to Dr. E. Early Tuesday morning, I brought the midterm to Dr. E. He acknowledged that I had, in fact, completed the midterm. Then he informed me of what the grade update process entailed. Dr. E. had to submit a grade change request to OSU. OSU would then approve the grade change request, then the grade would be updated. The process would supposedly take about a week to complete. Nevertheless, after the grade was updated my GPA would be adjusted accordingly.
 
   And so I waited. Less hopeful than usual, as things didn't usually seem to happen like they were supposed to when it involved the OSU bureaucracy.
 
-*Wednesday, February 13th 2019*: Late Fee Waiver Program
+##### *Wednesday, February 13th 2019*: Late Fee Waiver Program
 
   I had reached out to buckeyelink inquiring as to if I could get my late fees waived because my financial aid had been applied late. On Wednesday I received the following email informing me of my options:
 
@@ -173,7 +173,7 @@ Not long ago I had to deal with the unfortunate system that is *Ohio State burea
 
   With no other options, I accepted and scheduled a meeting at the earliest possible time (early March).
 
-*Thursday, February 14th 2019*: Retroactive Major Admittance
+##### *Thursday, February 14th 2019*: Retroactive Major Admittance
 
   >To: Me
   >From: registrar@osu.edu
@@ -194,7 +194,7 @@ Not long ago I had to deal with the unfortunate system that is *Ohio State burea
   Later that day I received an email from my advisor, informing me that I could and would be retroactively be added to the major.
 
 ## A Financial Revival
-*Monday, March 4 2019*: The Scarlet and Gray Financial Meeting
+##### *Monday, March 4 2019*: The Scarlet and Gray Financial Meeting
 
   Monday afternoon I attended the Scarlet and Gray Financial meeting. Scarlet and Gray Financial is a peer to peer financial mentoring organization. I met with a senior (whom I'll call Kevin) who was a little over a year older than me. I mean no disrespect to Kevin when I say that this meeting was a huge waste of an hour. Nonetheless, this meeting was a huge waste of an hour.
 
@@ -202,11 +202,11 @@ Not long ago I had to deal with the unfortunate system that is *Ohio State burea
 
   Later that afternoon, after the meeting, I called Buckeyelink to schedule an appointment. I gave them my information and they told me they would get back to me in the next 48 hours with a date.
 
-*Wednesday, March 6 2019*: Scheduling
+##### *Wednesday, March 6 2019*: Scheduling
 
   Buckeyelink sent me an email saying that they had scheduled a meeting for Monday, March 11. Unfortunately that Monday was the first Monday of Spring break and I wasn't going to be on campus at that time. I reached back out to tell them it wouldn't work out, and they rescheduled for Monday, March 18.
 
-*Monday, March 18 2019*: The Second Financial Meeting
+##### *Monday, March 18 2019*: The Second Financial Meeting
 
   This meeting I had much higher expectations for, despite the previous meeting, as I knew this one would be with an adult who would be able to do something about my problems.
 
@@ -214,7 +214,7 @@ Not long ago I had to deal with the unfortunate system that is *Ohio State burea
 
   I emailed housing later that afternoon. They quickly emailed back telling me that they would process the refund immediately.
 
-*Wednesday, March 20 2019*: A Clerical Mistake
+##### *Wednesday, March 20 2019*: A Clerical Mistake
 
   I got notified that my refund was being processed for my account early Wednesday morning. I looked over my bill. The housing refund amount? $35. That didn't seem right. I, again, contacted housing and the following email chain occurred:
 
@@ -262,4 +262,4 @@ Not long ago I had to deal with the unfortunate system that is *Ohio State burea
 
   That's the story.
 
-  Finally, I hope that the description of these events that have unfolded will help others to avoid the situation I fell into and that nobody else will have to go through the unfortunate process of navigating Ohio State bureaucracy.
+  In conclusion, I hope that the description of these events that have unfolded will help others to avoid the situation I fell into and that nobody else will have to go through the unfortunate process of navigating Ohio State bureaucracy.
