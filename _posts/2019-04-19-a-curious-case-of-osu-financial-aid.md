@@ -55,21 +55,21 @@ __*Monday, January 7th 2019*: A New Beginning__
 
   At this time my scholarships had still not been applied and I had just been notified that they are charging me late fees. So I took action and sent the following email to the Buckeyelink office.
 
-  >To: buckeyelink@osu.edu
-  >From: Me
+  >To: buckeyelink@osu.edu  
+  >From: Me  
   >
   > My name is Tom Casavant, I'm a Sophomore at the OSU main campus.
   The financial aid I've earned for this year has not been applied to my bill.
   I don't see any to-dos/holds that would prevent my financial aid from being applied.
   The school keeps notifying me that they are charging me extra for not paying the fees on time.
-  When should I expect this aid to be applied to my account, and will I still be charged extra despite the fact that the aid just hadn't been applied yet?
-  Thanks,
+  When should I expect this aid to be applied to my account, and will I still be charged extra despite the fact that the aid just hadn't been applied yet?  
+  Thanks,  
   Tom Casavant
 
 __*Tuesday, January 8th 2019*: The Reply__
 
-  >To: Me
-  >From: buckeyelink@osu.edu
+  >To: Me  
+  >From: buckeyelink@osu.edu  
   >
   > Hello Tom,
   >
@@ -89,14 +89,14 @@ __*Tuesday, January 8th 2019*: The Reply__
 
 __*Monday, January 14th 2019*: Waitlist? What waitlist?__
 
-  >To: Me
+  >To: Me  
   >From: registrar@osu.edu
   >
-  >Waitlist closed
-  >Dear Thomas:
-  >You are being removed from the waitlist for Spring 2019:
-  >CSE 2331
-  >CSE 2421
+  >Waitlist closed  
+  >Dear Thomas:  
+  >You are being removed from the waitlist for Spring 2019:  
+  >CSE 2331  
+  >CSE 2421  
   >
   >All waitlists close after the first Friday of the semester. Any students remaining on that waitlist are removed and cannot enroll into those classes. Waitlists are not carried over in the following semester.
   >
@@ -135,13 +135,13 @@ __*Tuesday, January 29th 2019*: Procrastination__
 
   After looking up Dr. E's new office I was out of the door within 15 minutes. I needed to figure out what had happened. I entered his office and the following conversation occurred (not quite word for word):
 
-  >Me: Excuse me, Dr. E, I noticed you just put in grades for the final exam. My grade on Carmen appears to be drastically different from my grade on buckeyelink
-  >Dr. E: Hmm, that doesn't sound right. (Dr. E then proceeds to look up my grade on Carmen and Buckeyelink)
-  >Dr. E: Yeah, those are very different
-  >Me: Is there a reason for that?
-  >Dr. E: I don't seem to have your midterm 2, did you take it?
-  >Me: Yes, you graded it and handed it back to me
-  >Dr. E: Oh. Well, if you bring me your midterm 2 I can get your grade updated.
+  >Me: Excuse me, Dr. E, I noticed you just put in grades for the final exam. My grade on Carmen appears to be drastically different from my grade on buckeyelink  
+  >Dr. E: Hmm, that doesn't sound right. (Dr. E then proceeds to look up my grade on Carmen and Buckeyelink)  
+  >Dr. E: Yeah, those are very different  
+  >Me: Is there a reason for that?  
+  >Dr. E: I don't seem to have your midterm 2, did you take it?  
+  >Me: Yes, you graded it and handed it back to me  
+  >Dr. E: Oh. Well, if you bring me your midterm 2 I can get your grade updated.  
 
   He didn't have a grade for my midterm 2. Luckily for me, I am a hoarder when it comes to past papers. Unfortunately for me, that midterm was back at my house which is roughly 2 hours away. I contacted my brother and got word that I could get my midterm back by the following Monday.
 
@@ -155,7 +155,7 @@ __*Wednesday, February 13th 2019*: Late Fee Waiver Program__
 
   I had reached out to buckeyelink inquiring as to if I could get my late fees waived because my financial aid had been applied late. On Wednesday I received the following email informing me of my options:
 
-  >To: Me
+  >To: Me  
   >From: buckeyelink@osu.edu
   >
   >Get financial coaching and have up to $200 in current spring tuition late fees waived
@@ -175,7 +175,7 @@ __*Wednesday, February 13th 2019*: Late Fee Waiver Program__
 
 __*Thursday, February 14th 2019*: Retroactive Major Admittance__
 
-  >To: Me
+  >To: Me  
   >From: registrar@osu.edu
   >
   >Dear student:
@@ -218,7 +218,7 @@ __*Wednesday, March 20 2019*: A Clerical Mistake__
 
   I got notified that my refund was being processed for my account early Wednesday morning. I looked over my bill. The housing refund amount? $35. That didn't seem right. I, again, contacted housing and the following email chain occurred:
 
-  >To: housing@osu.edu
+  >To: housing@osu.edu  
   >From: Me
   >
   >I was recently told I could waive my housing late fees for participating in the Scarlet and Gray late fee waiver program. Looking at my statement of account now, it looks like they waived my early arrival fee rather than my housing late-fee. Am I mistaken here, or does the program only waive early arrival fees?
@@ -226,12 +226,12 @@ __*Wednesday, March 20 2019*: A Clerical Mistake__
   >Thanks,
   >Tom Casavant
 
-  >To: Me
+  >To: Me  
   >From: housing@osu.edu
   >
   >The fee was adjusted on your university account on 3/18/19.
 
-  >To: housing@osu.edu
+  >To: housing@osu.edu  
   >From: Me
   >
   >I was just wondering if the adjusted fee is for the ‘early-arrival fee’ or if it’s for the ‘housing-late’ fee.
@@ -239,12 +239,12 @@ __*Wednesday, March 20 2019*: A Clerical Mistake__
   >Thanks,
   >Tom
 
-  >To: Me
+  >To: Me  
   >From: housing@osu.edu
   >
   >It was for the late fee but I just noticed we only adjusted the amount of the early arrival fee.  I will post the rest of the adjustment later today and it should update tomorrow.  My apologies.
 
-  >To: housing@osu.edu
+  >To: housing@osu.edu  
   >From: Me
   >
   >Sweet, thanks a lot!
