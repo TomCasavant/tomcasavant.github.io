@@ -5,8 +5,7 @@ date:       2019-08-25
 categories: radio, bluetooth, electronics, speaker
 ---
 
-<img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/OldRadio.jpg?raw=true" style="transform:rotate(90deg);">
-
+![](https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/OldRadio.jpg?raw=true "The Old Radio")
 
 Around a decade ago I purchased this old radio from a garage sale to listen to music and other radio programs. It worked well for me for a few years, but it quickly fell out of use when I got my first mp3 player. I never bothered to throw away the radio because I personally found it looked cool.
 
