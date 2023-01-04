@@ -1,0 +1,121 @@
+current directory: /home/tomcasavant/GithubRepos/tomcasavant.github.io/vendor/cache/ruby/3.1.0/gems/openssl-3.1.0/ext/openssl
+/usr/bin/ruby -I /usr/share/rubygems extconf.rb
+checking for rb_io_maybe_wait(0, Qnil, Qnil, Qnil) in ruby/io.h... yes
+checking for t_open() in -lnsl... no
+checking for socket() in -lsocket... no
+checking for openssl/ssl.h... yes
+checking for LIBRESSL_VERSION_NUMBER in openssl/opensslv.h... no
+checking for OpenSSL version >= 1.0.2... yes
+checking for RAND_egd() in openssl/rand.h... no
+checking for ENGINE_load_dynamic() in openssl/engine.h... yes
+checking for ENGINE_load_4758cca() in openssl/engine.h... no
+checking for ENGINE_load_aep() in openssl/engine.h... no
+checking for ENGINE_load_atalla() in openssl/engine.h... no
+checking for ENGINE_load_chil() in openssl/engine.h... no
+checking for ENGINE_load_cswift() in openssl/engine.h... no
+checking for ENGINE_load_nuron() in openssl/engine.h... no
+checking for ENGINE_load_sureware() in openssl/engine.h... no
+checking for ENGINE_load_ubsec() in openssl/engine.h... no
+checking for ENGINE_load_padlock() in openssl/engine.h... no
+checking for ENGINE_load_capi() in openssl/engine.h... no
+checking for ENGINE_load_gmp() in openssl/engine.h... no
+checking for ENGINE_load_gost() in openssl/engine.h... no
+checking for ENGINE_load_cryptodev() in openssl/engine.h... yes
+checking for SSL.ctx in openssl/ssl.h... no
+checking for EVP_MD_CTX_new() in openssl/evp.h... yes
+checking for EVP_MD_CTX_free(NULL) in openssl/evp.h... yes
+checking for EVP_MD_CTX_pkey_ctx(NULL) in openssl/evp.h... yes
+checking for X509_STORE_get_ex_data(NULL, 0) in openssl/x509.h... yes
+checking for X509_STORE_set_ex_data(NULL, 0, NULL) in openssl/x509.h... yes
+checking for X509_STORE_get_ex_new_index(0, NULL, NULL, NULL, NULL) in openssl/x509.h... yes
+checking for X509_CRL_get0_signature(NULL, NULL, NULL) in openssl/x509.h... yes
+checking for X509_REQ_get0_signature(NULL, NULL, NULL) in openssl/x509.h... yes
+checking for X509_REVOKED_get0_serialNumber(NULL) in openssl/x509.h... yes
+checking for X509_REVOKED_get0_revocationDate(NULL) in openssl/x509.h... yes
+checking for X509_get0_tbs_sigalg(NULL) in openssl/x509.h... yes
+checking for X509_STORE_CTX_get0_untrusted(NULL) in openssl/x509.h... yes
+checking for X509_STORE_CTX_get0_cert(NULL) in openssl/x509.h... yes
+checking for X509_STORE_CTX_get0_chain(NULL) in openssl/x509.h... yes
+checking for OCSP_SINGLERESP_get0_id(NULL) in openssl/ocsp.h... yes
+checking for SSL_CTX_get_ciphers(NULL) in openssl/ssl.h... yes
+checking for X509_up_ref(NULL) in openssl/x509.h... yes
+checking for X509_CRL_up_ref(NULL) in openssl/x509.h... yes
+checking for X509_STORE_up_ref(NULL) in openssl/x509.h... yes
+checking for SSL_SESSION_up_ref(NULL) in openssl/ssl.h... yes
+checking for EVP_PKEY_up_ref(NULL) in openssl/evp.h... yes
+checking for SSL_CTX_set_min_proto_version(NULL, 0) in openssl/ssl.h... yes
+checking for SSL_CTX_get_security_level(NULL) in openssl/ssl.h... yes
+checking for X509_get0_notBefore(NULL) in openssl/x509.h... yes
+checking for SSL_SESSION_get_protocol_version(NULL) in openssl/ssl.h... yes
+checking for TS_STATUS_INFO_get0_status(NULL) in openssl/ts.h... yes
+checking for TS_STATUS_INFO_get0_text(NULL) in openssl/ts.h... yes
+checking for TS_STATUS_INFO_get0_failure_info(NULL) in openssl/ts.h... yes
+checking for TS_VERIFY_CTS_set_certs(NULL, NULL) in openssl/ts.h... yes
+checking for TS_VERIFY_CTX_set_store(NULL, NULL) in openssl/ts.h... yes
+checking for TS_VERIFY_CTX_add_flags(NULL, 0) in openssl/ts.h... yes
+checking for TS_RESP_CTX_set_time_cb(NULL, NULL, NULL) in openssl/ts.h... yes
+checking for EVP_PBE_scrypt("", 0, (unsigned char *)"", 0, 0, 0, 0, 0, NULL, 0) in openssl/evp.h... yes
+checking for SSL_CTX_set_post_handshake_auth(NULL, 0) in openssl/ssl.h... yes
+checking for EVP_PKEY_check(NULL) in openssl/evp.h... yes
+checking for EVP_PKEY_new_raw_private_key(0, NULL, (unsigned char *)"", 0) in openssl/evp.h... yes
+checking for SSL_CTX_set_ciphersuites(NULL, "") in openssl/ssl.h... yes
+checking for SSL_set0_tmp_dh_pkey(NULL, NULL) in openssl/ssl.h... no
+checking for ERR_get_error_all(NULL, NULL, NULL, NULL, NULL) in openssl/err.h... no
+checking for TS_VERIFY_CTX_set_certs(NULL, NULL) in openssl/ts.h... no
+checking for SSL_CTX_load_verify_file(NULL, "") in openssl/ssl.h... no
+checking for BN_check_prime(NULL, NULL, NULL) in openssl/bn.h... no
+checking for EVP_MD_CTX_get0_md(NULL) in openssl/evp.h... no
+checking for EVP_MD_CTX_get_pkey_ctx(NULL) in openssl/evp.h... no
+checking for EVP_PKEY_eq(NULL, NULL) in openssl/evp.h... no
+checking for EVP_PKEY_dup(NULL) in openssl/evp.h... no
+creating extconf.h
+creating Makefile
+
+current directory: /home/tomcasavant/GithubRepos/tomcasavant.github.io/vendor/cache/ruby/3.1.0/gems/openssl-3.1.0/ext/openssl
+make DESTDIR\= sitearchdir\=./.gem.20230104-86364-zbf5op sitelibdir\=./.gem.20230104-86364-zbf5op clean
+rm -f 
+rm -fr openssl.so false *.o  *.bak mkmf.log .*.time
+
+current directory: /home/tomcasavant/GithubRepos/tomcasavant.github.io/vendor/cache/ruby/3.1.0/gems/openssl-3.1.0/ext/openssl
+make DESTDIR\= sitearchdir\=./.gem.20230104-86364-zbf5op sitelibdir\=./.gem.20230104-86364-zbf5op
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o openssl_missing.o -c openssl_missing.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl.o -c ossl.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_asn1.o -c ossl_asn1.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_bio.o -c ossl_bio.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_bn.o -c ossl_bn.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_cipher.o -c ossl_cipher.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_config.o -c ossl_config.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_digest.o -c ossl_digest.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_engine.o -c ossl_engine.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_hmac.o -c ossl_hmac.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_kdf.o -c ossl_kdf.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_ns_spki.o -c ossl_ns_spki.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_ocsp.o -c ossl_ocsp.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_pkcs12.o -c ossl_pkcs12.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_pkcs7.o -c ossl_pkcs7.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_pkey.o -c ossl_pkey.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_pkey_dh.o -c ossl_pkey_dh.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_pkey_dsa.o -c ossl_pkey_dsa.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_pkey_ec.o -c ossl_pkey_ec.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_pkey_rsa.o -c ossl_pkey_rsa.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_rand.o -c ossl_rand.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_ssl.o -c ossl_ssl.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_ssl_session.o -c ossl_ssl_session.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_ts.o -c ossl_ts.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_x509.o -c ossl_x509.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_x509attr.o -c ossl_x509attr.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_x509cert.o -c ossl_x509cert.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_x509crl.o -c ossl_x509crl.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_x509ext.o -c ossl_x509ext.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_x509name.o -c ossl_x509name.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_x509req.o -c ossl_x509req.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_x509revoked.o -c ossl_x509revoked.c
+gcc -I. -I/usr/include -I/usr/include/ruby/backward -I/usr/include -I.  -DRUBY_EXTCONF_H=\"extconf.h\"    -fPIC -O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -fPIC  -m64 -o ossl_x509store.o -c ossl_x509store.c
+rm -f openssl.so
+gcc -shared -o openssl.so openssl_missing.o ossl.o ossl_asn1.o ossl_bio.o ossl_bn.o ossl_cipher.o ossl_config.o ossl_digest.o ossl_engine.o ossl_hmac.o ossl_kdf.o ossl_ns_spki.o ossl_ocsp.o ossl_pkcs12.o ossl_pkcs7.o ossl_pkey.o ossl_pkey_dh.o ossl_pkey_dsa.o ossl_pkey_ec.o ossl_pkey_rsa.o ossl_rand.o ossl_ssl.o ossl_ssl_session.o ossl_ts.o ossl_x509.o ossl_x509attr.o ossl_x509cert.o ossl_x509crl.o ossl_x509ext.o ossl_x509name.o ossl_x509req.o ossl_x509revoked.o ossl_x509store.o -L. -L/usr/lib64 -L. -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -Wl,--build-id=sha1 -fstack-protector-strong -rdynamic -Wl,-export-dynamic -Wl,--no-as-needed  -Wl,-z,relro -Wl,--as-needed  -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -Wl,--build-id=sha1   -m64  -lruby  -lssl -lcrypto -lm  -lc
+
+current directory: /home/tomcasavant/GithubRepos/tomcasavant.github.io/vendor/cache/ruby/3.1.0/gems/openssl-3.1.0/ext/openssl
+make DESTDIR\= sitearchdir\=./.gem.20230104-86364-zbf5op sitelibdir\=./.gem.20230104-86364-zbf5op install
+/usr/bin/mkdir -p . ./.gem.20230104-86364-zbf5op
+exit > .sitearchdir.time
+/usr/bin/install -c -m 0755 openssl.so ./.gem.20230104-86364-zbf5op

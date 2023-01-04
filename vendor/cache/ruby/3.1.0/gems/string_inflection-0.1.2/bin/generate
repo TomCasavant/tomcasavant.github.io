@@ -1,0 +1,7 @@
+CURRENT_DIR=`pwd`
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+
+cd $DIR/submodules/agid
+crystal run src/main.cr -- generate singulars ruby StringInflection > $DIR/lib/string_inflection/singulars.rb
+crystal run src/main.cr -- generate plurals ruby StringInflection > $DIR/lib/string_inflection/plurals.rb
+cd $CURRENT_DIR

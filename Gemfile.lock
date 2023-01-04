@@ -1,7 +1,6 @@
 GIT
-  remote: https://github.com/danielpietzsch/jekyll-webmention_io.git
-  revision: eaee3905b2241916424fef1cfe9c267907801a48
-  branch: jekyll4
+  remote: git@github.com:aarongustafson/jekyll-webmention_io
+  revision: 656f4d2771d4984f0cb1c0e6acabb31cfc02a420
   specs:
     jekyll-webmention_io (3.3.6)
       htmlbeautifier (~> 1.1)
