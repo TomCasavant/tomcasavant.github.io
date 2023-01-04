@@ -21,7 +21,7 @@ layout: default
   <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
-
+  {% webmentions page.url %}
   <footer class="postNavigation">
   {% if page.previous.url %}
     <a class="postPrev" href="{{page.previous.url}}">
@@ -34,6 +34,4 @@ layout: default
     </a>
   {% endif %}
   </footer>
-
-  {% include article-footer.html %}
 </article>
