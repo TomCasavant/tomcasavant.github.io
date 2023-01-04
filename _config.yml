@@ -28,3 +28,9 @@ plugins_dir: [jekyll-paginate, kramdown, jekyll-get-json]
 plugins: [jekyll-paginate, jekyll-get-json]
 # Build settings
 markdown: kramdown
+webmentions:
+  username: www.tomcasavant.com
+  # Use my own cache folder
+  cache_folder: .cache
+  # skip bad URLs for 5 days
+  cache_bad_uris_for: 5
