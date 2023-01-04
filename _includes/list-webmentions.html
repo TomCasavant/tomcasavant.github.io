@@ -1,0 +1,77 @@
+{% assign webmentions = "" | split: "," %}
+
+{% assign webmention_dump = site.data.wm.links | reverse %}
+
+{% assign this_url = page.slug | replace: ".", "-" %}
+
+{% for item in webmention_dump %}
+
+  {% assign target_url = item.target | split: "/" | compact | last %}
+
+  {% if target_url == this_url %}
+
+      {% assign webmentions = webmentions | push: item %}
+
+  {% endif %}
+
+{% endfor %}
+
+{% if webmentions.size > 0 %}
+
+  <h3 class="mt6">Mentions</h3>
+
+  <p class="f6">Comments and replies to this post from other sites and services, such as <a href="https://micro.blog">micro.blog</a> and Mastodon.</p>
+
+  {% for webmention in webmentions %}
+
+  {% if webmention.data.author %}
+
+  <article class="mb6" aria-label="Comment from {{ webmention.data.author.name }}">
+
+    <h4 class="f5" id="{{ webmention.id }}" class="flex items-center column-gap">
+
+      {% if webmention.data.author.url %}<a class="db" rel="nofollow" href="{{ webmention.data.author.url }}">{% endif %}
+
+      {% if webmention.data.author.photo %}<img aria-hidden="true" height="96" width="96" class="dib v-mid br-100 mw2 mr2" src="{{ webmention.data.author.photo }}" alt="{{ webmention.data.author.name }}">{% endif %}
+
+      <span>{{ webmention.data.author.name }}</span>
+
+      {% if webmention.data.author.url %}</a>{% endif %}
+
+    </h4>
+
+    {% if webmention.data.content %}
+
+    <div class="f6">{{ webmention.data.content | markdownify | truncatewords: 50 }}</div>
+
+    {% elsif webmention.activity.type == 'like' or webmention.activity.type == 'repost' %}
+
+    <div class="f6">{{ webmention.activity.sentence_html }}</div>
+
+    {% endif %}
+
+    {% if webmention.data.published %}
+
+    <p class="f7 sans-serif">— <a rel="nofollow" href="{{ webmention.data.url }}"><time datetime="{{ webmention.data.published | date: "%Y-%m-%d" }}">{{ webmention.data.published | date: "%d/%m/%y %H:%M" }}</time></a></p>
+
+    {% elsif webmention.verified_date %}
+
+    <p class="f7 sans-serif">— <a rel="nofollow" href="{{ webmention.data.url }}"><time datetime="{{ webmention.verified_date | date: "%Y-%m-%d" }}">{{ webmention.verified_date | date: "%d/%m/%y %H:%M" }}</time></a></p>
+
+    {% endif %}
+
+  </article>
+
+  {% else %}
+
+    {% if webmention.activity.sentence_html %}
+
+    <p>{{ webmention.activity.sentence_html | replace: "someone</a> posted ''", "Unknown</a> posted," }}</p>
+
+    {% endif %}
+
+  {% endif %}
+
+  {% endfor %}
+
+{% endif %}
