@@ -1,182 +1,74 @@
-<p align = "center">
-<img src="http://i.imgur.com/JhbQ03z.png"/>
-</p>
+# eleventy-chirpy-blog-template
 
----
+[![Github Workflow](<https://github.com/muenzpraeger/eleventy-chirpy-blog-template/workflows/Blog%20build%20(main)/badge.svg?branch=main>)](https://github.com/muenzpraeger/eleventy-chirpy-blog-template/actions?query=workflow%3A%22Blog+build+%28main%29%22) [![Netlify Status](https://api.netlify.com/api/v1/badges/ceb123c7-d071-495e-b9a7-51d82b38c8a0/deploy-status)](https://app.netlify.com/sites/eleventy-chirpy-blog-template/deploys)
 
-If there's any issue you are facing in setting up this theme I'm there for you. Just create an issue in this repository (<http://github.com/hemangsk/Gravity>), (<https://help.github.com/articles/creating-an-issue/>) and I'll get back to you asap.
+[11ty](https://www.11ty.dev/) version of the popular [Chirpy Jekyll](https://github.com/cotes2020/jekyll-theme-chirpy) blog theme. Also powers [my personal blog](https://blog.winkelmeyer.com). I liked the UX a lot, but not the tech stack, hence I re-built it for myself. Sharing here with everybody, in case you like the same.
 
-![Welcome to Gravity](https://user-images.githubusercontent.com/13018570/27043040-778d80cc-4fb6-11e7-8619-de4be626be67.png)
-<img src="http://i.imgur.com/cPwoX3E.png"/>
-<img src="http://i.imgur.com/3TMoBGj.png"/>
-<img src="http://i.imgur.com/Z6h3uCp.png"/>
-<img src="http://i.imgur.com/bB7IIHr.png"/>
+You can check out the live version on <https://eleventy-chirpy-blog-template.netlify.app>.
 
-***
+If you want to deploy, there's a button for it: [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/muenzpraeger/eleventy-chirpy-blog-template)
 
-# INSTALLATION
+## Features
 
-### Dependencies
+-   💯 on Lighthouse
+-   🔆 and 🌛 mode
+-   🎯 SEO and OpenGraph optimized
+-   🌄 Responsive images optimization
+-   👀 Accessible
+-   🛠 JavaScript and CSS build optimization
+-   👨‍💻 Prism-based syntax highlighting
+-   📚 RSS (yup, still a thing), sitemap.xml, and JSON-LD
+-   🔍 [Algolia Search](https://github.com/algolia/algoliasearch-netlify) enabled
+-   and more
 
-Gravity uses Jekyll and it's built-in SCSS compiler for the associated CSS, so the first thing you'll need is Jekyll itself:
+Opinionated setup with [Prettier](https://prettier.io/), [ESlint](https://eslint.org/), [markdownlint](https://github.com/DavidAnson/markdownlint) and others. UX build with [Nunjucks](https://mozilla.github.io/nunjucks/templating.html) and [TailwindCSS](https://tailwindcss.com/docs). JavaScript bundled with [Rollup](https://rollupjs.org/).
 
-```bash
-$ gem install jekyll
+## Configuration
+
+All blog configuration is handled via [`siteconfig.js`](./content/_data/siteconfig.js). Everything is inline documented.
+
+## Deployment
+
+All build processes rely on how `NODE_ENV` is set. For production builds, which then also means minified CSS and JS you've to set the value to `production`. I mention this explicitly as this is for some vendors not the default.
+
+If you want to speed up your build times a bit you can add the generated images to your git repo. The `.gitignore` already contains a commented section for that.
+
+## Local Development
+
+### Before you install dependencies
+
+This repo uses [Volta](https://volta.sh/). Get it, and it'll make your node life so much easier.
+
+### Instructions
+
+Clone this repository.
+
+```zsh
+git clone https://github.com/muenzpraeger/eleventy-chirpy-blog-template
 ```
 
-In case you don't have the `bundler` gem installed already, you can install it as follows:
+Change into the cloned directory.
 
-```bash
-$ gem install bundler
+```zsh
+cd eleventy-chirpy-blog-template
 ```
 
-For pagination, Gravity uses the [jekyll-paginate](https://jekyllrb.com/docs/pagination/) gem :
+Install dependencies. Note, if you prefer `npm` over `yarn` make sure to first remove the `yarn.lock` file, and then run `npm install`.
 
-```bash
-$ gem install jekyll-paginate
+```zsh
+yarn install
 ```
 
-***
+Start the local development process.
 
-# USAGE
-
-Once you have the required gems, you can go ahead and clone the
-[Gravity repository](https://github.com/hemangsk/Gravity) or [download](https://github.com/hemangsk/Gravity/archive/master.zip)
-a zip of the master branch.
-
-Run :
-
-```bash
-$ jekyll serve
+```zsh
+yarn dev
 ```
 
-Jekyll should now be generating your content!
+Open the page, usually on <http://localhost:8080>, and dig around!
 
-***
+## Credits
 
-# ADDING POSTS
+The UX of this template is based on the popular Chirpy template, just with a different tech stack. If you prefer to run Jekyll and Bootstrap, checkout [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) here. It's great.
 
-The theme by default ships with starter posts located in `_posts/`. Delete these posts and add your content to the `_posts`
-folder to see them being served up by Jekyll. [This](https://jekyllrb.com/docs/posts/) would be a good guide to getting started on writing posts using Jekyll. We've added a concise guide below:
-
-- Create a .markdown file inside `_posts` folder.
-- Name the file according to the format YY-MM-DD-[short name for your post].
-- `2016-03-30-i-love-design.markdown`
-- Write the *Front Matter* and content in the file.
-
-### FORMAT
-
-```
----
-layout: post | default | page
-title: String POST TITLE
-date: Time Stamp
-categories: String | Array of Strings CATEGORY / CATEGORIES
----
-
----
-layout: post
-title: "The One with the Blackout"
-date: 2016-03-30 19:45:31 +0530
-categories: ["life", friends]
----
-```
-
-***
-
-# CREATE PAGES
-
-- Create a .md file in the root directory.
-- Name the file with the desired page link name.
-  `about.md`
-  `design.md`
-- Write the *Front Matter* and content in the file.
-
-### FORMAT
-
-```
----
-layout: page
-title: String TITLE OF THE WEBPAGE
-permalink: / String / PERMALINK FOR THE WEBPAGE
-tagline: String OPTIONAL GRAVITY FEATURE : TAGLINE FOR THE PAGE
----
-
----
-layout: page
-title: "Science"
-permalink: /science/
-tagline: "Humanity is overrated."
----
-```
-
-***
-
-#### Introducing
-
-# ARCHIVE PAGES
-
-#### You can display a list of all the posts corresponding to a particular category on a standalone page using the `ARCHIVE` layout.
-
-- Create a .md file in the root directory.
-- Name the file. Preferred name will be the name of the category.
-    \*`life.md`
-- Write the *Front Matter* and content in the file.
-
-### FORMAT
-
-```
----
-layout: archive ARCHIVE PAGE LAYOUT
-title: String TITLE OF THE WEBPAGE
-permalink: / String / PERMALINK FOR THE WEBPAGE
-tagline: String TAGLINE FOR THE PAGE
-category: String NAME OF THE CATEGORY OF WHICH THE PAGE WILL SHOW POSTS
----
-
----
-layout: archive
-title: "Design"
-permalink: "Design"
-tagline: "It's all about perception"
-category: "design"
----
-```
-
-#### DIRECTORY STRUCTURE
-
-```
-├── css                                         # => Output of the combined SASS files
-│   └── style.scss
-├── _includes                                   # => Contains partials that can be used with your layouts
-│   ├── footer.html
-│   ├── header.html
-│   ├── head.html
-│   ├── icon-github.html
-│   ├── icon-github.svg
-│   ├── icon-twitter.html
-│   └── icon-twitter.svg
-├── _layouts                                    # => Layout related HTML files
-│   ├── archive.html
-│   ├── default.html
-│   ├── page.html
-│   └── post.html
-├── _posts                                      # => posts, dynamic content. Follow the format: YEAR-MONTH-DAY-title.MARKUP
-│   ├── 2016-03-30-design-stories.markdown
-│   ├── 2016-03-30-science0.markdown
-│   ├── 2016-03-30-science.markdown
-│   └── 2016-03-30-welcome-to-jekyll.markdown
-└── _sass                                       # => SASS partials for styling
-|   ├── _base.scss
-|   ├── _layout.scss
-|   └── _syntax-highlighting.scss
-├── about.md
-├── _config.yml                                 # => Configuration options or flags for your site go here
-├── design.md
-├── download.md
-├── feed.xml
-├── index.html
-├── LICENSE.txt                                 # => Licensing information
-├── README.md
-└── science.md
-```
+Also big thanks to the the authors of the [11ty High Performance Blog](https://github.com/google/eleventy-high-performance-blog).

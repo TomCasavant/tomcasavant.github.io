@@ -1,0 +1,24 @@
+{
+    "title": "Tom Casavant",
+    "email": "tfcasavant@gmail.com",
+    "description": "Open Source Programming",
+    "baseurl": "",
+    "url": "https://tomcasavant.com",
+    "mastodon_username": "MrPresidentTom",
+    "mastodon_instance": "mastodon.social",
+    "twitter_username": "MrPresidentTom",
+    "github_username": "tomcasavant",
+    "webmention-pingback": "https://webmention.io/www.tomcasavant.com/xmlrpc",
+    "webmention-mention": "https://webmention.io/www.tomcasavant.com/webmention",
+    "webmention-url": "tomcasavant.com/posts/",
+    "webmention-notes-url": "tomcasavant.com/notes/",
+    "webmention-links-url": "tomcasavant.com/links/",
+    "paginate": 5,
+    "theme-dark": true,
+    "permalink": "/:title/",
+    "webmentions": {
+        "username": "www.tomcasavant.com",
+        "cache_folder": ".cache",
+        "cache_bad_uris_for": 5
+    }
+}
