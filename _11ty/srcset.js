@@ -50,7 +50,7 @@ async function srcset(filename, hash, format, metadataWidth) {
 
 async function resize(filename, width, hash, format, metadataWidth) {
     const out = sizedName(filename, width, hash, format);
-    if (existsSync("/" + out)) {
+    if (existsSync(out)) {
         return out;
     }
 
@@ -64,7 +64,7 @@ async function resize(filename, width, hash, format, metadataWidth) {
             quality: 80,
             reductionEffort: 6
         })
-        .toFile("/" + out);
+        .toFile(out);
 
     return out;
 }
@@ -133,7 +133,7 @@ const processImage = async (el) => {
 
     copyFileSync(
         join(process.cwd(), filename),
-        join("/", hashedName(filename, hash))
+        hashedName(filename, hash)
     );
 };
 
