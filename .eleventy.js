@@ -154,6 +154,7 @@ module.exports = function (eleventyConfig) {
         dir: {
             // Consolidating everything below the `content` folder
             input: "content"
+            output: "dist"
         }
     };
 };
