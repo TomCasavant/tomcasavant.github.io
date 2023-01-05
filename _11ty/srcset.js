@@ -140,7 +140,7 @@ const processImage = async (el) => {
 const convert = async (rawContent, outputPath) => {
     let content = rawContent;
 
-    const targetDirectory = "./assets/images";
+    const targetDirectory = "assets/images";
 
     if (!existsSync(targetDirectory)) {
         mkdirSync(targetDirectory, { recursive: true });
