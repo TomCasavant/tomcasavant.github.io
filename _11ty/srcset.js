@@ -50,7 +50,7 @@ async function srcset(filename, hash, format, metadataWidth) {
 
 async function resize(filename, width, hash, format, metadataWidth) {
     const out = sizedName(filename, width, hash, format);
-    if (existsSync("_site/" + out)) {
+    if (existsSync("/" + out)) {
         return out;
     }
 
@@ -64,7 +64,7 @@ async function resize(filename, width, hash, format, metadataWidth) {
             quality: 80,
             reductionEffort: 6
         })
-        .toFile("_site/" + out);
+        .toFile("/" + out);
 
     return out;
 }
@@ -133,14 +133,14 @@ const processImage = async (el) => {
 
     copyFileSync(
         join(process.cwd(), filename),
-        join("_site", hashedName(filename, hash))
+        join("/", hashedName(filename, hash))
     );
 };
 
 const convert = async (rawContent, outputPath) => {
     let content = rawContent;
 
-    const targetDirectory = "./_site/assets/images";
+    const targetDirectory = "./assets/images";
 
     if (!existsSync(targetDirectory)) {
         mkdirSync(targetDirectory, { recursive: true });
