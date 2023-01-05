@@ -1,0 +1,27 @@
+{
+  "lastFetched": "2023-01-05T01:54:45.052Z",
+  "children": [
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Tom Casavant",
+        "photo": "https://webmention.io/avatar/files.mastodon.social/82dfcc8ba03b213e5af05d63251538b4f55f5a01d8660057eaa2d0eda350026e.jpg",
+        "url": "https://social.tomcasavant.com/@MrPresidentTom"
+      },
+      "url": "https://social.tomcasavant.com/@MrPresidentTom/109628219182123703",
+      "published": "2023-01-04T00:57:51",
+      "wm-received": "2023-01-04T00:59:26Z",
+      "wm-id": 1592501,
+      "wm-source": "https://brid.gy/comment/mastodon/@mrpresidenttom@mastodon.social/109628216907880065/109628219348708369",
+      "wm-target": "https://tomcasavant.com/generating-heat-maps-from-gpx-files/",
+      "content": {
+        "html": "<p><span class=\"h-card\"><a href=\"https://mastodon.social/@mrpresidenttom\" class=\"u-url\">@<span>mrpresidenttom@mastodon.social</span></a></span><br />Test</p>",
+        "text": "@mrpresidenttom@mastodon.social\nTest"
+      },
+      "in-reply-to": "https://tomcasavant.com/generating-heat-maps-from-gpx-files/",
+      "wm-property": "in-reply-to",
+      "wm-private": false
+    }
+  ]
+}

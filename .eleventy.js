@@ -7,6 +7,8 @@ const { readFileSync } = require("fs");
 const siteconfig = require("./content/_data/siteconfig.js");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const nunjucksDate = require("nunjucks-date-filter");
+const Webmentions = require("eleventy-plugin-webmentions");
 
 module.exports = function (eleventyConfig) {
     // Set Markdown library
@@ -65,6 +67,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addNunjucksFilter("formatWords", (wordcount) => {
         return wordcount.toLocaleString("en");
     });
+
+  eleventyConfig.addFilter("date", nunjucksDate);
 
     // Returns CSS class for home page link
     eleventyConfig.addNunjucksFilter("isHomeLink", function (url, pattern) {
@@ -140,6 +144,11 @@ module.exports = function (eleventyConfig) {
 
     // Plugin for minifying HTML
     eleventyConfig.addPlugin(require("./_11ty/html-minify.js"));
+
+    eleventyConfig.addPlugin(Webmentions, {
+      domain: "tomcasavant.com",
+      token: "RTDTmj2mw1t8m14tzZPqwA",
+    });
 
     return {
         dir: {

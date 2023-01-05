@@ -1,5 +1,6 @@
 ---
 layout: base.njk
+permalink: "{{ title | slugify }}/index.html"
 ---
 
 <div class="content post border-solid border-b-1 border-gray-700 pb-6">
@@ -69,6 +70,10 @@ layout: base.njk
 			</div>	
 		</a>	
 	</div>
+        <section>
+           <h2>Comments</h2>
+           {% include 'webmentions.njk' %}
+        </section>
 	{% set relatedPosts = related %}	
 	{% if relatedPosts %}
 	<div class="block w-full h-1 border-solid border-b-1 border-gray-700"></div>
