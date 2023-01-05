@@ -149,6 +149,8 @@ module.exports = function (eleventyConfig) {
       domain: "tomcasavant.com",
       token: "RTDTmj2mw1t8m14tzZPqwA",
     });
+    
+    eleventyConfig.addPassthroughCopy("CNAME")
 
     return {
         dir: {
