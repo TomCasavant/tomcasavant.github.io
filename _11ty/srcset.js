@@ -33,7 +33,8 @@ const widths = [1024, 820, 640, 320];
 
 const extension = {
     jpeg: "jpg",
-    webp: "webp"
+    webp: "webp",
+    png: "png"
 };
 
 // Map filenames to types and width, and then resize
@@ -115,14 +116,18 @@ const processImage = async (el) => {
     const picture = doc.createElement("picture");
     const webp = doc.createElement("source");
     const jpeg = doc.createElement("source");
+    const png = doc.createElement("source");
 
     await setSrcset(webp, filename, hash, "webp", metadata.width);
     webp.setAttribute("type", "image/webp");
     await setSrcset(jpeg, filename, hash, "jpeg", metadata.width);
     jpeg.setAttribute("type", "image/jpeg");
+    await setSrcset(jpeg, filename, hash, "png", metadata.width);
+    jpeg.setAttribute("type", "image/png");
 
     picture.appendChild(webp);
     picture.appendChild(jpeg);
+    picture.appendChild(png)
     el.parentElement.replaceChild(picture, el);
     picture.appendChild(el);
 
