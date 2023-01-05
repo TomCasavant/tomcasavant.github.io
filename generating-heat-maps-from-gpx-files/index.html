@@ -1,0 +1,260 @@
+<!doctype html><html lang="en" class="dark"><head><meta charset="utf-8"><title>Generating Heat Maps from GPX Files | Tom Casavant</title><script>// Toggle dark/light mode, inline JS to avoid any theme flicker
+function toggleDarkLightMode (isInit) {
+    // First time visitors
+    if (!("theme" in localStorage)) {
+        if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+            document.querySelector("html").classList.remove("dark");
+            document.querySelector("html").classList.add("light");
+            localStorage.theme = "light";
+        } else {
+            localStorage.theme = "dark";
+        }
+    } else {
+        if (!isInit) {
+            if (localStorage.theme === "light") {
+                document.querySelector("html").classList.add("dark");
+                document.querySelector("html").classList.remove("light");
+                localStorage.theme = "dark";
+            } else if (localStorage.theme === "dark") {
+                document.querySelector("html").classList.add("light");
+                document.querySelector("html").classList.remove("dark");
+                localStorage.theme = "light";
+            }
+        } else {
+            if (localStorage.theme === "light") {
+                document.querySelector("html").classList.remove("dark");
+                document.querySelector("html").classList.add("light");
+            } else if (localStorage.theme === "dark") {
+                document.querySelector("html").classList.remove("light");
+                document.querySelector("html").classList.add("dark");
+            }
+        }
+    }
+};
+toggleDarkLightMode(true);</script><link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png?hash=abf568bffc03ec961018578d17170251"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?hash=ca27d42e2179fe5e99a7675c29ba5d5f"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png?hash=9294b4b53f60108a8c2c70853180e373"><link rel="manifest" href="/assets/favicons/site.webmanifest?hash=c60f4c9f64661c53fa14a89b899f0e33" crossorigin="use-credentials"><link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg?hash=fb0e4aff65ece9c5badd549b863d756a" color="#5bbad5"><link rel="shortcut icon" href="/assets/favicons/favicon.ico?hash=194e0fefbab20e856e95f701b3514127"><link rel="canonical" href="/generating-heat-maps-from-gpx-files/"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/favicons/browserconfig.xml?hash=1f841eb91dddb70e59cf6b9df5b50d66"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Programming and Other Interests"><meta property="og:url" content="/generating-heat-maps-from-gpx-files/"><meta property="og:type" content="website"><meta property="og:title" content="Generating Heat Maps from GPX Files | Tom Casavant"><meta property="og:description" content="Programming and Other Interests"><meta property="og:image" content="/assets/images/opengraph.jpg?hash=6a52caae26b04ce0d16f9e89884ade5e"><meta property="og:image:url" content="/assets/images/opengraph.jpg?hash=6a52caae26b04ce0d16f9e89884ade5e"><meta name="twitter:image" content="/assets/images/opengraph.jpg?hash=6a52caae26b04ce0d16f9e89884ade5e "><meta property="twitter:card" content="summary_large_image"><meta property="twitter:site" content="MrPresidentTom"><script src="/assets/js/min.js?hash=c82d8b506728068435ed5d697d4a88b7" type="module"></script><link rel="stylesheet" href="/assets/css/site-build.css?hash=614fb2b4ca5e32b2d85c05d85b97845b"><script src="/assets/js/prism.js?hash=8d7a6cdd7b66ffd42d94ab16a49fa6a7"></script><link rel="stylesheet" href="/assets/css/prism-build.css?hash=9e22a38ffcc9d2381df212a7cf43802b"><link rel="webmention" href="https://webmention.io/tomcasavant.com/webmention"><link rel="pingback" href="https://webmention.io/tomcasavant.com/xmlrpc"><script type="application/ld+json">{
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Generating Heat Maps from GPX Files",
+        "image": ["/assets/images/opengraph.jpg"],
+        "author": {
+            "@type": "Person",
+            "name": "Tom Casavant"
+        },
+        "mainEntityOfPage": "/generating-heat-maps-from-gpx-files/",
+        "datePublished": "2019-04-18T00:00:00Z",
+        "description": "Generating Heat Maps from GPX Files Apr 18, 2019 9 minutes I own a smart watch (vivosport) that tracks my runs and other activities. The..."
+    }</script></head><body class="dark:text-gray-300 dark:bg-dark-body bg-white text-gray-900 tracking-wider font-light overflow-x-hidden sm:overflow-auto"><div class="grid grid-flow-col grid-cols-small sm:grid-cols-regular h-screen"><div id="sidebar" class="sidebar transition-transform transform -translate-x-56 sm:translate-x-0 sm:transition-none"><div id="sidebar-contents" class="dark:bg-sidebar-dark bg-sidebar-light grid-cols-1 gap-4 pt-8 h-screen grid w-56 xl:w-72"><div><a href="/"><picture><source srcset="/assets/images/tomface-3a8a9126dc001ed9be8052fd456a693f-1024w.webp 1024w, /assets/images/tomface-3a8a9126dc001ed9be8052fd456a693f-820w.webp 820w, /assets/images/tomface-3a8a9126dc001ed9be8052fd456a693f-640w.webp 640w, /assets/images/tomface-3a8a9126dc001ed9be8052fd456a693f-320w.webp 320w" type="image/webp"><source srcset="/assets/images/tomface-3a8a9126dc001ed9be8052fd456a693f-1024w.jpg 1024w, /assets/images/tomface-3a8a9126dc001ed9be8052fd456a693f-820w.jpg 820w, /assets/images/tomface-3a8a9126dc001ed9be8052fd456a693f-640w.jpg 640w, /assets/images/tomface-3a8a9126dc001ed9be8052fd456a693f-320w.jpg 320w" type="image/jpeg"><img alt="Tom Face" src="/assets/images/tomface.png" class="" height="184" width="270" decoding="async" loading="lazy"></picture></a><div class="text-center font-semibold pt-6 text-gray-400"><a href="/" class="mx-auto">Tom Casavant</a></div><div class="text-center text-sm pt-3 text-gray-400">Programming and Other Interests</div></div><div class="menu"><ul class="list-none pl-0"><li class="navitem text-center uppercase"><a href="/" class="block no-underline">Posts</a></li><li class="navitem text-center uppercase"><a href="/archive/" class="block no-underline">Archive</a></li></ul></div><div class="row-end-5 grid grid-cols-3 xl:grid-cols-6 gap-5 mx-auto place-content-end mb-12"><a onclick="toggleDarkLightMode(false)" href="#" class="w-5 h-5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612.001 612.001" class="lighttoggle"><title>Light mode icon</title><g><path d="M306,149.341c-86.382,0-156.661,70.278-156.661,156.661c0,86.382,70.278,156.66,156.661,156.66
+            			s156.66-70.278,156.66-156.66C462.66,219.618,392.382,149.341,306,149.341z"></path><path d="M274.194,117.278h63.612c5.032,0,9.356-2.101,11.863-5.763c2.508-3.662,2.9-8.453,1.079-13.146L315.749,8.257
+            			c-2.789-7.184-7.305-8.256-9.749-8.256s-6.96,1.073-9.749,8.255l-35,90.114c-1.821,4.692-1.427,9.482,1.079,13.145
+            			C264.837,115.178,269.162,117.278,274.194,117.278z"></path><path d="M337.806,494.723h-63.612c-5.032,0-9.357,2.102-11.863,5.764c-2.506,3.663-2.9,8.453-1.079,13.145l34.999,90.114
+            			c2.789,7.182,7.305,8.254,9.749,8.254c2.444,0,6.96-1.072,9.749-8.254l34.999-90.115c1.821-4.69,1.429-9.48-1.079-13.144
+            			C347.162,496.825,342.838,494.723,337.806,494.723z"></path><path d="M127.54,190.824c2.412,5.477,7.028,8.746,12.348,8.746c3.644,0,7.257-1.608,10.174-4.526l44.981-44.98
+            			c3.558-3.558,5.13-8.102,4.312-12.466c-0.819-4.362-3.928-8.028-8.532-10.056l-88.467-38.973c-2.233-0.983-4.336-1.482-6.25-1.482
+            			c-3.201,0-5.959,1.415-7.568,3.882c-1.357,2.081-2.454,5.747,0.031,11.389L127.54,190.824z"></path><path d="M484.46,421.178c-2.412-5.477-7.027-8.746-12.346-8.746c-3.645,0-7.259,1.609-10.177,4.527l-44.981,44.98
+            			c-3.558,3.559-5.13,8.104-4.312,12.466c0.818,4.362,3.929,8.028,8.532,10.055l88.466,38.974c2.233,0.983,4.336,1.482,6.25,1.482
+            			c3.201,0,5.959-1.417,7.568-3.882c1.358-2.083,2.455-5.748-0.03-11.389L484.46,421.178z"></path><path d="M461.937,195.044c2.918,2.918,6.532,4.526,10.176,4.526c5.319,0,9.934-3.269,12.348-8.746l38.972-88.465
+            			c2.486-5.643,1.389-9.308,0.031-11.389c-1.609-2.467-4.367-3.882-7.568-3.882c-1.914,0-4.017,0.499-6.251,1.483l-88.466,38.97
+            			c-4.604,2.029-7.715,5.694-8.532,10.057c-0.818,4.363,0.754,8.908,4.312,12.466L461.937,195.044z"></path><path d="M150.063,416.959c-2.918-2.918-6.532-4.527-10.177-4.527c-5.319,0-9.934,3.269-12.346,8.746l-38.972,88.465
+            			c-2.486,5.643-1.389,9.308-0.031,11.39c1.609,2.466,4.368,3.882,7.568,3.882c1.914,0,4.017-0.499,6.251-1.484l88.466-38.972
+            			c4.604-2.028,7.715-5.694,8.532-10.056c0.818-4.362-0.753-8.907-4.312-12.466L150.063,416.959z"></path><path d="M603.745,296.251l-90.111-34.996c-1.942-0.755-3.896-1.137-5.806-1.137c-7.593,0-13.104,5.921-13.104,14.078l0.001,63.613
+            			c0,8.157,5.511,14.078,13.104,14.078c1.912,0,3.866-0.382,5.806-1.136l90.112-34.999c7.182-2.79,8.254-7.306,8.254-9.751
+            			C612.001,303.558,610.926,299.04,603.745,296.251z"></path><path d="M104.173,351.886c7.594,0,13.106-5.921,13.106-14.078v-63.613c0-8.157-5.511-14.078-13.106-14.078
+            			c-1.912,0-3.864,0.382-5.805,1.136L8.255,296.251C1.073,299.04,0,303.556,0,306.001c0,2.444,1.072,6.96,8.255,9.752l90.111,34.996
+            			C100.308,351.503,102.261,351.886,104.173,351.886z"></path></g></svg> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 455 455" class="darktoggle"><title>Dark mode icon</title><g><polygon points="320.18,162.705 280.63,171.052 307.72,201.052 303.437,241.245 340.34,224.751 377.243,241.245 372.96,201.052 
+            		400.05,171.052 360.5,162.705 340.34,127.67 	"></polygon><polygon points="440,325.677 414.091,320.208 400.883,297.253 387.675,320.208 361.766,325.677 379.513,345.33 376.708,371.661 
+            		400.884,360.855 425.063,371.661 422.254,345.329 	"></polygon><path d="M218,227.5c0-89.167,51.306-166.338,126-203.64C313.443,8.6,278.978,0,242.5,0C116.855,0,15,101.855,15,227.5
+            		S116.855,455,242.5,455c36.478,0,70.943-8.6,101.5-23.86C269.306,393.838,218,316.667,218,227.5z"></path></g></svg> </a><a href="https://linkedin.com/in/tfc" aria-label="Open LinkedIn profile" target="_blank" class="w-5 h-5" rel="noopener"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn icon</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg> </a><a href="https://github.com/tomcasavant" aria-label="Open GitHub profile" target="_blank" class="w-5 h-5" rel="noopener"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub icon</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg> </a><a href="https://twitter.com/MrPresidentTom" aria-label="Open Twitter profile" target="_blank" class="w-5 h-5" rel="noopener"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Twitter icon</title><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg> </a><a href="/blog.rss" aria-label="Open RSS feed" target="_blank" class="w-5 h-5" rel="noopener"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 -256 1792 1792"><title>RSS icon</title><g transform="matrix(1,0,0,-1,212.61017,1346.1695)" id="g2991"><path d="M 384,192 Q 384,112 328,56 272,0 192,0 112,0 56,56 0,112 0,192 q 0,80 56,136 56,56 136,56 80,0 136,-56 56,-56 56,-136 z M 896,69 Q 898,41 879,21 861,0 832,0 H 697 Q 672,0 654,16.5 636,33 634,58 612,287 449.5,449.5 287,612 58,634 33,636 16.5,654 0,672 0,697 v 135 q 0,29 21,47 17,17 43,17 h 5 Q 229,883 375,815.5 521,748 634,634 748,521 815.5,375 883,229 896,69 z m 512,-2 Q 1410,40 1390,20 1372,0 1344,0 H 1201 Q 1175,0 1156.5,17.5 1138,35 1137,60 1125,275 1036,468.5 947,662 804.5,804.5 662,947 468.5,1036 275,1125 60,1138 35,1139 17.5,1157.5 0,1176 0,1201 v 143 q 0,28 20,46 18,18 44,18 h 3 Q 329,1395 568.5,1288 808,1181 994,994 1181,808 1288,568.5 1395,329 1408,67 z"></path></g></svg></a></div></div></div><div id="right-area" class="overflow-x-hidden sm:overflow-auto transition-transform transform sm:translate-x-0 sm:transition-none"><div id="top-bar" class="h-12 z-10 bg-white dark:bg-dark-heading transition-transform duration-200 ease-in sm:sticky top-0 border-gray-600 border-b-1 dark:border-transparent border-opacity-30 shadow-lg"><div class="grid grid-flow-col grid-cols-auto md:grid-cols-topbar max-w-content"><div id="mobile-top-bar" class="flex leading-12 sm:hidden col-span-2"><svg viewBox="0 0 100 80" class="block align-middle h-12 leading-12 ml-3 py-3 pt-4" onclick="slideLeftSidebar()"><rect width="60" height="7"></rect><rect y="30" width="60" height="7"></rect><rect y="60" width="60" height="7"></rect></svg><p class="flex-grow inline align-middle leading-12 text-xl text-center font-medium">Tom Casavant</p><div class="w-12"></div></div><div id="topbar-desktop-title" class="hidden sm:inline-block leading-12 align-middle ml-8 lg:ml-32 text-base text-gray-500 dark:text-gray-400 pr-8 truncate"><a href="/" class="text-indigo-900 dark:text-indigo-300 font-normal dark:font-light">Posts</a> › Generating Heat Maps from GPX Files</div><div id="search-desktop-title" class="hidden sm:hidden leading-12 align-middle ml-8 lg:ml-32 text-base text-gray-500 dark:text-gray-400"></div></div><div></div></div><div class="dark:bg-dark-body grid grid-flow-col grid-cols-auto xl:grid-cols-topbar max-w-content mb-12"><main class="min-w-0"><div class="content post border-solid border-b-1 border-gray-700 pb-6"><h1>Generating Heat Maps from GPX Files</h1><div class="mb-12 flex text-sm font-light dark:font-extralight"><div class="flex"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600.112 600.111" class="h-5 w-4 mr-2"><path d="M537.423,52.563h-59.836V21.92c0-11.83-9.591-21.42-21.42-21.42c-11.83,0-21.42,9.59-21.42,21.42v30.642H165.364V21.92
+	    						c0-11.83-9.59-21.42-21.42-21.42c-11.83,0-21.42,9.59-21.42,21.42v30.642H62.687c-32.058,0-58.14,26.082-58.14,58.14v430.77
+	    						c0,32.059,26.082,58.139,58.14,58.139h474.736c32.059,0,58.141-26.08,58.141-58.139v-430.77
+				    			C595.564,78.645,569.482,52.563,537.423,52.563z M47.387,110.703c0-8.451,6.85-15.3,15.3-15.3h59.837v24.443
+				    			c0,11.83,9.59,21.42,21.42,21.42s21.42-9.59,21.42-21.42V95.403h269.383v24.443c0,11.83,9.59,21.42,21.42,21.42
+	    		    			c11.829,0,21.42-9.59,21.42-21.42V95.403h59.836c8.45,0,15.3,6.85,15.3,15.3v53.856H47.387V110.703z M552.723,541.473
+	    					c0,8.449-6.85,15.301-15.3,15.301H62.687c-8.45,0-15.3-6.852-15.3-15.301V207.399h505.336V541.473z"></path><path d="M537.423,600.111H62.687c-32.334,0-58.64-26.306-58.64-58.639v-430.77c0-32.334,26.306-58.64,58.64-58.64h59.336V21.92
+	    					c0-12.087,9.833-21.92,21.92-21.92c12.086,0,21.92,9.833,21.92,21.92v30.142h268.384V21.92c0-12.087,9.833-21.92,21.92-21.92
+	    					s21.92,9.833,21.92,21.92v30.143h59.336c32.335,0,58.641,26.306,58.641,58.64v430.77
+	    					C596.064,573.806,569.758,600.111,537.423,600.111z M62.687,53.062c-31.783,0-57.64,25.857-57.64,57.64v430.77
+		    				c0,31.782,25.857,57.639,57.64,57.639h474.736c31.783,0,57.641-25.856,57.641-57.639v-430.77c0-31.783-25.857-57.64-57.641-57.64
+		    				h-60.336V21.92c0-11.536-9.385-20.92-20.92-20.92s-20.92,9.385-20.92,20.92v31.142H164.864V21.92
+	        				c0-11.536-9.385-20.92-20.92-20.92c-11.536,0-20.92,9.385-20.92,20.92v31.142H62.687z M537.423,557.273H62.687
+	    					c-8.712,0-15.8-7.088-15.8-15.801V206.899h506.336v334.574C553.223,550.186,546.135,557.273,537.423,557.273z M47.887,207.899
+	    					v333.574c0,8.161,6.639,14.801,14.8,14.801h474.736c8.16,0,14.8-6.64,14.8-14.801V207.899H47.887z M553.223,165.059H46.887
+	    					v-54.356c0-8.712,7.088-15.8,15.8-15.8h60.337v24.943c0,11.535,9.385,20.92,20.92,20.92s20.92-9.385,20.92-20.92V94.903h270.383
+	    					v24.943c0,11.535,9.385,20.92,20.92,20.92s20.92-9.385,20.92-20.92V94.903h60.336c8.712,0,15.8,7.088,15.8,15.8V165.059z
+	    				 	M47.887,164.059h504.336v-53.356c0-8.161-6.64-14.8-14.8-14.8h-59.336v23.943c0,12.087-9.833,21.92-21.92,21.92
+	    					s-21.92-9.833-21.92-21.92V95.903H165.864v23.943c0,12.087-9.833,21.92-21.92,21.92s-21.92-9.833-21.92-21.92V95.903H62.687
+	    					c-8.161,0-14.8,6.639-14.8,14.8V164.059z"></path></svg> Apr 18, 2019</div><div class="flex readingtime" data-words="1,873 words"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472.615 472.615" class="h-5 w-8 mr-2 ml-12"><path d="M472.615,205.774h-25.344c-12.797-37.99-48.686-65.462-90.935-65.462c-43.224,0-79.837,28.73-91.823,68.087
+        					c-7.582-5.011-17.305-8.115-28.211-8.115c-10.903,0-20.624,3.103-28.207,8.114c-11.989-39.357-48.608-68.085-91.831-68.085
+			    			c-42.249,0-78.135,27.472-90.93,65.462H0v19.692h20.925c-0.403,3.565-0.656,7.175-0.656,10.846
+        					c0,52.933,43.063,95.99,95.995,95.99s96-43.058,96-95.99c0-0.552-0.073-1.085-0.083-1.635h0.069
+	    	  				c0-6.952,9.88-14.702,24.053-14.702c14.178,0,24.053,7.75,24.053,14.702h0.073c-0.01,0.549-0.083,1.083-0.083,1.635
+  	    					c0,52.933,43.058,95.99,95.99,95.99s96-43.058,96-95.99c0-3.671-0.253-7.281-0.656-10.846h20.935V205.774z M116.264,312.611
+        					c-42.072,0-76.303-34.231-76.303-76.298c0-42.077,34.231-76.308,76.303-76.308c42.077,0,76.308,34.231,76.308,76.308
+        					C192.572,278.38,158.341,312.611,116.264,312.611z M356.337,312.611c-42.067,0-76.298-34.231-76.298-76.298
+        					c0-42.077,34.231-76.308,76.298-76.308c42.077,0,76.308,34.231,76.308,76.308C432.644,278.38,398.413,312.611,356.337,312.611z"></path></svg> 9 minutes <span></span></div></div><p><img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/heatmap.png?raw=true" alt="" title="Final generated heat map"></p><p>I own a smart watch (vivosport) that tracks my runs and other activities. The watch has a built-in GPS which will track my location. All of this data eventually gets transferred to Garmin, where I can view individual activities and the results of said activities.</p><h2 id="getting-the-garmin-activity-data">Getting the Garmin Activity Data</h2><p>Earlier this week I became interested as to whether or not I could view all my maps as a single heat map. The search brought me to an old Garmin forums page, where I was informed that the heat map functionality had long since been removed. There were two other options I found, using Strava to generate a heat map (unfortunately, this would involve signing up for their premium summit program) or generating a heat map from a series of gpx files (gpx being the gps filetype that each activity could output). Since I didn’t desire to spend any money on this project I looked into the second option.</p><p>The first issue I discovered was that, for no apparent reason, Garmin would not let me download all of my gpx files in bulk. Off I went to look for a solution to that problem (I figured, that if it comes to it I could just have a macro go through and download those for me, but that seemed inefficient). The first few github repositories I discovered just didn’t work. Likely because Garmin’s website security had changed in the years since those repos were created. Then I discovered <a href="https://github.com/petergardfjall/garminexport" target="_blank" rel="noopener">garminexport</a> which turned out to be almost exactly what I wanted. The one issue was that it would go through and download every piece of data from every activity (rather than just the gpx files) but this was definitely something I could work with. It worked immediately and as such I was onto the next step.</p><h2 id="generating-the-heat-map">Generating the Heat Map</h2><p>This part proved to be more complex than I desired. I searched and searched until I came up with <a href="http://www.gpsheatmaps.com/about/" target="_blank" rel="noopener">this website</a> which claimed it would generate heat maps from gpx files. I took my gpx files and submitted it to the website. The first thing I noticed was that it only accepted ~50 files. Which was unfortunate because I had many hundreds of files. The next thing I noticed was that it had no options to display the heat map on an actual map, which is what I wanted. The website’s about page said that the creator planned to overlay the heat maps onto Google maps. I contacted the creator and was informed that this project was abandoned and that there were no plans to update it. Darn.</p><p>That’s when I decided to just make it myself. After a bit of research I decided to use the following libraries:</p><ul><li><a href="https://github.com/tkrajina/gpxpy" target="_blank" rel="noopener">gpxpy</a> - To parse the .gpx files. (the gpx files were just glorified xml files, but this just made it easier for me)</li><li><a href="https://github.com/pallets/click" target="_blank" rel="noopener">click</a> - A library to develop an easy to use CLI for my project. Largely because I had heard about this at a recent Open Source Club meeting and I was intrigued.</li></ul><p>Note that I didn’t use a google maps libraries. This is because I decided the best course of action was to develop an html file with javascript functions for manipulating the heatmap. Most of the my html setup came from Google’s <a href="https://developers.google.com/maps/documentation/javascript/examples/layer-heatmap" target="_blank" rel="noopener">Javascript API Documentation</a>.</p><h3 id="the-code">The Code</h3><p>The entirety of this project can be found on my github at <a href="https://github.com/TomCasavant/GPXtoHeatmap" target="_blank" rel="noopener">https://github.com/TomCasavant/GPXtoHeatmap</a>.</p><p>The first step to this project was getting all the points from the gpx files as such:</p><pre><code>import gpxpy
+import click
+import os
+from configparser import SafeConfigParser
+
+def load_points(folder, filter):
+    """Loads all gpx files into a list of points"""
+
+    coords = []
+    print (f"Loading files with type {filter}...") #Loads files with progressbar
+    with click.progressbar(os.listdir(folder)) as bar:
+        for filename in bar:
+            if (filename.endswith(".gpx")):
+                #Verify file is a gpx file
+                gpx_file = open(f'{folder}/' + filename)
+                gpx = gpxpy.parse(gpx_file)
+                for track in gpx.tracks:
+                    if not filter or filter==track.type:
+                        for segment in track.segments:
+                            for point in segment.points:
+                            	coords.append([float(point.latitude), float(point.longitude)])
+
+    return (coords)
+</code></pre><p>Things to note:</p><ul><li>The click library allows me to easily insert a progress bar into my project. The progress bar is used in place of the for loop. I could’ve placed this anywhere in the loop (i.e. I could’ve generated a progress bar for every track) but I figured it would be cleaner if I just had one progress bar for each file found.</li><li>gpxpy parses the gpx file to allow me to get specific elements from the file (such as the tracks and the type)</li><li>The filter variable will be used to filter based on the type of activity (if desired), activities can be anything that Garmin (or whatever company you associate with) tracks. I personally use mine to track the types ‘walking’, ‘running’, and ‘cycling’.</li><li>I’ve saved the points into a list of coordinates. These coordinates will be placed into the html file to generate the heat map.</li></ul><p>Next, I had to create the outline for the map. I created a separate text file for this purpose:</p><pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Heatmaps&lt;/title&gt;
+    &lt;style&gt;
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #floating-panel {
+        background-color: #fff;
+        border: 1px solid #999;
+        left: 25%;
+        padding: 5px;
+        position: absolute;
+        top: 10px;
+        z-index: 5;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;div id="floating-panel"&gt;
+      &lt;button onclick="toggleHeatmap()"&gt;Toggle Heatmap&lt;/button&gt;
+      &lt;button onclick="changeGradient()"&gt;Change gradient&lt;/button&gt;
+      &lt;button onclick="changeRadius()"&gt;Change radius&lt;/button&gt;
+      &lt;button onclick="changeOpacity()"&gt;Change opacity&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div id="map"&gt;&lt;/div&gt;
+    &lt;script&gt;
+
+      // This example requires the Visualization library. Include the libraries=visualization
+      // parameter when you first load the API. For example:
+      // &lt;script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;libraries=visualization"&gt;
+
+      var map, heatmap;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: {lat: 40, lng: -83},
+          mapTypeId: 'roadmap'
+        });
+
+        heatmap = new google.maps.visualization.HeatmapLayer({
+          data: getPoints(),
+          map: map,
+	  maxIntensity: 25,
+	  radius: 5,
+	  opacity:.4
+        });
+      }
+
+      function toggleHeatmap() {
+        heatmap.setMap(heatmap.getMap() ? null : map);
+      }
+     function changeGradient() {
+        var gradient = [
+          'rgba(0, 255, 255, 0)',
+          'rgba(0, 255, 255, 1)',
+          'rgba(0, 191, 255, 1)',
+          'rgba(0, 127, 255, 1)',
+          'rgba(0, 63, 255, 1)',
+          'rgba(0, 0, 255, 1)',
+          'rgba(0, 0, 223, 1)',
+          'rgba(0, 0, 191, 1)',
+          'rgba(0, 0, 159, 1)',
+          'rgba(0, 0, 127, 1)',
+          'rgba(63, 0, 91, 1)',
+          'rgba(127, 0, 63, 1)',
+          'rgba(191, 0, 31, 1)',
+          'rgba(255, 0, 0, 1)'
+        ]
+        heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+      }
+
+      function changeRadius() {
+        heatmap.set('radius', heatmap.get('radius') ? null : 1);
+      }
+
+      function changeOpacity() {
+        heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
+      }
+
+      function getPoints() {
+        return [LIST_OF_POINTS];
+        }
+      &lt;/script&gt;
+      &lt;script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=API_KEY&amp;libraries=visualization&amp;callback=initMap"&gt;&lt;/script&gt;
+      &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>Again, most of this file comes from Google’s official documentation. It allows the user to customize their map live, in case you want to change certain aspects of it. The major value I had to change in this file was the radius. Since my heat maps were more localized, I had to decrease the radius value to 5 in order to clearly see my heatmap when zoomed in. In the INIT function, I changed where the map started, this wasn’t necessary because you can move around the map when you open it. But, it made it easier to focus on where my heat map is (I may in the change where the location begins based on where the heat map is generated, but I haven’t gotten around to it yet). Finally, in the getPoints() function, I have it return LIST_OF_POINTS. This value is one of the values that we’ll be changing in our python file. The other value is the API key in the <code>&lt;script src=...&gt;</code> line.</p><p>Finally, we have to actually generate the completed html file. We’ll need a config file and back in the python file we’ll define 2 more functions: one to get the outline file and one to replace the LIST_OF_POINTS variable and generate a new file:</p><p>config.ini</p><pre><code>[GOOGLE]
+API_KEY = ####YOUR_API_KEY###
+</code></pre><p><a href="http://heatmap.py" target="_blank" rel="noopener">heatmap.py</a></p><pre><code>parser = SafeConfigParser()
+parser.read('config.ini')
+API_KEY = parser.get('GOOGLE', 'API_KEY')
+
+def get_outline():
+    """Reads in the html outline file"""
+    with open('map-outline.txt', 'r') as file:
+        outline = file.read()
+    return outline
+
+def generate_html(points, file_out):
+    """Generates a new html file with points"""
+    f = open(f"output/{file_out}.html", "w")
+    outline = get_outline()
+    google_points = ",\n".join([f"new google.maps.LatLng({point[0]}, {point[1]})" for point in points])
+    updated_content = outline.replace("LIST_OF_POINTS", google_points).replace("API_KEY", API_KEY)
+    f.write(updated_content)
+    f.close()
+</code></pre><p>You can generate a google maps API key from here <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank" rel="noopener">https://developers.google.com/maps/documentation/javascript/get-api-key</a>.</p><p>Essentially, all you need to know is that get_outline() reads in the text file containing the html/javascript, then the generate_html() function takes that outline and fills it in with the appropriate content.</p><p>Then to put it all together we make our main functions.</p><pre><code>@click.command()
+@click.option("--output", default="map", help="Specify the name of the output file")
+@click.option("--input", default="gpx", help="Specify an input folder")
+@click.option("--filter", default=None, help="Specify a filter type", type=click.Choice(['running', 'cycling', 'walking']))
+def main(output, input, filter):
+    points = load_points(input, filter)
+    generate_html(points, output)
+
+if __name__ == '__main__':
+    main()
+</code></pre><p>Click allows us to define arguments from the command line. In this program I added three options ‘–output’, ‘–input’, and ‘–filter’. Which means a user could type in the following command to generate a heat map with bike routes from a folder called gpx_files and output it to output/my_heat_map.html. <code>python heatmap.py --output my_heat_map --input gpx_files --filter cycling</code></p><p>That’s it. The heat map gets generated and can be open in your web browser where you can manipulate it to your desire. Once again, all of this code can be found on my github at <a href="https://github.com/TomCasavant/GPXtoHeatmap" target="_blank" rel="noopener">https://github.com/TomCasavant/GPXtoHeatmap</a>.</p><div class="social flex flex-row-reverse mt-8 mb-4"><a href="#" aria-label="Copy page link to clipboard" onclick="copyUrlToClipboard()" class="link"><span></span> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M24 30.2c0 .2.1.5.1.8 0 1.4-.5 2.6-1.5 3.6l-2 2c-1 1-2.2 1.5-3.6 1.5-2.8 0-5.1-2.3-5.1-5.1 0-1.4.5-2.6 1.5-3.6l2-2c1-1 2.2-1.5 3.6-1.5.3 0 .5 0 .8.1l1.5-1.5c-.7-.3-1.5-.4-2.3-.4-1.9 0-3.6.7-4.9 2l-2 2c-1.3 1.3-2 3-2 4.9 0 3.8 3.1 6.9 6.9 6.9 1.9 0 3.6-.7 4.9-2l2-2c1.3-1.3 2-3 2-4.9 0-.8-.1-1.6-.4-2.3L24 30.2z"></path><path d="M33 10.1c-1.9 0-3.6.7-4.9 2l-2 2c-1.3 1.3-2 3-2 4.9 0 .8.1 1.6.4 2.3l1.5-1.5c0-.2-.1-.5-.1-.8 0-1.4.5-2.6 1.5-3.6l2-2c1-1 2.2-1.5 3.6-1.5 2.8 0 5.1 2.3 5.1 5.1 0 1.4-.5 2.6-1.5 3.6l-2 2c-1 1-2.2 1.5-3.6 1.5-.3 0-.5 0-.8-.1l-1.5 1.5c.7.3 1.5.4 2.3.4 1.9 0 3.6-.7 4.9-2l2-2c1.3-1.3 2-3 2-4.9 0-3.8-3.1-6.9-6.9-6.9z"></path><path d="M20 31c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l10-10c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-10 10c-.2.2-.4.3-.7.3z"></path></svg> </a><a href="https://www.facebook.com/sharer/sharer.php?u=/generating-heat-maps-from-gpx-files/" target="_blank" rel="noopener" aria-label="Share on Facebook (opens new tab)"><span></span> <svg viewBox="0 0 9 18" xmlns="http://www.w3.org/2000/svg" class="facebook"><path d="M6.115 0c-2.173 0-3.66 1.5-3.66 4.23v2.363H0v3.195h2.455V18h2.926V9.788h2.45l.37-3.195H5.38V4.545c0-.922.236-1.545 1.42-1.545h1.507V.128A18.2 18.2 0 006.115 0z"></path></svg> </a><a href="https://www.linkedin.com/sharing/share-offsite/?url=/generating-heat-maps-from-gpx-files/" target="_blank" rel="noopener" aria-label="Share on LinkedIn (opens new tab)"><span></span> <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="linkedin"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg> </a><a href="https://twitter.com/intent/tweet/?text=Generating Heat Maps from GPX Files&amp;url=/generating-heat-maps-from-gpx-files/&amp;via=" target="_blank" rel="noopener" aria-label="Share on Twitter (opens new tab)" class="fill"><span></span> <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="twitter"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg> </a><span class="text-sm mr-1">Share:</span></div><div class="block w-full h-1 border-solid border-b-1 border-gray-700"></div><div class="additions flex flex-col sm:flex-row gap-3 mt-6 px-4 w-full"><a href="/make-oh-io-2019/" class="flex-1"><div class="h-24 border-1 border-gray-700 leading-pagination text-center hover:bg-indigo-900 dark:hover:bg-indigo-900 hover:text-gray-200 dark:hover:text-gray-200 cursor-pointer"><span class="text-xs block mt-1 mb-3">Older</span> <span class="text-xl">Make OH/IO 2019</span></div></a><a href="/a-curious-case-of-osu-financial-aid/" class="flex-1"><div class="h-24 border-1 border-gray-700 leading-pagination text-center hover:bg-indigo-900 dark:hover:bg-indigo-900 hover:text-gray-200 dark:hover:text-gray-200 cursor-pointer overflow-auto"><span class="text-xs block mt-1 mb-3">Newer</span> <span class="text-xl">A Curious Case of OSU Financial Aid</span></div></a></div><section><h2>Comments</h2><p>Count: 1</p><article id="webmentions" class="webmentions"><header class="webmentions__header"><h2>1 Response</h2><p></p><form action="https://webmention.io//webmention" method="post" class="form-webmention"><label for="form-webmention-source" class="webmentions__form-label">Have you published your own post mentioning this one? Let me know the URL:</label><div class="webmentions__field-wrapper"><input id="form-webmention-source" type="url" name="source" placeholder="https://example.com" required="required" class="webmentions__form-field"> <input type="hidden" name="target" value="/generating-heat-maps-from-gpx-files/"> <input type="submit" value="Send" class="webmentions__form-submit"></div></form><p></p><p>Powered by <a href="https://indieweb.org/Webmention" target="_blank" rel="noopener">Webmentions</a> via <a href="https://webmention.io" target="_blank" rel="noopener">Webmention.io</a> and <a href="https://brid.gy" target="_blank" rel="noopener">Bridgy</a></p></header><h3>1 Comment</h3><ol class="webmentions__list"><li class="webmentions__item"><div class="webmention__meta"><div class="webmention__author-photo-wrapper"><img src="https://webmention.io/avatar/files.mastodon.social/82dfcc8ba03b213e5af05d63251538b4f55f5a01d8660057eaa2d0eda350026e.jpg" alt="Tom Casavant" class="webmention__author-photo-image" loading="lazy" decoding="async" width="48" height="48"></div><a href="https://social.tomcasavant.com/@MrPresidentTom" target="_blank" rel="noopener"><span class="webmention__author-name">Tom Casavant</span> </a><time class="webmention__pubdate dt-published" datetime="2023-01-04T00:57:51">2023-01-04</time></div><p><a href="https://mastodon.social/@mrpresidenttom" target="_blank" rel="noopener">@mrpresidenttom@mastodon.social</a>Test</p><p><a href="https://social.tomcasavant.com/@MrPresidentTom/109628219182123703" target="_blank" rel="noopener">View original post</a></p></li></ol></article></section></div></main><div id="search-container" class="hidden truncate"><div class="postlist pb-8 mt-8 font-light dark:font-extralight pt-4 min-w-0"><div id="search-mobile-title" class="hidden leading-12 align-middle text-gray-500 dark:text-gray-400"></div><ul id="search-results" class="mt-3"></ul><span id="search-no-results" class="mt-3 hidden">No data found for the given query.</span><picture><source srcset="/assets/images/algolia-f96a29a8c9a52226ae932dafa4cae840-1024w.webp 1024w, /assets/images/algolia-f96a29a8c9a52226ae932dafa4cae840-820w.webp 820w, /assets/images/algolia-f96a29a8c9a52226ae932dafa4cae840-640w.webp 640w, /assets/images/algolia-f96a29a8c9a52226ae932dafa4cae840-320w.webp 320w" type="image/webp"><source srcset="/assets/images/algolia-f96a29a8c9a52226ae932dafa4cae840-1024w.jpg 1024w, /assets/images/algolia-f96a29a8c9a52226ae932dafa4cae840-820w.jpg 820w, /assets/images/algolia-f96a29a8c9a52226ae932dafa4cae840-640w.jpg 640w, /assets/images/algolia-f96a29a8c9a52226ae932dafa4cae840-320w.jpg 320w" type="image/jpeg"><img src="/assets/images/algolia.png" alt="Search powered by Algolia" decoding="async" loading="lazy" height="24" width="168"></picture></div></div><aside class="hidden xl:block w-72 float-right"><div id="recents" class="ml-1 mt-12 p-2 border-solid border-l-1 border-gray-300 dark:border-gray-700 mb-16 text-gray-800 dark:text-gray-400"><span class="ml-1">Recent updates</span><ul class="list-none mt-2 pt-2 pl-2 pr-4 text-xs"><li class="truncate pb-4"><a href="/markov-tweet-generator/">Markov Tweet Generator</a></li><li class="truncate pb-4"><a href="/converting-old-radio-into-bluetooth-radio/">Converting Old Radio into Bluetooth Radio</a></li><li class="truncate pb-4"><a href="/a-curious-case-of-osu-financial-aid/">A Curious Case of OSU Financial Aid</a></li><li class="truncate pb-4"><a href="/generating-heat-maps-from-gpx-files/">Generating Heat Maps from GPX Files</a></li><li class="truncate"><a href="/make-oh-io-2019/">Make OH/IO 2019</a></li></ul></div><div id="toc" class="list-none ml-1 pt-2 pr-2 border-solid border-l-1 border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-400 sticky top-8"><span class="pl-2">Content</span><div class="text-xs pt-2 pr-4"><nav class="toc"><ol><li><a href="#getting-the-garmin-activity-data">Getting the Garmin Activity Data</a></li><li><a href="#generating-the-heat-map">Generating the Heat Map</a><ol><li><a href="#the-code">The Code</a></li></ol></li></ol></nav></div></div></aside></div></div></div><div id="scroll" class="scroll" onclick="scrollToTop()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" class="h-6 w-6"><g><path d="M990,699.9c0,8.1,0,16.3-8.1,24.4c-16.3,16.3-40.7,16.3-56.9,0L502,350.2L79.1,732.4c-16.3,16.3-40.7,16.3-56.9,0c-16.3-16.3-16.3-40.7,0-56.9l447.3-406.6c24.4-16.3,40.7-16.3,56.9-8.1l447.3,406.6C981.9,675.5,990,691.8,990,699.9z"></path></g></svg></div></body></html>

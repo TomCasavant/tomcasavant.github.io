@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>http://localhost:8080/programming-a-python-controller-for-pianobar-pandora-with-your-wii-remote/</loc>
+    <lastmod>2015-03-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/setting-up-your-java-ide-for-and-34-dumb-and-34-phone-mobile-apps/</loc>
+    <lastmod>2015-03-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/making-a-chrome-extension/</loc>
+    <lastmod>2015-04-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/twitter-profile-updater/</loc>
+    <lastmod>2016-07-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/markov-chain-and-58-a-harry-potter-quote-tweet-generator/</loc>
+    <lastmod>2017-02-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/cleverslack-and-58-a-cleverbot-slack-implementation/</loc>
+    <lastmod>2017-03-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/playlist-creator-and-58-a-python-spotify-creation/</loc>
+    <lastmod>2017-03-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/autotldr-and-58-summarizing-news-on-twitter/</loc>
+    <lastmod>2017-04-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/slackarchiver-and-58-using-mongo-to-archive-slack-messages-featuring-and-34-docker-and-34/</loc>
+    <lastmod>2017-09-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/slackarchiver-p-2-and-58-setting-up-the-database/</loc>
+    <lastmod>2017-09-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/slackarchiver-p-3-and-58-setting-up-your-docker/</loc>
+    <lastmod>2017-09-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/superpower-generator-and-58-programming-an-alexa-skill-with-reddit-rss-feeds/</loc>
+    <lastmod>2018-06-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/hack-oh-io-2018/</loc>
+    <lastmod>2019-01-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/nfl-win-chain-dijkstra-s-algorithm/</loc>
+    <lastmod>2019-01-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/make-oh-io-2019/</loc>
+    <lastmod>2019-03-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/generating-heat-maps-from-gpx-files/</loc>
+    <lastmod>2019-04-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/a-curious-case-of-osu-financial-aid/</loc>
+    <lastmod>2019-04-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/converting-old-radio-into-bluetooth-radio/</loc>
+    <lastmod>2019-08-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/markov-tweet-generator/</loc>
+    <lastmod>2019-12-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
