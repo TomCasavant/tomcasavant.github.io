@@ -5,11 +5,26 @@
   <subtitle>Programming and Other Interests</subtitle>
   <link href="/blog.rss" rel="self"/>
   <link href="http://localhost:8080"/>
-  <updated>2019-12-28T00:00:00Z</updated>
+  <updated>2022-01-05T00:00:00Z</updated>
   <id>http://localhost:8080</id>
   <author>
     <name>Tom Casavant</name>
   </author>
+  
+  <entry>
+    <title>Ketchup Cake</title>
+    <link href="/ketchup-cake/"/>
+    <updated>2022-01-05T00:00:00Z</updated>
+    <id>/ketchup-cake/</id>
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;font size=&quot;1&quot;&gt;Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup&lt;/font&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It’s all around you, everywhere you turn you hear them yell&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;font size=&quot;2&quot;&gt;Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup&lt;/font&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You start to run, you don’t know where you’re going, all you know is that...</content>
+  </entry>
   
   <entry>
     <title>Markov Tweet Generator</title>
