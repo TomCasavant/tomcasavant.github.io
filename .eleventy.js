@@ -147,7 +147,7 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addPlugin(Webmentions, {
       domain: "tomcasavant.com",
-      token: "s0zJ86Lm6SViiOOBTXFB0Q",
+      token: "RTDTmj2mw1t8m14tzZPqwA",
     });
     
     eleventyConfig.addPassthroughCopy("CNAME")
