@@ -4,11 +4,21 @@
   <subtitle>Programming and Other Interests</subtitle>
   <link href="/blog.rss" rel="self"/>
   <link href="https://tomcasavant.com"/>
-  <updated>2023-01-05T00:00:00Z</updated>
+  <updated>2023-01-11T21:30:00Z</updated>
   <id>https://tomcasavant.com</id>
   <author>
     <name>Tom Casavant</name>
   </author>
+  
+  <entry>
+    <title>Subjective Ranked Sorting in Python</title>
+    <link href="https://tomcasavant.com/subjective-ranked-sorting-in-python/"/>
+    <updated>2023-01-11T21:30:00Z</updated>
+    <id>/subjective-ranked-sorting-in-python/</id>
+    <content type="html">&lt;p&gt;I was working on a project and ran into a problem where I had to rank a set of objects based on an subjective value. My initial thought was to use some sort of bracket system&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2023/icecream-bracket.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;But that doesn’t fully sort out my values (Is “Vanilla” better than “Walnut”?), the next thought was writing a function to repeatedly loop through...</content>
+  </entry>
   
   <entry>
     <title>Ketchup Cake</title>
