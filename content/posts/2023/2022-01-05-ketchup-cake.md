@@ -33,12 +33,12 @@ Your mind is foggy and you have no recollection of the events in your dream
 You have a strong urge to get up- and you do, something is driving you forwards. You exit the bedroom and head straight for the kitchen. The cabinet is open and you start pulling out items seemingly at random. Flour. Baking Powder. Nutmeg and Ginger. Brown Sugar. A creaking sound comes from behind you. The fridge is open. The items are being pulled faster now-cream cheese, butter, eggs. And then you see it, you don't want to grab it, but it *feels* important. A tear forms in your eye as you add the bottle of ketchup to the collection
 
 Suddenly flour is everywhere as you stir and stir. "Why would one need so much butter" you think to yourself, but continue to mix everything into one collective mess. 
-![](/assets/images/2022/Ketchup-1.jpg)
+![](/assets/images/2023/Ketchup-1.jpg)
 
 
 Until there's just one more thing to add. You squeeze and squeeze as streams of ketchup flow out
 
-![](/assets/images/2022/Ketchup-2.jpg)
+![](/assets/images/2023/Ketchup-2.jpg)
 
 Then a momentary sense of relief. The stong tomato scents that once filled your apartment are replaced with something much sweeter as the oven bakes and bakes. 
 
@@ -46,11 +46,11 @@ It's time.
 
 You reach in and pull out something red. Too red. As if the devil himself had been mixed in. And maybe he had.
 
-![](/assets/images/2022/Ketchup-3.jpg)
+![](/assets/images/2023/Ketchup-3.jpg)
 
 Your spatula is now a paintbrush as you michaelangelically spread frosting over its entirety. As if the creation would one day hang from the ceiling of the Sistine Chapel. One layer after another the once red dish is now white. 
 
-![](/assets/images/2022/Ketchup-4.jpg)
+![](/assets/images/2023/Ketchup-4.jpg)
 
 
 ><font size="1">Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup</font>
@@ -81,5 +81,5 @@ You stand up. Your work here is done.
 
 ><font size="5">Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup</font>
 
-![](/assets/images/2022/Ketchup-5.jpg)
+![](/assets/images/2023/Ketchup-5.jpg)
 
