@@ -22,6 +22,8 @@ module.exports = function (eleventyConfig) {
         }).use(markdownItAnchor)
     );
 
+     eleventyConfig.addPassthroughCopy('.well-known/webfinger');
+
     // Define passthrough for assets
     eleventyConfig.addPassthroughCopy("assets");
 
