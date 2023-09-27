@@ -1,0 +1,23 @@
+{
+  "subject": "acct:mrpresidenttom@tomcasavant.com",
+  "aliases": [
+    "https://mastodon.social/@mrpresidenttom",
+    "https://mastodon.social/users/mrpresidenttom"
+  ],
+  "links": [
+    {
+      "rel": "http://webfinger.net/rel/profile-page",
+      "type": "text/html",
+      "href": "https://mastodon.social/@mrpresidenttom"
+    },
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://mastodon.social/users/mrpresidenttom"
+    },
+    {
+      "rel": "http://ostatus.org/schema/1.0/subscribe",
+      "template": "https://mastodon.social/authorize_interaction?uri={uri}"
+    }
+  ]
+}
