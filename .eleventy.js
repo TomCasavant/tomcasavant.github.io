@@ -22,7 +22,7 @@ module.exports = function (eleventyConfig) {
         }).use(markdownItAnchor)
     );
 
-     eleventyConfig.addPassthroughCopy('.well-known/webfinger');
+    eleventyConfig.addPassthroughCopy({ 'src/well-known': '.well-known' });
 
     // Define passthrough for assets
     eleventyConfig.addPassthroughCopy("assets");
