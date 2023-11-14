@@ -23,8 +23,8 @@ module.exports = function (eleventyConfig) {
         }).use(markdownItAnchor)
     );
     
-    eleventyConfig.addNunjucksAsync("rssData", async () => {
-      try {
+   eleventyConfig.addNunjucksAsyncFilter('fetchRssData', async () => {
+     try {
         const url = 'https://tomcasavant.glitch.me/index.xml';
         const response = await fetch(url);
         const xmlData = await response.text();
