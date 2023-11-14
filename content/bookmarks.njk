@@ -7,32 +7,7 @@ meta:
     value: noindex
 ---
 <div class="postlist pb-8 mt-8 font-light dark:font-extralight pt-4" id="rss-feed">
-  {% set rssData = '' | fetchRssData | eleventyAwait %}
-  {% if rssData %}
-    <div class="feed">
-      {% set parser = new DOMParser() %}
-      {% set xmlDoc = parser.parseFromString(rssData, "text/xml") %}
-      
-      <h1>{{ xmlDoc.querySelector('title').textContent }}</h1>
-      <p><strong>Updated:</strong> {{ xmlDoc.querySelector('updated').textContent }}</p>
-      <p><strong>Author:</strong> {{ xmlDoc.querySelector('author name').textContent }}</p>
-      
-      {% for entry in xmlDoc.querySelectorAll('entry') %}
-        <div class="entry">
-          <h2>{{ entry.querySelector('title').textContent }}</h2>
-          <p><strong>Updated:</strong> {{ entry.querySelector('updated').textContent }}</p>
-          <p>{{ entry.querySelector('summary').textContent }}</p>
-          <p><strong>Categories:</strong>
-            {% for category in entry.querySelectorAll('category') %}
-              {{ category.getAttribute('term') }}{% if not loop.last %}, {% endif %}
-            {% endfor %}
-          </p>
-        </div>
-      {% endfor %}
-    </div>
-  {% else %}
-    <p>No RSS data available.</p>
-  {% endif %}
+  {{ generateRssHtml | eleventyAwait }}
 </div>
 
 
