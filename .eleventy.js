@@ -9,6 +9,7 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const nunjucksDate = require("nunjucks-date-filter");
 const Webmentions = require("eleventy-plugin-webmentions");
+const fetchRssData = require('./_11ty/fetchRssData');
 
 module.exports = function (eleventyConfig) {
     // Set Markdown library
@@ -21,6 +22,8 @@ module.exports = function (eleventyConfig) {
             typographer: true
         }).use(markdownItAnchor)
     );
+
+    eleventyConfig.addNunjucksAsyncData('rssData', fetchRssData);
 
     eleventyConfig.addPassthroughCopy({ 'src/well-known': '.well-known' });
 
