@@ -7,6 +7,33 @@ meta:
     value: noindex
 ---
 
-<div class="postlist pb-8 mt-8 font-light dark:font-extralight pt-4"> 
+<div class="postlist pb-8 mt-8 font-light dark:font-extralight pt-4" id="rss-feed">
   
 </div>
+
+<script>
+  fetch('https://tomcasavant.glitch.me/index.xml')
+    .then(response => response.text())
+    .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+    .then(data => {
+      const items = data.querySelectorAll('entry');
+      let html = '';
+      items.forEach(el => {
+        let title = el.querySelector('title').innerHTML;
+        let link = el.querySelector('link').getAttribute('href');
+        let updated = el.querySelector('updated').innerHTML;
+        let summary = el.querySelector('summary').innerHTML;
+        let categories = Array.from(el.querySelectorAll('category')).map(cat => cat.getAttribute('term')).join(', ');
+
+        html += `
+          <div class="rss-entry">
+            <h2><a href="${link}" target="_blank">${title}</a></h2>
+            <p>${summary}</p>
+            <p><small>Updated: ${updated}</small></p>
+            <p><small>Categories: ${categories}</small></p>
+          </div>
+        `;
+      });
+      document.getElementById('rss-feed').innerHTML = html;
+    });
+</script>
