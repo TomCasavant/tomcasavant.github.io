@@ -11,6 +11,52 @@ const nunjucksDate = require("nunjucks-date-filter");
 const Webmentions = require("eleventy-plugin-webmentions");
 const fetchRssData = require('./_11ty/fetchRssData');
 
+const fetch = require('node-fetch');
+
+// Function to fetch and process RSS data
+async function generateRssHtml() {
+  try {
+    const url = 'https://tomcasavant.glitch.me/index.xml';
+    const response = await fetch(url);
+    const xmlData = await response.text();
+
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlData, 'text/xml');
+
+    let html = '<div class="feed">';
+    html += `<h1>${xmlDoc.querySelector('title').textContent}</h1>`;
+    html += `<p><strong>Updated:</strong> ${xmlDoc.querySelector('updated').textContent}</p>`;
+    html += `<p><strong>Author:</strong> ${xmlDoc.querySelector('author name').textContent}</p>`;
+
+    const entries = xmlDoc.querySelectorAll('entry');
+    entries.forEach((entry) => {
+      html += '<div class="entry">';
+      html += `<h2>${entry.querySelector('title').textContent}</h2>`;
+      html += `<p><strong>Updated:</strong> ${entry.querySelector('updated').textContent}</p>`;
+      html += `<p>${entry.querySelector('summary').textContent}</p>`;
+      
+      html += '<p><strong>Categories:</strong>';
+      const categories = entry.querySelectorAll('category');
+      categories.forEach((category, index) => {
+        html += `${category.getAttribute('term')}`;
+        if (index !== categories.length - 1) {
+          html += ', ';
+        }
+      });
+      html += '</p>';
+      
+      html += '</div>';
+    });
+
+    html += '</div>';
+    return html;
+  } catch (error) {
+    console.error('Error fetching or processing RSS data:', error);
+    return '<p>No RSS data available.</p>';
+  }
+}
+
+
 module.exports = function (eleventyConfig) {
     // Set Markdown library
     eleventyConfig.setLibrary(
@@ -23,17 +69,9 @@ module.exports = function (eleventyConfig) {
         }).use(markdownItAnchor)
     );
     
-   eleventyConfig.addNunjucksAsyncFilter('fetchRssData', async () => {
-     try {
-        const url = 'https://tomcasavant.glitch.me/index.xml';
-        const response = await fetch(url);
-        const xmlData = await response.text();
-        return xmlData;
-      } catch (error) {
-        console.error('Error fetching RSS data:', error);
-        return null; // Return null or handle errors appropriately
-      }
-    });
+     eleventyConfig.addNunjucksAsyncFilter('generateRssHtml', async () => {
+        return await generateRssHtml();
+      });
 
     eleventyConfig.addPassthroughCopy({ 'src/well-known': '.well-known' });
 
