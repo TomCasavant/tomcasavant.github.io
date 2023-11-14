@@ -16,7 +16,6 @@ const fs = require('fs/promises'); // Require the 'fs' module
 
 // Function to fetch and process RSS data
 async function generateRssHtml() {
-  try {
     const url = 'https://tomcasavant.glitch.me/index.xml';
     const response = await fetch(url, {
       headers: {
@@ -57,10 +56,6 @@ async function generateRssHtml() {
 
     html += '</div>';
     return html;
-  } catch (error) {
-    console.error('Error fetching or processing RSS data:', error);
-    return '<p>No RSS data available.</p>';
-  }
 }
 
 
