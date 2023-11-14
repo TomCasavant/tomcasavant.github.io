@@ -24,14 +24,15 @@
             <li class="navitem text-center uppercase {{ page.url | isActiveLink('/archive') }}">
                 <a href="/archive/" class="block no-underline">Archive</a>
             </li>
+            <li class="navitem text-center uppercase {{ page.url | isActiveLink('/bookmarks') }}">
+                <a href="/bookmarks/" class="block no-underline">Bookmarks</a>
+            </li>
         </ul>
     </div>
     <div class="row-end-5 grid grid-cols-3 xl:grid-cols-6 gap-5 mx-auto place-content-end mb-12">
         <a onclick="toggleDarkLightMode(false)" href="#" class="w-5 h-5">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612.001 612.001" class="lighttoggle">
-            <li class="navitem text-center uppercase {{ page.url | isActiveLink('/bookmarks') }}">
-                <a href="/bookmarks/" class="block no-underline">Bookmarks</a>
-            </li>
+
 	            <title>Light mode icon</title>
             	<g>
             		<path d="M306,149.341c-86.382,0-156.661,70.278-156.661,156.661c0,86.382,70.278,156.66,156.661,156.66
