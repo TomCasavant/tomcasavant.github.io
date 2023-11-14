@@ -69,9 +69,9 @@ module.exports = function (eleventyConfig) {
         }).use(markdownItAnchor)
     );
     
-     eleventyConfig.addNunjucksAsyncFilter('generateRssHtml', async () => {
-        return await generateRssHtml();
-      });
+    eleventyConfig.addFilter('generateRssHtml', async () => {
+      return await generateRssHtml();
+    });
 
     eleventyConfig.addPassthroughCopy({ 'src/well-known': '.well-known' });
 
