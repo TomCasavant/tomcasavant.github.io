@@ -22,8 +22,18 @@ module.exports = function (eleventyConfig) {
             typographer: true
         }).use(markdownItAnchor)
     );
-
-    eleventyConfig.addNunjucksAsyncData('rssData', fetchRssData);
+    
+    eleventyConfig.addNunjucksAsync("rssData", async () => {
+      try {
+        const url = 'https://tomcasavant.glitch.me/index.xml';
+        const response = await fetch(url);
+        const xmlData = await response.text();
+        return xmlData;
+      } catch (error) {
+        console.error('Error fetching RSS data:', error);
+        return null; // Return null or handle errors appropriately
+      }
+    });
 
     eleventyConfig.addPassthroughCopy({ 'src/well-known': '.well-known' });
 
