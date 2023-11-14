@@ -13,6 +13,7 @@ const fetchRssData = require('./_11ty/fetchRssData');
 
 const fetch = require('node-fetch');
 const fs = require('fs/promises'); // Require the 'fs' module
+const { DOMParser } = require('xmldom');
 
 // Function to fetch and process RSS data
 async function generateRssHtml() {
