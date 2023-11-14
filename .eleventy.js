@@ -12,13 +12,20 @@ const Webmentions = require("eleventy-plugin-webmentions");
 const fetchRssData = require('./_11ty/fetchRssData');
 
 const fetch = require('node-fetch');
+const fs = require('fs/promises'); // Require the 'fs' module
 
 // Function to fetch and process RSS data
 async function generateRssHtml() {
   try {
     const url = 'https://tomcasavant.glitch.me/index.xml';
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0',
+        // Other headers if required...
+      },
+    });
     const xmlData = await response.text();
+    await fs.writeFile('rss_data.xml', xmlData);
 
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xmlData, 'text/xml');
