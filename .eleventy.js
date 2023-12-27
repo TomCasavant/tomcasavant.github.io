@@ -9,106 +9,91 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const nunjucksDate = require("nunjucks-date-filter");
 const Webmentions = require("eleventy-plugin-webmentions");
-const fetchRssData = require('./_11ty/fetchRssData');
+
 
 const fetch = require('node-fetch');
 const fs = require('fs/promises'); // Require the 'fs' module
 const { DOMParser } = require('xmldom');
 
-// Function to fetch and process RSS data
-async function generateRssHtml() {
+async function fetchRssData() {
     const url = 'https://tomcasavant.glitch.me/index.xml';
     const response = await fetch(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0',
-        // Other headers if required...
-      },
+        headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0',
+        },
     });
     const xmlData = await response.text();
-    await fs.writeFile('rss_data.xml', xmlData);
-
-    const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(xmlData, 'text/xml');
-
-    let html = '<div class="feed">';
-    html += `<h1>${xmlDoc.querySelector('title').textContent}</h1>`;
-    html += `<p><strong>Updated:</strong> ${xmlDoc.querySelector('updated').textContent}</p>`;
-    html += `<p><strong>Author:</strong> ${xmlDoc.querySelector('author name').textContent}</p>`;
-
-    const entries = xmlDoc.querySelectorAll('entry');
-    entries.forEach((entry) => {
-      html += '<div class="entry">';
-      html += `<h2>${entry.querySelector('title').textContent}</h2>`;
-      html += `<p><strong>Updated:</strong> ${entry.querySelector('updated').textContent}</p>`;
-      html += `<p>${entry.querySelector('summary').textContent}</p>`;
-      
-      html += '<p><strong>Categories:</strong>';
-      const categories = entry.querySelectorAll('category');
-      categories.forEach((category, index) => {
-        html += `${category.getAttribute('term')}`;
-        if (index !== categories.length - 1) {
-          html += ', ';
-        }
-      });
-      html += '</p>';
-      
-      html += '</div>';
-    });
-
-    html += '</div>';
-    return html;
+    return xmlData;
 }
 
+async function parseRssData(xmlData) {
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlData, 'text/xml');
+    console.log("PARSING")
+    return Array.from(xmlDoc.getElementsByTagName('entry'));
+}
 
 module.exports = function (eleventyConfig) {
-    // Set Markdown library
-    eleventyConfig.setLibrary(
-        "md",
-        markdownIt({
-            html: true,
-            xhtmlOut: true,
-            linkify: true,
-            typographer: true
-        }).use(markdownItAnchor)
-    );
-    
-    eleventyConfig.addFilter('generateRssHtml', async () => {
-      return await generateRssHtml();
+  // Set Markdown library and other configurations
+  eleventyConfig.setLibrary(
+    "md",
+    markdownIt({
+      html: true,
+      xhtmlOut: true,
+      linkify: true,
+      typographer: true,
+    }).use(markdownItAnchor)
+  );
+
+  eleventyConfig.addCollection('bookmarks', async function(collectionApi) {
+    // Fetch RSS data
+    const xmlData = await fetchRssData();
+
+    // Parse RSS data to extract entries
+    const entries = await parseRssData(xmlData);
+
+    // Transform entries into bookmarks
+    const bookmarks = entries.reverse().map(entry => {
+      const title = entry.getElementsByTagName('title')[0]?.textContent || 'Untitled';
+      const link = entry.getElementsByTagName('link')[0]?.getAttribute('href') || '#';
+      const summary = entry.getElementsByTagName('summary')[0]?.textContent || '';
+      return { title, link, summary };
     });
 
-    eleventyConfig.addPassthroughCopy({ 'src/well-known': '.well-known' });
+    return bookmarks;
+  });
 
-    // Define passthrough for assets
-    eleventyConfig.addPassthroughCopy("assets");
 
-    // Add watch target for JS files (needed for JS bundling in dev mode)
-    eleventyConfig.addWatchTarget("./assets/js/");
-    // And to make this work we've to disable the .gitignore usage of eleventy.
-    eleventyConfig.setUseGitIgnore(false);
 
-    // Add 3rd party plugins
-    eleventyConfig.addPlugin(pluginRss);
-    eleventyConfig.addPlugin(pluginToc);
+  eleventyConfig.addFilter('generateRssHtml', async (entries, pageNumber, pageSize) => {
+    return await generateRssHtml(entries, pageNumber, pageSize);
+  });
 
-    // Define 11ty template formats
-    eleventyConfig.setTemplateFormats([
-        "njk",
-        "md",
-        "svg",
-        "jpg",
-        "css",
-        "png"
-    ]);
 
-    // Generate excerpt from first paragraph
-    eleventyConfig.addShortcode("excerpt", (article) =>
-        extractExcerpt(article)
-    );
+  eleventyConfig.addPassthroughCopy({ 'src/well-known': '.well-known' });
+  eleventyConfig.addPassthroughCopy("assets");
 
-    // Set absolute url
-    eleventyConfig.addNunjucksFilter("absoluteUrl", (path) => {
-        return new URL(path, siteconfig.url).toString();
-    });
+  // Add watch target for JS files
+  eleventyConfig.addWatchTarget("./assets/js/");
+  eleventyConfig.setUseGitIgnore(false);
+
+  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(pluginToc);
+
+  eleventyConfig.setTemplateFormats([
+    "njk",
+    "md",
+    "svg",
+    "jpg",
+    "css",
+    "png"
+  ]);
+
+  eleventyConfig.addShortcode("excerpt", (article) => extractExcerpt(article));
+
+  eleventyConfig.addNunjucksFilter("absoluteUrl", (path) => {
+    return new URL(path, siteconfig.url).toString();
+  });
 
     // Extract reading time
     eleventyConfig.addNunjucksFilter("readingTime", (wordcount) => {
@@ -192,29 +177,23 @@ module.exports = function (eleventyConfig) {
         return collectionApi.getAllSorted().reverse().slice(0, 5);
     });
 
-    // Plugin for setting _blank and rel=noopener on external links in markdown content
-    eleventyConfig.addPlugin(require("./_11ty/external-links.js"));
+  eleventyConfig.addPlugin(require("./_11ty/external-links.js"));
+  eleventyConfig.addPlugin(require("./_11ty/srcset.js"));
+  eleventyConfig.addPlugin(require("./_11ty/html-minify.js"));
 
-    // Plugin for transforming images
-    eleventyConfig.addPlugin(require("./_11ty/srcset.js"));
+  eleventyConfig.addPlugin(Webmentions, {
+    domain: "tomcasavant.com",
+    token: "RTDTmj2mw1t8m14tzZPqwA",
+  });
 
-    // Plugin for minifying HTML
-    eleventyConfig.addPlugin(require("./_11ty/html-minify.js"));
+  eleventyConfig.addPassthroughCopy("CNAME");
 
-    eleventyConfig.addPlugin(Webmentions, {
-      domain: "tomcasavant.com",
-      token: "RTDTmj2mw1t8m14tzZPqwA",
-    });
-    
-    eleventyConfig.addPassthroughCopy("CNAME")
-
-    return {
-        dir: {
-            // Consolidating everything below the `content` folder
-            input: "content",
-            output: "dist"
-        }
-    };
+  return {
+    dir: {
+      input: "content",
+      output: "dist"
+    }
+  };
 };
 
 // Taken from here => https://keepinguptodate.com/pages/2019/06/creating-blog-with-eleventy/

@@ -1,6 +1,25 @@
 {
-  "lastFetched": "2023-01-12T02:31:26.891Z",
+  "lastFetched": "2023-12-27T17:07:11.657Z",
   "children": [
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "asansanwal",
+        "photo": "https://webmention.io/avatar/static-cdn.mastodon.social/a971b399b2b2c66daa292ea79888a77f2f15a8d33c7f9cf611428be3f8283405.png",
+        "url": "https://hachyderm.io/@asansanwal"
+      },
+      "url": "https://mastodon.social/@mrpresidenttom/109673940634796873#favorited-by-109370445722212994",
+      "published": null,
+      "wm-received": "2023-01-12T03:33:59Z",
+      "wm-id": 1597766,
+      "wm-source": "https://brid.gy/like/mastodon/@mrpresidenttom@mastodon.social/109673940634796873/109370445722212994",
+      "wm-target": "https://tomcasavant.com/subjective-ranked-sorting-in-python/",
+      "wm-protocol": "webmention",
+      "like-of": "https://tomcasavant.com/subjective-ranked-sorting-in-python/",
+      "wm-property": "like-of",
+      "wm-private": false
+    },
     {
       "type": "entry",
       "author": {
