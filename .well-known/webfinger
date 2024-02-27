@@ -13,7 +13,7 @@
     {
       "rel": "self",
       "type": "application/activity+json",
-      "href": "https://tomkahe.com/users/mrpresidenttom"
+      "href": "https://tomkahe.com/users/tom"
     },
     {
       "rel": "http://ostatus.org/schema/1.0/subscribe",
