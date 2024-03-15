@@ -5,6 +5,9 @@ permalink: "{{ title | slugify }}/index.html"
 
 <div class="content post border-solid border-b-1 border-gray-700 pb-6">
   	<h1>{{ title }}</h1>
+  	{% if subtitle %}
+        <h2 class="italic">{{ subtitle }}</h2>
+    {% endif %}
   	<div class="mb-12 flex text-sm font-light dark:font-extralight">
 		<div class="flex">
         	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600.112 600.111" class="h-5 w-4 mr-2">
@@ -52,7 +55,7 @@ permalink: "{{ title | slugify }}/index.html"
 	<img src="{{ image }}" alt="{{ imageAlt }}" />
 	{% endif %}
   	{{ content | safe }}
-  	{% include "social.njk" %}
+  	<!-- {% include "social.njk" %} -->
 	<div class="block w-full h-1 border-solid border-b-1 border-gray-700"></div>
 	<div class="additions flex flex-col sm:flex-row gap-3 mt-6 px-4 w-full">	
 		{% set previousPost = collections.posts | getPreviousCollectionItem(page) %}	
