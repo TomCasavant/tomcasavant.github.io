@@ -4,11 +4,21 @@
   <subtitle>Programming and Other Interests</subtitle>
   <link href="/blog.rss" rel="self"/>
   <link href="https://tomcasavant.com"/>
-  <updated>2023-01-11T21:30:00Z</updated>
+  <updated>2024-03-14T00:00:00Z</updated>
   <id>https://tomcasavant.com</id>
   <author>
     <name>Tom Casavant</name>
   </author>
+  
+  <entry>
+    <title>The Problem with Hashtags</title>
+    <link href="https://tomcasavant.com/the-problem-with-hashtags/"/>
+    <updated>2024-03-14T00:00:00Z</updated>
+    <id>/the-problem-with-hashtags/</id>
+    <content type="html">&lt;p&gt;I have never been a fan of hashtags and for most of my life I’ve never bothered to use them.&lt;/p&gt;
+&lt;h1 id=&quot;the-problem&quot;&gt;The Problem&lt;/h1&gt;
+&lt;p&gt;There’s a number of things I dislike about hashtags and I am &lt;a href=&quot;https://medium.com/endless/an-open-letter-to-people-who-use-hashtags-89fb7694c97e&quot;&gt;far&lt;/a&gt; from the &lt;a...</content>
+  </entry>
   
   <entry>
     <title>Subjective Ranked Sorting in Python</title>

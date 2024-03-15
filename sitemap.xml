@@ -148,4 +148,11 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>http://localhost:8080/the-problem-with-hashtags/</loc>
+    <lastmod>2024-03-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
