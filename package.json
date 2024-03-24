@@ -23,7 +23,6 @@
     },
     "dependencies": {
         "@11ty/eleventy-img": "^4.0.2",
-        "@11ty/eleventy-plugin-rss": "^1.1.1",
         "@rollup/plugin-replace": "^2.4.2",
         "@xmldom/xmldom": "^0.7.0",
         "autoprefixer": "^10.2.6",
@@ -49,6 +48,7 @@
     },
     "devDependencies": {
         "@11ty/eleventy": "^2.0.1",
+        "@11ty/eleventy-plugin-rss": "^1.2.0",
         "concurrently": "^6.2.0",
         "eleventy-plugin-webmentions": "^2.1.0",
         "eslint": "^7.28.0",
