@@ -77,7 +77,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./assets/js/");
   eleventyConfig.setUseGitIgnore(false);
 
-  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(pluginRss, {
+    baseUrl: 'https://tomcasavant.com'
+  });
   eleventyConfig.addPlugin(pluginToc);
 
   eleventyConfig.setTemplateFormats([
@@ -90,9 +92,9 @@ module.exports = function (eleventyConfig) {
   ]);
 
   eleventyConfig.addShortcode("excerpt", (article) => extractExcerpt(article));
-  const site = require('./_data/site');
+  const site = require('./_data/site/site.js');
   eleventyConfig.addNunjucksFilter("absoluteUrl", (path) => {
-    return new URL(url, site.baseUrl).href;
+    return new URL(path, siteconfig.url).href;
   });
 
     // Extract reading time
