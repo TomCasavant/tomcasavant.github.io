@@ -38,7 +38,7 @@
 
   <url>
     <loc>http://localhost:8080/cleverslack-and-58-a-cleverbot-slack-implementation/</loc>
-    <lastmod>2017-03-30</lastmod>
+    <lastmod>2017-03-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -73,7 +73,7 @@
 
   <url>
     <loc>http://localhost:8080/slackarchiver-p-3-and-58-setting-up-your-docker/</loc>
-    <lastmod>2017-09-17</lastmod>
+    <lastmod>2017-09-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -94,49 +94,49 @@
 
   <url>
     <loc>http://localhost:8080/nfl-win-chain-dijkstra-s-algorithm/</loc>
-    <lastmod>2019-01-28</lastmod>
+    <lastmod>2019-01-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>http://localhost:8080/make-oh-io-2019/</loc>
-    <lastmod>2019-03-01</lastmod>
+    <lastmod>2019-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>http://localhost:8080/generating-heat-maps-from-gpx-files/</loc>
-    <lastmod>2019-04-18</lastmod>
+    <lastmod>2019-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>http://localhost:8080/a-curious-case-of-osu-financial-aid/</loc>
-    <lastmod>2019-04-19</lastmod>
+    <lastmod>2019-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>http://localhost:8080/converting-old-radio-into-bluetooth-radio/</loc>
-    <lastmod>2019-08-25</lastmod>
+    <lastmod>2019-08-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>http://localhost:8080/markov-tweet-generator/</loc>
-    <lastmod>2019-12-28</lastmod>
+    <lastmod>2019-12-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>http://localhost:8080/ketchup-cake/</loc>
-    <lastmod>2023-01-05</lastmod>
+    <lastmod>2023-01-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -150,7 +150,14 @@
 
   <url>
     <loc>http://localhost:8080/the-problem-with-hashtags/</loc>
-    <lastmod>2024-03-14</lastmod>
+    <lastmod>2024-03-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://localhost:8080/experimenting-with-activitypub-minetest-activitypub-bridge/</loc>
+    <lastmod>2024-03-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>

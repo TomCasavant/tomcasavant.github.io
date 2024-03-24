@@ -11,6 +11,16 @@
   </author>
   
   <entry>
+    <title>Experimenting with ActivityPub: Minetest ActivityPub Bridge</title>
+    <link href="https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/"/>
+    <updated>2024-03-14T00:00:00Z</updated>
+    <id>/experimenting-with-activitypub-minetest-activitypub-bridge/</id>
+    <content type="html">&lt;p&gt;I’ve found the easiest way to learn how software works is to try and do something stupid with it.&lt;/p&gt;
+&lt;p&gt;ActivityPub is a decentralized social networking protocol and is the thing that lets Mastodon servers communicate with Pixelfed servers communicate with Threads communicate with Flipboard and on and on.
+I’ve done &lt;a href=&quot;/the-problem-with-hashtags&quot;&gt;a bit&lt;/a&gt; of &lt;a...</content>
+  </entry>
+  
+  <entry>
     <title>The Problem with Hashtags</title>
     <link href="https://tomcasavant.com/the-problem-with-hashtags/"/>
     <updated>2024-03-14T00:00:00Z</updated>
