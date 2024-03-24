@@ -90,9 +90,9 @@ module.exports = function (eleventyConfig) {
   ]);
 
   eleventyConfig.addShortcode("excerpt", (article) => extractExcerpt(article));
-
+  const site = require('./_data/site');
   eleventyConfig.addNunjucksFilter("absoluteUrl", (path) => {
-    return new URL(path, siteconfig.url).toString();
+    return new URL(url, site.baseUrl).href;
   });
 
     // Extract reading time
