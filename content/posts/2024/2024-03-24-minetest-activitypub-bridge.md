@@ -17,7 +17,7 @@ It also has an in-game chat window for communicating with other players on a giv
 
 But what if it could do more than that? What if you could send and receive messages from anyone and anywhere? 
 
-"But Tom," you ask, 'won't that just clog up the chat with pointless messages from strangers?'
+"But Tom," you ask, "won't that just clog up the chat with pointless messages from strangers?"
 And yes, you would be correct. But (TODO: COME UP WITH REASON WHY THIS IS USEFUL).
  
 ## The Plan
