@@ -4,11 +4,22 @@
   <subtitle>Programming and Other Interests</subtitle>
   <link href="/blog.rss" rel="self"/>
   <link href="https://tomcasavant.com"/>
-  <updated>2024-03-14T00:00:00Z</updated>
+  <updated>2024-04-01T00:00:00Z</updated>
   <id>https://tomcasavant.com</id>
   <author>
     <name>Tom Casavant</name>
   </author>
+  
+  <entry>
+    <title>Tomline</title>
+    <link href="https://tomcasavant.com/tomline/"/>
+    <updated>2024-04-01T00:00:00Z</updated>
+    <id>/tomline/</id>
+    <content type="html">&lt;p&gt;Everyone on mastodon is always ‘federated timeline’ this and ‘local timeline’ that but nobody ever asks, where’s OUR timeline? Well everything is about to change as we are &lt;em&gt;proud&lt;/em&gt; to announce&lt;/p&gt;
+&lt;h1 id=&quot;the-tomline.&quot;&gt;The Tomline.&lt;/h1&gt;
+&lt;p&gt;(The Tomline is live @ &lt;a href=&quot;https://tomkahe.com/public&quot;&gt;https://tomkahe.com/public&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The Tomline is an innovative design focused on...</content>
+  </entry>
   
   <entry>
     <title>Experimenting with ActivityPub: Minetest ActivityPub Bridge</title>
