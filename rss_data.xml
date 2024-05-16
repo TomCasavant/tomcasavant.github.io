@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Tom&#x27;s Bookmarks</title>
+  <link rel="self" href="https://tomcasavant.glitch.me/index.xml"/>
+  <id>https://tomcasavant.glitch.me/</id>
+  <updated>2023-11-17T13:13:45.000Z</updated>
+  <author>
+    <name>tom</name>
+  </author>
+    <entry>
+      <title>David Attenborough narrates your life.</title>
+      <link rel="alternate" href="https://github.com/cbh123/narrator"/>
+      <id>https://tomcasavant.glitch.me/bookmark/65</id>
+      <updated>2023-11-17T13:13:45.000Z</updated>
+        <summary type="html"> </summary>
+        <category term="github" />
+        <category term="gpt" />
+        <category term="ai" />
+    </entry>
+    <entry>
+      <title>Dinosaurs in Love - Fern Rosenthal</title>
+      <link rel="alternate" href="https://youtu.be/ujby_E-5obQ"/>
+      <id>https://tomcasavant.glitch.me/bookmark/64</id>
+      <updated>2023-11-16T02:27:22.000Z</updated>
+        <summary type="html">2020 song by Fenn Rosenthal (Tom Rosenthal&#x27;s daughter)</summary>
+        <category term="music" />
+        <category term="youtube" />
+        <category term="song" />
+        <category term="rosenthal" />
+    </entry>
+    <entry>
+      <title>I Converted Book I of The Sequences Into A Zoomer-Readable Format</title>
+      <link rel="alternate" href="https://www.lesswrong.com/posts/Bfq6ncLfYdtCb6sat/i-converted-book-i-of-the-sequences-into-a-zoomer-readable"/>
+      <id>https://tomcasavant.glitch.me/bookmark/63</id>
+      <updated>2023-11-14T16:23:03.000Z</updated>
+        <summary type="html">&quot;What, then, does manage to hold the fickle eyeballs of zoomers like me? Well, TikTok, mostly. However, there is one (very popular) genre of TikTok video worth investigating. In this genre of video, a Reddit post is broken into sub-paragraph chunks of text, and these chunks are sequentially rendered onscreen while a text-to-speech program reads them to the user. The text is overlaid upon a background video, which is either gameplay from the mobile game Subway Surfers, or parkour footage from Minecraft.&quot;</summary>
+        <category term="tiktok" />
+        <category term="books" />
+        <category term="reading" />
+    </entry>
+    <entry>
+      <title>ForgeFed</title>
+      <link rel="alternate" href="https://forgefed.org/"/>
+      <id>https://tomcasavant.glitch.me/bookmark/62</id>
+      <updated>2023-11-14T03:07:32.000Z</updated>
+        <summary type="html">ForgeFed is a federation protocol for software forges and code collaboration tools for the software development lifecycle and ecosystem. This includes repository hosting websites, issue trackers, code review applications, and more. ForgeFed provides a common substrate for people to create interoperable code collaboration websites and applications.</summary>
+        <category term="activitypub" />
+        <category term="fediverse" />
+        <category term="git" />
+        <category term="opensource" />
+        <category term="forgefed" />
+    </entry>
+    <entry>
+      <title>Activitypub Academy</title>
+      <link rel="alternate" href="https://seb.jambor.dev/posts/activitypub-academy/"/>
+      <id>https://tomcasavant.glitch.me/bookmark/61</id>
+      <updated>2023-11-13T22:44:30.000Z</updated>
+        <summary type="html">A fully functioning Mastodon instance that helps you to understand ActivityPub</summary>
+        <category term="activitypub" />
+        <category term="mastodon" />
+    </entry>
+    <entry>
+      <title>Scotto34 (PCB Edition) Keyboard</title>
+      <link rel="alternate" href="https://scottokeebs.com/blogs/keyboards/scotto34-pcb-keyboard"/>
+      <id>https://tomcasavant.glitch.me/bookmark/60</id>
+      <updated>2023-11-09T17:46:58.000Z</updated>
+        <summary type="html">The Scotto34 (PCB Edition) is a low-profile 34-key split monoblock ortholinear keyboard that uses 18x17mm spaced Choc switches, hotswap sockets, and an exposed controller in the middle. Uses a raspberry pi pico.</summary>
+        <category term="raspberrypi" />
+        <category term="diy" />
+        <category term="keyboard" />
+        <category term="mechanicalkeyboard" />
+    </entry>
+    <entry>
+      <title>Retro Lite CM4</title>
+      <link rel="alternate" href="https://github.com/StonedEdge/Retro-Lite-CM4"/>
+      <id>https://tomcasavant.glitch.me/bookmark/59</id>
+      <updated>2023-11-09T17:20:37.000Z</updated>
+        <summary type="html">A CM4 gaming handheld, designed with the Switch Lite aesthetics in mind. Contains all STL files and code to build your own landscape retro handheld system.</summary>
+        <category term="github" />
+        <category term="emulation" />
+        <category term="handheld" />
+        <category term="diy" />
+        <category term="raspberrypi" />
+    </entry>
+    <entry>
+      <title>BrachioGraph</title>
+      <link rel="alternate" href="https://www.brachiograph.art/en/latest/"/>
+      <id>https://tomcasavant.glitch.me/bookmark/58</id>
+      <updated>2023-11-07T14:19:03.000Z</updated>
+        <summary type="html">The world’s cheapest, simplest possible pen-plotter.</summary>
+        <category term="penplotter" />
+        <category term="opensource" />
+        <category term="diy" />
+        <category term="art" />
+    </entry>
+    <entry>
+      <title>Mobilizon- find, create and organize events.</title>
+      <link rel="alternate" href="https://framagit.org/framasoft/mobilizon"/>
+      <id>https://tomcasavant.glitch.me/bookmark/57</id>
+      <updated>2023-11-06T15:28:32.000Z</updated>
+        <summary type="html">Mobilizon is an online tool to help manage your events, your profiles and your groups.</summary>
+        <category term="git" />
+        <category term="fediverse" />
+        <category term="activitypub" />
+    </entry>
+    <entry>
+      <title>Head(amame) - DIY Headphones</title>
+      <link rel="alternate" href="https://headamame.com/"/>
+      <id>https://tomcasavant.glitch.me/bookmark/56</id>
+      <updated>2023-11-05T02:37:32.000Z</updated>
+        <summary type="html">3D printable headphones</summary>
+        <category term="3DPrinting" />
+        <category term="audio" />
+        <category term="diy" />
+    </entry>
+    <entry>
+      <title>PSPi 6</title>
+      <link rel="alternate" href="https://othermod.com/pspi-compute/"/>
+      <id>https://tomcasavant.glitch.me/bookmark/55</id>
+      <updated>2023-10-31T17:20:07.000Z</updated>
+        <summary type="html">Convert a PSP into a retropie handheld,</summary>
+        <category term="PSP" />
+        <category term="PSPi" />
+        <category term="gaming" />
+        <category term="retrogaming" />
+        <category term="retropie" />
+        <category term="mod" />
+    </entry>
+    <entry>
+      <title>Geographical Adventures</title>
+      <link rel="alternate" href="https://github.com/SebLague/Geographical-Adventures"/>
+      <id>https://tomcasavant.glitch.me/bookmark/54</id>
+      <updated>2023-10-28T14:21:31.000Z</updated>
+        <summary type="html">A work-in-progress geography game about flying and delivering packages to different countries around the world.
+Made in the Unity game engine.</summary>
+        <category term="github" />
+        <category term="gaming" />
+        <category term="opensource" />
+    </entry>
+    <entry>
+      <title>Pico W Air Quality Monitoring w/ PM 2.5 Sensor</title>
+      <link rel="alternate" href="https://github.com/DPHacks/picow-air"/>
+      <id>https://tomcasavant.glitch.me/bookmark/53</id>
+      <updated>2023-10-26T20:17:15.000Z</updated>
+        <summary type="html">The Pico W Air board is tiny little device that tracks PM air quality. The board has a modular design and you can add additional sensors.
+
+The board supports MQTT with the default firmware so it might be interesting to hook into homeassistant</summary>
+        <category term="raspberrypi" />
+        <category term="homeassistant" />
+        <category term="SmartHome" />
+        <category term="github" />
+        <category term="diy" />
+    </entry>
+    <entry>
+      <title>Build your own Game Boy Mini Camera</title>
+      <link rel="alternate" href="https://gameboycamera.super.site/projects/game-boy-mini-camera"/>
+      <id>https://tomcasavant.glitch.me/bookmark/52</id>
+      <updated>2023-10-26T18:24:40.000Z</updated>
+        <summary type="html">Created by Christopher Graves - A Game Boy Camera redesigned into the size of a typical Game Boy cart. Forgoing the capability of “selfies”, it has been engineered for a more compact carry.</summary>
+        <category term="gameboy" />
+        <category term="photography" />
+        <category term="nintendo" />
+        <category term="mod" />
+    </entry>
+    <entry>
+      <title>Zelda Ocarina of Time Circuit | Mario Kart 8</title>
+      <link rel="alternate" href="https://youtu.be/g-hUDegnk1I"/>
+      <id>https://tomcasavant.glitch.me/bookmark/51</id>
+      <updated>2023-10-25T16:29:20.000Z</updated>
+        <summary type="html"> </summary>
+        <category term="gaming" />
+        <category term="mod" />
+        <category term="nintendo" />
+        <category term="zelda" />
+        <category term="MarioKart" />
+    </entry>
+    <entry>
+      <title>The Waluigi Effect - LessWrong</title>
+      <link rel="alternate" href="https://www.lesswrong.com/posts/D7PumeYTDPfBTp3i7/the-waluigi-effect-mega-post"/>
+      <id>https://tomcasavant.glitch.me/bookmark/50</id>
+      <updated>2023-10-24T17:21:25.000Z</updated>
+        <summary type="html">A mechanistic explanation of the Waluigi Effect and other bizarre &quot;semiotic&quot; phenomena which arise within large language models such as GPT-3/3.5/4 and their variants (ChatGPT, Sydney, etc). This article will be folklorish to some readers, and profoundly novel to others.</summary>
+        <category term="gpt" />
+        <category term="chatgpt" />
+        <category term="theory" />
+        <category term="LLM" />
+        <category term="AI" />
+    </entry>
+    <entry>
+      <title>Fediverse Redirector</title>
+      <link rel="alternate" href="https://git.kaki87.net/KaKi87/userscripts/src/branch/master/fediverseRedirector"/>
+      <id>https://tomcasavant.glitch.me/bookmark/49</id>
+      <updated>2023-10-24T15:59:36.000Z</updated>
+        <summary type="html">Redirect any Fediverse app to your favourite one.</summary>
+        <category term="fediverse" />
+        <category term="javascript" />
+        <category term="userscript" />
+        <category term="mastodon" />
+        <category term="pixelfed" />
+    </entry>
+    <entry>
+      <title>Install Zerotier on the Steam Deck</title>
+      <link rel="alternate" href="https://www.reddit.com/r/SteamDeck/comments/x9c59m/install_zerotier_and_other_pacman_apps/"/>
+      <id>https://tomcasavant.glitch.me/bookmark/48</id>
+      <updated>2023-10-23T20:12:50.000Z</updated>
+        <summary type="html">Bookmarking this because there&#x27;s a non-zero chance I&#x27;ll have to figure out how to set this up again- maybe after the update to 3.5</summary>
+        <category term="zerotier" />
+        <category term="vpn" />
+        <category term="SteamDeck" />
+        <category term="pacman" />
+        <category term="reddit" />
+    </entry>
+    <entry>
+      <title>Verbatim: What is a Photocopier?</title>
+      <link rel="alternate" href="https://youtu.be/PZbqAMEwtOE"/>
+      <id>https://tomcasavant.glitch.me/bookmark/47</id>
+      <updated>2023-10-22T20:18:28.000Z</updated>
+        <summary type="html">In 2010, the Cuyahoga County Recorder&#x27;s Office in Ohio was sued when it decided to charge $2 per page for photocopies of public documents. 
+
+This is a re-enacted scene of a deposition from that court case. The dialogue is presented verbatim.</summary>
+        <category term="youtube" />
+        <category term="humor" />
+        <category term="ohio" />
+        <category term="nytimes" />
+    </entry>
+    <entry>
+      <title>A Q&amp;A with Casey Kolderup, Postmarks creator</title>
+      <link rel="alternate" href="https://blog.glitch.com/post/bringing-fun-to-the-fediverse-a-qa-with-casey-kolderup"/>
+      <id>https://tomcasavant.glitch.me/bookmark/46</id>
+      <updated>2023-10-22T19:52:43.000Z</updated>
+        <summary type="html"> </summary>
+        <category term="postmarks" />
+        <category term="fediverse" />
+        <category term="activitypub" />
+        <category term="glitch" />
+    </entry>
+</feed>

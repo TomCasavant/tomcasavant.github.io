@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Tom Casavant</title>
+  <subtitle>Programming and Other Interests</subtitle>
+  <link href="/blog.rss" rel="self"/>
+  <link href="https://tomcasavant.com"/>
+  <updated>2024-04-01T00:00:00Z</updated>
+  <id>https://tomcasavant.com</id>
+  <author>
+    <name>Tom Casavant</name>
+  </author>
+  
+  <entry>
+    <title>Tomline</title>
+    <link href="https://tomcasavant.com/tomline/"/>
+    <updated>2024-04-01T00:00:00Z</updated>
+    <id>/tomline/</id>
+    <content type="html">&lt;p&gt;Everyone on mastodon is always ‘federated timeline’ this and ‘local timeline’ that but nobody ever asks, where’s OUR timeline? Well everything is about to change as we are &lt;em&gt;proud&lt;/em&gt; to announce&lt;/p&gt;
+&lt;h1 id=&quot;the-tomline.&quot;&gt;The Tomline.&lt;/h1&gt;
+&lt;p&gt;(The Tomline is live @ &lt;a href=&quot;https://tomkahe.com/public&quot;&gt;https://tomkahe.com/public&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;The Tomline is an innovative design focused on...</content>
+  </entry>
+  
+  <entry>
+    <title>Experimenting with ActivityPub: Minetest ActivityPub Bridge</title>
+    <link href="https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/"/>
+    <updated>2024-03-14T00:00:00Z</updated>
+    <id>/experimenting-with-activitypub-minetest-activitypub-bridge/</id>
+    <content type="html">&lt;p&gt;I’ve found the easiest way to learn how software works is to try and do something stupid with it.&lt;/p&gt;
+&lt;p&gt;ActivityPub is a decentralized social networking protocol and is the thing that lets Mastodon servers communicate with Pixelfed servers communicate with Threads communicate with Flipboard and on and on.
+I’ve done &lt;a href=&quot;/the-problem-with-hashtags&quot;&gt;a bit&lt;/a&gt; of &lt;a...</content>
+  </entry>
+  
+  <entry>
+    <title>The Problem with Hashtags</title>
+    <link href="https://tomcasavant.com/the-problem-with-hashtags/"/>
+    <updated>2024-03-14T00:00:00Z</updated>
+    <id>/the-problem-with-hashtags/</id>
+    <content type="html">&lt;p&gt;I have never been a fan of hashtags and for most of my life I’ve never bothered to use them.&lt;/p&gt;
+&lt;h1 id=&quot;the-problem&quot;&gt;The Problem&lt;/h1&gt;
+&lt;p&gt;There’s a number of things I dislike about hashtags and I am &lt;a href=&quot;https://medium.com/endless/an-open-letter-to-people-who-use-hashtags-89fb7694c97e&quot;&gt;far&lt;/a&gt; from the &lt;a...</content>
+  </entry>
+  
+  <entry>
+    <title>Subjective Ranked Sorting in Python</title>
+    <link href="https://tomcasavant.com/subjective-ranked-sorting-in-python/"/>
+    <updated>2023-01-11T21:30:00Z</updated>
+    <id>/subjective-ranked-sorting-in-python/</id>
+    <content type="html">&lt;p&gt;I was working on a project and ran into a problem where I had to rank a set of objects based on an subjective value. My initial thought was to use some sort of bracket system&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2023/icecream-bracket.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;But that doesn’t fully sort out my values (Is “Vanilla” better than “Walnut”?), the next thought was writing a function to repeatedly loop through...</content>
+  </entry>
+  
+  <entry>
+    <title>Ketchup Cake</title>
+    <link href="https://tomcasavant.com/ketchup-cake/"/>
+    <updated>2023-01-05T00:00:00Z</updated>
+    <id>/ketchup-cake/</id>
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;font size=&quot;1&quot;&gt;Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup&lt;/font&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It’s all around you, everywhere you turn you hear them yell&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;font size=&quot;2&quot;&gt;Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup, Ketchup&lt;/font&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You start to run, you don’t know where you’re going, all you know is that...</content>
+  </entry>
+  
+  <entry>
+    <title>Markov Tweet Generator</title>
+    <link href="https://tomcasavant.com/markov-tweet-generator/"/>
+    <updated>2019-12-28T00:00:00Z</updated>
+    <id>/markov-tweet-generator/</id>
+    <content type="html">&lt;p&gt;A &lt;a href=&quot;https://en.wikipedia.org/wiki/Markov_chain&quot;&gt;Markov Chain&lt;/a&gt; is a model that finds the probability of an event occurring based on the current state. It takes a large text input and develops a statistical model based on that input text.&lt;/p&gt;
+&lt;p&gt;For example, if the test inputted was&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;a dog and a frog
+a cat in a hat&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Then when generating a sentence...</content>
+  </entry>
+  
+  <entry>
+    <title>Converting Old Radio into Bluetooth Radio</title>
+    <link href="https://tomcasavant.com/converting-old-radio-into-bluetooth-radio/"/>
+    <updated>2019-08-25T00:00:00Z</updated>
+    <id>/converting-old-radio-into-bluetooth-radio/</id>
+    <content type="html">&lt;p&gt;&lt;img src=&quot;https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/OldRadio.jpg?raw=true&quot; alt=&quot;&quot; title=&quot;The Old Radio&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Around a decade ago I purchased this old radio from a garage sale to listen to music and other radio programs. It worked well for me for a few years, but it quickly fell out of use when I got my first mp3 player. I never bothered to...</content>
+  </entry>
+  
+  <entry>
+    <title>A Curious Case of OSU Financial Aid</title>
+    <link href="https://tomcasavant.com/a-curious-case-of-osu-financial-aid/"/>
+    <updated>2019-04-19T00:00:00Z</updated>
+    <id>/a-curious-case-of-osu-financial-aid/</id>
+    <content type="html">&lt;p&gt;Not long ago I had to deal with the unfortunate system that is &lt;em&gt;Ohio State bureaucracy&lt;/em&gt;. This is that story.&lt;/p&gt;
+&lt;h2 id=&quot;dr.-e%3A-the-premise&quot;&gt;Dr. E: The Premise&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Wednesday, October 31th 2018&lt;/em&gt;: Midterm 2&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It was a cold Wednesday morning and by cold I mean a cool 62°F. I was on my way to my 8 AM software algorithms course. The course was taught by a...</content>
+  </entry>
+  
+  <entry>
+    <title>Generating Heat Maps from GPX Files</title>
+    <link href="https://tomcasavant.com/generating-heat-maps-from-gpx-files/"/>
+    <updated>2019-04-18T00:00:00Z</updated>
+    <id>/generating-heat-maps-from-gpx-files/</id>
+    <content type="html">&lt;p&gt;&lt;img src=&quot;https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/heatmap.png?raw=true&quot; alt=&quot;&quot; title=&quot;Final generated heat map&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;I own a smart watch (vivosport) that tracks my runs and other activities. The watch has a built-in GPS which will track my location. All of this data eventually gets transferred to Garmin, where I can view individual...</content>
+  </entry>
+  
+  <entry>
+    <title>Make OH/IO 2019</title>
+    <link href="https://tomcasavant.com/make-oh-io-2019/"/>
+    <updated>2019-03-01T00:00:00Z</updated>
+    <id>/make-oh-io-2019/</id>
+    <content type="html">&lt;p&gt;Recently I had the opportunity to participate in a makeathon (a hackathon but focused on hardware) called Make OH/IO with two of my roommates, Spencer Christian (&lt;a href=&quot;https://www.linkedin.com/in/spencer-christian/&quot;&gt;Linkedin&lt;/a&gt;) and Kwangeon Kim.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/make19Team.jpg?raw=true&quot; alt=&quot;&quot;...</content>
+  </entry>
+  
+  <entry>
+    <title>NFL Win-Chain (Dijkstra&#39;s Algorithm)</title>
+    <link href="https://tomcasavant.com/nfl-win-chain-dijkstra-s-algorithm/"/>
+    <updated>2019-01-28T00:00:00Z</updated>
+    <id>/nfl-win-chain-dijkstra-s-algorithm/</id>
+    <content type="html">&lt;p&gt;Last semester I was taking a course at OSU called Foundations of Software Engineering. Towards the end of the course we learned about different algorithms to find paths between different nodes on a graph. One such algorithm was called Dijkstra’s algorithm. I wanted to experiment with this algorithm, so I decided to write a program that would create nodes for each of the 32 NFL teams and have...</content>
+  </entry>
+  
+  <entry>
+    <title>Hack OH/IO 2018</title>
+    <link href="https://tomcasavant.com/hack-oh-io-2018/"/>
+    <updated>2019-01-26T22:37:09Z</updated>
+    <id>/hack-oh-io-2018/</id>
+    <content type="html">&lt;p&gt;Back in November, my brother and I decided to participate in the Hack OH/IO program (&lt;a href=&quot;http://hack.osu.edu/&quot;&gt;http://hack.osu.edu/)&lt;/a&gt; that takes place at The Ohio State University. We started out with a plan to build a RC car out of a raspberry pi and hardware provided by the Hack OH/IO organization. Unfortunately when we arrived to the hackathon it seemed that their parts list was...</content>
+  </entry>
+  
+  <entry>
+    <title>Superpower Generator&amp;#58; Programming an Alexa skill with Reddit RSS Feeds</title>
+    <link href="https://tomcasavant.com/superpower-generator-and-58-programming-an-alexa-skill-with-reddit-rss-feeds/"/>
+    <updated>2018-06-11T19:46:01Z</updated>
+    <id>/superpower-generator-and-58-programming-an-alexa-skill-with-reddit-rss-feeds/</id>
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;Over the past year, I’ve been programming Alexa skills* after I learned how to do it back in November. However, I’ve neglected to write a post on how to make one…until now.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;*The one I’m creating in this post is &lt;a...</content>
+  </entry>
+  
+  <entry>
+    <title>SlackArchiver (p.3)&amp;#58; Setting up your Docker</title>
+    <link href="https://tomcasavant.com/slackarchiver-p-3-and-58-setting-up-your-docker/"/>
+    <updated>2017-09-17T01:34:53Z</updated>
+    <id>/slackarchiver-p-3-and-58-setting-up-your-docker/</id>
+    <content type="html">&lt;p&gt;In the previous post, we set up our database to save messages from Slack. In this final post we just need to setup our Docker (&lt;a href=&quot;https://www.docker.com/&quot;&gt;https://www.docker.com/&lt;/a&gt;). The reason, that we are creating a Docker, is that this will allow you to easily transfer your program to other computers without needing to go through and install all dependencies. The first thing we’re...</content>
+  </entry>
+  
+  <entry>
+    <title>SlackArchiver (p.2)&amp;#58; Setting up the Database</title>
+    <link href="https://tomcasavant.com/slackarchiver-p-2-and-58-setting-up-the-database/"/>
+    <updated>2017-09-16T17:57:25Z</updated>
+    <id>/slackarchiver-p-2-and-58-setting-up-the-database/</id>
+    <content type="html">&lt;p&gt;In the previous post, we developed a program that can read all previous slack posts, as well as actively listen for current slack posts. Now, we need to create a new function that will take all the data it reads, and put it into a database (we’ll be using Mongo as our database manager). This function is actually quite simple, it opens the database, then for every slack post it was given it will...</content>
+  </entry>
+  
+  <entry>
+    <title>SlackArchiver&amp;#58; Using Mongo to archive Slack messages (Featuring &amp;#34;Docker&amp;#34;)</title>
+    <link href="https://tomcasavant.com/slackarchiver-and-58-using-mongo-to-archive-slack-messages-featuring-and-34-docker-and-34/"/>
+    <updated>2017-09-02T19:36:10Z</updated>
+    <id>/slackarchiver-and-58-using-mongo-to-archive-slack-messages-featuring-and-34-docker-and-34/</id>
+    <content type="html">&lt;p&gt;The purpose of this program is to read messages from Slack (&lt;a href=&quot;https://slack.com/&quot;&gt;https://slack.com/&lt;/a&gt;) and store them in a database using Mongo. We are also going to build all of this within a Docker, so that we can easily recreate the environment this program needs to run properly on other systems. Requirements:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Install docker from &lt;a...</content>
+  </entry>
+  
+  <entry>
+    <title>AutoTLDR&amp;#58; Summarizing News on Twitter</title>
+    <link href="https://tomcasavant.com/autotldr-and-58-summarizing-news-on-twitter/"/>
+    <updated>2017-04-05T23:24:20Z</updated>
+    <id>/autotldr-and-58-summarizing-news-on-twitter/</id>
+    <content type="html">&lt;p&gt;On Reddit, there is a bot named autotldr (&lt;a href=&quot;https://www.reddit.com/user/autotldr&quot;&gt;https://www.reddit.com/user/autotldr&lt;/a&gt;) who uses one of the various text summarizer websites (i.e. &lt;a href=&quot;http://textsummarization.net/text-summarizer&quot;&gt;http://textsummarization.net/text-summarizer&lt;/a&gt;) to simplify different news articles posted on Reddit in a few sentences. This intrigued me, so I...</content>
+  </entry>
+  
+  <entry>
+    <title>Playlist Creator&amp;#58; A Python Spotify Creation</title>
+    <link href="https://tomcasavant.com/playlist-creator-and-58-a-python-spotify-creation/"/>
+    <updated>2017-03-30T20:25:12Z</updated>
+    <id>/playlist-creator-and-58-a-python-spotify-creation/</id>
+    <content type="html">&lt;p&gt;On my Spotify account, there is a single playlist, a playlist with 14 hours worth of music that has been accumulating for months upon months. One obvious problem with this is that I don’t want to listen to all this music all the time, I should have separate playlists depending on whether I am going for a run or trying to get to sleep. That’s where my python programming came in handy. A simple...</content>
+  </entry>
+  
+  <entry>
+    <title>CleverSlack&amp;#58; A Cleverbot/Slack Implementation</title>
+    <link href="https://tomcasavant.com/cleverslack-and-58-a-cleverbot-slack-implementation/"/>
+    <updated>2017-03-30T00:49:53Z</updated>
+    <id>/cleverslack-and-58-a-cleverbot-slack-implementation/</id>
+    <content type="html">&lt;p&gt;Cleverbot recently released an official API (that allows for 5,000 free requests every month) and with that, I wanted to experiment with this chat AI. I started using a website called Slack &lt;a href=&quot;https://slack.com/&quot;&gt;(https://slack.com/&lt;/a&gt;) which is basically an easy way to communicate in large groups. So, I decided to combine the two and create a bot that would talk to people in this group...</content>
+  </entry>
+  
+  <entry>
+    <title>Markov Chain&amp;#58; A Harry Potter Quote/Tweet Generator</title>
+    <link href="https://tomcasavant.com/markov-chain-and-58-a-harry-potter-quote-tweet-generator/"/>
+    <updated>2017-02-22T22:57:58Z</updated>
+    <id>/markov-chain-and-58-a-harry-potter-quote-tweet-generator/</id>
+    <content type="html">&lt;p&gt;I was looking into different python libraries that might be interesting to use, when I encountered the markovify library (&lt;a href=&quot;https://github.com/jsvine/markovify&quot;&gt;https://github.com/jsvine/markovify&lt;/a&gt;). This library allows the programmer to simply create Markov chains from pieces of text.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;pip install markovify&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A Markov chain basically uses...</content>
+  </entry>
+  
+  <entry>
+    <title>Twitter Profile Updater</title>
+    <link href="https://tomcasavant.com/twitter-profile-updater/"/>
+    <updated>2016-07-21T22:11:06Z</updated>
+    <id>/twitter-profile-updater/</id>
+    <content type="html">&lt;p&gt;Recently, I have been playing around with Twython (&lt;a href=&quot;https://twython.readthedocs.io/en/latest/&quot;&gt;https://twython.readthedocs.io/en/latest/&lt;/a&gt;), a Twitter Api wrapper for Python. I decided to write a simple script that would automatically update your profile with a new color scheme, avatar, and banner (or background). I have it changing my profile every hour. The first step was creating...</content>
+  </entry>
+  
+  <entry>
+    <title>Making a Chrome Extension</title>
+    <link href="https://tomcasavant.com/making-a-chrome-extension/"/>
+    <updated>2015-04-03T17:36:00Z</updated>
+    <id>/making-a-chrome-extension/</id>
+    <content type="html">&lt;p&gt;The first part of making an extension for chrome is that you need the manifest file, so create a text file and name is manifest.json The manifest file basically says what your project is all about, and different things your project needs to run. Open the manifest file in a text editor and type in the “manifest_version”, you project name, it’s description, and it’s version…as...</content>
+  </entry>
+  
+  <entry>
+    <title>Setting up your Java IDE for &amp;#34;Dumb&amp;#34; phone mobile apps</title>
+    <link href="https://tomcasavant.com/setting-up-your-java-ide-for-and-34-dumb-and-34-phone-mobile-apps/"/>
+    <updated>2015-03-12T21:26:47Z</updated>
+    <id>/setting-up-your-java-ide-for-and-34-dumb-and-34-phone-mobile-apps/</id>
+    <content type="html">&lt;p&gt;To begin making an app for your “dumb” phone you have to setup the IDE. So you need to download the following things to your computer:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NetBeans - &lt;a href=&quot;https://netbeans.org/downloads/index.html&quot;&gt;https://netbeans.org/downloads/index.html&lt;/a&gt; Make sure you choose the one that says “All” so you can get Java ME Java JDK - &lt;a...</content>
+  </entry>
+  
+  <entry>
+    <title>Programming a python Controller for Pianobar (Pandora) with your Wii Remote</title>
+    <link href="https://tomcasavant.com/programming-a-python-controller-for-pianobar-pandora-with-your-wii-remote/"/>
+    <updated>2015-03-02T23:05:28Z</updated>
+    <id>/programming-a-python-controller-for-pianobar-pandora-with-your-wii-remote/</id>
+    <content type="html">&lt;p&gt;Recently I received a raspberry pi(&lt;a href=&quot;http://www.raspberrypi.org/&quot;&gt;http://www.raspberrypi.org/&lt;/a&gt;) as a Christmas gift. Soon after I was introduced to pianobar, a terminal based Pandora (&lt;a href=&quot;http://pandora.com&quot;&gt;http://pandora.com&lt;/a&gt;) client for linux. After awhile I began to get annoyed by having to grab the keyboard whenever I wanted to “like” or “skip” a song. Then, I saw the wii...</content>
+  </entry>
+</feed>
