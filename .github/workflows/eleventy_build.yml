@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 16
 
-      - run: npm ci
+      - run: cd eleventy-theme-update && npm ci
 
       - name: Eleventy
         run: cd eleventy-theme-update && DEBUG=Eleventy* npx @11ty/eleventy
