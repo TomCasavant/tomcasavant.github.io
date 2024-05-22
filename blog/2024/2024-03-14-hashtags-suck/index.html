@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Problem with Hashtags</title>
+		<meta name="description" content="">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Tom Casavant">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Tom Casavant">
+		<link rel="preconnect" href="https://fonts.gstatic.com"><link data-href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"><style data-href='https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'>/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwaPGQ3q5d0N7w.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwiPGQ3q5d0.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #BAB2B5;
+	--color-gray-50: #123C69;
+	--color-gray-90: #AC3B61;
+
+	--background-color: #EDC7B7;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #AC3B61;
+	--text-color-link-active: #2E3944;
+	--text-color-link-visited: #DD3B61;
+
+	--syntax-tab-size: 2;
+}
+
+/*@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above 
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #212A31;
+	}
+}*/
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	border: 1px solid #000;
+	text-align: center;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	flex-basis: calc(100% - 1.5rem);
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-subtitle {
+	font-size: 0.8em;
+	font-weight: 300;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-align: center;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+.bookmark {
+	background-color: #EDC7B7;
+	border: 1px solid #000;
+	box-shaddow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bookmark-title {
+	text-align: center;
+}
+
+.bookmark-summary {
+	text-align: center;
+	font-size: 0.75em;
+}
+
+.activities {
+    border: 0.1px solid;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Lato', normal;
+}
+
+.activities-header {
+    text-align: left;
+}
+
+.activities tr:nth-child(even) {
+    background-color: #DCB6A6; /* or any other slightly darker color you prefer */
+}
+
+profile-image {
+	width: 0.1em;
+	height: 0.1em;
+}
+
+.message-box {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center; /* Center the icons vertically */
+}
+
+.icon {
+    width: 24px; /* Adjust as needed */
+    height: 24px; /* Adjust as needed */
+    margin-right: 8px; /* Space between icons, adjust as needed */
+    fill: currentColor; /* Ensures the color of the icons can be controlled with text color */
+}
+
+.message-box svg {
+    display: block;
+    vertical-align: middle;
+}
+
+.message-box svg:last-child {
+    margin-right: 0; /* Remove margin from the last icon */
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr; /* 2 rows */
+  grid-gap: 10px;
+}
+
+.image-item {
+  width: 100%;
+  height: 0;
+  padding-top: 200%; /* Maintain aspect ratio (2:1) for portrait-oriented images */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Tom Casavant</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/bookmarks/">Bookmarks</a></li>
+					<li class="nav-item"><a href="/food/">Food</a></li>
+					<li class="nav-item"><a href="/running/">Running</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>The Problem with Hashtags</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2024-03-14">14 March 2024</time></li>
+</ul>
+
+<p>I have never been a fan of hashtags and for most of my life I've never bothered to use them.</p>
+<h1 id="the-problem" tabindex="-1">The Problem <a class="header-anchor" href="#the-problem">#</a></h1>
+<p>There's a number of things I dislike about hashtags and I am <a href="https://medium.com/endless/an-open-letter-to-people-who-use-hashtags-89fb7694c97e">far</a> from the <a href="https://markwyner.medium.com/hashtag-accessibility-by-everyone-for-everyone-298667b2d891">first</a> person to  <a href="https://medium.com/chris-messina/the-problem-with-the-problems-with-hashtags-35d4ba29b04d">express problems</a> with them. But to boil down my own general sentiment: they're annoying to read and (more importantly) they're ugly.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/vMaQ0tXSb4-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/vMaQ0tXSb4-600.webp 600w" sizes="100vw"><img alt="Screenshot of a poorly tagged post" loading="lazy" decoding="async" src="/img/vMaQ0tXSb4-600.png" width="600" height="352"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>hashtag a hashtag bee hashtag should hashtag be</em></td>
+</tr>
+</tbody>
+</table>
+<p>The problem is, no matter how annoying hashtags are to look at, they continue to be incredibly useful. Mastodon (and other activitypub software) would be nearly impossible to use without the ability to discover users and posts through hashtags (despite rolling out opt-in search last year). Threads ran into a similar issue when they launched where users found it difficult to discover other users and launched <a href="https://www.theverge.com/2023/12/7/23992357/threads-hashtags-tags">their version</a> of hashtags 5 months later. For now they're unavoidable.</p>
+<p>However, that doesn't mean they can't be improved. Hashtags in Threads, for example, don't include the '#' and are restricted to 1 tag per post. I don't use threads all that often and the limit of one tag per post feels pretty restrictive, but it <em>does</em> look significantly better.</p>
+<p><picture><source type="image/avif" srcset="/img/ctexdF70NB-584.avif 584w" sizes="100vw"><source type="image/webp" srcset="/img/ctexdF70NB-584.webp 584w" sizes="100vw"><img alt="" loading="lazy" decoding="async" src="/img/ctexdF70NB-584.png" width="584" height="220"></picture></p>
+<h1 id="the-solution" tabindex="-1">The Solution <a class="header-anchor" href="#the-solution">#</a></h1>
+<p>Over the past few months I've been working on a better solution for my mastodon experience.</p>
+<ol>
+<li>I should be able to use any number of hashtags in a single post. If I post about the Bengals with #Bengals very few people wil see it. If I instead use #NFL many people will see it but nobody who is <em>exclusively</em> interested in the Bengals will. Since mastodon is already setup this way no changes need to be made.</li>
+<li>In-line hashtags (hashtags that appear within a post's content) should <em>not</em> have the '#' symbol. This keeps posts much cleaner and makes it significantly easier to read (but they should still link to the hashtag feed)</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/Qzg6CJ9WNQ-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/Qzg6CJ9WNQ-600.webp 600w" sizes="100vw"><img alt="Bee movie script with and without hashtags" loading="lazy" decoding="async" src="/img/Qzg6CJ9WNQ-600.png" width="600" height="328"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>We can finally read the Bee movie in peace</em></td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>Categorical hashtags (hashtags that exist solely to add metadata to a post) should not be visible. These are the tags that typically appear in the official Mastodon web UI's hashtag bar at the end of a post.</li>
+<li><em>UNLESS</em> I am following the categorical hashtag. I should <em>always</em> know why a post is appearing in my timeline (This also helps with spam, I should know exactly which tag a spam status using that causes me to see it).</li>
+<li>Editing a status should show me the tags that were removed from the post so they can be edited as well</li>
+<li>The experience should be consistent between the web-ui and the mobile experience</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/SAcKQrp_d7-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/SAcKQrp_d7-600.webp 600w" sizes="100vw"><img alt="UI Result after changes" loading="lazy" decoding="async" src="/img/SAcKQrp_d7-600.png" width="600" height="344"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Note that #nature is visible because I follow the #nature hashtag</em></td>
+</tr>
+</tbody>
+</table>
+<h1 id="implementation" tabindex="-1">Implementation <a class="header-anchor" href="#implementation">#</a></h1>
+<p>In my <a href="https://github.com/TomCasavant/mastodon">fork of mastodon</a> I've implemented those changes. ActivityPub made this a lot easier because they already separate out the tags from the CREATE activity so all I needed to do was remove them from the status after the post was created/updated, using the same setup that mastodon uses to create the HashtagBar I was able to remove categorical hashtags entirely.</p>
+<p>I also created a <a href="https://github.com/TomCasavant/moshidon">fork of moshidon</a>, I chose moshidon because I already use it as my primary client but also because it already has an a callout that appears when a post is in your timeline because of a hashtag you follow (4). With a few small changes I was able to fix the edit window so it requests all the tags in the original post from my server and appends them to the edit window and set it up so hashtags would render as normal URLs w/o the '#' symbol (they still link to the hashtag view).</p>
+<h1 id="issues" tabindex="-1">Issues <a class="header-anchor" href="#issues">#</a></h1>
+<p>There are a few things that as of this moment I have not figured out a good solution to.</p>
+<ol>
+<li>If I want to remove the in-line hashtags from the status before I send it out to other servers all foreign servers/clients will link my hashtags as 'https://tomkahe.com/tags/TAG' instead of linking to their own respective hashtag view. From what I've seen there are already servers that render tags like this. My best guess of what to do in this situation is to send the position in the text where tags occur alongside all the tags in the status then clients would be able to properly render them. But for now I've backed off on this point and so in-line tags will only render properly in my clients, other clients/users will still see the '#' symbol in my posts.</li>
+<li>There is no easy way to see a list of all the tags in the post in a mobile client. There are situations where you might want to see every tag a post contains and as of this moment the only way to do that is open up the status in the web view. This is not a difficult issue to fix, it would just involve modifying the client to have a dropdown view on every status you can click to see the tags but I have not implemented it yet. This is probably an issue most clients should fix as every client I've seen will happily render a status with hidden tags and they have no way of showing you which tags are present.</li>
+</ol>
+
+<ul class="links-nextprev"><li>Previous: <a href="/blog/2023/2023-01-11-subjective-ranked-sorting-in-python/">Subjective Ranked Sorting in Python</a></li><li>Next: <a href="/blog/2024/2024-03-24-minetest-activitypub-bridge/">Experimenting with ActivityPub: Minetest ActivityPub Bridge</a></li>
+</ul>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/blog/2024/2024-03-14-hashtags-suck/` was built on 2024-05-22T20:14:05.567Z -->
+	</body>
+</html>

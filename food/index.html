@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Tom Casavant</title>
+		<meta name="description" content="">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Tom Casavant">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Tom Casavant">
+		<link rel="preconnect" href="https://fonts.gstatic.com"><link data-href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"><style data-href='https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'>/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwaPGQ3q5d0N7w.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwiPGQ3q5d0.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+		
+		<style>/* Message Box */
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #BAB2B5;
+	--color-gray-50: #123C69;
+	--color-gray-90: #AC3B61;
+
+	--background-color: #EDC7B7;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #AC3B61;
+	--text-color-link-active: #2E3944;
+	--text-color-link-visited: #DD3B61;
+
+	--syntax-tab-size: 2;
+}
+
+/*@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above 
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #212A31;
+	}
+}*/
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	border: 1px solid #000;
+	text-align: center;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	flex-basis: calc(100% - 1.5rem);
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-subtitle {
+	font-size: 0.8em;
+	font-weight: 300;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-align: center;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+.bookmark {
+	background-color: #EDC7B7;
+	border: 1px solid #000;
+	box-shaddow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bookmark-title {
+	text-align: center;
+}
+
+.bookmark-summary {
+	text-align: center;
+	font-size: 0.75em;
+}
+
+.activities {
+    border: 0.1px solid;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Lato', normal;
+}
+
+.activities-header {
+    text-align: left;
+}
+
+.activities tr:nth-child(even) {
+    background-color: #DCB6A6; /* or any other slightly darker color you prefer */
+}
+
+profile-image {
+	width: 0.1em;
+	height: 0.1em;
+}
+
+.message-box {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center; /* Center the icons vertically */
+}
+
+.icon {
+    width: 24px; /* Adjust as needed */
+    height: 24px; /* Adjust as needed */
+    margin-right: 8px; /* Space between icons, adjust as needed */
+    fill: currentColor; /* Ensures the color of the icons can be controlled with text color */
+}
+
+.message-box svg {
+    display: block;
+    vertical-align: middle;
+}
+
+.message-box svg:last-child {
+    margin-right: 0; /* Remove margin from the last icon */
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr; /* 2 rows */
+  grid-gap: 10px;
+}
+
+.image-item {
+  width: 100%;
+  height: 0;
+  padding-top: 200%; /* Maintain aspect ratio (2:1) for portrait-oriented images */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Tom Casavant</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/bookmarks/">Bookmarks</a></li>
+					<li class="nav-item"><a href="/food/" aria-current="page">Food</a></li>
+					<li class="nav-item"><a href="/running/">Running</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			<!-- Delete this message, it will also remove the component CSS from the bundle -->
+<div class="message-box">
+
+	<a href="https://tomkahe.com/@tom" aria-label="Open Mastodon Feed" target="_blank" class="icon fediverse-icon" rel="noopener">
+	    <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+	        <title>Mastodon icon</title> 
+	        <path d="M 15.659 9.592 C 15.424 10.72 13.553 11.956 11.404 12.195 C 10.283 12.32 9.18 12.434 8.003 12.384 C 6.079 12.302 4.56 11.956 4.56 11.956 C 4.56 12.13 4.572 12.297 4.595 12.452 C 4.845 14.224 6.478 14.33 8.025 14.379 C 9.586 14.429 10.976 14.02 10.976 14.02 L 11.04 15.337 C 11.04 15.337 9.948 15.884 8.003 15.984 C 6.93 16.039 5.598 15.959 4.047 15.576 C 0.683 14.746 0.104 11.4 0.015 8.006 C -0.012 6.998 0.005 6.048 0.005 5.253 C 0.005 1.782 2.443 0.765 2.443 0.765 C 3.672 0.238 5.782 0.017 7.975 0 L 8.029 0 C 10.221 0.017 12.332 0.238 13.561 0.765 C 13.561 0.765 15.999 1.782 15.999 5.253 C 15.999 5.253 16.03 7.814 15.659 9.592 Z M 13.124 5.522 L 13.124 9.725 L 11.339 9.725 L 11.339 5.646 C 11.339 4.786 10.951 4.35 10.175 4.35 C 9.317 4.35 8.887 4.867 8.887 5.891 L 8.887 8.124 L 7.113 8.124 L 7.113 5.891 C 7.113 4.867 6.683 4.35 5.825 4.35 C 5.049 4.35 4.661 4.786 4.661 5.646 L 4.661 9.725 L 2.876 9.725 L 2.876 5.522 C 2.876 4.663 3.111 3.981 3.582 3.476 C 4.067 2.971 4.703 2.712 5.493 2.712 C 6.406 2.712 7.098 3.039 7.555 3.695 L 8 4.39 L 8.445 3.695 C 8.902 3.039 9.594 2.712 10.507 2.712 C 11.297 2.712 11.933 2.971 12.418 3.476 C 12.889 3.981 13.124 4.663 13.124 5.522 Z" style="stroke:none;stroke-miterlimit:10;fill-rule:evenodd;"/>
+	    </svg>
+    </a>
+
+     <a class="icon linkedin-icon" href="https://linkedin.com/in/tfc" aria-label="Open LinkedIn profile" target="_blank" class="w-5 h-5" rel="noopener">
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <title>LinkedIn icon</title>
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg>
+     </a>
+     
+     <a class="icon github-icon" href="https://github.com/tomcasavant" aria-label="Open GitHub profile"  target="_blank" class="w-5 h-5" rel="noopener me">
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <title>GitHub icon</title>
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+        </svg>
+     </a>
+	 <link rel="me" href="https://github.com/tomcasavant">
+    
+     <a href="/blog.rss" aria-label="Open RSS feed" target="_blank" class="icon rss-icon" rel="noopener">
+         <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 -256 1792 1792">
+            <title>RSS icon</title>
+            <g transform="matrix(1,0,0,-1,212.61017,1346.1695)" id="g2991">
+                <path d="M 384,192 Q 384,112 328,56 272,0 192,0 112,0 56,56 0,112 0,192 q 0,80 56,136 56,56 136,56 80,0 136,-56 56,-56 56,-136 z M 896,69 Q 898,41 879,21 861,0 832,0 H 697 Q 672,0 654,16.5 636,33 634,58 612,287 449.5,449.5 287,612 58,634 33,636 16.5,654 0,672 0,697 v 135 q 0,29 21,47 17,17 43,17 h 5 Q 229,883 375,815.5 521,748 634,634 748,521 815.5,375 883,229 896,69 z m 512,-2 Q 1410,40 1390,20 1372,0 1344,0 H 1201 Q 1175,0 1156.5,17.5 1138,35 1137,60 1125,275 1036,468.5 947,662 804.5,804.5 662,947 468.5,1036 275,1125 60,1138 35,1139 17.5,1157.5 0,1176 0,1201 v 143 q 0,28 20,46 18,18 44,18 h 3 Q 329,1395 568.5,1288 808,1181 994,994 1181,808 1288,568.5 1395,329 1408,67 z" />
+            </g>
+         </svg>
+    </a>
+</div>
+<h1 id="food" tabindex="-1">Food <a class="header-anchor" href="#food">#</a></h1>
+<h3 id="badly-taken-photos-of-even-worse-foods" tabindex="-1">Badly taken photos of even worse foods <a class="header-anchor" href="#badly-taken-photos-of-even-worse-foods">#</a></h3>
+<div class="image-grid">
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/BpQ4JmF0xl-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/BpQ4JmF0xl-600.webp 600w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/BpQ4JmF0xl-600.jpeg" width="600" height="1216"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/tzI_RPTnzx-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/tzI_RPTnzx-600.webp 600w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/tzI_RPTnzx-600.jpeg" width="600" height="952"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/PfLIaLhoiU-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/PfLIaLhoiU-600.webp 600w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/PfLIaLhoiU-600.jpeg" width="600" height="788"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/8bQX0nvse7-519.avif 519w" sizes="100vw"><source type="image/webp" srcset="/img/8bQX0nvse7-519.webp 519w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/8bQX0nvse7-519.jpeg" width="519" height="922"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/Ol9EC5_LE_-519.avif 519w" sizes="100vw"><source type="image/webp" srcset="/img/Ol9EC5_LE_-519.webp 519w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/Ol9EC5_LE_-519.jpeg" width="519" height="922"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/bHeG2DL3b5-455.avif 455w" sizes="100vw"><source type="image/webp" srcset="/img/bHeG2DL3b5-455.webp 455w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/bHeG2DL3b5-455.jpeg" width="455" height="922"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/UAjjVvyzIB-455.avif 455w" sizes="100vw"><source type="image/webp" srcset="/img/UAjjVvyzIB-455.webp 455w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/UAjjVvyzIB-455.jpeg" width="455" height="922"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/h2XvuCFSCP-124.avif 124w" sizes="100vw"><source type="image/webp" srcset="/img/h2XvuCFSCP-124.webp 124w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/h2XvuCFSCP-124.jpeg" width="124" height="220"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/Dt7o4yZVhf-519.avif 519w" sizes="100vw"><source type="image/webp" srcset="/img/Dt7o4yZVhf-519.webp 519w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/Dt7o4yZVhf-519.jpeg" width="519" height="922"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/Qg5shFrCtl-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/Qg5shFrCtl-600.webp 600w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/Qg5shFrCtl-600.jpeg" width="600" height="799"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/2CQE_66lzQ-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/2CQE_66lzQ-600.webp 600w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/2CQE_66lzQ-600.jpeg" width="600" height="799"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/SvVq2qAOT_-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/SvVq2qAOT_-600.webp 600w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/SvVq2qAOT_-600.jpeg" width="600" height="450"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/VP6z4rDoDi-448.avif 448w" sizes="100vw"><source type="image/webp" srcset="/img/VP6z4rDoDi-448.webp 448w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/VP6z4rDoDi-448.jpeg" width="448" height="922"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/xlUbfVEnEI-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/xlUbfVEnEI-600.webp 600w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/xlUbfVEnEI-600.jpeg" width="600" height="799"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/wJ6JePj1gL-455.avif 455w" sizes="100vw"><source type="image/webp" srcset="/img/wJ6JePj1gL-455.webp 455w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/wJ6JePj1gL-455.jpeg" width="455" height="922"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/49GWPYJZP--455.avif 455w" sizes="100vw"><source type="image/webp" srcset="/img/49GWPYJZP--455.webp 455w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/49GWPYJZP--455.jpeg" width="455" height="922"></picture></div>
+	<div class="image-item"><picture><source type="image/avif" srcset="/img/Cd89xh9-Ix-519.avif 519w" sizes="100vw"><source type="image/webp" srcset="/img/Cd89xh9-Ix-519.webp 519w" sizes="100vw"><img alt="Image undefined" loading="lazy" decoding="async" src="/img/Cd89xh9-Ix-519.jpeg" width="519" height="922"></picture></div>
+</div>
+
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/food/` was built on 2024-05-22T20:14:05.615Z -->
+	</body>
+</html>
