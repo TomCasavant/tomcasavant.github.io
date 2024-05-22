@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Experimenting with ActivityPub: Minetest ActivityPub Bridge</title>
+		<meta name="description" content="">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Tom Casavant">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Tom Casavant">
+		<link rel="preconnect" href="https://fonts.gstatic.com"><link data-href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"><style data-href='https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'>/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwaPGQ3q5d0N7w.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwiPGQ3q5d0.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #BAB2B5;
+	--color-gray-50: #123C69;
+	--color-gray-90: #AC3B61;
+
+	--background-color: #EDC7B7;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #AC3B61;
+	--text-color-link-active: #2E3944;
+	--text-color-link-visited: #DD3B61;
+
+	--syntax-tab-size: 2;
+}
+
+/*@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above 
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #212A31;
+	}
+}*/
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	border: 1px solid #000;
+	text-align: center;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	flex-basis: calc(100% - 1.5rem);
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-subtitle {
+	font-size: 0.8em;
+	font-weight: 300;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-align: center;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+.bookmark {
+	background-color: #EDC7B7;
+	border: 1px solid #000;
+	box-shaddow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bookmark-title {
+	text-align: center;
+}
+
+.bookmark-summary {
+	text-align: center;
+	font-size: 0.75em;
+}
+
+.activities {
+    border: 0.1px solid;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Lato', normal;
+}
+
+.activities-header {
+    text-align: left;
+}
+
+.activities tr:nth-child(even) {
+    background-color: #DCB6A6; /* or any other slightly darker color you prefer */
+}
+
+profile-image {
+	width: 0.1em;
+	height: 0.1em;
+}
+
+.message-box {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center; /* Center the icons vertically */
+}
+
+.icon {
+    width: 24px; /* Adjust as needed */
+    height: 24px; /* Adjust as needed */
+    margin-right: 8px; /* Space between icons, adjust as needed */
+    fill: currentColor; /* Ensures the color of the icons can be controlled with text color */
+}
+
+.message-box svg {
+    display: block;
+    vertical-align: middle;
+}
+
+.message-box svg:last-child {
+    margin-right: 0; /* Remove margin from the last icon */
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr; /* 2 rows */
+  grid-gap: 10px;
+}
+
+.image-item {
+  width: 100%;
+  height: 0;
+  padding-top: 200%; /* Maintain aspect ratio (2:1) for portrait-oriented images */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Tom Casavant</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/running/">Running</a></li>
+					<li class="nav-item"><a href="/food/">Food</a></li>
+					<li class="nav-item"><a href="/bookmarks/">Bookmarks</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>Experimenting with ActivityPub: Minetest ActivityPub Bridge</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2024-03-14">14 March 2024</time></li>
+</ul>
+
+<p>I've found the easiest way to learn how software works is to try and do something stupid with it.</p>
+<p>ActivityPub is a decentralized social networking protocol and is the thing that lets Mastodon servers communicate with Pixelfed servers communicate with Threads communicate with Flipboard and on and on.
+I've done <a href="/the-problem-with-hashtags">a bit</a> of <a href="https://github.com/TomCasavant/tom-postmarks">development</a> on servers that <em>use</em> ActivityPub but I have never dealt with the protocol itself.</p>
+<p><em>until now.</em></p>
+<p><a href="https://www.minetest.net/">Minetest</a> is an &quot;open source voxel game engine&quot; and is designed to make modding very simple. Copy a few files into the <code>mods/</code> directory and suddenly you're executing lua code from within the game.
+It also has an in-game chat window for communicating with other players on a given server.</p>
+<p>But what if it could do more than that? What if you could send and receive messages from anyone and anywhere?</p>
+<p>&quot;But Tom,&quot; you ask, &quot;won't that just clog up the chat with pointless messages from strangers?&quot;
+And yes, you would be correct. But (TODO: COME UP WITH REASON WHY THIS IS USEFUL).</p>
+<h2 id="the-plan" tabindex="-1">The Plan <a class="header-anchor" href="#the-plan">#</a></h2>
+<p>For reasons other than this project I have already been looking for an ActivityPub server that will let me generate users at-will. Most servers are designed for users so they require you to add emails and passwords and useless junk that I do not care about.
+Having failed to find anything that would suit my needs I created <a href="https://github.com/TomCasavant/DynamicActivityPub/">this project</a> which would allow me to split this project into 2 parts.</p>
+<ol>
+<li>The Server - A basic ActivityPub server with endpoints for creating Users, Groups, and generating ActivityPub compatible messages</li>
+<li>The Mod - A Lua minetest mod that communicates with the server, when a user sends a message upload it to the server. When the server receives a message it should send that to the chat through this mod.</li>
+</ol>
+<p>I had considered implementing the server in Lua so it could be built into the mod itself, but as far as I could find Minetest won't let me create web enpoints from the mod (the <a href="https://content.minetest.net/packages/heger/webchat/">few mods</a> where that would be useful just have a separate server that the user has to setup the files for)</p>
+<h2 id="activitypub-implementation" tabindex="-1">ActivityPub Implementation <a class="header-anchor" href="#activitypub-implementation">#</a></h2>
+<p>This was by far the harder of the 2 portions of the project, primarily because there is <em>not</em> a lot of documentation for this protocol.</p>
+<p>Well, that's not entirely true. <a href="https://www.w3.org/TR/activitypub/">w3</a> has some very detailed descriptions which were incredibly useful, but the protocol is defined slightly differently from server-to-server. So something that mastodon is able to understand and accept doesn't necessarily show up on an <a href="https://github.com/MbinOrg/mbin">Mbin</a> server unless certain requirements are met.</p>
+<p>Getting a basic account to be discoverable was actually VERY easy. The base protocol calls for an endpoint for each user that returns json with a few attributes, Mastodon (and most others from what I've seen) require slightly more information including a <code>publicKey</code> and <code>preferredUsername</code>.
+A JSON request to that endpoint ends up returning something like this:</p>
+<pre class="language-json" tabindex="0"><code class="language-json">https<span class="token operator">:</span><span class="token comment">//activitypubtesting.duckdns.org/users/testUser1</span>
+<span class="token punctuation">{</span>
+    <span class="token property">"@context"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"https://www.w3.org/ns/activitystreams"</span><span class="token punctuation">,</span>
+                <span class="token string">"https://w3id.org/security/v1"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"id"</span><span class="token operator">:</span> f<span class="token string">"https://activitypubtesting.duckdns.org/users/testUser1"</span><span class="token punctuation">,</span>
+            <span class="token property">"inbox"</span><span class="token operator">:</span> f<span class="token string">"https://activitypubtesting.duckdns.org/users/testUser1/inbox"</span><span class="token punctuation">,</span>
+            <span class="token property">"outbox"</span><span class="token operator">:</span> f<span class="token string">"https://activitiypubtesting.duckdns.org/users/testUser1/outbox"</span><span class="token punctuation">,</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"Person"</span><span class="token punctuation">,</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> f<span class="token string">"Test User 1"</span><span class="token punctuation">,</span>
+            <span class="token property">"preferredUsername"</span><span class="token operator">:</span> f<span class="token string">"testUser1"</span><span class="token punctuation">,</span>
+            <span class="token property">"publicKey"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token property">"id"</span><span class="token operator">:</span> f<span class="token string">"https://activitypubtesting.duckdns.org/users/testUser1#main-key"</span><span class="token punctuation">,</span>
+                <span class="token property">"owner"</span><span class="token operator">:</span> f<span class="token string">"https://activitypubtesting.duckdns.org/users/testUser1"</span><span class="token punctuation">,</span>
+                <span class="token property">"publicKeyPem"</span><span class="token operator">:</span> THE PUBLIC KEY GENERATED FOR THIS USER
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span></code></pre>
+<p>There are other optional components to this which would show up differently for different servers. If you added <code>attachments</code>, for example, Mastodon would display these as profile fields.
+Essentially whenever an ActivityPub server needs to obtain information about a user it uses the JSON data from this endpoint to discover where to send data to and where to pull data from.</p>
+<p>We can also (optionally) define a webfinger endpoint. This just lets other servers find the /users/ endpoint where a user profile is located and is always at /.well-known/webfinger.
+You can experiment with webfingers here: https://webfinger.net/ and just search for <code>@your_username@yourserver.com</code></p>
+<p>Next (because it seemed far easier than posting messages) was following a user and receiving messages. All you need to receiver a message from another server is the <code>inbox</code> endpoint. There's no special activitypub stuff we have to do here, this just receives data from a server (my assumption is that most servers do some verification steps here whenever data is received, but I have not done that).
+But, no messages will be sent to you <em>unless</em> you instruct other servers to talk to you.</p>
+<p>This is where I ran into my first hurdle- cryptographic signatures. The purpose for these is to help servers have confidence that the server that's sending you data is who they say they are.
+There are far more experienced people out there who can explain in detail how these work, but in simple terms this is the process:</p>
+<ul>
+<li>Server A generates a private key, which looks like this, then saves this and never tells anyone what this is ever:</li>
+</ul>
+<pre><code>-----BEGIN RSA PRIVATE KEY-----
+MIIBOgIBAAJBAKj34GkxFhD90vcNLYLInFEX6Ppy1tPf9Cnzj4p4WGeKLs1Pt8Qu
+KUpRKfFLfRYC9AIKjbJTWit+CqvjWYzvQwECAwEAAQJAIJLixBy2qpFoS4DSmoEm
+o3qGy0t6z09AIJtH+5OeRV1be+N4cDYJKffGzDa88vQENZiRm0GRq6a+HPGQMd2k
+TQIhAKMSvzIBnni7ot/OSie2TmJLY4SwTQAevXysE2RbFDYdAiEBCUEaRQnMnbp7
+9mxDXDf6AU0cN/RPBjb9qSHDcWZHGzUCIG2Es59z8ugGrDY+pxLQnwfotadxd+Uy
+v/Ow5T0q5gIJAiEAyS4RaI9YG8EWx/2w0T67ZUVAw8eOMB6BIUg0Xcu+3okCIBOs
+/5OiPgoTdSy7bcF9IGpSE8ZgGKzgYQVZeN97YE00
+-----END RSA PRIVATE KEY-----
+</code></pre>
+<ul>
+<li>Server A then uses that private key to generate a public key (this public key is what we store on the /users/ endpoint). Which looks like this:</li>
+</ul>
+<pre><code>-----BEGIN RSA PUBLIC KEY-----
+MEgCQQCo9+BpMRYQ/dL3DS2CyJxRF+j6ctbT3/Qp84+KeFhnii7NT7fELilKUSnx
+S30WAvQCCo2yU1orfgqr41mM70MBAgMBAAE=
+-----END RSA PUBLIC KEY----
+</code></pre>
+<p>*Note: I didn't do any deep work with these, there's a <a href="https://cryptography.io/en/latest/">python cryptography</a> library that handles generating these</p>
+<ul>
+<li>Server A creates a message that says '@testUser1@ServerA.com wants to follow @testUser2@ServerB.com'</li>
+<li>Before sending that message Server A retrieves our private key from before and uses it to encrypt the message.</li>
+<li>Server B receives the encrypted message and uses the publicKey from the /users/ endpoint to decrypt it</li>
+<li>if Server B determines that private key that signed this message is the same private key that signed the public key then it accepts it as a genuine request and will now start sending @testUser2's posts to @testUser1's inbox</li>
+</ul>
+<p>There was <em>A LOT</em> of trial and error trying to get this to work properly after building this function to test my public key I learned most of my issues were because I was incorrectly returning the publicKey in the /users/ endpoint so anything sent couldn't be verified</p>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">def</span> <span class="token function">verification_testing</span><span class="token punctuation">(</span>public_key_url<span class="token punctuation">,</span> private_key<span class="token punctuation">,</span> raw_signature<span class="token punctuation">,</span> signature_text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Load the public key JSON from the user's URL</span>
+    public_key_response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>public_key_url<span class="token punctuation">)</span>
+    public_key_json <span class="token operator">=</span> public_key_response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'publicKey'</span><span class="token punctuation">]</span>
+
+    <span class="token comment"># Extract the public key from the JSON</span>
+    public_key_pem <span class="token operator">=</span> public_key_json<span class="token punctuation">[</span><span class="token string">'publicKeyPem'</span><span class="token punctuation">]</span>
+
+    <span class="token comment"># Load the public key</span>
+    public_key <span class="token operator">=</span> serialization<span class="token punctuation">.</span>load_pem_public_key<span class="token punctuation">(</span>
+        public_key_pem<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        backend<span class="token operator">=</span>crypto_default_backend<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        public_key<span class="token punctuation">.</span>verify<span class="token punctuation">(</span>
+            raw_signature<span class="token punctuation">,</span>
+            signature_text<span class="token punctuation">,</span>
+            padding<span class="token punctuation">.</span>PKCS1v15<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            hashes<span class="token punctuation">.</span>SHA256<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Signature verification successful"</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Signature verification failed: </span><span class="token interpolation"><span class="token punctuation">{</span>e<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span></code></pre>
+<p>After this I was now able to follow users and messages were flowing in. Fortunately for us, the process of signing messages is identical whenever a message has to be signed.
+Setting up followers was pretty easy (or so I thought). Essentially in the user/inbox/ endpoint we check the data received for 'Follow', and then process the information there (<em>again</em> you should probably be doing the cryptographic verification of their signatures but I did not).
+I learned during this that Mastodon requires that you send a signed 'Accept' message or else they won't treat the follow as successful.</p>
+<p>Posting messages is pretty straight-forward, you just have to loop through all the users that follow you and send the signed message to their inboxes. My create message endpoint generates the user if it doesn't already exist in the server (since we will need to generate users for each Minetest user that exists)</p>
+<p>The last ActivityPub type I messed around with was Group. Unlike the user (or Person) entity, there is not a very unified description of how a group functions.
+Through some experimentation in <a href="https://activitypub.academy/">https://activitypub.academy</a> I learned that Lemmy's groups just send Announce activities to mastodon (which mastodon displays as boosts), but I believe they're a little more complex when a lemmy community talks with another server that actually supports groups.</p>
+<p>I didn't delve that much into it, I just need to create a Group entity that boosts all of the messages from each individual user that way you can see a feed of all the server messages.</p>
+<h2 id="minetest" tabindex="-1">Minetest <a class="header-anchor" href="#minetest">#</a></h2>
+<p>Don't worry, this a much shorter topic. A minetest mod consists of 2 files (mine consists of 3), the init.lua and hte mod.conf.
+mod.conf just defines what a plugin is and allows you to set configuration variables.
+init.lua contains the lua script that interacts with the minetest server.</p>
+<p>I also added in a json.lua file which I copied in that makes the JSON requests we have to make easier.</p>
+<p>There's basically just 2 things we need to do in this file</p>
+<ul>
+<li>Send all new messages to the activitypub server</li>
+<li>And retrieve new messages (ideally, the server would just send message whenever a new one comes in but as I mentioned before I can't create an enpoint in the mod)</li>
+</ul>
+<p>Minetest's built-in API lets me use <code>minetest.register_on_chat_message()</code> to call a function whenever a new chat message is entered. So, I just take that message and send it to my activitypub server:</p>
+<pre class="language-lua" tabindex="0"><code class="language-lua"><span class="token keyword">local</span> <span class="token keyword">function</span> <span class="token function">new_message</span><span class="token punctuation">(</span>player<span class="token punctuation">,</span> msg<span class="token punctuation">)</span>
+    minetest<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"action"</span><span class="token punctuation">,</span> <span class="token string">"Sending JSON data: "</span> <span class="token operator">..</span> player<span class="token punctuation">)</span>
+    <span class="token keyword">local</span> data <span class="token operator">=</span> <span class="token punctuation">{</span>message <span class="token operator">=</span> msg<span class="token punctuation">,</span> username <span class="token operator">=</span> player<span class="token punctuation">,</span> groups <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"minetest"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> api_key<span class="token operator">=</span><span class="token string">"temporary"</span><span class="token punctuation">}</span>
+    <span class="token keyword">local</span> json_data <span class="token operator">=</span> cjson<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    minetest<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"action"</span><span class="token punctuation">,</span> <span class="token string">"Sending JSON data: "</span> <span class="token operator">..</span> json_data<span class="token punctuation">)</span>
+
+    <span class="token keyword">local</span> url <span class="token operator">=</span> <span class="token string">"http://192.168.1.75:9999/api/create_message"</span>  <span class="token comment">-- Replace with your actual URL</span>
+ 
+    http<span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        url <span class="token operator">=</span> url<span class="token punctuation">,</span>
+        method <span class="token operator">=</span> <span class="token string">"POST"</span><span class="token punctuation">,</span>
+        data <span class="token operator">=</span> json_data<span class="token punctuation">,</span>
+        extra_headers <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"Content-Type:application/json"</span> <span class="token punctuation">}</span>
+        <span class="token comment">--    ["Content-Type"] = "application/json",</span>
+        <span class="token comment">--    ["Content-Length"] = tostring(#json_data)</span>
+        <span class="token comment">--}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<p>The activitypub server will then post the message (and create the user) under the user's identity.</p>
+<p>Finally, we have to receive messages from our ActivityPub server. My solution for this was just identical to the web chat <a href="https://content.minetest.net/packages/heger/webchat/">mod</a> where we'll regularly poll our server and check if there are any new messages, if there are new messages we send them directly to the in-game chat.</p>
+<pre class="language-lua" tabindex="0"><code class="language-lua"><span class="token keyword">local</span> <span class="token keyword">function</span> <span class="token function">poll_messages</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">local</span> url <span class="token operator">=</span> <span class="token string">"http://192.168.1.75:9999/api/get_recent_messages?last_id="</span> <span class="token operator">..</span> last_message_id
+    http<span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        url <span class="token operator">=</span> url<span class="token punctuation">,</span>
+        method <span class="token operator">=</span> <span class="token string">"GET"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> response<span class="token punctuation">.</span>succeeded <span class="token keyword">then</span>
+            <span class="token keyword">local</span> messages <span class="token operator">=</span> minetest<span class="token punctuation">.</span><span class="token function">parse_json</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> messages <span class="token keyword">then</span>
+                <span class="token keyword">for</span> _<span class="token punctuation">,</span> message <span class="token keyword">in</span> <span class="token function">ipairs</span><span class="token punctuation">(</span>messages<span class="token punctuation">)</span> <span class="token keyword">do</span>
+                    <span class="token comment">-- Check if message ID is greater than last_message_id</span>
+                    <span class="token keyword">if</span> message<span class="token punctuation">.</span>id <span class="token operator">></span> last_message_id <span class="token keyword">then</span>
+                        minetest<span class="token punctuation">.</span><span class="token function">chat_send_all</span><span class="token punctuation">(</span><span class="token string">"[ActivityPub] "</span> <span class="token operator">..</span> message<span class="token punctuation">.</span>username <span class="token operator">..</span> <span class="token string">": "</span> <span class="token operator">..</span> message<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+                        last_message_id <span class="token operator">=</span> message<span class="token punctuation">.</span>id
+                    <span class="token keyword">end</span>
+                <span class="token keyword">end</span>
+            <span class="token keyword">end</span>
+        <span class="token keyword">else</span>
+            minetest<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"error"</span><span class="token punctuation">,</span> <span class="token string">"Failed to fetch messages from ActivityPub server"</span><span class="token punctuation">)</span>
+        <span class="token keyword">end</span>
+    <span class="token keyword">end</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+
+<span class="token comment">-- Call the poll_messages function periodically</span>
+minetest<span class="token punctuation">.</span><span class="token function">register_globalstep</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>dtime<span class="token punctuation">)</span>
+    <span class="token comment">-- Poll every 10 seconds (adjust as needed)</span>
+    <span class="token keyword">if</span> os<span class="token punctuation">.</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token keyword">then</span>
+        <span class="token function">poll_messages</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span><span class="token punctuation">)</span></code></pre>
+<p>And this is it in action:</p>
+<video width="1200" height="300" controls>
+  <source src="/video/minetest_demo.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+<h2 id="issues" tabindex="-1">Issues <a class="header-anchor" href="#issues">#</a></h2>
+<p>This was all to experiment with ActivityPub, but I didn't do anything to secure the server. All private keys are stored unencrypted in a sqlite database, most of the endpoints that generate users and posts are not secured by any form of authentication.</p>
+<p>I wasn't able to find much information about testing an activitypub server. I'm sure there's some way to locally run a mastodon server to test against, it feels incorrect to publicly host a website in development just to test my ActivityPub implementation.</p>
+<p><a href="https://github.com/TomCasavant/DynamicActivityPub">ActivityPub Server repo</a>
+<a href="https://github.com/TomCasavant/MinetestActivityPub">Minetest Mod Repo</a></p>
+
+<ul class="links-nextprev"><li>Previous: <a href="/blog/2024/2024-03-14-hashtags-suck/">The Problem with Hashtags</a></li><li>Next: <a href="/blog/2024/2024-04-01-the-tomline/">Tomline</a></li>
+</ul>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/blog/2024/2024-03-24-minetest-activitypub-bridge/` was built on 2024-05-22T19:35:15.604Z -->
+	</body>
+</html>
