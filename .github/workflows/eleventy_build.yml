@@ -22,7 +22,7 @@ jobs:
       - run: cd eleventy-theme-update && npm ci
 
       - name: Eleventy
-        run: cd eleventy-theme-update && DEBUG=Eleventy* npx @11ty/eleventy
+        run: DEBUG=Eleventy* npx @11ty/eleventy
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
