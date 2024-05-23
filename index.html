@@ -43,6 +43,7 @@
 	--color-gray-90: #AC3B61;
 
 	--background-color: #EDC7B7;
+	--highlight-color: rgba(0, 0, 0, 0.6);
 
 	--text-color: var(--color-gray-90);
 	--text-color-link: #AC3B61;
@@ -52,11 +53,19 @@
 	--syntax-tab-size: 2;
 }
 
-/*@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
 	:root {
 		--color-gray-20: #e0e0e0;
-		--color-gray-50: #C0C0C0;
+		--color-gray-50: #A0A0A0;
 		--color-gray-90: #dad8d8;
+
+		--background-color: #121212;
+		--highlight-color: rgba(255,255,255,0.6);
+		
+		--text-color: var(--color-gray-50);
+		--text-color-link: #AC3B61;
+		--text-color-link-active: #9E9994;
+		--text-color-link-visited: #DD3B61;
 
 		/* --text-color is assigned to --color-gray-_ above 
 		--text-color-link: #1493fb;
@@ -65,7 +74,7 @@
 
 		--background-color: #212A31;
 	}
-}*/
+}
 
 
 /* Global stylesheet */
@@ -410,7 +419,7 @@ a.microblog-post-link {
 }
 
 .microblog-post:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px var(--highlight-color);
 }
 
 .microblog-post .post-description,
@@ -542,6 +551,6 @@ a.microblog-post-link {
 
 		<footer></footer>
 
-		<!-- This page `/` was built on 2024-05-23T02:45:14.552Z -->
+		<!-- This page `/` was built on 2024-05-23T15:19:30.313Z -->
 	</body>
 </html>
