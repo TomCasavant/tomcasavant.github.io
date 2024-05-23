@@ -361,3 +361,44 @@ profile-image {
   object-fit: cover;
 }
 
+a.microblog-post-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.microblog-post {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.microblog-post:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.microblog-post .post-description,
+.microblog-post .post-date {
+  font-size: 0.85em;
+  margin: 8px 0;
+  color: #666;
+  text-decoration: none;
+}
+
+.microblog-post .post-date {
+  font-size: 0.575em;
+  color: #999;
+  text-align: right;
+}
+
+.microblog-post .post-media {
+  max-width: 100%;
+  height: auto;
+  margin-top: 16px;
+  border-radius: 4px;
+}
+

@@ -10,6 +10,7 @@ const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 const pluginDrafts = require("./eleventy.config.drafts.js");
 const pluginImages = require("./eleventy.config.images.js");
 const eleventyGoogleFonts = require("eleventy-google-fonts");
+const sanitizeHtml = require('sanitize-html');
 
 
 module.exports = function(eleventyConfig) {
@@ -18,6 +19,13 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy({
 		"./public/": "/",
 		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css"
+	});
+
+	eleventyConfig.addFilter("sanitize", function(content) {
+	    return sanitizeHtml(content, {
+	      allowedTags: [],
+	      allowedAttributes: {}
+	    });
 	});
 
 	eleventyConfig.addPassthroughCopy({ 'src/well-known': '.well-known' });
