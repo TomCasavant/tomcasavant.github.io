@@ -177,7 +177,7 @@ header {
 }
 .nav-item {
 	display: inline-block;
-	margin-right: 1em;
+	margin-right: 0.6em;
 }
 .nav-item a[href]:not(:hover) {
 	text-decoration: none;
