@@ -43,6 +43,7 @@
 		"garmin-connect": "^1.6.2",
 		"luxon": "^3.3.0",
 		"markdown-it-anchor": "^8.6.7",
+		"moment-timezone": "^0.5.45",
 		"node-fetch": "^3.3.2",
 		"sanitize-html": "^2.13.0",
 		"xml2js": "^0.6.2"

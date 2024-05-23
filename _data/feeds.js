@@ -1,4 +1,5 @@
 const { parseStringPromise } = require('xml2js');
+const moment = require('moment-timezone');
 
 module.exports = async function() {
   console.log("Fetching Microblog data");
@@ -17,7 +18,7 @@ module.exports = async function() {
         posts: json.rss.channel[0].item.map(entry => ({
           link: entry.link[0],
           description: entry.description[0],
-          pubDate: entry.pubDate[0],
+          pubDate: moment(entry.pubDate[0]).tz('America/New_York').format('MMMM Do, YYYY h:mm:ss A'),
           mediaUrl: entry['media:content'] ? entry['media:content'][0].$.url : null
         }))
       };
