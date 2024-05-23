@@ -71,6 +71,9 @@ function formatSpeed(averageSpeed) {
     const speedInMinutesPerMile = metersPerSecondToMinutesPerMile / averageSpeed;
     const minutes = Math.floor(speedInMinutesPerMile);
     const seconds = Math.round((speedInMinutesPerMile - minutes) * 60);
+    if (minutes <= 1) {
+    	return null
+    }
     return `${minutes}:${seconds.toString().padStart(2, '0')}`; // Format as MM:SS
 }
 
@@ -109,7 +112,8 @@ module.exports = async function () {
         distance: formatDistance(activity.distance),
         duration: formatDuration(activity.duration),
         speed: formatSpeed(activity.averageSpeed),
-        type: activity.activityType.typeKey
+        type: activity.activityType.typeKey,
+        maxSpeed: formatSpeed(activity.maxSpeed)
     }));
 
        // Map the activities to a simpler format
