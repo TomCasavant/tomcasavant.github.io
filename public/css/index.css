@@ -12,6 +12,7 @@
 
 	--background-color: #EDC7B7;
 	--highlight-color: rgba(0, 0, 0, 0.6);
+	--alternating-rows: #DCB6A6;
 
 	--text-color: var(--color-gray-90);
 	--text-color-link: #AC3B61;
@@ -29,6 +30,7 @@
 
 		--background-color: #121212;
 		--highlight-color: rgba(255,255,255,0.6);
+		--alternating-rows: #473e3a;
 		
 		--text-color: var(--color-gray-50);
 		--text-color-link: #AC3B61;
@@ -316,7 +318,7 @@ h2 + .header-anchor {
 }
 
 .activities tr:nth-child(even) {
-    background-color: #DCB6A6; /* or any other slightly darker color you prefer */
+    background-color: var(--alternating-rows); /* or any other slightly darker color you prefer */
 }
 
 profile-image {
