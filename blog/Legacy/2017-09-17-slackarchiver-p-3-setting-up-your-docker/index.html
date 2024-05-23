@@ -607,6 +607,23 @@ a.microblog-post-link {
   height: auto;
   margin-top: 16px;
   border-radius: 4px;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }</style>
 	</head>
 	<body>
@@ -704,6 +721,6 @@ start_listening(slack, mongo)</p>
 
 		<footer></footer>
 
-		<!-- This page `/blog/Legacy/2017-09-17-slackarchiver-p-3-setting-up-your-docker/` was built on 2024-05-23T15:19:30.287Z -->
+		<!-- This page `/blog/Legacy/2017-09-17-slackarchiver-p-3-setting-up-your-docker/` was built on 2024-05-23T15:24:25.790Z -->
 	</body>
 </html>
