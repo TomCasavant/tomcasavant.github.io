@@ -31,6 +31,9 @@ jobs:
       - run: cd eleventy-theme-update && npm ci
 
       - name: Eleventy
+        env:
+          GARMIN_EMAIL: ${{ secrets.GARMIN_EMAIL }}
+          GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
         run: DEBUG=Eleventy* npx @11ty/eleventy
 
       - name: Deploy
