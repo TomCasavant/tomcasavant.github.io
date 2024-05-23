@@ -821,10 +821,12 @@ minetest<span class="token punctuation">.</span><span class="token function">reg
     <span class="token keyword">end</span>
 <span class="token keyword">end</span><span class="token punctuation">)</span></code></pre>
 <p>And this is it in action:</p>
-<video width="1200" height="300" controls>
-  <source src="/video/minetest_demo.webm" type="video/webm">
-  Your browser does not support the video tag.
-</video>
+<div class="video-container">
+  <video controls="">
+    <source src="/video/minetest_demo.webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+</div>
 <h2 id="issues" tabindex="-1">Issues <a class="header-anchor" href="#issues">#</a></h2>
 <p>This was all to experiment with ActivityPub, but I didn't do anything to secure the server. All private keys are stored unencrypted in a sqlite database, most of the endpoints that generate users and posts are not secured by any form of authentication.</p>
 <p>I wasn't able to find much information about testing an activitypub server. I'm sure there's some way to locally run a mastodon server to test against, it feels incorrect to publicly host a website in development just to test my ActivityPub implementation.</p>
@@ -838,6 +840,6 @@ minetest<span class="token punctuation">.</span><span class="token function">reg
 
 		<footer></footer>
 
-		<!-- This page `/blog/2024/2024-03-24-minetest-activitypub-bridge/` was built on 2024-05-23T15:24:25.788Z -->
+		<!-- This page `/blog/2024/2024-03-24-minetest-activitypub-bridge/` was built on 2024-05-23T15:25:35.321Z -->
 	</body>
 </html>

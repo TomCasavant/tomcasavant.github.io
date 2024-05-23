@@ -246,10 +246,12 @@ minetest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
     &lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;And this is it in action:&lt;/p&gt;
-&lt;video width=&quot;1200&quot; height=&quot;300&quot; controls=&quot;&quot;&gt;
-  &lt;source src=&quot;https://tomcasavant.com/video/minetest_demo.webm&quot; type=&quot;video/webm&quot;&gt;
-  Your browser does not support the video tag.
-&lt;/video&gt;
+&lt;div class=&quot;video-container&quot;&gt;
+  &lt;video controls=&quot;&quot;&gt;
+    &lt;source src=&quot;https://tomcasavant.com/video/minetest_demo.webm&quot; type=&quot;video/webm&quot;&gt;
+    Your browser does not support the video tag.
+  &lt;/video&gt;
+&lt;/div&gt;
 &lt;h2 id=&quot;issues&quot; tabindex=&quot;-1&quot;&gt;Issues &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/blog/2024/2024-03-24-minetest-activitypub-bridge/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This was all to experiment with ActivityPub, but I didn&#39;t do anything to secure the server. All private keys are stored unencrypted in a sqlite database, most of the endpoints that generate users and posts are not secured by any form of authentication.&lt;/p&gt;
 &lt;p&gt;I wasn&#39;t able to find much information about testing an activitypub server. I&#39;m sure there&#39;s some way to locally run a mastodon server to test against, it feels incorrect to publicly host a website in development just to test my ActivityPub implementation.&lt;/p&gt;
