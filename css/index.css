@@ -11,6 +11,7 @@
 	--color-gray-90: #AC3B61;
 
 	--background-color: #EDC7B7;
+	--background-standout: #EDC7B7;
 	--highlight-color: rgba(0, 0, 0, 0.6);
 	--alternating-rows: #DCB6A6;
 
@@ -29,6 +30,7 @@
 		--color-gray-90: #dad8d8;
 
 		--background-color: #121212;
+		--background-standout: #242120;
 		--highlight-color: rgba(255,255,255,0.6);
 		--alternating-rows: #473e3a;
 		
@@ -292,7 +294,7 @@ h2 + .header-anchor {
 }
 
 .bookmark {
-	background-color: #EDC7B7;
+	background-color: var(--background-standout);
 	border: 1px solid #000;
 	box-shaddow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -318,7 +320,7 @@ h2 + .header-anchor {
 }
 
 .activities tr:nth-child(even) {
-    background-color: var(--alternating-rows); /* or any other slightly darker color you prefer */
+    background-color: var(--alternating-rows);
 }
 
 profile-image {
@@ -333,10 +335,10 @@ profile-image {
 }
 
 .icon {
-    width: 24px; /* Adjust as needed */
-    height: 24px; /* Adjust as needed */
-    margin-right: 8px; /* Space between icons, adjust as needed */
-    fill: currentColor; /* Ensures the color of the icons can be controlled with text color */
+    width: 24px; 
+    height: 24px; 
+    margin-right: 8px; 
+    fill: currentColor; 
 }
 
 .message-box svg {
