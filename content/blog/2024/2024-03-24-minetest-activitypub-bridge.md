@@ -206,10 +206,12 @@ end)
 
 And this is it in action:
 
-<video width="1200" height="300" controls>
-  <source src="/video/minetest_demo.webm" type="video/webm">
-  Your browser does not support the video tag.
-</video>
+<div class="video-container">
+  <video controls="">
+    <source src="/video/minetest_demo.webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+</div>
 
 
 ## Issues
