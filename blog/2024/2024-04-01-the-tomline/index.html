@@ -557,6 +557,47 @@ profile-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+a.microblog-post-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.microblog-post {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.microblog-post:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.microblog-post .post-description,
+.microblog-post .post-date {
+  font-size: 0.85em;
+  margin: 8px 0;
+  color: #666;
+  text-decoration: none;
+}
+
+.microblog-post .post-date {
+  font-size: 0.575em;
+  color: #999;
+  text-align: right;
+}
+
+.microblog-post .post-media {
+  max-width: 100%;
+  height: auto;
+  margin-top: 16px;
+  border-radius: 4px;
 }</style>
 	</head>
 	<body>
@@ -570,6 +611,7 @@ profile-image {
 					<li class="nav-item"><a href="/">Home</a></li>
 					<li class="nav-item"><a href="/blog/">Archive</a></li>
 					<li class="nav-item"><a href="/bookmarks/">Bookmarks</a></li>
+					<li class="nav-item"><a href="/feeds/">Feeds</a></li>
 					<li class="nav-item"><a href="/food/">Food</a></li>
 					<li class="nav-item"><a href="/running/">Running</a></li>
 				</ul>
@@ -645,6 +687,6 @@ profile-image {
 
 		<footer></footer>
 
-		<!-- This page `/blog/2024/2024-04-01-the-tomline/` was built on 2024-05-23T00:24:58.818Z -->
+		<!-- This page `/blog/2024/2024-04-01-the-tomline/` was built on 2024-05-23T02:38:07.382Z -->
 	</body>
 </html>
