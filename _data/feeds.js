@@ -16,10 +16,12 @@ module.exports = async function() {
     if (json.rss && json.rss.channel && json.rss.channel[0] && json.rss.channel[0].item) {
       return {
         posts: json.rss.channel[0].item.map(entry => ({
+          type: 'mastodon',
           link: entry.link[0],
           description: entry.description[0],
           pubDate: moment(entry.pubDate[0]).tz('America/New_York').format('MMMM Do, YYYY h:mm:ss A'),
-          mediaUrl: entry['media:content'] ? entry['media:content'][0].$.url : null
+          mediaUrl: entry['media:content'] ? entry['media:content'][0].$.url : null,
+          created_at: entry.pubDate[0]
         }))
       };
     } else {
