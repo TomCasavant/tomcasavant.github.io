@@ -34,6 +34,7 @@ jobs:
         env:
           GARMIN_EMAIL: ${{ secrets.GARMIN_EMAIL }}
           GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: DEBUG=Eleventy* npx @11ty/eleventy
 
       - name: Deploy
