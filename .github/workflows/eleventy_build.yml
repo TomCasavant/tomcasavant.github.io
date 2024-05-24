@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 16
 
-      - run: cd eleventy-theme-update && npm ci
+      - run: npm ci
 
       - name: Eleventy
         env:
