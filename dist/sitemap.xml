@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2015-03-02-programming-a-python-controller-for-pianobar-pandora-with-your-wii-remote/</loc>
+		<lastmod>2015-03-02</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2015-03-12-setting-up-your-java-ide-for-dumb-phone-mobile-apps/</loc>
+		<lastmod>2015-03-12</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2015-04-03-making-a-chrome-extension/</loc>
+		<lastmod>2015-04-03</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2016-07-21-twitter-profile-updater/</loc>
+		<lastmod>2016-07-21</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2017-02-22-markov-chain-a-harry-potter-quote-tweet-generator/</loc>
+		<lastmod>2017-02-22</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2017-03-30-cleverslack-a-cleverbot-slack-implementation/</loc>
+		<lastmod>2017-03-30</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2017-03-30-playlist-creator-a-python-spotify-creation/</loc>
+		<lastmod>2017-03-30</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2017-04-05-autotldr-summarizing-news-on-twitter/</loc>
+		<lastmod>2017-04-05</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2017-09-02-slackarchiver-using-mongo-to-archive-slack-messages-featuring-docker/</loc>
+		<lastmod>2017-09-02</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2017-09-16-slackarchiver-p-2-setting-up-the-database/</loc>
+		<lastmod>2017-09-16</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2017-09-17-slackarchiver-p-3-setting-up-your-docker/</loc>
+		<lastmod>2017-09-17</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2018-06-11-superpower-generator-programming-an-alexa-skill-with-reddit-rss-feeds/</loc>
+		<lastmod>2018-06-11</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2019-01-26-hack-oh-io-2018/</loc>
+		<lastmod>2019-01-26</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2019-01-28-nfl-win-chain-dijkstra-s-algorithm/</loc>
+		<lastmod>2019-01-28</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2019-03-01-make-oh-io-2019/</loc>
+		<lastmod>2019-03-01</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2019-04-18-generating-heat-maps-from-gpx-files/</loc>
+		<lastmod>2019-04-18</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2019-04-19-a-curious-case-of-osu-financial-aid/</loc>
+		<lastmod>2019-04-19</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2019-08-25-converting-old-radio-to-bluetooth-radio/</loc>
+		<lastmod>2019-08-25</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/Legacy/2019-12-28-markov-tweet-generator/</loc>
+		<lastmod>2019-12-28</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/2023/2023-01-05-ketchup-cake/</loc>
+		<lastmod>2023-01-05</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/2023/2023-01-11-subjective-ranked-sorting-in-python/</loc>
+		<lastmod>2023-01-11</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/2024/2024-03-14-hashtags-suck/</loc>
+		<lastmod>2024-03-14</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/2024/2024-03-24-minetest-activitypub-bridge/</loc>
+		<lastmod>2024-03-14</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/2024/2024-04-01-the-tomline/</loc>
+		<lastmod>2024-04-01</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blog/</loc>
+		<lastmod>2024-05-16</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/</loc>
+		<lastmod>2024-05-16</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/</loc>
+		<lastmod>2024-05-16</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/running/</loc>
+		<lastmod>2024-05-16</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/food/</loc>
+		<lastmod>2024-05-16</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/bookmarks/</loc>
+		<lastmod>2024-05-16</lastmod>
+	</url>
+</urlset>

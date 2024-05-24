@@ -1,11 +1,10 @@
 name: Eleventy Build
-
 on:
   push:
     branches:
-      - theme-update
+      - master
   schedule:
-    - cron: "0 1 */5 * *"
+    - cron: "35 21 * * *"
       
 jobs:
   deploy:
@@ -15,18 +14,30 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Install Git LFS
+        run: |
+          sudo apt-get update
+          sudo apt-get install git-lfs
+          git lfs install
+
+      - name: Pull LFS files
+        run: git lfs pull
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 16
 
-      - run: npm ci
+      - run: cd eleventy-theme-update && npm ci
 
       - name: Eleventy
-        run: cd eleventy-theme-update && DEBUG=Eleventy* npx @11ty/eleventy
+        env:
+          GARMIN_EMAIL: ${{ secrets.GARMIN_EMAIL }}
+          GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
+        run: DEBUG=Eleventy* npx @11ty/eleventy
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./eleventy-theme-update/dist
+          publish_dir: ./dist

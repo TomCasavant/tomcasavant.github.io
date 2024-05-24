@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Generating Heat Maps from GPX Files</title>
+		<meta name="description" content="">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Tom Casavant">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Tom Casavant">
+		<link rel="preconnect" href="https://fonts.gstatic.com"><link data-href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"><style data-href='https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'>/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwaPGQ3q5d0N7w.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwiPGQ3q5d0.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #BAB2B5;
+	--color-gray-50: #123C69;
+	--color-gray-90: #AC3B61;
+
+	--background-color: #EDC7B7;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #AC3B61;
+	--text-color-link-active: #2E3944;
+	--text-color-link-visited: #DD3B61;
+
+	--syntax-tab-size: 2;
+}
+
+/*@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above 
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #212A31;
+	}
+}*/
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	border: 1px solid #000;
+	text-align: center;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	flex-basis: calc(100% - 1.5rem);
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-subtitle {
+	font-size: 0.8em;
+	font-weight: 300;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-align: center;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+.bookmark {
+	background-color: #EDC7B7;
+	border: 1px solid #000;
+	box-shaddow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bookmark-title {
+	text-align: center;
+}
+
+.bookmark-summary {
+	text-align: center;
+	font-size: 0.75em;
+}
+
+.activities {
+    border: 0.1px solid;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Lato', normal;
+}
+
+.activities-header {
+    text-align: left;
+}
+
+.activities tr:nth-child(even) {
+    background-color: #DCB6A6; /* or any other slightly darker color you prefer */
+}
+
+profile-image {
+	width: 0.1em;
+	height: 0.1em;
+}
+
+.message-box {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center; /* Center the icons vertically */
+}
+
+.icon {
+    width: 24px; /* Adjust as needed */
+    height: 24px; /* Adjust as needed */
+    margin-right: 8px; /* Space between icons, adjust as needed */
+    fill: currentColor; /* Ensures the color of the icons can be controlled with text color */
+}
+
+.message-box svg {
+    display: block;
+    vertical-align: middle;
+}
+
+.message-box svg:last-child {
+    margin-right: 0; /* Remove margin from the last icon */
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr; /* 2 rows */
+  grid-gap: 10px;
+}
+
+.image-item {
+  width: 100%;
+  height: 0;
+  padding-top: 200%; /* Maintain aspect ratio (2:1) for portrait-oriented images */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Tom Casavant</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/running/">Running</a></li>
+					<li class="nav-item"><a href="/food/">Food</a></li>
+					<li class="nav-item"><a href="/bookmarks/">Bookmarks</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>Generating Heat Maps from GPX Files</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2019-04-18">18 April 2019</time></li>
+</ul>
+
+<p><img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/heatmap.png?raw=true" alt="" title="Final generated heat map"></p>
+<p>I own a smart watch (vivosport) that tracks my runs and other activities. The watch has a built-in GPS which will track my location. All of this data eventually gets transferred to Garmin, where I can view individual activities and the results of said activities.</p>
+<h2 id="getting-the-garmin-activity-data" tabindex="-1">Getting the Garmin Activity Data <a class="header-anchor" href="#getting-the-garmin-activity-data">#</a></h2>
+<p>Earlier this week I became interested as to whether or not I could view all my maps as a single heat map. The search brought me to an old Garmin forums page, where I was informed that the heat map functionality had long since been removed. There were two other options I found, using Strava to generate a heat map (unfortunately, this would involve signing up for their premium summit program) or generating a heat map from a series of gpx files (gpx being the gps filetype that each activity could output). Since I didn't desire to spend any money on this project I looked into the second option.</p>
+<p>The first issue I discovered was that, for no apparent reason, Garmin would not let me download all of my gpx files in bulk. Off I went to look for a solution to that problem (I figured, that if it comes to it I could just have a macro go through and download those for me, but that seemed inefficient). The first few github repositories I discovered just didn't work. Likely because Garmin's website security had changed in the years since those repos were created. Then I discovered <a href="https://github.com/petergardfjall/garminexport">garminexport</a> which turned out to be almost exactly what I wanted. The one issue was that it would go through and download every piece of data from every activity (rather than just the gpx files) but this was definitely something I could work with. It worked immediately and as such I was onto the next step.</p>
+<h2 id="generating-the-heat-map" tabindex="-1">Generating the Heat Map <a class="header-anchor" href="#generating-the-heat-map">#</a></h2>
+<p>This part proved to be more complex than I desired. I searched and searched until I came up with <a href="http://www.gpsheatmaps.com/about/">this website</a> which claimed it would generate heat maps from gpx files. I took my gpx files and submitted it to the website. The first thing I noticed was that it only accepted ~50 files. Which was unfortunate because I had many hundreds of files. The next thing I noticed was that it had no options to display the heat map on an actual map, which is what I wanted. The website's about page said that the creator planned to overlay the heat maps onto Google maps. I contacted the creator and was informed that this project was abandoned and that there were no plans to update it. Darn.</p>
+<p>That's when I decided to just make it myself. After a bit of research I decided to use the following libraries:</p>
+<ul>
+<li><a href="https://github.com/tkrajina/gpxpy">gpxpy</a> - To parse the .gpx files. (the gpx files were just glorified xml files, but this just made it easier for me)</li>
+<li><a href="https://github.com/pallets/click">click</a> - A library to develop an easy to use CLI for my project. Largely because I had heard about this at a recent Open Source Club meeting and I was intrigued.</li>
+</ul>
+<p>Note that I didn't use a google maps libraries. This is because I decided the best course of action was to develop an html file with javascript functions for manipulating the heatmap. Most of the my html setup came from Google's <a href="https://developers.google.com/maps/documentation/javascript/examples/layer-heatmap">Javascript API Documentation</a>.</p>
+<h3 id="the-code" tabindex="-1">The Code <a class="header-anchor" href="#the-code">#</a></h3>
+<p>The entirety of this project can be found on my github at <a href="https://github.com/TomCasavant/GPXtoHeatmap">https://github.com/TomCasavant/GPXtoHeatmap</a>.</p>
+<p>The first step to this project was getting all the points from the gpx files as such:</p>
+<pre><code>import gpxpy
+import click
+import os
+from configparser import SafeConfigParser
+
+def load_points(folder, filter):
+    &quot;&quot;&quot;Loads all gpx files into a list of points&quot;&quot;&quot;
+
+    coords = []
+    print (f&quot;Loading files with type {filter}...&quot;) #Loads files with progressbar
+    with click.progressbar(os.listdir(folder)) as bar:
+        for filename in bar:
+            if (filename.endswith(&quot;.gpx&quot;)):
+                #Verify file is a gpx file
+                gpx_file = open(f'{folder}/' + filename)
+                gpx = gpxpy.parse(gpx_file)
+                for track in gpx.tracks:
+                    if not filter or filter==track.type:
+                        for segment in track.segments:
+                            for point in segment.points:
+                            	coords.append([float(point.latitude), float(point.longitude)])
+
+    return (coords)
+</code></pre>
+<p>Things to note:</p>
+<ul>
+<li>The click library allows me to easily insert a progress bar into my project. The progress bar is used in place of the for loop. I could've placed this anywhere in the loop (i.e. I could've generated a progress bar for every track) but I figured it would be cleaner if I just had one progress bar for each file found.</li>
+<li>gpxpy parses the gpx file to allow me to get specific elements from the file (such as the tracks and the type)</li>
+<li>The filter variable will be used to filter based on the type of activity (if desired), activities can be anything that Garmin (or whatever company you associate with) tracks. I personally use mine to track the types 'walking', 'running', and 'cycling'.</li>
+<li>I've saved the points into a list of coordinates. These coordinates will be placed into the html file to generate the heat map.</li>
+</ul>
+<p>Next, I had to create the outline for the map. I created a separate text file for this purpose:</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Heatmaps&lt;/title&gt;
+    &lt;style&gt;
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #floating-panel {
+        background-color: #fff;
+        border: 1px solid #999;
+        left: 25%;
+        padding: 5px;
+        position: absolute;
+        top: 10px;
+        z-index: 5;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;div id=&quot;floating-panel&quot;&gt;
+      &lt;button onclick=&quot;toggleHeatmap()&quot;&gt;Toggle Heatmap&lt;/button&gt;
+      &lt;button onclick=&quot;changeGradient()&quot;&gt;Change gradient&lt;/button&gt;
+      &lt;button onclick=&quot;changeRadius()&quot;&gt;Change radius&lt;/button&gt;
+      &lt;button onclick=&quot;changeOpacity()&quot;&gt;Change opacity&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+
+      // This example requires the Visualization library. Include the libraries=visualization
+      // parameter when you first load the API. For example:
+      // &lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;libraries=visualization&quot;&gt;
+
+      var map, heatmap;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: {lat: 40, lng: -83},
+          mapTypeId: 'roadmap'
+        });
+
+        heatmap = new google.maps.visualization.HeatmapLayer({
+          data: getPoints(),
+          map: map,
+	  maxIntensity: 25,
+	  radius: 5,
+	  opacity:.4
+        });
+      }
+
+      function toggleHeatmap() {
+        heatmap.setMap(heatmap.getMap() ? null : map);
+      }
+     function changeGradient() {
+        var gradient = [
+          'rgba(0, 255, 255, 0)',
+          'rgba(0, 255, 255, 1)',
+          'rgba(0, 191, 255, 1)',
+          'rgba(0, 127, 255, 1)',
+          'rgba(0, 63, 255, 1)',
+          'rgba(0, 0, 255, 1)',
+          'rgba(0, 0, 223, 1)',
+          'rgba(0, 0, 191, 1)',
+          'rgba(0, 0, 159, 1)',
+          'rgba(0, 0, 127, 1)',
+          'rgba(63, 0, 91, 1)',
+          'rgba(127, 0, 63, 1)',
+          'rgba(191, 0, 31, 1)',
+          'rgba(255, 0, 0, 1)'
+        ]
+        heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+      }
+
+      function changeRadius() {
+        heatmap.set('radius', heatmap.get('radius') ? null : 1);
+      }
+
+      function changeOpacity() {
+        heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
+      }
+
+      function getPoints() {
+        return [LIST_OF_POINTS];
+        }
+      &lt;/script&gt;
+      &lt;script async defer
+          src=&quot;https://maps.googleapis.com/maps/api/js?key=API_KEY&amp;libraries=visualization&amp;callback=initMap&quot;&gt;&lt;/script&gt;
+      &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Again, most of this file comes from Google's official documentation. It allows the user to customize their map live, in case you want to change certain aspects of it. The major value I had to change in this file was the radius. Since my heat maps were more localized, I had to decrease the radius value to 5 in order to clearly see my heatmap when zoomed in. In the INIT function, I changed where the map started, this wasn't necessary because you can move around the map when you open it. But, it made it easier to focus on where my heat map is (I may in the change where the location begins based on where the heat map is generated, but I haven't gotten around to it yet). Finally, in the getPoints() function, I have it return LIST_OF_POINTS. This value is one of the values that we'll be changing in our python file. The other value is the API key in the <code>&lt;script src=...&gt;</code> line.</p>
+<p>Finally, we have to actually generate the completed html file. We'll need a config file and back in the python file we'll define 2 more functions: one to get the outline file and one to replace the LIST_OF_POINTS variable and generate a new file:</p>
+<p>config.ini</p>
+<pre><code>[GOOGLE]
+API_KEY = ####YOUR_API_KEY###
+</code></pre>
+<p>heatmap.py</p>
+<pre><code>parser = SafeConfigParser()
+parser.read('config.ini')
+API_KEY = parser.get('GOOGLE', 'API_KEY')
+
+def get_outline():
+    &quot;&quot;&quot;Reads in the html outline file&quot;&quot;&quot;
+    with open('map-outline.txt', 'r') as file:
+        outline = file.read()
+    return outline
+
+def generate_html(points, file_out):
+    &quot;&quot;&quot;Generates a new html file with points&quot;&quot;&quot;
+    f = open(f&quot;output/{file_out}.html&quot;, &quot;w&quot;)
+    outline = get_outline()
+    google_points = &quot;,\n&quot;.join([f&quot;new google.maps.LatLng({point[0]}, {point[1]})&quot; for point in points])
+    updated_content = outline.replace(&quot;LIST_OF_POINTS&quot;, google_points).replace(&quot;API_KEY&quot;, API_KEY)
+    f.write(updated_content)
+    f.close()
+</code></pre>
+<p>You can generate a google maps API key from here <a href="https://developers.google.com/maps/documentation/javascript/get-api-key">https://developers.google.com/maps/documentation/javascript/get-api-key</a>.</p>
+<p>Essentially, all you need to know is that get_outline() reads in the text file containing the html/javascript, then the generate_html() function takes that outline and fills it in with the appropriate content.</p>
+<p>Then to put it all together we make our main functions.</p>
+<pre><code>@click.command()
+@click.option(&quot;--output&quot;, default=&quot;map&quot;, help=&quot;Specify the name of the output file&quot;)
+@click.option(&quot;--input&quot;, default=&quot;gpx&quot;, help=&quot;Specify an input folder&quot;)
+@click.option(&quot;--filter&quot;, default=None, help=&quot;Specify a filter type&quot;, type=click.Choice(['running', 'cycling', 'walking']))
+def main(output, input, filter):
+    points = load_points(input, filter)
+    generate_html(points, output)
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+<p>Click allows us to define arguments from the command line. In this program I added three options '--output', '--input', and '--filter'. Which means a user could type in the following command to generate a heat map with bike routes from a folder called gpx_files and output it to output/my_heat_map.html.
+<code>python heatmap.py --output my_heat_map --input gpx_files --filter cycling</code></p>
+<p>That's it. The heat map gets generated and can be open in your web browser where you can manipulate it to your desire. Once again, all of this code can be found on my github at <a href="https://github.com/TomCasavant/GPXtoHeatmap">https://github.com/TomCasavant/GPXtoHeatmap</a>.</p>
+
+<ul class="links-nextprev"><li>Previous: <a href="/blog/Legacy/2019-03-01-make-oh-io-2019/">Make OH/IO 2019</a></li><li>Next: <a href="/blog/Legacy/2019-04-19-a-curious-case-of-osu-financial-aid/">A Curious Case of OSU Financial Aid</a></li>
+</ul>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/blog/Legacy/2019-04-18-generating-heat-maps-from-gpx-files/` was built on 2024-05-22T19:35:15.629Z -->
+	</body>
+</html>
