@@ -38,6 +38,7 @@
 		"@11ty/eleventy-plugin-bundle": "^1.0.4",
 		"@11ty/eleventy-plugin-rss": "^1.2.0",
 		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+		"@octokit/rest": "^20.1.1",
 		"dotenv": "^16.4.5",
 		"eleventy-google-fonts": "^0.1.0",
 		"garmin-connect": "^1.6.2",
