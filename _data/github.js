@@ -1,10 +1,13 @@
+const fetch = require('node-fetch'); // Import the fetch implementation
 const { Octokit } = require('@octokit/rest');
 const moment = require('moment-timezone');
 require('dotenv').config();
 
-// Create a new instance of Octokit
 const octokit = new Octokit({
   auth: process.env.GIT_TOKEN,
+  request: {
+    fetch // Pass the fetch implementation to the request object
+  }
 });
 
 async function getStarredRepos(username) {
