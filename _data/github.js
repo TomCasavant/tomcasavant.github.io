@@ -1,12 +1,14 @@
-const fetch = require('node-fetch'); // Import the fetch implementation
+const EleventyFetch = require("@11ty/eleventy-fetch"); 
+
 const { Octokit } = require('@octokit/rest');
 const moment = require('moment-timezone');
 require('dotenv').config();
 
+
 const octokit = new Octokit({
   auth: process.env.GIT_TOKEN,
   request: {
-    fetch // Pass the fetch implementation to the request object
+    EleventyFetch // Pass the fetch implementation to the request object
   }
 });
 
