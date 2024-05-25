@@ -142,6 +142,8 @@ module.exports = function(eleventyConfig) {
 			output: "dist"
 		},
 
+		permalink: "/{{ title | slug }}/",
+
 		// -----------------------------------------------------------------
 		// Optional items:
 		// -----------------------------------------------------------------
