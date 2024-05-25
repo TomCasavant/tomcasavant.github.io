@@ -86,6 +86,7 @@ module.exports = async function () {
         activities = await fetchActivities();
     } catch (error) {
         console.error('Error fetching activities from Garmin Connect');
+			  console.error(error);
     }
 
     if (!activities) {
