@@ -12,6 +12,7 @@ const pluginImages = require("./eleventy.config.images.js");
 const eleventyGoogleFonts = require("eleventy-google-fonts");
 const sanitizeHtml = require('sanitize-html');
 
+const slugify = require("slugify");
 
 module.exports = function(eleventyConfig) {
 	// Copy the contents of the `public` folder to the output folder
