@@ -26,7 +26,7 @@ eleventyNavigation:
 	<div class="image-item">{% image "./oreo-pie2.jpg", "Image " ~ image %}</div>
 	<div class="image-item">{% image "./chocolate-eclairs.jpg", "Image " ~ image %}</div>
 	<div class="image-item">{% image "./bread.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./pancakes", "Image " ~ image %}</div>
+	<div class="image-item">{% image "./pancakes.jpg", "Image " ~ image %}</div>
 	<div class="image-item">{% image "./orange-juice.jpg", "Image " ~ image %}</div>
 	<div class="image-item">{% image "./refrigerated-dessert.jpg", "Image " ~ image %}</div>
 	<div class="image-item">{% image "./slushie.jpg", "Image " ~ image %}</div>
