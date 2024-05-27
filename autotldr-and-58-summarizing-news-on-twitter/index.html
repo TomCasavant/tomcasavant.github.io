@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Programming a python Controller for Pianobar (Pandora) with your Wii Remote</title>
+		<title>AutoTLDR&amp;#58; Summarizing News on Twitter</title>
 		<meta name="description" content="">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Tom Casavant">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Tom Casavant">
@@ -661,104 +661,92 @@ a.microblog-post-link {
 
 		<main id="skip">
 			
-<h1>Programming a python Controller for Pianobar (Pandora) with your Wii Remote</h1>
+<h1>AutoTLDR&amp;#58; Summarizing News on Twitter</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2015-03-02">02 March 2015</time></li>
+	<li><time datetime="2017-04-05">05 April 2017</time></li>
 </ul>
 
-<p>Recently I received a raspberry pi(<a href="http://www.raspberrypi.org/">http://www.raspberrypi.org/</a>) as a Christmas gift. Soon after I was introduced to pianobar, a terminal based Pandora (<a href="http://pandora.com">http://pandora.com</a>) client for linux. After awhile I began to get annoyed by having to grab the keyboard whenever I wanted to &quot;like&quot; or &quot;skip&quot; a song. Then, I saw the wii remote. I quickly googled how to use python in conjunction with the wii remote and quickly discovered the library cwiid (<a href="http://talk.maemo.org/showthread.php?t=60178">http://talk.maemo.org/showthread.php?t=60178</a>). First off I went through a quick tutorial to learn how to use this library. Then I set off with my program. I began with a function to find the wii remote when you make it discoverable (By clicking 1 &amp; 2)</p>
-<p>import cwiid
-if <strong>name</strong> == &quot;<strong>main</strong>&quot;:
-loop()
-def connectRemote():
-if not wm:
-print &quot;Please connect your wii remote by clicking 1 &amp; 2&quot;
-wm = cwiid.Wiimote()
-return wm</p>
-<p>Next I began on the main loop, this would iterate through all the command options and run the correlating command:</p>
-<p>def loop():
-running = True
-while running == True:
+<p>On Reddit, there is a bot named autotldr (<a href="https://www.reddit.com/user/autotldr">https://www.reddit.com/user/autotldr</a>) who uses one of the various text summarizer websites (i.e. <a href="http://textsummarization.net/text-summarizer">http://textsummarization.net/text-summarizer</a>) to simplify different news articles posted on Reddit in a few sentences. This intrigued me, so I looked into it and there is, in fact, a Python library that allows you to summarize articles very easily called sumy (https://pypi.python.org/pypi/sumy). Install with &quot;pip install sumy&quot; The Twython Library (pip install Twython) also interfaces with the Streaming API from Twitter, and API which lets me read tweets in real time. This is what we'll be using to create our AutoTLDR twitter account. Obviously, first you have to get your Twitter app credentials from <a href="https://dev.twitter.com/">https://dev.twitter.com/</a> and then create your config.ini file:</p>
+<p>[twitter]
+API_KEY = ###API KEY HERE###
+API_SECRET = ###API SECRET HERE###
+ACCESS_TOKEN = ###ACCESS TOKEN HERE###
+ACCESS_SECRET = ###ACCESS SECRET HERE###</p>
+<p>Then onto your main.py file, we'll start with the imports:</p>
+<p>from sumy.parsers.html import HtmlParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.summarizers.lex_rank import LexRankSummarizer as Summarizer
+from sumy.nlp.stemmers import Stemmer
+from sumy.utils import get_stop_words
+from ConfigParser import SafeConfigParser
+from twython import TwythonStreamer
+from twython import Twython</p>
+<p>Basically here you're just importing your necessary sumy modules, followed by your ConfigParser, and finally everything you need from your Twython library. After importing everything you can start a class for your Twython Streaming API as such:</p>
+<p>class myStreamer(TwythonStreamer):
+def on_success(self, data):
+&quot;&quot;&quot;If data received, check if this is an original tweet from one of chosen news sources, then reply&quot;&quot;&quot;
+if 'text' in data:
 try:
-wm.rpt_mode = cwiid.RPT_BTN
-clicked = wm.state['buttons']
+if not data['retweeted'] and not data['in_reply_to_status_id'] and '@' not in data['text'] and not data['is_quote_status']:
+reply(data['entities']['urls'][0]['expanded_url'], data['id'], data['user']['screen_name'])
+#	print &quot;Responded&quot;
+#	print data
 except:
-wm = connectRemote()
-if (clicked &amp; cwiid.BTN_A):
-control(&quot;p&quot;, wm)
-elif (clicked &amp; cwiid.BTN_UP):
-control(&quot;))&quot;, wm)
-elif (clicked &amp; cwiid.BTN_DOWN):
-control(&quot;((&quot;, wm)
-elif (clicked &amp; cwiid.BTN_LEFT):
-control(&quot;n&quot;, wm)
-elif (clicked &amp; cwiid.BTN_PLUS):
-control(&quot;+&quot;, wm)
-elif (clicked &amp; cwiid.BTN_MINUS):
-control(&quot;t&quot;, wm)</p>
-<p>Next, we need to make sure our pianobar is setup. First install it by typing</p>
-<blockquote>
-<p>sudo apt-get install pianobar</p>
-</blockquote>
-<p>Next we need to edit pianobar's settings. I had some trouble with this and had to copy the config file to my pianobar directory. Type:</p>
-<blockquote>
-<p>sudo nano /home/pi/.config/pianobar</p>
-</blockquote>
-<p>We then need to remove some of the &quot;#&quot;'s remove the &quot;#&quot; from &quot;user&quot; and &quot;password&quot; and after the &quot;=&quot; type in your pandora credentials</p>
-<blockquote>
-<p>user = username@email.com</p>
-<p>password = ***************</p>
-</blockquote>
-<p>Then remove the &quot;#&quot; from the commands that you'd like to use, such as the &quot;act_songlove&quot;</p>
-<blockquote>
-<p>act_songlove = +</p>
-</blockquote>
-<p>Now, remove the &quot;#&quot; from the line that says &quot;fifo&quot; and change that value to:</p>
-<blockquote>
-<p>fifo = /home/pi/.config/pianobar/ctl</p>
-</blockquote>
-<p>Finally, I had some trouble with the &quot;tls_fingerprint&quot; in which I was not able to play music until I changed that to:</p>
-<blockquote>
-<p>tls_fingerprint = B0A1EB460B1B6F33A1B6CB500C6523CB2E6EC946</p>
-</blockquote>
-<p>Now I had to setup my &quot;autostart&quot; station. Save and close the config file. run pianobar by typing &quot;pianobar&quot; in the terminal, you might have to type &quot;./pianobar&quot; instead. Now select one of your stations by typing in the number of the station you prefer. It now should show a 19 digit number such as:</p>
-<blockquote>
-<p>1105372639075095905</p>
-</blockquote>
-<p>Copy this down and go back to editing your config file. Change the &quot;autostart_station&quot; to equal your 19 digit number.</p>
-<blockquote>
-<p>autostart_station = 1105372639075095905</p>
-</blockquote>
-<p>Test this by running pianobar again and check if the station begins playing. To finish this setup, we need to create the fifo, navigate to your directory with the &quot;ctl&quot; file. If this file is not created then type sudo nano ctl and then ctl+x to save it. Now, create the fifo with:</p>
-<blockquote>
-<p>mkfifo ~/.config/pianobar/ctl</p>
-</blockquote>
-<p>Then I had to finish my python program, I needed a control() function.</p>
-<p>Edit your python program and add:</p>
-<p>def control(cmd, wm):
-ctl = open(&quot;/home/pi/.config/pianobar/ctl&quot;, &quot;w&quot;)
-print &gt;&gt; ctl, cmd</p>
-<p>The final step is creating an sh file to run pianobar and your program at the same time.</p>
-<p>Type: sudo nano launcher.sh</p>
-<p>Add this to your file and save:</p>
-<blockquote>
-<p>pianobar &amp; python yourprogram.py</p>
-</blockquote>
-<p>Replace yourprogram.py with the name of your program.</p>
-<p>Now type in your terminal:</p>
-<blockquote>
-<p>chmod +x launcher.sh</p>
-</blockquote>
-<p>Run your program with &quot;./launcher&quot;</p>
+pass
+def on_timeout(self, data):
+print &quot;Timeout&quot;
+def on_error(self, status_code, data):
+print status_code</p>
+<p>The first function on_success(self, data) is what the Streamer will run whenever it is successful in retrieving data from the Twitter API. First, we check if the data received is a tweet by checking if the 'text' key is in data. Next, we verify that the tweet is not a retweet/reply/or quote. After verifying all these conditions the bot will run the reply function (we'll program this soon). The on_timeout(self, data) function is run if the Streamer is timed out (currently the bot just prints that there was a timeout, but you could insert code that restarts the Streamer). Finally, the on_error(self, status_code, data) just prints out if any other error is reached. Next, we can program our reply function like this:</p>
+<p>def reply(url, id, screen_name):
+&quot;&quot;&quot;Replies to a tweet with summary given id&quot;&quot;&quot;
+#print id
+summary = getSummary(url, 3)
+split = splitText(summary, 140) #Splits text every 140 characters
+id = twitter.update_status(status=&quot;@&quot;+ screen_name + &quot; Here is a short summary of the posted link:&quot;, in_reply_to_status_id=id)['id'] #Posts initial tweet and saves ID
+for segment in split:
+#Send tweet for every 140 characters in reply format
+id = twitter.update_status(status=segment, in_reply_to_status_id=id)['id']</p>
+<p>The reply(url, id, screen_name) function uses the Twitter Rest API (in the Twython library) to reply to the original tweet with a series of tweets about the article. First, it retrieves a summary using the url from the tweet with the function getSummary (which we will soon create). Then it splits the text every 140 characters using another function splitText (again, we will create this). Then it replies to the original tweet with &quot; Here is a short summary of the posted link:&quot;. Note: when posting a reply to a tweet you not only have to include the id with &quot;in_reply_to_status_id&quot; but you also have to tag the user with the &quot;@&quot; symbol. TO finish it off, the function loops through the sentence list in the variable 'split' and replies to the previous tweet. The next two functions deal with retrieving the split sentences:</p>
+<p>LANGUAGE = &quot;english&quot;</p>
+<p>def getSummary(url, sentences):
+&quot;&quot;&quot;Gets summary of article using sumy&quot;&quot;&quot;
+parser = HtmlParser.from_url(url, Tokenizer(LANGUAGE))
+stemmer = Stemmer(LANGUAGE)</p>
+<p>summarizer = Summarizer(stemmer)
+summarizer.stop_words = get_stop_words(LANGUAGE)
+fullText = &quot;&quot;
+for sentence in summarizer(parser.document, sentences):
+fullText += str(sentence) + &quot; &quot;</p>
+<p>return fullText</p>
+<p>def splitText(text, n):
+&quot;&quot;&quot;Splits text every n characters&quot;&quot;&quot;
+newText = []
+while text:
+newText.append(text[:n])
+text = text[n:]
+return newText</p>
+<p>The getSummary(url, sentences) function examines the url. Then it constructs a string from all of the sentences and returns that variable (fullText). The splitText function will take the string and break it into sentences of 'n' length. In our case, it splits every 140 characters. We finish the program off by calling all of the important functions:</p>
+<p>if <strong>name</strong> == '<strong>main</strong>':
+parser = SafeConfigParser()
+parser.read(&quot;config.ini&quot;)
+API_KEY = parser.get('twitter', 'API_KEY')
+API_SECRET = parser.get('twitter', 'API_SECRET')
+ACCESS_TOKEN = parser.get('twitter', 'ACCESS_TOKEN')
+ACCESS_SECRET = parser.get('twitter', 'ACCESS_SECRET')</p>
+<p>twitter = Twython(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
+stream = myStreamer(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
+stream.statuses.filter(follow=['5392522', '612473', '5402612','742143','5741722'], filter_level='low') #Reads from certain Twitter Accounts (@NPR, @BBC, @BBCNews...)</p>
+<p>First, we obtain the API keys from our config file using SafeConfigParser, then we create a twitter instance and a streamer instance. The Streamer uses the &quot;follow=&quot; argument to follow certain accounts. You can obtain these id's using your own code, but I found it much easier to just go to <a href="http://mytwitterid.com/">http://mytwitterid.com/</a> and enter the username of the account you'd like the bot to keep track of. In my case, I followed NPR, BBC, and BBCNews (as well as a few others I can't remember off the top of my head). Now you can run your program in the background (if you're on a UNIX system) using &quot;nohup python main.py &amp;&quot;. My twitter account is currently active here: <a href="https://twitter.com/auto_tldr">https://twitter.com/auto_tldr</a> (@auto_tldr) You can view all this code on Github here: <a href="https://github.com/Twin802/AutoTLDR">https://github.com/Twin802/AutoTLDR</a></p>
 
-<ul class="links-nextprev"><li>Next: <a href="/setting-up-your-java-ide-for-and34dumband34-phone-mobile-apps/">Setting up your Java IDE for &amp;#34;Dumb&amp;#34; phone mobile apps</a></li>
+<ul class="links-nextprev"><li>Previous: <a href="/playlist-creator-and-58-a-python-spotify-creation/">Playlist Creator&amp;#58; A Python Spotify Creation</a></li><li>Next: <a href="/slackarchiver-and-58-using-mongo-to-archive-slack-messages-featuring-and-34-docker-and-34/">SlackArchiver&amp;#58; Using Mongo to archive Slack messages (Featuring &amp;#34;Docker&amp;#34;)</a></li>
 </ul>
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/programming-a-python-controller-for-pianobar-(pandora)-with-your-wii-remote/` was built on 2024-05-27T01:28:29.078Z -->
+		<!-- This page `/autotldr-and-58-summarizing-news-on-twitter/` was built on 2024-05-27T01:46:35.454Z -->
 	</body>
 </html>

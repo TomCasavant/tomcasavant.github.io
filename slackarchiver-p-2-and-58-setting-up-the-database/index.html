@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Superpower Generator&amp;#58; Programming an Alexa skill with Reddit RSS Feeds</title>
+		<title>SlackArchiver (p.2)&amp;#58; Setting up the Database</title>
 		<meta name="description" content="">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Tom Casavant">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Tom Casavant">
@@ -661,84 +661,67 @@ a.microblog-post-link {
 
 		<main id="skip">
 			
-<h1>Superpower Generator&amp;#58; Programming an Alexa skill with Reddit RSS Feeds</h1>
+<h1>SlackArchiver (p.2)&amp;#58; Setting up the Database</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2018-06-11">11 June 2018</time></li>
+	<li><time datetime="2017-09-16">16 September 2017</time></li>
 </ul>
 
-<blockquote>
-<p>Over the past year, I've been programming Alexa skills* after I learned how to do it back in November. However, I've neglected to write a post on how to make one...until now.</p>
-</blockquote>
-<p>*The one I'm creating in this post is <a href="https://www.amazon.com/Tom-Casavant-Superpower-Generator/dp/B07D9WG59C/ref=sr_1_2?ie=UTF8&amp;qid=1528743025&amp;sr=8-2&amp;keywords=superpower+generator&amp;dpID=5146tPtAcML&amp;preST=_SY300_p;dp=srch" title="this one">this one</a>. I have also made the following:</p>
-<ul>
-<li><a href="https://www.amazon.com/Tom-Casavant-George-Bush-Impersonator/dp/B077SRD5DG/ref=sr_1_1?ie=UTF8&amp;qid=1528743281&amp;sr=8-1&amp;keywords=george+bush+impersonator&amp;dpID=71ntOVP0d7L&amp;preST=_SY300_QL70_&amp;dpSrc=srch">George Bush Impersonator</a></li>
-<li><a href="https://www.amazon.com/Tom-Casavant-Copy-Cat/dp/B075845HH8/ref=sr_1_3?s=digital-skills&amp;ie=UTF8&amp;qid=1528743321&amp;sr=1-3&amp;keywords=copycat&amp;dpID=51TFkslzR%252BL&amp;preST=_SY300_QL70_&amp;dpSrc=srch">Copy Cat</a></li>
-<li><a href="https://www.amazon.com/Tom-Casavant-Repeat-Me/dp/B076YJ8TBT/ref=sr_1_8?s=digital-skills&amp;ie=UTF8&amp;qid=1528743366&amp;sr=1-8&amp;keywords=repeat+me">Repeat me</a></li>
-</ul>
-<p>First off, I'll be doing this in a virtual environment on my Windows OS. So, if you want to follow along you'll have to set up Python, followed by Virtualenv (<a href="https://virtualenv.pypa.io/en/stable/userguide/">https://virtualenv.pypa.io/en/stable/userguide/</a>).</p>
-<p>Next we'll install the libraries needed for this project. Open up a command line terminal and create a virtual environment (call &quot;virtualenv venv&quot; in your desired directory) and activate the environment (call &quot;venv\Scripts\activate&quot;). Install the following using pip:</p>
-<ul>
-<li><a href="http://flask.pocoo.org">Flask</a></li>
-<li><a href="https://flask-ask.readthedocs.io/en/latest/">flask-ask</a></li>
-<li><a href="https://pythonhosted.org/feedparser/">feedparser</a></li>
-</ul>
-<p>And now we can start programming...</p>
-<p>As always, we'll start with all the import statements</p>
-<p>from flask_ask import Ask, statement, question
-from flask import Flask, render_template
-import feedparser
-import random</p>
-<p>Next, we need to create the flask app:</p>
-<p>app = Flask(<strong>name</strong>)
-ask = Ask(app, &quot;/&quot;)</p>
-<p>A library we imported earlier, flask-ask, allows us to create the intents for the Alexa skill. There are a few intents that Amazon requires for their Alexa skills: Launch, Fallback, Cancel, Stop, and Help. So, we'll implement those first and get them out of the way.</p>
-<p>@ask.launch
-def new_ask():
-&quot;&quot;&quot;Returns a welcome message when skill is turned on&quot;&quot;&quot;
-welcome = &quot;Welcome to superpower generator! Ask for help, or just ask for a superpower.&quot;
-return question(welcome)</p>
-<p>@ask.intent(&quot;AMAZON.CancelIntent&quot;)
-def cancel():
-&quot;&quot;&quot;Alerts the user that you are exiting the app&quot;&quot;&quot;
-return statement(&quot;See you later!&quot;)</p>
-<p>@ask.intent(&quot;AMAZON.StopIntent&quot;)
-def stop():
-&quot;&quot;&quot;Alerts the user that the skill is stopping&quot;&quot;&quot;
-return statement(&quot;Goodbye, this skill is shutting down&quot;)</p>
-<p>@ask.intent(&quot;AMAZON.HelpIntent&quot;)
-def helpme():
-&quot;&quot;&quot;Returns help commands for Alexa Skill&quot;&quot;&quot;
-return question(&quot;Use this skill by saying Alexa give me a superpower. What would you like to do?&quot;)</p>
-<p>Keep in mind that when flask-ask returns a 'statement' then Alexa will say the statement and exit the app. When flask-ask returns a 'question' then following a statement Alexa will turn on it's microphone and wait for more user input.</p>
-<p>Finally, we will create our main function to get a superpower from <a href="https://www.reddit.com/r/shittysuperpowers">https://www.reddit.com/r/shittysuperpowers</a>.</p>
-<p>@ask.intent(&quot;SuperpowerIntent&quot;)
-def getPower():
-&quot;&quot;&quot;Gives a user a superpower from r/shittysuperpowers&quot;&quot;&quot;
-d = feedparser.parse(&quot;https://www.reddit.com/r/shittysuperpowers/.rss?limit=100&quot;)
-selection = random.randint(0,len(d['entries'])-1)
-return statement(d['entries'][selection]['title'])</p>
-<p>if <strong>name</strong> == '<strong>main</strong>':
-app.run(debug=True)</p>
-<p>Basically, this function takes the reddit rss feed from this subreddit (an RSS feed can be generated by adding '/.rss' to the end of any reddit address) and extracts all the entries from the sub. It generates a random number from 0 to the number of entries in the feed (minus one). It then returns the title of the random post as a statement.</p>
-<p>Now that we've written the code, we have to set up the alexa skill in the developer console at <a href="https://developer.amazon.com/alexa">https://developer.amazon.com/alexa</a>. Go to that web address and click &quot;Alexa Skills Kit&quot;, and then click &quot;Start a Skill&quot;. Finally, click &quot;Create Skill&quot;.</p>
-<p>Give your skill a name go into the Invocation section and give your skill an invocation name (or the name the user will say to activate your skill).</p>
-<p>Head to the intents section of the developer console. Click the add button next to intents and create one called &quot;SuperpowerIntent&quot;. Then type in some sample utterances such as the following:</p>
-<p><img src="http://www.tomcasavant.com/wp-content/uploads/YuPMsym-1.png" alt=""></p>
-<p>Now we're going to head back over into our command prompt. Install a library called &quot;zappa&quot; using 'pip install zappa' (<a href="https://github.com/Miserlou/Zappa">https://github.com/Miserlou/Zappa</a>). Zappa will be used to deploy the skill on AWS. After installing it run the following commands:</p>
-<p>&quot;zappa init&quot; (Follow through that process to create your zappa, I usually just choose the default selections for each option)<br>
-&quot;zappa deploy dev&quot; (This puts the skill on AWS, it will spit out a link to the skill when it finished running)</p>
-<p>if you ever need to update your skill instead of using the above command use &quot;zappa update dev&quot;</p>
-<p>Now that you have your url, go back to the developer console and select 'Endpoint' from the tabs. SELECT HTTPS (NOT AWS LAMBDA) and in the default region enter the url you were given by zappa. Save and go over into the testing grounds. If your skill works as expected go over into the launch tab and fill out all the information for your skill. (NOTE: When I tried to publish this skill the first time it was rejected because of the bad word in r/shittysuperpowers, I guess they have strict rules about that so you should watch out for it).</p>
-<p>That's it, after a day or two your skill should either be certified or they will email you a list of reasons why they didn't certify it yet.</p>
+<p>In the previous post, we developed a program that can read all previous slack posts, as well as actively listen for current slack posts. Now, we need to create a new function that will take all the data it reads, and put it into a database (we'll be using Mongo as our database manager). This function is actually quite simple, it opens the database, then for every slack post it was given it will check to see if that post is already in the database. If it isn't in the database it will add it to the database. Here is that function:</p>
+<p>def insert_database(messages, client):
+&quot;&quot;&quot;Takes messages and inserts them into a database&quot;&quot;&quot;
+database = client['Slack-Database']
+posts = database.posts
+for message in messages:
+if message['type'] == 'message': #verifies the type of data received from slack
+posts.replace_one(message, message, upsert=True)
+print &quot;Message Logged&quot;</p>
+<p>The biggest thing to note about this function is the fact that we used &quot;posts.replace_one()&quot;. This allows us to only have one copy of each unique message in our database. In order to actually have access to a database, we need a Mongo service running. This is rather simple using Docker. Using the information from this website, <a href="https://hub.docker.com/_/mongo/">https://hub.docker.com/_/mongo/</a>, we can create a mongo instance by running the following command:</p>
+<p>docker run --name some-mongo -d mongo</p>
+<p>This will create a mongo instance within our docker called &quot;some-mongo&quot; (You can change that name if you'd like, but it doesn't really matter for uthe purposes of this program). Next, you need to go back and edit some of the functions from the previous part of this tutorial. The following functions should now look like these:</p>
+<p>def log_previous_slack_data(slackclient, mongoclient):
+&quot;&quot;&quot;Gets all previous messages and puts them into a mongo database&quot;&quot;&quot;
+channels = slackclient.api_call(&quot;channels.list&quot;)['channels']
+for channel in channels:
+history = slackclient.api_call(
+&quot;channels.history&quot;,
+channel=channel['id'])
+insert_database(history['messages'], mongoclient) ###THIS LINE CHANGED</p>
+<p>def start_listening(slackclient, mongoclient):
+&quot;&quot;&quot;Actively logs messages into a mongo database&quot;&quot;&quot;
+if slackclient.rtm_connect():
+while True:
+messages = slackclient.rtm_read()
+if messages: #If anything was read
+insert_database(messages, mongoclient) ###THIS LINE CHANGED
+time.sleep(1)</p>
+<p>else:
+print &quot;Unable to connect&quot;</p>
+<p>if <strong>name</strong> == &quot;<strong>main</strong>&quot;:
+parser = SafeConfigParser()
+parser.read(config.ini) #Later on this line will change slightly
+SLACK_API_TOKEN = parser.get(&quot;slack&quot;, &quot;API_TOKEN&quot;)</p>
+<p>mongo = MongoClient() #Notice how we're temporarily removing 'mongodb'
+slack = SlackClient(SLACK_API_TOKEN)</p>
+<p>log_previous_slack_data(slack, mongo)
+start_listening(slack, mongo)</p>
+<p>Here's a quick explanation of the changes that occurred in these functions. In the first function (log_previous_slack_data()) we stopped printing the history, and instead sent all the data over to the insert_database function. A similar thing happened with the start_listening function. We stopped printing all the messages, and instead sent them over to the insert_database function. The major change occurred in the main function. Pymongo will connect to the Mongo instance by using the default settings of MongoClient(). This will change once we set up the docker. You can now test this program, to do this we'll create another function that will print out data from the database after it has been read.</p>
+<p>def print_database(client):
+&quot;&quot;&quot;Prints the content of the database&quot;&quot;&quot;
+database = client['Slack-Database']
+collection = database['posts']
+find_all = collection.find({})
+for document in find_all:
+print document</p>
+<p>Finally, add print_database to your main function using &quot;print_database(mongo)&quot; and run your program. You should see every post in your database getting printed out. This concludes the database portion of the tutorial. In the next post we'll set up a docker to encapsulate the entire program.</p>
 
-<ul class="links-nextprev"><li>Previous: <a href="/slackarchiver-(p.3)and58-setting-up-your-docker/">SlackArchiver (p.3)&amp;#58; Setting up your Docker</a></li><li>Next: <a href="/hack-ohio-2018/">Hack OH/IO 2018</a></li>
+<ul class="links-nextprev"><li>Previous: <a href="/slackarchiver-and-58-using-mongo-to-archive-slack-messages-featuring-and-34-docker-and-34/">SlackArchiver&amp;#58; Using Mongo to archive Slack messages (Featuring &amp;#34;Docker&amp;#34;)</a></li><li>Next: <a href="/slackarchiver-p-3-and-58-setting-up-your-docker/">SlackArchiver (p.3)&amp;#58; Setting up your Docker</a></li>
 </ul>
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/superpower-generatorand58-programming-an-alexa-skill-with-reddit-rss-feeds/` was built on 2024-05-27T01:28:29.102Z -->
+		<!-- This page `/slackarchiver-p-2-and-58-setting-up-the-database/` was built on 2024-05-27T01:46:35.469Z -->
 	</body>
 </html>

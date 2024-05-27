@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>CleverSlack&amp;#58; A Cleverbot/Slack Implementation</title>
+		<title>Make OH/IO 2019</title>
 		<meta name="description" content="">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Tom Casavant">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Tom Casavant">
@@ -661,63 +661,30 @@ a.microblog-post-link {
 
 		<main id="skip">
 			
-<h1>CleverSlack&amp;#58; A Cleverbot/Slack Implementation</h1>
+<h1>Make OH/IO 2019</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2017-03-30">30 March 2017</time></li>
+	<li><time datetime="2019-03-01">01 March 2019</time></li>
 </ul>
 
-<p>Cleverbot recently released an official API (that allows for 5,000 free requests every month) and with that, I wanted to experiment with this chat AI. I started using a website called Slack <a href="https://slack.com/">(https://slack.com/</a>) which is basically an easy way to communicate in large groups. So, I decided to combine the two and create a bot that would talk to people in this group chat. Prior to programming, you have to create an API key for both Slack and Cleverbot which is quite easy. You can follow the tutorial for creating a bot user in Slack here: <a href="https://api.slack.com/bot-users">https://api.slack.com/bot-users</a>. The Cleverbot API is located here: <a href="https://www.cleverbot.com/api/">https://www.cleverbot.com/api/</a> and all you need to do there is purchase the free API package. You will also need to install several libraries. Install slackclient and cleverwrap using pip. After generating all your API keys you can start with a config file. This, I learned, is necessary when loading sensitive information online as it keeps that data private. Python has a handy built-in library called ConfigParser that easily imports this data. Name your config file config.ini and add your API keys in there as such:</p>
-<p>[slack]
-API_TOKEN = InsertSlackAPITokenHere
-[cleverbot]
-API_TOKEN = InsertCleverbotAPITokenHere</p>
-<p>After creating your config file you can move on to the actual program, name it main.py (or whatever you want). You can start with your necessary imports:</p>
-<p>from slackclient import SlackClient
-from cleverwrap import CleverWrap
-import time
-from ConfigParser import SafeConfigParser</p>
-<p>The first two imports are the previously installed libraries slackclient and cleverwrap. The time library will be used to slow down the processing speed of the bot with its sleep method. Finally, the ConfigParser will be used to retrieve the API keys from the config.ini file. We'll start with the main function, which will connect to the Slack library and read new messages as they come in. Make sure to add your bot user to a group so it knows where to search for messages in this case I added mine to a group called #clever.</p>
-<p>def main():
-if sc.rtm_connect():
-#sc.rtm_send_message(&quot;clever&quot;, &quot;Bot starting up...&quot;) #Used to check if bot is working
-while True:
-for slack_message in sc.rtm_read():
-message = slack_message.get(&quot;text&quot;)
-user = slack_message.get(&quot;user&quot;)
-if not message or not user or user == &quot;cleverbot&quot;:
-continue
-#print &quot;Got message! %s&quot; %(message)
-sc.rtm_send_message(&quot;#clever&quot;, &quot;{text}&quot;.format(text=cleverbot(message)))</p>
-<p>time.sleep(1)</p>
-<p>else:
-print &quot;Connection failed&quot;</p>
-<p>This function uses the Real-time messaging method from the slackclient library which allows the bot to constantly read messages as they come in. The next few lines are rather self-explanatory, if the bot is able to connect to the server then read new messages and saves the text as well as the user of the message, if the user is not the bot itself then it sends its own message with the response that it retrieves from cleverbot(message) or the next function we will make. Then it runs time.sleep(1) so it doesn't overprocess. Next, we need to retrieve a message from cleverbot, which is surprisingly easy to do:</p>
-<p>def cleverbot(text):
-response = cw.say(text)
-return response</p>
-<p>Basically, what happens is we send the Cleverbot API a piece of text and return the response. Finally, we need to initiate all of our API keys using the ConfigParser</p>
-<p>if <strong>name</strong> == &quot;<strong>main</strong>&quot;:
-parser = SafeConfigParser()
-parser.read(&quot;config.ini&quot;)
-SLACK_API_TOKEN = parser.get(&quot;slack&quot;, &quot;API_TOKEN&quot;)
-CLEVERBOT_API_TOKEN = parser.get(&quot;cleverbot&quot;,&quot;API_TOKEN&quot;)
-sc = SlackClient(SLACK_API_TOKEN)
-cw = CleverWrap(CLEVERBOT_API_TOKEN)
-main()</p>
-<p>The parser reads using a layering system i.e. first it looks into the [slack] section to find the variable API_TOKEN and retrieves that variable. It then does that for the CLEVERBOT_API_TOKEN as well. Then it creates a SlackClient and CleverWrap instance using these API tokens. It finishes it out with the main() function which we created earlier. All this code can be found on Github here: All this code can be found on Github here: https://github.com/Twin802/CleverSlack/ During this process I also learned how to run a process in the background of your server using this command:</p>
-<blockquote>
-<p>nohup python main.py &amp;</p>
-</blockquote>
-<p>Which logs anything printed out into nohup.out if you needed to read that. Thus you have a Cleverbot instance in your group chat to talk with.</p>
+<p>Recently I had the opportunity to participate in a makeathon (a hackathon but focused on hardware) called Make OH/IO with two of my roommates, Spencer Christian (<a href="https://www.linkedin.com/in/spencer-christian/">Linkedin</a>) and Kwangeon Kim.</p>
+<p><img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/make19Team.jpg?raw=true" alt="" title="The team after 24 hours"></p>
+<p>We wanted to make a voice activated toy that would launch marshmallows into the air (so that you could catch them in your mouth), unfortunately between the 3 of us we had little to no experience with electrical engineering. Two of us are CSE majors and the other an Aerospace engineering major.</p>
+<p>Nevertheless, we decided to see what we could accomplish. Our initial design involved creating a catapult (seen below) to launch these marshmallows. However after a brief deliberation we decided to instead use two spinning wheels to launch (we believed this would allow for better accurracy and further distances).</p>
+<p><img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/catapultdesign.jpg?raw=true" alt="" title="Mashmallow Catapult"></p>
+<p>After a series of successes and failures we developed a (somewhat) working prototype, seen below, where the wheels would be activated through voice control and drop a marshmallow (yes, drop, not launch).</p>
+<p><img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/make19prebuilt.jpg?raw=true" alt="" title="Impeccable design"></p>
+<p>Unfortunately, over the next few hours our raspberry pi microphone began to fail (and would eventually just stop working) which resulted in a loss of voice control. However, we developed a stand for the wheels to sit on which allowed the marshmallow to be (sort of) launched and that rounded out our 24 hour making marathon.</p>
+<p><img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/batterypi.jpg?raw=true" alt="" title="It's battery powered!"></p>
+<p><img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/make19final.jpg?raw=true" alt="" title="Our final design"></p>
 
-<ul class="links-nextprev"><li>Previous: <a href="/markov-chainand58-a-harry-potter-quotetweet-generator/">Markov Chain&amp;#58; A Harry Potter Quote/Tweet Generator</a></li><li>Next: <a href="/playlist-creatorand58-a-python-spotify-creation/">Playlist Creator&amp;#58; A Python Spotify Creation</a></li>
+<ul class="links-nextprev"><li>Previous: <a href="/nfl-win-chain-dijkstra-s-algorithm/">NFL Win-Chain (Dijkstra&#39;s Algorithm)</a></li><li>Next: <a href="/generating-heat-maps-from-gpx-files/">Generating Heat Maps from GPX Files</a></li>
 </ul>
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/cleverslackand58-a-cleverbotslack-implementation/` was built on 2024-05-27T01:28:29.083Z -->
+		<!-- This page `/make-oh-io-2019/` was built on 2024-05-27T01:46:35.473Z -->
 	</body>
 </html>

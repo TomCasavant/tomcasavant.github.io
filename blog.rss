@@ -74,9 +74,9 @@
 	
 	<entry>
 		<title>Experimenting with ActivityPub: Minetest ActivityPub Bridge</title>
-		<link href="https://tomcasavant.com/experimenting-with-activitypub:-minetest-activitypub-bridge/"/>
+		<link href="https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/"/>
 		<updated>2024-03-14T00:00:00Z</updated>
-		<id>https://tomcasavant.com/experimenting-with-activitypub:-minetest-activitypub-bridge/</id>
+		<id>https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/</id>
 		<content type="html">&lt;p&gt;I&#39;ve found the easiest way to learn how software works is to try and do something stupid with it.&lt;/p&gt;
 &lt;p&gt;ActivityPub is a decentralized social networking protocol and is the thing that lets Mastodon servers communicate with Pixelfed servers communicate with Threads communicate with Flipboard and on and on.
 I&#39;ve done &lt;a href=&quot;https://tomcasavant.com/the-problem-with-hashtags&quot;&gt;a bit&lt;/a&gt; of &lt;a href=&quot;https://github.com/TomCasavant/tom-postmarks&quot;&gt;development&lt;/a&gt; on servers that &lt;em&gt;use&lt;/em&gt; ActivityPub but I have never dealt with the protocol itself.&lt;/p&gt;
@@ -86,7 +86,7 @@ It also has an in-game chat window for communicating with other players on a giv
 &lt;p&gt;But what if it could do more than that? What if you could send and receive messages from anyone and anywhere?&lt;/p&gt;
 &lt;p&gt;&amp;quot;But Tom,&amp;quot; you ask, &amp;quot;won&#39;t that just clog up the chat with pointless messages from strangers?&amp;quot;
 And yes, you would be correct. But (TODO: COME UP WITH REASON WHY THIS IS USEFUL).&lt;/p&gt;
-&lt;h2 id=&quot;the-plan&quot; tabindex=&quot;-1&quot;&gt;The Plan &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub:-minetest-activitypub-bridge/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;the-plan&quot; tabindex=&quot;-1&quot;&gt;The Plan &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;For reasons other than this project I have already been looking for an ActivityPub server that will let me generate users at-will. Most servers are designed for users so they require you to add emails and passwords and useless junk that I do not care about.
 Having failed to find anything that would suit my needs I created &lt;a href=&quot;https://github.com/TomCasavant/DynamicActivityPub/&quot;&gt;this project&lt;/a&gt; which would allow me to split this project into 2 parts.&lt;/p&gt;
 &lt;ol&gt;
@@ -94,7 +94,7 @@ Having failed to find anything that would suit my needs I created &lt;a href=&qu
 &lt;li&gt;The Mod - A Lua minetest mod that communicates with the server, when a user sends a message upload it to the server. When the server receives a message it should send that to the chat through this mod.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;I had considered implementing the server in Lua so it could be built into the mod itself, but as far as I could find Minetest won&#39;t let me create web enpoints from the mod (the &lt;a href=&quot;https://content.minetest.net/packages/heger/webchat/&quot;&gt;few mods&lt;/a&gt; where that would be useful just have a separate server that the user has to setup the files for)&lt;/p&gt;
-&lt;h2 id=&quot;activitypub-implementation&quot; tabindex=&quot;-1&quot;&gt;ActivityPub Implementation &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub:-minetest-activitypub-bridge/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;activitypub-implementation&quot; tabindex=&quot;-1&quot;&gt;ActivityPub Implementation &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This was by far the harder of the 2 portions of the project, primarily because there is &lt;em&gt;not&lt;/em&gt; a lot of documentation for this protocol.&lt;/p&gt;
 &lt;p&gt;Well, that&#39;s not entirely true. &lt;a href=&quot;https://www.w3.org/TR/activitypub/&quot;&gt;w3&lt;/a&gt; has some very detailed descriptions which were incredibly useful, but the protocol is defined slightly differently from server-to-server. So something that mastodon is able to understand and accept doesn&#39;t necessarily show up on an &lt;a href=&quot;https://github.com/MbinOrg/mbin&quot;&gt;Mbin&lt;/a&gt; server unless certain requirements are met.&lt;/p&gt;
 &lt;p&gt;Getting a basic account to be discoverable was actually VERY easy. The base protocol calls for an endpoint for each user that returns json with a few attributes, Mastodon (and most others from what I&#39;ve seen) require slightly more information including a &lt;code&gt;publicKey&lt;/code&gt; and &lt;code&gt;preferredUsername&lt;/code&gt;.
@@ -184,7 +184,7 @@ I learned during this that Mastodon requires that you send a signed &#39;Accept&
 &lt;p&gt;The last ActivityPub type I messed around with was Group. Unlike the user (or Person) entity, there is not a very unified description of how a group functions.
 Through some experimentation in &lt;a href=&quot;https://activitypub.academy/&quot;&gt;https://activitypub.academy&lt;/a&gt; I learned that Lemmy&#39;s groups just send Announce activities to mastodon (which mastodon displays as boosts), but I believe they&#39;re a little more complex when a lemmy community talks with another server that actually supports groups.&lt;/p&gt;
 &lt;p&gt;I didn&#39;t delve that much into it, I just need to create a Group entity that boosts all of the messages from each individual user that way you can see a feed of all the server messages.&lt;/p&gt;
-&lt;h2 id=&quot;minetest&quot; tabindex=&quot;-1&quot;&gt;Minetest &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub:-minetest-activitypub-bridge/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;minetest&quot; tabindex=&quot;-1&quot;&gt;Minetest &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Don&#39;t worry, this a much shorter topic. A minetest mod consists of 2 files (mine consists of 3), the init.lua and hte mod.conf.
 mod.conf just defines what a plugin is and allows you to set configuration variables.
 init.lua contains the lua script that interacts with the minetest server.&lt;/p&gt;
@@ -252,7 +252,7 @@ minetest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
     Your browser does not support the video tag.
   &lt;/video&gt;
 &lt;/div&gt;
-&lt;h2 id=&quot;issues&quot; tabindex=&quot;-1&quot;&gt;Issues &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub:-minetest-activitypub-bridge/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;issues&quot; tabindex=&quot;-1&quot;&gt;Issues &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This was all to experiment with ActivityPub, but I didn&#39;t do anything to secure the server. All private keys are stored unencrypted in a sqlite database, most of the endpoints that generate users and posts are not secured by any form of authentication.&lt;/p&gt;
 &lt;p&gt;I wasn&#39;t able to find much information about testing an activitypub server. I&#39;m sure there&#39;s some way to locally run a mastodon server to test against, it feels incorrect to publicly host a website in development just to test my ActivityPub implementation.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/TomCasavant/DynamicActivityPub&quot;&gt;ActivityPub Server repo&lt;/a&gt;
@@ -868,9 +868,9 @@ if __name__ == &#39;__main__&#39;:
 	
 	<entry>
 		<title>Make OH/IO 2019</title>
-		<link href="https://tomcasavant.com/make-ohio-2019/"/>
+		<link href="https://tomcasavant.com/make-oh-io-2019/"/>
 		<updated>2019-03-01T00:00:00Z</updated>
-		<id>https://tomcasavant.com/make-ohio-2019/</id>
+		<id>https://tomcasavant.com/make-oh-io-2019/</id>
 		<content type="html">&lt;p&gt;Recently I had the opportunity to participate in a makeathon (a hackathon but focused on hardware) called Make OH/IO with two of my roommates, Spencer Christian (&lt;a href=&quot;https://www.linkedin.com/in/spencer-christian/&quot;&gt;Linkedin&lt;/a&gt;) and Kwangeon Kim.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/make19Team.jpg?raw=true&quot; alt=&quot;&quot; title=&quot;The team after 24 hours&quot;&gt;&lt;/p&gt;
 &lt;p&gt;We wanted to make a voice activated toy that would launch marshmallows into the air (so that you could catch them in your mouth), unfortunately between the 3 of us we had little to no experience with electrical engineering. Two of us are CSE majors and the other an Aerospace engineering major.&lt;/p&gt;
@@ -886,9 +886,9 @@ if __name__ == &#39;__main__&#39;:
 	
 	<entry>
 		<title>NFL Win-Chain (Dijkstra&#39;s Algorithm)</title>
-		<link href="https://tomcasavant.com/nfl-win-chain-(dijkstra&amp;amp;#39;s-algorithm)/"/>
+		<link href="https://tomcasavant.com/nfl-win-chain-dijkstra-s-algorithm/"/>
 		<updated>2019-01-28T00:00:00Z</updated>
-		<id>https://tomcasavant.com/nfl-win-chain-(dijkstra&amp;amp;#39;s-algorithm)/</id>
+		<id>https://tomcasavant.com/nfl-win-chain-dijkstra-s-algorithm/</id>
 		<content type="html">&lt;p&gt;Last semester I was taking a course at OSU called Foundations of Software Engineering. Towards the end of the course we learned about different algorithms to find paths between different nodes on a graph. One such algorithm was called Dijkstra&#39;s algorithm. I wanted to experiment with this algorithm, so I decided to write a program that would create nodes for each of the 32 NFL teams and have them connected via the wins between them, i.e. if the Bengals beat the Steelers then the Bengals would have a line pointing from themselves towards the Steelers.&lt;/p&gt;
 &lt;p&gt;The goal of the script was to be able to compare teams that didn&#39;t play each other during the season. For example, the Bengals and the Patriots did not play each other in the 2018 season. The shortest chain of wins between the Bengals and the Patriots was:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -974,9 +974,9 @@ result = result + t.name + &amp;quot; -&amp;gt; &amp;quot;&lt;/p&gt;
 	
 	<entry>
 		<title>Hack OH/IO 2018</title>
-		<link href="https://tomcasavant.com/hack-ohio-2018/"/>
+		<link href="https://tomcasavant.com/hack-oh-io-2018/"/>
 		<updated>2019-01-26T22:37:09Z</updated>
-		<id>https://tomcasavant.com/hack-ohio-2018/</id>
+		<id>https://tomcasavant.com/hack-oh-io-2018/</id>
 		<content type="html">&lt;p&gt;Back in November, my brother and I decided to participate in the Hack OH/IO program (&lt;a href=&quot;http://hack.osu.edu/&quot;&gt;http://hack.osu.edu/)&lt;/a&gt; that takes place at The Ohio State University. We started out with a plan to build a RC car out of a raspberry pi and hardware provided by the Hack OH/IO organization. Unfortunately when we arrived to the hackathon it seemed that their parts list was incorrect. They did not have engines, wheels, axels, or basically anything else that we needed to build the car. So, we had a better idea. We decided that we would purchase an RC car from Target and attach it to a raspberry pi. The end goal being that we could control the RC car over WiFi via a computer.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/20737.jpeg?raw=true&quot; alt=&quot;&quot; title=&quot;Target RC-Car (pre-destruction)&quot;&gt;&lt;/p&gt;
 &lt;p&gt;We removed the bottom of the car and found a (rather-simple) electrical circuit connecting the motors that controlled movement back/forward as well as the motors that controlled turning left/right (interestingly, the board was mislabeled where left was actually turning right, which we found through experimentation). The Pi needed to be wired into the 4 double A batteries in order to power it without a cord, to allow for longer travel distances. After shorting out the system a few times and draining a few sets of double-A batteries it finally got wired in correctly. We then had to wire the raspberry pi&#39;s GPIO pins to the motors to allow motor control. Unfortunately, we soon discovered that the raspberry pi wasn&#39;t producing enough power to engage the various motors. This problem eventually got solved (after an arduous brainstorming session) by wiring multiple GPIO pins together on a breadboard to increase how much power could be put into the circuit.&lt;/p&gt;
@@ -990,9 +990,9 @@ result = result + t.name + &amp;quot; -&amp;gt; &amp;quot;&lt;/p&gt;
 	
 	<entry>
 		<title>Superpower Generator&amp;#58; Programming an Alexa skill with Reddit RSS Feeds</title>
-		<link href="https://tomcasavant.com/superpower-generatorand58-programming-an-alexa-skill-with-reddit-rss-feeds/"/>
+		<link href="https://tomcasavant.com/superpower-generator-and-58-programming-an-alexa-skill-with-reddit-rss-feeds/"/>
 		<updated>2018-06-11T19:46:01Z</updated>
-		<id>https://tomcasavant.com/superpower-generatorand58-programming-an-alexa-skill-with-reddit-rss-feeds/</id>
+		<id>https://tomcasavant.com/superpower-generator-and-58-programming-an-alexa-skill-with-reddit-rss-feeds/</id>
 		<content type="html">&lt;blockquote&gt;
 &lt;p&gt;Over the past year, I&#39;ve been programming Alexa skills* after I learned how to do it back in November. However, I&#39;ve neglected to write a post on how to make one...until now.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1062,9 +1062,9 @@ app.run(debug=True)&lt;/p&gt;
 	
 	<entry>
 		<title>SlackArchiver (p.3)&amp;#58; Setting up your Docker</title>
-		<link href="https://tomcasavant.com/slackarchiver-(p.3)and58-setting-up-your-docker/"/>
+		<link href="https://tomcasavant.com/slackarchiver-p-3-and-58-setting-up-your-docker/"/>
 		<updated>2017-09-17T01:34:53Z</updated>
-		<id>https://tomcasavant.com/slackarchiver-(p.3)and58-setting-up-your-docker/</id>
+		<id>https://tomcasavant.com/slackarchiver-p-3-and-58-setting-up-your-docker/</id>
 		<content type="html">&lt;p&gt;In the previous post, we set up our database to save messages from Slack. In this final post we just need to setup our Docker (&lt;a href=&quot;https://www.docker.com/&quot;&gt;https://www.docker.com/&lt;/a&gt;). The reason, that we are creating a Docker, is that this will allow you to easily transfer your program to other computers without needing to go through and install all dependencies. The first thing we&#39;re going to do is setup our filesystem to make it easy to docker it:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Create a docker-compose.yml file&lt;/li&gt;
@@ -1131,9 +1131,9 @@ start_listening(slack, mongo)&lt;/p&gt;
 	
 	<entry>
 		<title>SlackArchiver (p.2)&amp;#58; Setting up the Database</title>
-		<link href="https://tomcasavant.com/slackarchiver-(p.2)and58-setting-up-the-database/"/>
+		<link href="https://tomcasavant.com/slackarchiver-p-2-and-58-setting-up-the-database/"/>
 		<updated>2017-09-16T17:57:25Z</updated>
-		<id>https://tomcasavant.com/slackarchiver-(p.2)and58-setting-up-the-database/</id>
+		<id>https://tomcasavant.com/slackarchiver-p-2-and-58-setting-up-the-database/</id>
 		<content type="html">&lt;p&gt;In the previous post, we developed a program that can read all previous slack posts, as well as actively listen for current slack posts. Now, we need to create a new function that will take all the data it reads, and put it into a database (we&#39;ll be using Mongo as our database manager). This function is actually quite simple, it opens the database, then for every slack post it was given it will check to see if that post is already in the database. If it isn&#39;t in the database it will add it to the database. Here is that function:&lt;/p&gt;
 &lt;p&gt;def insert_database(messages, client):
 &amp;quot;&amp;quot;&amp;quot;Takes messages and inserts them into a database&amp;quot;&amp;quot;&amp;quot;
@@ -1186,9 +1186,9 @@ print document&lt;/p&gt;
 	
 	<entry>
 		<title>SlackArchiver&amp;#58; Using Mongo to archive Slack messages (Featuring &amp;#34;Docker&amp;#34;)</title>
-		<link href="https://tomcasavant.com/slackarchiverand58-using-mongo-to-archive-slack-messages-(featuring-and34dockerand34)/"/>
+		<link href="https://tomcasavant.com/slackarchiver-and-58-using-mongo-to-archive-slack-messages-featuring-and-34-docker-and-34/"/>
 		<updated>2017-09-02T19:36:10Z</updated>
-		<id>https://tomcasavant.com/slackarchiverand58-using-mongo-to-archive-slack-messages-(featuring-and34dockerand34)/</id>
+		<id>https://tomcasavant.com/slackarchiver-and-58-using-mongo-to-archive-slack-messages-featuring-and-34-docker-and-34/</id>
 		<content type="html">&lt;p&gt;The purpose of this program is to read messages from Slack (&lt;a href=&quot;https://slack.com/&quot;&gt;https://slack.com/&lt;/a&gt;) and store them in a database using Mongo. We are also going to build all of this within a Docker, so that we can easily recreate the environment this program needs to run properly on other systems. Requirements:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Install docker from &lt;a href=&quot;https://docs.docker.com/engine/installation/&quot;&gt;https://docs.docker.com/engine/installation/&lt;/a&gt;&lt;/li&gt;
@@ -1241,9 +1241,9 @@ API_TOKEN = API_TOKEN_GOES_HERE&lt;/p&gt;
 	
 	<entry>
 		<title>AutoTLDR&amp;#58; Summarizing News on Twitter</title>
-		<link href="https://tomcasavant.com/autotldrand58-summarizing-news-on-twitter/"/>
+		<link href="https://tomcasavant.com/autotldr-and-58-summarizing-news-on-twitter/"/>
 		<updated>2017-04-05T23:24:20Z</updated>
-		<id>https://tomcasavant.com/autotldrand58-summarizing-news-on-twitter/</id>
+		<id>https://tomcasavant.com/autotldr-and-58-summarizing-news-on-twitter/</id>
 		<content type="html">&lt;p&gt;On Reddit, there is a bot named autotldr (&lt;a href=&quot;https://www.reddit.com/user/autotldr&quot;&gt;https://www.reddit.com/user/autotldr&lt;/a&gt;) who uses one of the various text summarizer websites (i.e. &lt;a href=&quot;http://textsummarization.net/text-summarizer&quot;&gt;http://textsummarization.net/text-summarizer&lt;/a&gt;) to simplify different news articles posted on Reddit in a few sentences. This intrigued me, so I looked into it and there is, in fact, a Python library that allows you to summarize articles very easily called sumy (https://pypi.python.org/pypi/sumy). Install with &amp;quot;pip install sumy&amp;quot; The Twython Library (pip install Twython) also interfaces with the Streaming API from Twitter, and API which lets me read tweets in real time. This is what we&#39;ll be using to create our AutoTLDR twitter account. Obviously, first you have to get your Twitter app credentials from &lt;a href=&quot;https://dev.twitter.com/&quot;&gt;https://dev.twitter.com/&lt;/a&gt; and then create your config.ini file:&lt;/p&gt;
 &lt;p&gt;[twitter]
 API_KEY = ###API KEY HERE###
@@ -1321,9 +1321,9 @@ stream.statuses.filter(follow=[&#39;5392522&#39;, &#39;612473&#39;, &#39;5402612
 	
 	<entry>
 		<title>Playlist Creator&amp;#58; A Python Spotify Creation</title>
-		<link href="https://tomcasavant.com/playlist-creatorand58-a-python-spotify-creation/"/>
+		<link href="https://tomcasavant.com/playlist-creator-and-58-a-python-spotify-creation/"/>
 		<updated>2017-03-30T20:25:12Z</updated>
-		<id>https://tomcasavant.com/playlist-creatorand58-a-python-spotify-creation/</id>
+		<id>https://tomcasavant.com/playlist-creator-and-58-a-python-spotify-creation/</id>
 		<content type="html">&lt;p&gt;On my Spotify account, there is a single playlist, a playlist with 14 hours worth of music that has been accumulating for months upon months. One obvious problem with this is that I don&#39;t want to listen to all this music all the time, I should have separate playlists depending on whether I am going for a run or trying to get to sleep. That&#39;s where my python programming came in handy. A simple google search for &amp;quot;Spotify api&amp;quot; brought me to this page, &lt;a href=&quot;https://developer.spotify.com/web-api/&quot;&gt;https://developer.spotify.com/web-api/&lt;/a&gt;, which led me to the python wrapper Spotipy (&lt;a href=&quot;https://spotipy.readthedocs.io/en/latest/&quot;&gt;https://spotipy.readthedocs.io/en/latest/&lt;/a&gt;). Once again you have to get all your prerequisites complete before you move onto the actual programming. So head over to &lt;a href=&quot;https://developer.spotify.com/my-applications/#!/applications&quot;&gt;https://developer.spotify.com/my-applications/#!/applications&lt;/a&gt; to get your Spotify API keys and then install via PIP the spotipy library. After those prerequisites go ahead and create your config.ini file as such:&lt;/p&gt;
 &lt;p&gt;[spotify]
 CLIENT_ID = SpotifyClientIDHere
@@ -1437,9 +1437,9 @@ SpotifyUser.main()&lt;/p&gt;
 	
 	<entry>
 		<title>CleverSlack&amp;#58; A Cleverbot/Slack Implementation</title>
-		<link href="https://tomcasavant.com/cleverslackand58-a-cleverbotslack-implementation/"/>
+		<link href="https://tomcasavant.com/cleverslack-and-58-a-cleverbot-slack-implementation/"/>
 		<updated>2017-03-30T00:49:53Z</updated>
-		<id>https://tomcasavant.com/cleverslackand58-a-cleverbotslack-implementation/</id>
+		<id>https://tomcasavant.com/cleverslack-and-58-a-cleverbot-slack-implementation/</id>
 		<content type="html">&lt;p&gt;Cleverbot recently released an official API (that allows for 5,000 free requests every month) and with that, I wanted to experiment with this chat AI. I started using a website called Slack &lt;a href=&quot;https://slack.com/&quot;&gt;(https://slack.com/&lt;/a&gt;) which is basically an easy way to communicate in large groups. So, I decided to combine the two and create a bot that would talk to people in this group chat. Prior to programming, you have to create an API key for both Slack and Cleverbot which is quite easy. You can follow the tutorial for creating a bot user in Slack here: &lt;a href=&quot;https://api.slack.com/bot-users&quot;&gt;https://api.slack.com/bot-users&lt;/a&gt;. The Cleverbot API is located here: &lt;a href=&quot;https://www.cleverbot.com/api/&quot;&gt;https://www.cleverbot.com/api/&lt;/a&gt; and all you need to do there is purchase the free API package. You will also need to install several libraries. Install slackclient and cleverwrap using pip. After generating all your API keys you can start with a config file. This, I learned, is necessary when loading sensitive information online as it keeps that data private. Python has a handy built-in library called ConfigParser that easily imports this data. Name your config file config.ini and add your API keys in there as such:&lt;/p&gt;
 &lt;p&gt;[slack]
 API_TOKEN = InsertSlackAPITokenHere
@@ -1488,9 +1488,9 @@ main()&lt;/p&gt;
 	
 	<entry>
 		<title>Markov Chain&amp;#58; A Harry Potter Quote/Tweet Generator</title>
-		<link href="https://tomcasavant.com/markov-chainand58-a-harry-potter-quotetweet-generator/"/>
+		<link href="https://tomcasavant.com/markov-chain-and-58-a-harry-potter-quote-tweet-generator/"/>
 		<updated>2017-02-22T22:57:58Z</updated>
-		<id>https://tomcasavant.com/markov-chainand58-a-harry-potter-quotetweet-generator/</id>
+		<id>https://tomcasavant.com/markov-chain-and-58-a-harry-potter-quote-tweet-generator/</id>
 		<content type="html">&lt;p&gt;I was looking into different python libraries that might be interesting to use, when I encountered the markovify library (&lt;a href=&quot;https://github.com/jsvine/markovify&quot;&gt;https://github.com/jsvine/markovify&lt;/a&gt;). This library allows the programmer to simply create Markov chains from pieces of text.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;pip install markovify&lt;/p&gt;
@@ -1691,9 +1691,9 @@ user.updateColors(randHex)&lt;/p&gt;
 	
 	<entry>
 		<title>Setting up your Java IDE for &amp;#34;Dumb&amp;#34; phone mobile apps</title>
-		<link href="https://tomcasavant.com/setting-up-your-java-ide-for-and34dumband34-phone-mobile-apps/"/>
+		<link href="https://tomcasavant.com/setting-up-your-java-ide-for-and-34-dumb-and-34-phone-mobile-apps/"/>
 		<updated>2015-03-12T21:26:47Z</updated>
-		<id>https://tomcasavant.com/setting-up-your-java-ide-for-and34dumband34-phone-mobile-apps/</id>
+		<id>https://tomcasavant.com/setting-up-your-java-ide-for-and-34-dumb-and-34-phone-mobile-apps/</id>
 		<content type="html">&lt;p&gt;To begin making an app for your &amp;quot;dumb&amp;quot; phone you have to setup the IDE. So you need to download the following things to your computer:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;NetBeans - &lt;a href=&quot;https://netbeans.org/downloads/index.html&quot;&gt;https://netbeans.org/downloads/index.html&lt;/a&gt; Make sure you choose the one that says &amp;quot;All&amp;quot; so you can get Java ME Java JDK - &lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/downloads/index.html&quot;&gt;http://www.oracle.com/technetwork/java/javase/downloads/index.html&lt;/a&gt; Java ME SDK - &lt;a href=&quot;http://www.oracle.com/technetwork/java/embedded/javame/javame-sdk/downloads/index.html&quot; title=&quot;http://www.oracle.com/technetwork/java/embedded/javame/javame-sdk/downloads/index.html&quot;&gt;http://www.oracle.com/technetwork/java/javase/downloads/index.html&lt;/a&gt;&lt;/p&gt;
@@ -1704,9 +1704,9 @@ user.updateColors(randHex)&lt;/p&gt;
 	
 	<entry>
 		<title>Programming a python Controller for Pianobar (Pandora) with your Wii Remote</title>
-		<link href="https://tomcasavant.com/programming-a-python-controller-for-pianobar-(pandora)-with-your-wii-remote/"/>
+		<link href="https://tomcasavant.com/programming-a-python-controller-for-pianobar-pandora-with-your-wii-remote/"/>
 		<updated>2015-03-02T23:05:28Z</updated>
-		<id>https://tomcasavant.com/programming-a-python-controller-for-pianobar-(pandora)-with-your-wii-remote/</id>
+		<id>https://tomcasavant.com/programming-a-python-controller-for-pianobar-pandora-with-your-wii-remote/</id>
 		<content type="html">&lt;p&gt;Recently I received a raspberry pi(&lt;a href=&quot;http://www.raspberrypi.org/&quot;&gt;http://www.raspberrypi.org/&lt;/a&gt;) as a Christmas gift. Soon after I was introduced to pianobar, a terminal based Pandora (&lt;a href=&quot;http://pandora.com&quot;&gt;http://pandora.com&lt;/a&gt;) client for linux. After awhile I began to get annoyed by having to grab the keyboard whenever I wanted to &amp;quot;like&amp;quot; or &amp;quot;skip&amp;quot; a song. Then, I saw the wii remote. I quickly googled how to use python in conjunction with the wii remote and quickly discovered the library cwiid (&lt;a href=&quot;http://talk.maemo.org/showthread.php?t=60178&quot;&gt;http://talk.maemo.org/showthread.php?t=60178&lt;/a&gt;). First off I went through a quick tutorial to learn how to use this library. Then I set off with my program. I began with a function to find the wii remote when you make it discoverable (By clicking 1 &amp;amp; 2)&lt;/p&gt;
 &lt;p&gt;import cwiid
 if &lt;strong&gt;name&lt;/strong&gt; == &amp;quot;&lt;strong&gt;main&lt;/strong&gt;&amp;quot;:

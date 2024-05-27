@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>SlackArchiver (p.2)&amp;#58; Setting up the Database</title>
+		<title>Playlist Creator&amp;#58; A Python Spotify Creation</title>
 		<meta name="description" content="">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Tom Casavant">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Tom Casavant">
@@ -661,67 +661,128 @@ a.microblog-post-link {
 
 		<main id="skip">
 			
-<h1>SlackArchiver (p.2)&amp;#58; Setting up the Database</h1>
+<h1>Playlist Creator&amp;#58; A Python Spotify Creation</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2017-09-16">16 September 2017</time></li>
+	<li><time datetime="2017-03-30">30 March 2017</time></li>
 </ul>
 
-<p>In the previous post, we developed a program that can read all previous slack posts, as well as actively listen for current slack posts. Now, we need to create a new function that will take all the data it reads, and put it into a database (we'll be using Mongo as our database manager). This function is actually quite simple, it opens the database, then for every slack post it was given it will check to see if that post is already in the database. If it isn't in the database it will add it to the database. Here is that function:</p>
-<p>def insert_database(messages, client):
-&quot;&quot;&quot;Takes messages and inserts them into a database&quot;&quot;&quot;
-database = client['Slack-Database']
-posts = database.posts
-for message in messages:
-if message['type'] == 'message': #verifies the type of data received from slack
-posts.replace_one(message, message, upsert=True)
-print &quot;Message Logged&quot;</p>
-<p>The biggest thing to note about this function is the fact that we used &quot;posts.replace_one()&quot;. This allows us to only have one copy of each unique message in our database. In order to actually have access to a database, we need a Mongo service running. This is rather simple using Docker. Using the information from this website, <a href="https://hub.docker.com/_/mongo/">https://hub.docker.com/_/mongo/</a>, we can create a mongo instance by running the following command:</p>
-<p>docker run --name some-mongo -d mongo</p>
-<p>This will create a mongo instance within our docker called &quot;some-mongo&quot; (You can change that name if you'd like, but it doesn't really matter for uthe purposes of this program). Next, you need to go back and edit some of the functions from the previous part of this tutorial. The following functions should now look like these:</p>
-<p>def log_previous_slack_data(slackclient, mongoclient):
-&quot;&quot;&quot;Gets all previous messages and puts them into a mongo database&quot;&quot;&quot;
-channels = slackclient.api_call(&quot;channels.list&quot;)['channels']
-for channel in channels:
-history = slackclient.api_call(
-&quot;channels.history&quot;,
-channel=channel['id'])
-insert_database(history['messages'], mongoclient) ###THIS LINE CHANGED</p>
-<p>def start_listening(slackclient, mongoclient):
-&quot;&quot;&quot;Actively logs messages into a mongo database&quot;&quot;&quot;
-if slackclient.rtm_connect():
-while True:
-messages = slackclient.rtm_read()
-if messages: #If anything was read
-insert_database(messages, mongoclient) ###THIS LINE CHANGED
-time.sleep(1)</p>
-<p>else:
-print &quot;Unable to connect&quot;</p>
+<p>On my Spotify account, there is a single playlist, a playlist with 14 hours worth of music that has been accumulating for months upon months. One obvious problem with this is that I don't want to listen to all this music all the time, I should have separate playlists depending on whether I am going for a run or trying to get to sleep. That's where my python programming came in handy. A simple google search for &quot;Spotify api&quot; brought me to this page, <a href="https://developer.spotify.com/web-api/">https://developer.spotify.com/web-api/</a>, which led me to the python wrapper Spotipy (<a href="https://spotipy.readthedocs.io/en/latest/">https://spotipy.readthedocs.io/en/latest/</a>). Once again you have to get all your prerequisites complete before you move onto the actual programming. So head over to <a href="https://developer.spotify.com/my-applications/#!/applications">https://developer.spotify.com/my-applications/#!/applications</a> to get your Spotify API keys and then install via PIP the spotipy library. After those prerequisites go ahead and create your config.ini file as such:</p>
+<p>[spotify]
+CLIENT_ID = SpotifyClientIDHere
+CLIENT_SECRET = SpotifyClientSecretHere
+REDIRECT_URI = SpotifyClientRedirectUrI</p>
+<p>Your REDIRECT_URI will be what your app redirects to when retrieving a user's authentication. In my case, I am using my website <a href="http://www.tomcasavant.com">http://www.tomcasavant.com</a>. But, you can just as simply use http://localhost/ as your REDIRECT_URI. Whatever you use you must go to your app settings on Spotify and add the REDIRECT_URI to the allowed websites list. Next, you can start up a new file (mine is called main.py) to create your program. Start with all your necessary imports</p>
+<p>import spotipy
+import spotipy.util as util
+from ConfigParser import SafeConfigParser</p>
+<p>Next, create a User class, and all of the following methods will be constructed inside this class unless I otherwise specify.</p>
+<p>class User():
+def <strong>init</strong>(self):
+parser = SafeConfigParser() #Reads config.ini file for API keys
+parser.read(&quot;config.ini&quot;)
+self.CLIENT_ID = parser.get('spotify', 'CLIENT_ID')
+self.CLIENT_SECRET = parser.get('spotify', 'CLIENT_SECRET')
+self.REDIRECT_URI = parser.get('spotify', 'REDIRECT_URI')
+self.SCOPE = &quot;playlist-read-private playlist-modify-private playlist-read-collaborative playlist-modify-public&quot; #Allows program to access/edit private and public playlists
+self.sp = self.getUser() #Creates Spotify Instance
+self.id = self.sp.me()['id'] #Gets ID of authenticating user</p>
+<p>Your parser will retrieve all your private API keys. The major bit of code in this portion is the self.SCOPE variable. In order to be allowed to access all the playlists of the authenticating user, your program must announce to Spotify what it would like access to. In this case, I chose to have the ability to read all public, private, and collaborative playlists of the user followed by allowing the program to edit all these playlists. You can look at all the possible scopes here:<a href="https://developer.spotify.com/web-api/using-scopes/"> https://developer.spotify.com/web-api/using-scopes/</a> just keep in mind all the scopes are separated by spaces (not by commas or anything else) The next two methods get the user authenticated with the Spotify API</p>
+<p>def getUser(self):
+&quot;&quot;&quot;Creates Spotify instance for Authenticating User&quot;&quot;&quot;
+token = self.getUserToken()
+sp = spotipy.Spotify(auth=token)
+sp.trace = False
+return sp</p>
+<p>def getUserToken(self):
+&quot;&quot;&quot;Gets authentication token from user&quot;&quot;&quot;
+name = raw_input(&quot;Please enter your username: &quot;)
+token = util.prompt_for_user_token(username=name,scope=self.SCOPE, client_id=self.CLIENT_ID, client_secret=self.CLIENT_SECRET, redirect_uri=self.REDIRECT_URI)
+return token</p>
+<p>Basically, what this code does is ask for the username of the person accessing this, then it uses util.prompt_for_user_token(...) to get the authentication token. Back in the getUser() method the program creates a Spotify instance named sp which can be accessed with self.sp. Then we get to the interesting methods in this program:</p>
+<p>def getFeatures(self, track):
+&quot;&quot;&quot;Retrieves Audio features from Spotify API for a single track&quot;&quot;&quot;
+features = self.sp.audio_features(track)
+return features</p>
+<p>def getPlaylist(self):
+&quot;&quot;&quot;Retrieves all playlists from authenticating user, then allows user to select one&quot;&quot;&quot;
+results = self.sp.current_user_playlists()
+for i, item in enumerate(results['items']):
+print (&quot;{number} {name}&quot;.format(number=i, name=item['name'].encode('utf8'))) #Prints out the name of each playlist, preceded by a number</p>
+<p>choice = input(&quot;Please choose a playlist number: &quot;)
+return results['items'][int(choice)]['id']</p>
+<p>def getSongs(self, playlist_id):
+&quot;&quot;&quot;Gets all songs from a chosen playlist, returns a lsit of all song ids&quot;&quot;&quot;
+results = self.sp.user_playlist_tracks(self.id,playlist_id)
+tracks = results['items']
+song_ids = []
+while results['next']:
+results = self.sp.next(results)
+tracks.extend(results['items'])
+for song in tracks:
+song_ids.append(song['track']['id'])
+return song_ids</p>
+<p>The getFeatures(self, track) function takes an argument for a track id and returns all the features of the track. Some features include danceability, loudness, and instrumentalness. All of the features can be found here: <a href="https://developer.spotify.com/web-api/get-audio-features/">https://developer.spotify.com/web-api/get-audio-features/</a> The getPlaylist(self) method goes through and prints all the playlists of the authenticating user, and the proceeds to ask the user to choose one of them as a source playlist. The getSongs(self, playlist_id) method goes through and saves the ids of all the tracks in the chosen playlist. Now we need a way to ask for all of the different preferences that the user is looking for in his/her new playlist. Which can be accomplished with a bunch of raw_input() variables as shown in this method:</p>
+<p>def getLimits(self):
+&quot;&quot;&quot;Asks user for the minimums and maximums for each condition, leaving a blank responistse will return the lowest or highest possible value. Then asks user to name the playlist&quot;&quot;&quot;
+danceL = float(raw_input(&quot;Danceability minimum (how suitable track is for dancing 0.0-1.0): &quot;) or &quot;0&quot;)
+danceH = float(raw_input(&quot;Danceability maximum: &quot;) or &quot;1&quot;)
+energyL = float(raw_input(&quot;Energy minimum (intensity, or speed of a track 0.0-1.0): &quot;) or &quot;0&quot;)
+energyH = float(raw_input(&quot;Energy maximum: &quot;) or &quot;1&quot;)
+loudL = float(raw_input(&quot;Loudness minimum (Overall loudness of a track in decibels -60-0): &quot;) or &quot;-60&quot;)
+loudH = float(raw_input(&quot;Loudness maximum: &quot;) or &quot;0&quot;)
+acousticL = float(raw_input(&quot;Acousticness minimum (measure of whether a track is acoustic 0.0-1): &quot;) or &quot;0&quot;)
+acousticH = float(raw_input(&quot;Acousticness maximum: &quot;) or &quot;1&quot;)
+instrumentL = float(raw_input(&quot;Instrumentalness minimum (Predicts whether track contains no vocals 0.0-1.0): &quot;) or &quot;0&quot;)
+instrumentH = float(raw_input(&quot;Instrumentalness maximum: &quot;) or &quot;1&quot;)
+livenessL = float(raw_input(&quot;Liveness minimum (Detects presence of audience 0.0-1.0): &quot;) or &quot;0&quot;)
+livenessH = float(raw_input(&quot;Liveness maximum: &quot;) or &quot;1&quot;)
+valenceL = float(raw_input(&quot;Valence minimum (Positivity measurement 0.0-1.0): &quot;) or &quot;0&quot;)
+valenceH = float(raw_input(&quot;Valence maximum: &quot;) or &quot;1&quot;)
+name = raw_input(&quot;Please name your playlist: &quot;)
+return [danceL, danceH, energyL, energyH, loudL, loudH, acousticL, acousticH, instrumentL, instrumentH, livenessL, livenessH, valenceL, valenceH, name]</p>
+<p>This method goes through and asks for the minimum and maximum values for each attribute (as well as a name for the new playlist). If no value is provided it just selects the lowest/highest possible value. Then it returns all of these preferences in a list. We then need a method to check the values of each song and then return the songs that fall within the limits. We also need to take all these songs and create a new playlist.</p>
+<p>def sortSongs(self, songF, danceL, danceH, energyL, energyH, loudL, loudH, acousticL, acousticH,
+instrumentL, instrumentH, livenessL, livenessH, valenceL, valenceH):
+&quot;&quot;&quot;Returns True if all conditions are met. Conditions include: Danceability, Energy, Loudness, Acousticness, Instrumentalness, Liveness, and Valence&quot;&quot;&quot;
+if danceL &lt;= songF['danceability'] &lt;= danceH:
+if energyL &lt;= songF['energy'] &lt;= energyH:
+if loudL &lt;= songF['loudness'] &lt;= loudH:
+if acousticL &lt;= songF['acousticness'] &lt;= acousticH:
+if instrumentL &lt;= songF['instrumentalness'] &lt;= instrumentH:
+if livenessL &lt;= songF['liveness'] &lt;= livenessH:
+if valenceL &lt;= songF['valence'] &lt;= valenceH:
+return True</p>
+<p>def createPlaylist(self, title, tracks):
+&quot;&quot;&quot;Creates a new playlist from all tracks that met conditions&quot;&quot;&quot;
+playlist = self.sp.user_playlist_create(self.id, title, False)
+for track in tracks:
+self.sp.user_playlist_add_tracks(self.id, playlist['id'], [track])
+print &quot;Playlist Created&quot;</p>
+<p>These two methods are basically self-explanatory, one verifies whether a song falls into a certain range of values. The other creates the new playlist and adds all the songs. However, one thing to note is that the second method createPlaylist(...) fills the new playlist one song at a time. The reason this was done is that Spotify only allows you a maximum of a hundred songs added at once, so I just decided to go one by one just in case the list exceeds 100 tracks. We finish this class off with our main function:</p>
+<p>def main(self):
+playlist = self.getPlaylist()
+songs = self.getSongs(playlist)
+newPlaylist = []
+pref = self.getLimits()
+for song_id in songs:
+song = self.getFeatures([song_id])
+if self.sortSongs(song[0], pref[0], pref[1], pref[2], pref[3], pref[4], pref[5], pref[6], pref[7], pref[8], pref[9], pref[10], pref[11], pref[12], pref[13]):
+newPlaylist.append(song[0]['id'])</p>
+<p>self.createPlaylist(pref[14], newPlaylist)</p>
+<p>This function goes through and runs all the necessary methods in order, finishing it off by creating the new playlist. Now, all we need is for the program to start which can be completed very easily as such (This is outside of the class):</p>
 <p>if <strong>name</strong> == &quot;<strong>main</strong>&quot;:
-parser = SafeConfigParser()
-parser.read(config.ini) #Later on this line will change slightly
-SLACK_API_TOKEN = parser.get(&quot;slack&quot;, &quot;API_TOKEN&quot;)</p>
-<p>mongo = MongoClient() #Notice how we're temporarily removing 'mongodb'
-slack = SlackClient(SLACK_API_TOKEN)</p>
-<p>log_previous_slack_data(slack, mongo)
-start_listening(slack, mongo)</p>
-<p>Here's a quick explanation of the changes that occurred in these functions. In the first function (log_previous_slack_data()) we stopped printing the history, and instead sent all the data over to the insert_database function. A similar thing happened with the start_listening function. We stopped printing all the messages, and instead sent them over to the insert_database function. The major change occurred in the main function. Pymongo will connect to the Mongo instance by using the default settings of MongoClient(). This will change once we set up the docker. You can now test this program, to do this we'll create another function that will print out data from the database after it has been read.</p>
-<p>def print_database(client):
-&quot;&quot;&quot;Prints the content of the database&quot;&quot;&quot;
-database = client['Slack-Database']
-collection = database['posts']
-find_all = collection.find({})
-for document in find_all:
-print document</p>
-<p>Finally, add print_database to your main function using &quot;print_database(mongo)&quot; and run your program. You should see every post in your database getting printed out. This concludes the database portion of the tutorial. In the next post we'll set up a docker to encapsulate the entire program.</p>
+SpotifyUser = User()
+SpotifyUser.main()</p>
+<p>There's your Spotify (spotipy) app. If you wanted a playlist with high energy songs just run this script and set the minimum value for energy at something around '.7', the maximum at its default '1' and let the program do its work. All this code can be found All this code can be found on GitHub here: https://github.com/Twin802/PlaylistCreator/<a href="https://github.com/Twin802/PlaylistCreator/">https://github.com/Twin802/PlaylistCreator/</a></p>
 
-<ul class="links-nextprev"><li>Previous: <a href="/slackarchiverand58-using-mongo-to-archive-slack-messages-(featuring-and34dockerand34)/">SlackArchiver&amp;#58; Using Mongo to archive Slack messages (Featuring &amp;#34;Docker&amp;#34;)</a></li><li>Next: <a href="/slackarchiver-(p.3)and58-setting-up-your-docker/">SlackArchiver (p.3)&amp;#58; Setting up your Docker</a></li>
+<ul class="links-nextprev"><li>Previous: <a href="/cleverslack-and-58-a-cleverbot-slack-implementation/">CleverSlack&amp;#58; A Cleverbot/Slack Implementation</a></li><li>Next: <a href="/autotldr-and-58-summarizing-news-on-twitter/">AutoTLDR&amp;#58; Summarizing News on Twitter</a></li>
 </ul>
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/slackarchiver-(p.2)and58-setting-up-the-database/` was built on 2024-05-27T01:28:29.097Z -->
+		<!-- This page `/playlist-creator-and-58-a-python-spotify-creation/` was built on 2024-05-27T01:46:35.468Z -->
 	</body>
 </html>
