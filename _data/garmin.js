@@ -30,15 +30,7 @@ async function fetchActivities() {
 
         return activities;
     } catch (error) {
-        if (error instanceof LoginError) {
-            console.error("Failed to login to Garmin Connect:", error.message);
-        } else if (error instanceof FetchError) {
-            console.error("Failed to fetch activities:", error.message);
-        } else if (error instanceof WriteError) {
-            console.error("Failed to write activities to file:", error.message);
-        } else {
-            console.error("An unexpected error occurred:", error.message);
-        }
+        console.error(error);
         throw error;
     }
 }
