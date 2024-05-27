@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>SlackArchiver&amp;#58; Using Mongo to archive Slack messages (Featuring &amp;#34;Docker&amp;#34;)</title>
+		<meta name="description" content="">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Tom Casavant">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Tom Casavant">
+		<link rel="preconnect" href="https://fonts.gstatic.com"><link data-href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"><style data-href='https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'>/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwaPGQ3q5d0N7w.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwiPGQ3q5d0.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #BAB2B5;
+	--color-gray-50: #123C69;
+	--color-gray-90: #AC3B61;
+
+	--background-color: #EDC7B7;
+	--background-standout: #EDC7B7;
+	--highlight-color: rgba(0, 0, 0, 0.6);
+	--alternating-rows: #DCB6A6;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #AC3B61;
+	--text-color-link-active: #2E3944;
+	--text-color-link-visited: #DD3B61;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #A0A0A0;
+		--color-gray-90: #dad8d8;
+
+		--background-color: #121212;
+		--background-standout: #242120;
+		--highlight-color: rgba(255,255,255,0.6);
+		--alternating-rows: #473e3a;
+		
+		--text-color: var(--color-gray-50);
+		--text-color-link: #AC3B61;
+		--text-color-link-active: #9E9994;
+		--text-color-link-visited: #DD3B61;
+
+		/* --text-color is assigned to --color-gray-_ above 
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;*/
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+
+a[href]:visited{
+    color: var(--text-color-link-visited);
+}
+
+a[href]:hover,
+a[href]:active {
+    color: var(--text-color-link-active);
+}
+
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 0.6em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	border: 1px solid #000;
+	text-align: center;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	flex-basis: calc(100% - 1.5rem);
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-subtitle {
+	font-size: 0.8em;
+	font-weight: 300;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-align: center;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+.bookmark {
+	background-color: var(--background-standout);
+	border: 1px solid #000;
+	box-shaddow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bookmark-title {
+	text-align: center;
+}
+
+.bookmark-summary {
+	text-align: center;
+	font-size: 0.75em;
+}
+
+.activities {
+    border: 0.1px solid;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Lato', normal;
+}
+
+.activities-header {
+    text-align: left;
+}
+
+.activities tr:nth-child(even) {
+    background-color: var(--alternating-rows);
+}
+
+profile-image {
+	width: 0.1em;
+	height: 0.1em;
+}
+
+.message-box {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center; /* Center the icons vertically */
+}
+
+.icon {
+    width: 24px; 
+    height: 24px; 
+    margin-right: 8px; 
+    fill: currentColor; 
+}
+
+.post-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+
+.message-box svg {
+    display: block;
+    vertical-align: middle;
+}
+
+.message-box svg:last-child {
+    margin-right: 0; /* Remove margin from the last icon */
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr; /* 2 rows */
+  grid-gap: 10px;
+}
+
+.image-item {
+  width: 100%;
+  height: 0;
+  padding-top: 200%; /* Maintain aspect ratio (2:1) for portrait-oriented images */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a.microblog-post-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.microblog-post {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.microblog-post:hover {
+  box-shadow: 0 4px 8px var(--highlight-color);
+}
+
+.microblog-post .post-description,
+.microblog-post .post-date {
+  font-size: 0.85em;
+  margin: 8px 0;
+  color: #666;
+  text-decoration: none;
+}
+
+.microblog-post .post-date {
+  font-size: 0.575em;
+  color: #999;
+  text-align: right;
+}
+
+.microblog-post .post-media {
+  max-width: 100%;
+  height: auto;
+  margin-top: 16px;
+  border-radius: 4px;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Tom Casavant</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/bookmarks/">Bookmarks</a></li>
+					<li class="nav-item"><a href="/feeds/">Feeds</a></li>
+					<li class="nav-item"><a href="/food/">Food</a></li>
+					<li class="nav-item"><a href="/running/">Running</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>SlackArchiver&amp;#58; Using Mongo to archive Slack messages (Featuring &amp;#34;Docker&amp;#34;)</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2017-09-02">02 September 2017</time></li>
+</ul>
+
+<p>The purpose of this program is to read messages from Slack (<a href="https://slack.com/">https://slack.com/</a>) and store them in a database using Mongo. We are also going to build all of this within a Docker, so that we can easily recreate the environment this program needs to run properly on other systems. Requirements:</p>
+<ul>
+<li>Install docker from <a href="https://docs.docker.com/engine/installation/">https://docs.docker.com/engine/installation/</a></li>
+<li>Install docker-compose from <a href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></li>
+<li>pip install pymongo</li>
+<li>pip install ConfigParser</li>
+<li>pip install slackclient</li>
+</ul>
+<p>Make sure to install the latest version of all of the above libraries. Next we need a way to read data from our slack channels Create your main.py file and add the following imports:</p>
+<p>from ConfigParser import SafeConfigParser
+import time
+from pymongo import MongoClient
+from slackclient import SlackClient
+import os</p>
+<p>After importing everything you can move onto our first function &quot;log_previous_slag_data()&quot; which will go through all the past messages in all of your channels and will send those messages to be archived.</p>
+<p>def log_previous_slack_data(slackclient, mongoclient):
+&quot;&quot;&quot;Gets all previous messages and puts them into a mongo database&quot;&quot;&quot;
+channels = slackclient.api_call(&quot;channels.list&quot;)['channels']
+for channel in channels:
+history = slackclient.api_call(
+&quot;channels.history&quot;,
+channel=channel['id'])
+print history['messages'] #This line is only for testing purposes and we'll change it later on</p>
+<p>Very simply, this function takes 2 arguments: &quot;slackclient&quot; and &quot;mongoclient&quot; which we will create soon. They are used to communicate with the Slack API and the mongo API respectively. Using these arguments, the function reads the history of every channel in the list of channels. Then it prints out what it reads (we will later have this function automatically send them to be archived using the mongoclient) While it's nice to archive every message, a user doesn't want to run this program every time they'd like to archive new messages. So, we need a function at actively logs messages, this function will be called &quot;start_listening()&quot;.</p>
+<p>def start_listening(slackclient, mongoclient):
+&quot;&quot;&quot;Actively logs messages into a mongo database&quot;&quot;&quot;
+if slackclient.rtm_connect():
+while True:
+messages = slackclient.rtm_read()
+if messages: #If anything was read
+print messages #Again, this a temporary command, we will change it once we have our database setup
+time.sleep(1)</p>
+<p>else:
+print &quot;Unable to connect&quot;</p>
+<p>Now, before we move on we should probably test our two functions to see if they do anything. Make sure you create a Slack bot user (<a href="https://api.slack.com/bot-users">https://api.slack.com/bot-users</a>) and get yourself an API key. Then we can run these functions to see if they work:</p>
+<p>if <strong>name</strong> == &quot;<strong>main</strong>&quot;:
+parser = SafeConfigParser()
+parser.read(config.ini) #Later on this line will change slightly
+SLACK_API_TOKEN = parser.get(&quot;slack&quot;, &quot;API_TOKEN&quot;)</p>
+<p>mongo = MongoClient(&quot;mongodb&quot;) #This'll be explained later
+slack = SlackClient(SLACK_API_TOKEN)</p>
+<p>log_previous_slack_data(slack, mongo)
+start_listening(slack, mongo)</p>
+<p>And then you'll need to create a config.ini file as such:</p>
+<p>[slack]
+API_TOKEN = API_TOKEN_GOES_HERE</p>
+<p>Now you can run the function and see if your messages start printing on the screen. I'll make another post later to detail setting up your database</p>
+
+<ul class="links-nextprev"><li>Previous: <a href="/autotldrand58-summarizing-news-on-twitter/">AutoTLDR&amp;#58; Summarizing News on Twitter</a></li><li>Next: <a href="/slackarchiver-(p.2)and58-setting-up-the-database/">SlackArchiver (p.2)&amp;#58; Setting up the Database</a></li>
+</ul>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/slackarchiverand58-using-mongo-to-archive-slack-messages-(featuring-and34dockerand34)/` was built on 2024-05-27T01:28:29.098Z -->
+	</body>
+</html>
