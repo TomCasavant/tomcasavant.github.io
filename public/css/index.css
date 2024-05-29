@@ -342,6 +342,16 @@ profile-image {
     fill: currentColor; 
 }
 
+.bluesky-icon {
+    transform: translateY(1px) scale(1.1); 
+}
+.rss-icon {
+    transform: translateY(1px) scale(1.1); 
+}
+.github-icon {
+    transform: scale(1.1); 
+}
+
 .post-icon {
   position: absolute;
   top: 0;
