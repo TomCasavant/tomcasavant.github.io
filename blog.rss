@@ -4,12 +4,160 @@
 	<subtitle></subtitle>
 	<link href="https://tomcasavant.com/blog.rss" rel="self"/>
 	<link href="https://tomcasavant.com/"/>
-	<updated>2024-04-01T00:00:00Z</updated>
+	<updated>2024-05-29T00:00:00Z</updated>
 	<id>https://tomcasavant.com/</id>
 	<author>
 		<name>Tom Casavant</name>
 		<email>tfcasavant@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>Things I Did Not Blog About</title>
+		<link href="https://tomcasavant.com/things-i-did-not-blog-about/"/>
+		<updated>2024-05-29T00:00:00Z</updated>
+		<id>https://tomcasavant.com/things-i-did-not-blog-about/</id>
+		<content type="html">&lt;p&gt;Here&#39;s a bunch of things I did that, for any number of reasons, I didn&#39;t bother writing about.&lt;/p&gt;
+&lt;h2 id=&quot;my-brother-s-keeper&quot; tabindex=&quot;-1&quot;&gt;My Brother&#39;s Keeper &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/v6JBdHnNos-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/v6JBdHnNos-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;The 3D model of roger in a snapchat window&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/v6JBdHnNos-600.jpeg&quot; width=&quot;600&quot; height=&quot;1064&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;p&gt;I used a photo of my twin to generate a 3D model of him and then I attempted to insert that 3D Model into two different games, made a video of a giant waffle version of him in space with the theme to 2001 A Space Odyssey playing in the background, rotated his spine out of his body to create a weird monster version of him, and created a &lt;a href=&quot;https://www.snapchat.com/unlock/?type=SNAPCODE&amp;amp;uuid=b68cf3b8819242c6896440f35ecbfe09&amp;amp;metadata=01&quot;&gt;snapchat lens&lt;/a&gt; that lets you rotate, resize, and place the 3D model of my twin anywhere you want.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/WiHOknec68-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/WiHOknec68-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;The 3D model of Roger in a pokemon game&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/WiHOknec68-600.jpeg&quot; width=&quot;600&quot; height=&quot;1066&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;div class=&quot;video-container&quot;&gt;
+  &lt;video controls=&quot;&quot;&gt;
+    &lt;source src=&quot;https://tomcasavant.com/video/roger-gameboy.mp4&quot; type=&quot;video/mp4&quot;&gt;
+    Your browser does not support the video tag.
+  &lt;/video&gt;
+&lt;/div&gt;
+&lt;div class=&quot;video-container&quot;&gt;
+  &lt;video controls=&quot;&quot;&gt;
+    &lt;source src=&quot;https://tomcasavant.com/video/mario-kart-roger.mp4&quot; type=&quot;video/mp4&quot;&gt;
+    Your browser does not support the video tag.
+  &lt;/video&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;mechanical-keyboards&quot; tabindex=&quot;-1&quot;&gt;Mechanical Keyboards &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Assembled a hot swappable keyboard with &lt;a href=&quot;https://drop.com/featured/lotr&quot;&gt;Lord of the Rings keycaps&lt;/a&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/S55qBdsiiL-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/S55qBdsiiL-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of the keyboard with lord of the rings keycaps&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/S55qBdsiiL-600.jpeg&quot; width=&quot;600&quot; height=&quot;450&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;p&gt;Soldered and Assembled the &lt;a href=&quot;https://scottokeebs.com/blogs/keyboards/scotto34-pcb-keyboard&quot;&gt;Scotto34&lt;/a&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/9UBMtrUpDV-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/9UBMtrUpDV-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of the scotto34 keyboard&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/9UBMtrUpDV-600.jpeg&quot; width=&quot;600&quot; height=&quot;450&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;3d-prints-hardware&quot; tabindex=&quot;-1&quot;&gt;3D Prints/Hardware &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I assembled the &lt;a href=&quot;https://inputlabs.io/alpakka&quot;&gt;Input Labs Alpakka&lt;/a&gt;, an open source gyro focused gamepad, which was surprisingly comfortable to hold considering it was entirely made of 3d printed parts.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/8WiAaDaLaT-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/8WiAaDaLaT-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of the Input Labs Alpakka Controller, black body yellow buttons&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/8WiAaDaLaT-600.jpeg&quot; width=&quot;600&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;p&gt;I 3D Printed and assembled the &lt;a href=&quot;https://github.com/martinwoodward/octolamp&quot;&gt;OctoLamp&lt;/a&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/yvSZrZgPBg-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/yvSZrZgPBg-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of Github Logo Lamp lit up in shades of pink&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/yvSZrZgPBg-600.jpeg&quot; width=&quot;600&quot; height=&quot;1066&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;p&gt;I 3D Printed and Assembled the &lt;a href=&quot;https://www.printables.com/model/436448-lord-of-the-rings-lamp&quot;&gt;Lord of the Rings Lamp&lt;/a&gt;, and slightly modified the light ring to let me use the LED Strip I already had along with WLED.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/Oh2tAO_njJ-542.avif 542w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/Oh2tAO_njJ-542.webp 542w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of the ring from Lord of the Rings as a lamp, lit up with Red LEDs&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/Oh2tAO_njJ-542.png&quot; width=&quot;542&quot; height=&quot;820&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;p&gt;I 3D Printed a shell for a picamera and raspberry pi to build the &lt;a href=&quot;https://github.com/nickbrewer/gifcam&quot;&gt;Gif Camera&lt;/a&gt; with the intention of using the &lt;a href=&quot;https://github.com/chemokita13/beReal-api&quot;&gt;BeReal (unofficial) API&lt;/a&gt; to upload images to BeReal directly from the camera, but there were issues with the post endpoint so that aspect was never completed. But I adjusted it to use Mastodon and other minor changes so it worked with the newer PiCamera in &lt;a href=&quot;https://github.com/tomcasavant/gifcam&quot;&gt;my fork&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I 3D Printed &lt;a href=&quot;https://www.youtube.com/watch?v=ohfqQ_8oEoY&quot;&gt;Wormhole Chess&lt;/a&gt; mainly to experiment with putting magnets into 3D Prints&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/30dPUefGT8-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/30dPUefGT8-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of the 3d printed chessboard with a hole in the middle that leads to another chessboard&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/30dPUefGT8-600.jpeg&quot; width=&quot;600&quot; height=&quot;1066&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;p&gt;I built a &lt;a href=&quot;https://pwnagotchi.ai/&quot;&gt;pwnagotchi&lt;/a&gt; and 3d printed a case for it&lt;/p&gt;
+&lt;p&gt;I built a battery powered homeasistant dashboard with an E-Ink screen and a 3D printed shell&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/i0mQASLeOl-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/i0mQASLeOl-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of the purple 3d printed dashboard showing the date along with temperature/humidity from inside and outside&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/i0mQASLeOl-600.jpeg&quot; width=&quot;600&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;p&gt;I 3D printed &lt;a href=&quot;https://www.printables.com/model/23859-designer-moon-lamp/files&quot;&gt;The Moon Lamp&lt;/a&gt;. It did not go well, there is a lot of hot glue, and I don&#39;t think I can ever remove the bulb without breaking it.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/pHjpst68O5-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/pHjpst68O5-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of the moon lamp with a bulb colored blue inside&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/pHjpst68O5-600.jpeg&quot; width=&quot;600&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;software&quot; tabindex=&quot;-1&quot;&gt;Software &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I used github actions to slowly simulate a chess game while displaying the current chess piece formation using LaTeX which you can see in this &lt;a href=&quot;https://github.com/TomCasavant/latex-chess&quot;&gt;Github Repo&lt;/a&gt; - Basically there was a github action on a cron schedule to run a python script that would load in the current moves in a chess game, pick the next action, generate a .tex file with the new chessboard, convert that to a PDF and then convert the PDF to a screenshot of the board which would display in the README.&lt;/p&gt;
+&lt;p&gt;I created a &lt;a href=&quot;https://decky.xyz/&quot;&gt;Decky Loader&lt;/a&gt; plugin for the Steam Deck that lets you upload a screenshot straight from the Gamepad UI to any mastodon-compatible API, it can also auto-upload screenshots immediately after taking them. It&#39;s still somewhat glitchy and I was running into issues with Pixelfed&#39;s API (which I believe have been fixed recently) which required users to create a APP manually from their pixelfed settings. Repo: &lt;a href=&quot;https://github.com/TomCasavant/DeckMastodonPoster&quot;&gt;TomCasavant/DeckMastodonPoster&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;While experimenting with the mastodon API, I created a very simple Wikipedia-Mastodon Bot which posts a &#39;Today in History&#39; post every day at 6PM EST to &lt;a href=&quot;https://tomkahe.com/@daily_wikipedia&quot;&gt;@daily_wikipedia@tomkahe.com&lt;/a&gt;. Repo: &lt;a href=&quot;https://github.com/TomCasavant/wikibot&quot;&gt;TomCasavant/wikibot&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Experimenting with a library called &lt;a href=&quot;https://github.com/Breakthrough/PySceneDetect&quot;&gt;PySceneDetect&lt;/a&gt; I built a bot that would attempt to extract clips from a tv show and post them to mastodon (it&#39;s hit or miss) &lt;a href=&quot;https://tomkahe.com/@community&quot;&gt;@community@tomkahe.com&lt;/a&gt;. &lt;a href=&quot;https://github.com/TomCasavant/mastodon-plex-scenes&quot;&gt;TomCasavant/mastodon-plex-scenes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A few years ago I was connecting random things together in Homeassistant and ended up with an automation that takes the current song I&#39;m listening to and posts it to this mastodon account: &lt;a href=&quot;https://mastodon.social/@TomsMusic&quot;&gt;@tomsmusic@mastodon.social&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After getting somewhat annoyed that following a lemmy/kbin community from mastodon meant I had to see every single comment on every single post boosted into my timeline, a built a sort-of fix for it with a proxy account that follows the lemmy communities and only boosts the top-level posts. &lt;a href=&quot;https://github.com/TomCasavant/mastodon-groupy&quot;&gt;TomCasavant/mastodon-groupy&lt;/a&gt; and example bot is located &lt;a href=&quot;https://tomkahe.com/@groupy&quot;&gt;@groups@tomkahe.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I forked &lt;a href=&quot;https://github.com/ckolderup/postmarks&quot;&gt;Postmarks&lt;/a&gt; - a federated bookmarking platform that can be hosted on &lt;a href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/glitch.com&quot;&gt;glitch.com&lt;/a&gt; so I could make some opinionated changes to how it worked for me such as keeping the hashtags hidden from the post, adding in profile fields, embedding spotify/youtube iframes, and automatically archiving links on the Internet Archive. Repo: &lt;a href=&quot;https://github.com/TomCasavant/tom-postmarks&quot;&gt;TomCasavant/tom-postmarks&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I modified a chrome extension to place images of my twin in all your youtube thumbnails - this only sort of counts because all I did was swap out some photos and learn how to build Firefox/Chrome packages. &lt;a href=&quot;https://github.com/TomCasavant/Rogerify-Youtube&quot;&gt;TomCasavant/Rogerify-Youtube&lt;/a&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/4Z4JdDdoYG-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/4Z4JdDdoYG-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of a youtube thumbnail entitled &#39;classical music but its lofi&#39; with my brother inserted into the thumbnail&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/4Z4JdDdoYG-600.png&quot; width=&quot;600&quot; height=&quot;375&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;p&gt;I used an unofficial Animal Crossing API to have my character automatically say (in a chat bubble) what song I&#39;m listening to&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/RQojm5BJsa-456.avif 456w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/RQojm5BJsa-456.webp 456w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of a switch showing my Animal Crossing character saying &#39;Invisible String&#39; which was the Taylor Swift song I was listening to&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/RQojm5BJsa-456.png&quot; width=&quot;456&quot; height=&quot;396&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;running&quot; tabindex=&quot;-1&quot;&gt;Running &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I ran a 5k while carrying a 5lb pumpkin&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/lUD0U4uqcR-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/lUD0U4uqcR-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of me running while carrying a 5lb pumpkin over my shoulder&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/lUD0U4uqcR-600.jpeg&quot; width=&quot;600&quot; height=&quot;401&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;p&gt;In September of 2022 I read an article about a person who decided to walk 20,000 steps a day for a week and they said it was something they&#39;d never do again because of how difficult it was. So in October of 2022 I walked/ran 30,000 steps (it felt unfair to only do 20,000 since I was already doing 15,000 a day) every day for a month and it was an exhausting experience that I will never do again. I ended the month with 1,000,090.&lt;/p&gt;
+&lt;p&gt;I was feeling pretty great at the end of the month so I decided to run 2 miles every hour over the course of 24 hours (I ended up attaching a 25th hour so I could even it out at 50 miles). That was October 29th-30th, 2022. October 29th remains my record for steps in a day at 73,066.&lt;/p&gt;
+&lt;p&gt;I am not a fan of seeing numbers go down so for the entirety of 2023 I walked/ran at least 20,000 steps every single day, ending the year with 7,473,873 total steps (a total distance of 3492.9 miles). It started off well but by July I started getting extemely exhausted every day and runs were replaced with walks resulting in significantly less distance ran than I normally do in a year.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/xCEK0Rsdgd-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/xCEK0Rsdgd-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot from Garmin showing an average of 20,476 steps every day throughout 2023&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://tomcasavant.com/img/xCEK0Rsdgd-600.jpeg&quot; width=&quot;600&quot; height=&quot;955&quot;&gt;&lt;/picture&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Tomline</title>

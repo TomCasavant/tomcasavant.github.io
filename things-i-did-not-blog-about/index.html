@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Things I Did Not Blog About</title>
+		<meta name="description" content="">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Tom Casavant">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Tom Casavant">
+		<link rel="preconnect" href="https://fonts.gstatic.com"><link data-href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"><style data-href='https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'>/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwaPGQ3q5d0N7w.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwiPGQ3q5d0.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #BAB2B5;
+	--color-gray-50: #123C69;
+	--color-gray-90: #AC3B61;
+
+	--background-color: #EDC7B7;
+	--background-standout: #EDC7B7;
+	--highlight-color: rgba(0, 0, 0, 0.6);
+	--alternating-rows: #DCB6A6;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #AC3B61;
+	--text-color-link-active: #2E3944;
+	--text-color-link-visited: #DD3B61;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #A0A0A0;
+		--color-gray-90: #dad8d8;
+
+		--background-color: #121212;
+		--background-standout: #242120;
+		--highlight-color: rgba(255,255,255,0.6);
+		--alternating-rows: #473e3a;
+		
+		--text-color: var(--color-gray-50);
+		--text-color-link: #AC3B61;
+		--text-color-link-active: #9E9994;
+		--text-color-link-visited: #DD3B61;
+
+		/* --text-color is assigned to --color-gray-_ above 
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;*/
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+
+a[href]:visited{
+    color: var(--text-color-link-visited);
+}
+
+a[href]:hover,
+a[href]:active {
+    color: var(--text-color-link-active);
+}
+
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 0.6em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	border: 1px solid #000;
+	text-align: center;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	flex-basis: calc(100% - 1.5rem);
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-subtitle {
+	font-size: 0.8em;
+	font-weight: 300;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-align: center;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+.bookmark {
+	background-color: var(--background-standout);
+	border: 1px solid #000;
+	box-shaddow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bookmark-title {
+	text-align: center;
+}
+
+.bookmark-summary {
+	text-align: center;
+	font-size: 0.75em;
+}
+
+.activities {
+    border: 0.1px solid;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Lato', normal;
+}
+
+.activities-header {
+    text-align: left;
+}
+
+.activities tr:nth-child(even) {
+    background-color: var(--alternating-rows);
+}
+
+profile-image {
+	width: 0.1em;
+	height: 0.1em;
+}
+
+.message-box {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center; /* Center the icons vertically */
+}
+
+.icon {
+    width: 24px; 
+    height: 24px; 
+    margin-right: 8px; 
+    fill: currentColor; 
+}
+
+.bluesky-icon {
+    transform: translateY(1px) scale(1.1); 
+}
+.rss-icon {
+    transform: translateY(1px) scale(1.1); 
+}
+.github-icon {
+    transform: scale(1.1); 
+}
+
+.post-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+
+.message-box svg {
+    display: block;
+    vertical-align: middle;
+}
+
+.message-box svg:last-child {
+    margin-right: 0; /* Remove margin from the last icon */
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr; /* 2 rows */
+  grid-gap: 10px;
+}
+
+.image-item {
+  width: 100%;
+  height: 0;
+  padding-top: 200%; /* Maintain aspect ratio (2:1) for portrait-oriented images */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a.microblog-post-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.microblog-post {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.microblog-post:hover {
+  box-shadow: 0 4px 8px var(--highlight-color);
+}
+
+.microblog-post .post-description,
+.microblog-post .post-date {
+  font-size: 0.85em;
+  margin: 8px 0;
+  color: #666;
+  text-decoration: none;
+}
+
+.microblog-post .post-date {
+  font-size: 0.575em;
+  color: #999;
+  text-align: right;
+}
+
+.microblog-post .post-media {
+  max-width: 100%;
+  height: auto;
+  margin-top: 16px;
+  border-radius: 4px;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+picture {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+picture img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Tom Casavant</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/bookmarks/">Bookmarks</a></li>
+					<li class="nav-item"><a href="/feeds/">Feeds</a></li>
+					<li class="nav-item"><a href="/food/">Food</a></li>
+					<li class="nav-item"><a href="/running/">Running</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>Things I Did Not Blog About</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2024-05-29">29 May 2024</time></li>
+</ul>
+
+<p>Here's a bunch of things I did that, for any number of reasons, I didn't bother writing about.</p>
+<h2 id="my-brother-s-keeper" tabindex="-1">My Brother's Keeper <a class="header-anchor" href="#my-brother-s-keeper">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/v6JBdHnNos-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/v6JBdHnNos-600.webp 600w" sizes="100vw"><img alt="The 3D model of roger in a snapchat window" loading="lazy" decoding="async" src="/img/v6JBdHnNos-600.jpeg" width="600" height="1064"></picture></th>
+</tr>
+</thead>
+</table>
+<p>I used a photo of my twin to generate a 3D model of him and then I attempted to insert that 3D Model into two different games, made a video of a giant waffle version of him in space with the theme to 2001 A Space Odyssey playing in the background, rotated his spine out of his body to create a weird monster version of him, and created a <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&amp;uuid=b68cf3b8819242c6896440f35ecbfe09&amp;metadata=01">snapchat lens</a> that lets you rotate, resize, and place the 3D model of my twin anywhere you want.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/WiHOknec68-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/WiHOknec68-600.webp 600w" sizes="100vw"><img alt="The 3D model of Roger in a pokemon game" loading="lazy" decoding="async" src="/img/WiHOknec68-600.jpeg" width="600" height="1066"></picture></th>
+</tr>
+</thead>
+</table>
+<div class="video-container">
+  <video controls="">
+    <source src="/video/roger-gameboy.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+<div class="video-container">
+  <video controls="">
+    <source src="/video/mario-kart-roger.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+<h2 id="mechanical-keyboards" tabindex="-1">Mechanical Keyboards <a class="header-anchor" href="#mechanical-keyboards">#</a></h2>
+<p>Assembled a hot swappable keyboard with <a href="https://drop.com/featured/lotr">Lord of the Rings keycaps</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/S55qBdsiiL-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/S55qBdsiiL-600.webp 600w" sizes="100vw"><img alt="Photo of the keyboard with lord of the rings keycaps" loading="lazy" decoding="async" src="/img/S55qBdsiiL-600.jpeg" width="600" height="450"></picture></th>
+</tr>
+</thead>
+</table>
+<p>Soldered and Assembled the <a href="https://scottokeebs.com/blogs/keyboards/scotto34-pcb-keyboard">Scotto34</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/9UBMtrUpDV-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/9UBMtrUpDV-600.webp 600w" sizes="100vw"><img alt="Photo of the scotto34 keyboard" loading="lazy" decoding="async" src="/img/9UBMtrUpDV-600.jpeg" width="600" height="450"></picture></th>
+</tr>
+</thead>
+</table>
+<h2 id="3d-prints-hardware" tabindex="-1">3D Prints/Hardware <a class="header-anchor" href="#3d-prints-hardware">#</a></h2>
+<p>I assembled the <a href="https://inputlabs.io/alpakka">Input Labs Alpakka</a>, an open source gyro focused gamepad, which was surprisingly comfortable to hold considering it was entirely made of 3d printed parts.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/8WiAaDaLaT-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/8WiAaDaLaT-600.webp 600w" sizes="100vw"><img alt="Photo of the Input Labs Alpakka Controller, black body yellow buttons" loading="lazy" decoding="async" src="/img/8WiAaDaLaT-600.jpeg" width="600" height="800"></picture></th>
+</tr>
+</thead>
+</table>
+<p>I 3D Printed and assembled the <a href="https://github.com/martinwoodward/octolamp">OctoLamp</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/yvSZrZgPBg-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/yvSZrZgPBg-600.webp 600w" sizes="100vw"><img alt="Photo of Github Logo Lamp lit up in shades of pink" loading="lazy" decoding="async" src="/img/yvSZrZgPBg-600.jpeg" width="600" height="1066"></picture></th>
+</tr>
+</thead>
+</table>
+<p>I 3D Printed and Assembled the <a href="https://www.printables.com/model/436448-lord-of-the-rings-lamp">Lord of the Rings Lamp</a>, and slightly modified the light ring to let me use the LED Strip I already had along with WLED.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/Oh2tAO_njJ-542.avif 542w" sizes="100vw"><source type="image/webp" srcset="/img/Oh2tAO_njJ-542.webp 542w" sizes="100vw"><img alt="Photo of the ring from Lord of the Rings as a lamp, lit up with Red LEDs" loading="lazy" decoding="async" src="/img/Oh2tAO_njJ-542.png" width="542" height="820"></picture></th>
+</tr>
+</thead>
+</table>
+<p>I 3D Printed a shell for a picamera and raspberry pi to build the <a href="https://github.com/nickbrewer/gifcam">Gif Camera</a> with the intention of using the <a href="https://github.com/chemokita13/beReal-api">BeReal (unofficial) API</a> to upload images to BeReal directly from the camera, but there were issues with the post endpoint so that aspect was never completed. But I adjusted it to use Mastodon and other minor changes so it worked with the newer PiCamera in <a href="https://github.com/tomcasavant/gifcam">my fork</a></p>
+<p>I 3D Printed <a href="https://www.youtube.com/watch?v=ohfqQ_8oEoY">Wormhole Chess</a> mainly to experiment with putting magnets into 3D Prints</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/30dPUefGT8-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/30dPUefGT8-600.webp 600w" sizes="100vw"><img alt="Photo of the 3d printed chessboard with a hole in the middle that leads to another chessboard" loading="lazy" decoding="async" src="/img/30dPUefGT8-600.jpeg" width="600" height="1066"></picture></th>
+</tr>
+</thead>
+</table>
+<p>I built a <a href="https://pwnagotchi.ai/">pwnagotchi</a> and 3d printed a case for it</p>
+<p>I built a battery powered homeasistant dashboard with an E-Ink screen and a 3D printed shell</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/i0mQASLeOl-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/i0mQASLeOl-600.webp 600w" sizes="100vw"><img alt="Photo of the purple 3d printed dashboard showing the date along with temperature/humidity from inside and outside" loading="lazy" decoding="async" src="/img/i0mQASLeOl-600.jpeg" width="600" height="800"></picture></th>
+</tr>
+</thead>
+</table>
+<p>I 3D printed <a href="https://www.printables.com/model/23859-designer-moon-lamp/files">The Moon Lamp</a>. It did not go well, there is a lot of hot glue, and I don't think I can ever remove the bulb without breaking it.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/pHjpst68O5-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/pHjpst68O5-600.webp 600w" sizes="100vw"><img alt="Photo of the moon lamp with a bulb colored blue inside" loading="lazy" decoding="async" src="/img/pHjpst68O5-600.jpeg" width="600" height="800"></picture></th>
+</tr>
+</thead>
+</table>
+<h2 id="software" tabindex="-1">Software <a class="header-anchor" href="#software">#</a></h2>
+<p>I used github actions to slowly simulate a chess game while displaying the current chess piece formation using LaTeX which you can see in this <a href="https://github.com/TomCasavant/latex-chess">Github Repo</a> - Basically there was a github action on a cron schedule to run a python script that would load in the current moves in a chess game, pick the next action, generate a .tex file with the new chessboard, convert that to a PDF and then convert the PDF to a screenshot of the board which would display in the README.</p>
+<p>I created a <a href="https://decky.xyz/">Decky Loader</a> plugin for the Steam Deck that lets you upload a screenshot straight from the Gamepad UI to any mastodon-compatible API, it can also auto-upload screenshots immediately after taking them. It's still somewhat glitchy and I was running into issues with Pixelfed's API (which I believe have been fixed recently) which required users to create a APP manually from their pixelfed settings. Repo: <a href="https://github.com/TomCasavant/DeckMastodonPoster">TomCasavant/DeckMastodonPoster</a></p>
+<p>While experimenting with the mastodon API, I created a very simple Wikipedia-Mastodon Bot which posts a 'Today in History' post every day at 6PM EST to <a href="https://tomkahe.com/@daily_wikipedia">@daily_wikipedia@tomkahe.com</a>. Repo: <a href="https://github.com/TomCasavant/wikibot">TomCasavant/wikibot</a></p>
+<p>Experimenting with a library called <a href="https://github.com/Breakthrough/PySceneDetect">PySceneDetect</a> I built a bot that would attempt to extract clips from a tv show and post them to mastodon (it's hit or miss) <a href="https://tomkahe.com/@community">@community@tomkahe.com</a>. <a href="https://github.com/TomCasavant/mastodon-plex-scenes">TomCasavant/mastodon-plex-scenes</a></p>
+<p>A few years ago I was connecting random things together in Homeassistant and ended up with an automation that takes the current song I'm listening to and posts it to this mastodon account: <a href="https://mastodon.social/@TomsMusic">@tomsmusic@mastodon.social</a></p>
+<p>After getting somewhat annoyed that following a lemmy/kbin community from mastodon meant I had to see every single comment on every single post boosted into my timeline, a built a sort-of fix for it with a proxy account that follows the lemmy communities and only boosts the top-level posts. <a href="https://github.com/TomCasavant/mastodon-groupy">TomCasavant/mastodon-groupy</a> and example bot is located <a href="https://tomkahe.com/@groupy">@groups@tomkahe.com</a></p>
+<p>I forked <a href="https://github.com/ckolderup/postmarks">Postmarks</a> - a federated bookmarking platform that can be hosted on <a href="glitch.com">glitch.com</a> so I could make some opinionated changes to how it worked for me such as keeping the hashtags hidden from the post, adding in profile fields, embedding spotify/youtube iframes, and automatically archiving links on the Internet Archive. Repo: <a href="https://github.com/TomCasavant/tom-postmarks">TomCasavant/tom-postmarks</a></p>
+<p>I modified a chrome extension to place images of my twin in all your youtube thumbnails - this only sort of counts because all I did was swap out some photos and learn how to build Firefox/Chrome packages. <a href="https://github.com/TomCasavant/Rogerify-Youtube">TomCasavant/Rogerify-Youtube</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/4Z4JdDdoYG-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/4Z4JdDdoYG-600.webp 600w" sizes="100vw"><img alt="Screenshot of a youtube thumbnail entitled 'classical music but its lofi' with my brother inserted into the thumbnail" loading="lazy" decoding="async" src="/img/4Z4JdDdoYG-600.png" width="600" height="375"></picture></th>
+</tr>
+</thead>
+</table>
+<p>I used an unofficial Animal Crossing API to have my character automatically say (in a chat bubble) what song I'm listening to</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/RQojm5BJsa-456.avif 456w" sizes="100vw"><source type="image/webp" srcset="/img/RQojm5BJsa-456.webp 456w" sizes="100vw"><img alt="Photo of a switch showing my Animal Crossing character saying 'Invisible String' which was the Taylor Swift song I was listening to" loading="lazy" decoding="async" src="/img/RQojm5BJsa-456.png" width="456" height="396"></picture></th>
+</tr>
+</thead>
+</table>
+<h2 id="running" tabindex="-1">Running <a class="header-anchor" href="#running">#</a></h2>
+<p>I ran a 5k while carrying a 5lb pumpkin</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/lUD0U4uqcR-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/lUD0U4uqcR-600.webp 600w" sizes="100vw"><img alt="Photo of me running while carrying a 5lb pumpkin over my shoulder" loading="lazy" decoding="async" src="/img/lUD0U4uqcR-600.jpeg" width="600" height="401"></picture></th>
+</tr>
+</thead>
+</table>
+<p>In September of 2022 I read an article about a person who decided to walk 20,000 steps a day for a week and they said it was something they'd never do again because of how difficult it was. So in October of 2022 I walked/ran 30,000 steps (it felt unfair to only do 20,000 since I was already doing 15,000 a day) every day for a month and it was an exhausting experience that I will never do again. I ended the month with 1,000,090.</p>
+<p>I was feeling pretty great at the end of the month so I decided to run 2 miles every hour over the course of 24 hours (I ended up attaching a 25th hour so I could even it out at 50 miles). That was October 29th-30th, 2022. October 29th remains my record for steps in a day at 73,066.</p>
+<p>I am not a fan of seeing numbers go down so for the entirety of 2023 I walked/ran at least 20,000 steps every single day, ending the year with 7,473,873 total steps (a total distance of 3492.9 miles). It started off well but by July I started getting extemely exhausted every day and runs were replaced with walks resulting in significantly less distance ran than I normally do in a year.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/xCEK0Rsdgd-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/xCEK0Rsdgd-600.webp 600w" sizes="100vw"><img alt="Screenshot from Garmin showing an average of 20,476 steps every day throughout 2023" loading="lazy" decoding="async" src="/img/xCEK0Rsdgd-600.jpeg" width="600" height="955"></picture></th>
+</tr>
+</thead>
+</table>
+
+<ul class="links-nextprev"><li>Previous: <a href="/tomline/">Tomline</a></li>
+</ul>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/things-i-did-not-blog-about/` was built on 2024-05-29T19:44:01.011Z -->
+	</body>
+</html>
