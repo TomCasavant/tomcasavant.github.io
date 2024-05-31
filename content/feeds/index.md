@@ -28,7 +28,15 @@ eleventyNavigation:
 	    <p class="post-description"> {{ post.description | sanitize }} </p>
 	   	{% if post.mediaUrl %}
 	      <img src="{{ post.mediaUrl }}" alt="Media content for the post" class="post-media">
+		  {% if post.mediaUrl %}
+			{% set extension = post.mediaUrl | slice(-4) %}
+			{% if extension == '.mp4' or extension == '.webm' or extension == '.ogg' %}
+				<video src="{{ post.mediaUrl }}" alt="Media content for the post" class="post-media" controls></video>
+			{% else %}
+				<img src="{{ post.mediaUrl }}" alt="Media content for the post" class="post-media">
+			{% endif %}
 	    {% endif %}
+		
 	    <p class="post-date"> {{ post.pubDate }} </p>
 	  </div>
   </a>

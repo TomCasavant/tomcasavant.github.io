@@ -342,6 +342,16 @@ profile-image {
     fill: currentColor; 
 }
 
+.bluesky-icon {
+    transform: translateY(1px) scale(1.1); 
+}
+.rss-icon {
+    transform: translateY(1px) scale(1.1); 
+}
+.github-icon {
+    transform: scale(1.1); 
+}
+
 .post-icon {
   position: absolute;
   top: 0;
@@ -441,4 +451,16 @@ a.microblog-post-link {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+picture {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+picture img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
