@@ -37,11 +37,7 @@ async function getStarredRepos(username) {
 
 async function getUserIssues() {
   try {
-    const response = await octokit.rest.issues.list({
-      filter: 'all',
-      state: 'all', // or 'closed' if you want closed issues as well
-      per_page: 10 // Number of issues to fetch
-    });
+    const response = await octokit.rest.issues.listForAuthenticatedUser({});
 
     return response.data.map(item => {
       let type = item.pull_request ? 'pull_request' : 'issue';
