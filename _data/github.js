@@ -37,7 +37,7 @@ async function getStarredRepos(username) {
 
 async function getUserIssues() {
   try {
-    const response = await octokit.rest.issues.listForAuthenticatedUser({});
+    const response = await octokit.rest.issues.list({});
 
     console.log('Response Status:', response.status);
     console.log('Request URL:', response.url);
