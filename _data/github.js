@@ -39,6 +39,10 @@ async function getUserIssues() {
   try {
     const response = await octokit.rest.issues.listForAuthenticatedUser({});
 
+    console.log('Response Status:', response.status);
+    console.log('Request URL:', response.url);
+    console.log('Response Data:', response.data);
+
     return response.data.map(item => {
       let type = item.pull_request ? 'pull_request' : 'issue';
       return {
@@ -57,6 +61,7 @@ async function getUserIssues() {
     return [];
   }
 }
+
 
 
 module.exports = async function () {
