@@ -34,6 +34,12 @@ jobs:
 
       - run: npm ci
 
+      - name: Print environment variables
+        run: |
+          echo "GARMIN_EMAIL: $GARMIN_EMAIL"
+          echo "GARMIN_PASSWORD: $GARMIN_PASSWORD"
+          echo "GIT_TOKEN: $GIT_TOKEN"
+
       - name: Eleventy
         run: DEBUG=Eleventy* npx @11ty/eleventy
 
