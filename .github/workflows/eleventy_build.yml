@@ -13,6 +13,7 @@ jobs:
       GARMIN_EMAIL: ${{ secrets.GARMIN_EMAIL }}
       GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
       GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+      TEST: TEST
     steps:
       - uses: actions/checkout@v2
         with:
@@ -38,7 +39,7 @@ jobs:
         run: |
           echo "GARMIN_EMAIL: $GARMIN_EMAIL"
           echo "GARMIN_PASSWORD: $GARMIN_PASSWORD"
-          echo "GIT_TOKEN: $GIT_TOKEN"
+          echo "TEST: $TEST"
 
       - name: Eleventy
         run: DEBUG=Eleventy* npx @11ty/eleventy
