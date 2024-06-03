@@ -9,6 +9,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      GARMIN_EMAIL: ${{ secrets.GARMIN_EMAIL }}
+      GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
+      GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -31,10 +35,6 @@ jobs:
       - run: npm ci
 
       - name: Eleventy
-        env:
-          GARMIN_EMAIL: ${{ secrets.GARMIN_EMAIL }}
-          GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
         run: DEBUG=Eleventy* npx @11ty/eleventy
 
       - name: Deploy
