@@ -13,7 +13,6 @@ jobs:
       GARMIN_EMAIL: ${{ secrets.GARMIN_EMAIL }}
       GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
       GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
-      TEST: TEST
     steps:
       - uses: actions/checkout@v2
         with:
@@ -34,12 +33,6 @@ jobs:
           node-version: 20
 
       - run: npm ci
-
-      - name: Print environment variables
-        run: |
-          echo "GARMIN_EMAIL: $GARMIN_EMAIL"
-          echo "GARMIN_PASSWORD: $GARMIN_PASSWORD"
-          echo "TEST: $TEST"
 
       - name: Eleventy
         run: DEBUG=Eleventy* npx @11ty/eleventy
