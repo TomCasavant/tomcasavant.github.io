@@ -19,7 +19,7 @@ async function getStarredRepos(username) {
       }
     });
 
-    console.log(response.data)
+    //console.log(response.data)
 
     return response.data.map(star => ({
       type: 'github',
@@ -39,9 +39,9 @@ async function getUserIssues() {
   try {
     const response = await octokit.rest.issues.list({});
 
-    console.log('Response Status:', response.status);
-    console.log('Request URL:', response.url);
-    console.log('Response Data:', response.data);
+    //console.log('Response Status:', response.status);
+    //console.log('Request URL:', response.url);
+    //console.log('Response Data:', response.data);
 
     return response.data.map(item => {
       let type = item.pull_request ? 'pull_request' : 'issue';
@@ -79,7 +79,7 @@ module.exports = async function () {
 
 	const combined = [...starredRepos, ...userIssues];
 	combined.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-	console.log(combined);
+	//console.log(combined);
 	return {
 		githubActivities: combined
 	};
