@@ -13,6 +13,7 @@ const eleventyGoogleFonts = require("eleventy-google-fonts");
 const sanitizeHtml = require('sanitize-html');
 
 const slugify = require("slugify");
+const filters = require('./_11ty/filters')
 
 module.exports = function(eleventyConfig) {
 	// Copy the contents of the `public` folder to the output folder
@@ -28,6 +29,10 @@ module.exports = function(eleventyConfig) {
 	      allowedAttributes: {}
 	    });
 	});
+
+	Object.keys(filters).forEach(filterName => {
+		eleventyConfig.addFilter(filterName, filters[filterName])
+	})
 
 	eleventyConfig.addPassthroughCopy({ 'src/well-known': '.well-known' });
 	eleventyConfig.addPassthroughCopy("CNAME");
