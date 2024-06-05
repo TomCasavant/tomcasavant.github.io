@@ -21,13 +21,21 @@ async function fetchWebmentions(since, perPage = 10000) {
 
   let url = `${API}/mentions.jf2?domain=${domain}&token=${TOKEN}&per-page=${perPage}`;
   if (since) url += `&since=${since}`; // only fetch new mentions
-  console.log(url);
-  const response = await fetch(url);
-  if (response.ok) {
-    const feed = await response.json();
+  try {
+    const response = await fetch(url, {
+      duration: "1d", // Cache for a day
+      type: "buffer" // Expect buffer
+    });
+    
+    // Convert buffer to JSON
+    const feed = JSON.parse(response.toString());
+    console.log(feed);
     console.log(`>>> ${feed.children.length} new webmentions fetched from ${API}`);
     return feed;
+  } catch (error) {
+    console.error('>>> Fetch error:', error);
   }
+
   return null;
 }
 
@@ -81,6 +89,7 @@ module.exports = async function () {
     console.log('>>> Checking for new webmentions...');
     const feed = await fetchWebmentions(cache.lastFetched);
     if (feed) {
+      console.log("Feed found")
       const webmentions = {
         lastFetched: new Date().toISOString(),
         children: mergeWebmentions(cache, feed)
