@@ -395,6 +395,7 @@ header {
 	list-style: none;
 	padding: 0;
 	padding-left: 1.5rem;
+	position: relative;
 }
 .postlist-item {
 	display: flex;
@@ -404,6 +405,8 @@ header {
 	margin-bottom: 1em;
 	border: 1px solid #000;
 	text-align: center;
+	position: relative;
+	padding-bottom: 2.5em;
 }
 .postlist-item:before {
 	display: inline-block;
@@ -662,6 +665,143 @@ picture img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+/* Webmentions */
+.webmentions img {
+  border-radius: 50%;
+  display: inline;
+  height: 48px;
+  width: 48px;
+  object-fit: cover;
+}
+.webmentions h3 {margin-top: 40px;}
+.webmentions__facepile span {
+  font-size: var(--size-600);
+  margin-right: 2rem;
+}
+.webmention-replies img {
+  height: 24px;
+  width: 24px;}
+.webmention-replies article {margin-bottom: 32px;}
+.webmention-replies .webmention__meta {margin-bottom: 8px;}
+.webmention-replies .webmention__meta time {display: block; margin-top: 8px;}
+.webmention-text {font-size: var(--size-400); margin-top: 0;}
+.webmention-text a {font-size: var(--size-300); margin-left: 4px;}
+article.webmention {
+  background-color: var(--grey-05);
+  padding: 16px 16px 12px;
+}
+form input[type="url"] {
+  display: block;
+  height: 2rem;
+  width: 100%;}
+.form-webmention {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 8px;
+  margin: 16px 0;
+  width: 100%;}
+.form-webmention input {width: 100%;}
+.form-webmention .button {
+  font-size: var(--size-300);
+  height: 2rem;}
+form label {
+  font-weight: 600;
+  margin: 4px 0 0 0;}
+.form {
+  background-color: var(--grey-05);
+  margin: 40px auto;
+  padding: 16px;
+  position: relative;}
+.form > * {position: relative;}
+.form svg {
+  position: absolute;
+  top: 5px;
+  right: 10px;}
+.form button, .form label, .form p {
+  display: block;
+  margin: 24px auto;
+  width: 90%;}
+.form input {
+  height: 2rem;}
+.form input, .form textarea {
+  border: 1px solid var(--grey-20);
+  color: var(--grey-80);
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--size-400);
+  font-weight: 400;
+  margin: 4px 0;
+  padding: 4px;
+  width: 100%;}
+footer .form {
+  background: none;
+  box-shadow: none;
+  text-align: left;
+}
+footer .button {
+  font-size: var(--size-400);
+  padding: 8px 12px;
+}
+footer .form input, footer .form button {
+  height: 2.3rem;
+}
+#honey {display: none;}
+.well {
+  background-color: rgba(222,221,227,0.4);
+  margin-top: 40px;
+  overflow: hidden;
+  padding: 32px;
+  position: relative;}
+.well > * {position: relative;}
+.well svg {
+  bottom: 0;
+  right: 100px;
+  position: absolute;
+  transform: rotate(45deg);}
+.tmpl-newspost .circles .content-780 {
+  margin: 0 auto;
+}
+
+.postlist-webmentions {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    color: #000;
+    justify-content: flex-end; /* Aligns items to the right */
+    position: absolute;
+    right: 0;
+    bottom: 0; /* Adjust as needed */
+}
+
+.postlist-webmentions svg {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    fill: var(--text-color-link); 
+    stroke: var(--text-color-link);
+}
+
+.postlist-webmentions .heart-icon {
+    width: 1.25rem; /* Increase size */
+    height: 1.25rem; /* Increase size */
+}
+
+.webmention-count {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.05rem;
+    font-size: 0.85rem;
+    color: var(--text-color-link);
+    transform: translateY(-5px);
+}
+
+.webmention-item {
+    display: flex;
+    align-items: center;
+    gap: 0.01rem;
 }</style>
 	</head>
 	<body>
@@ -776,6 +916,6 @@ API_TOKEN = API_TOKEN_GOES_HERE</p>
 
 		<footer></footer>
 
-		<!-- This page `/slackarchiver-and-58-using-mongo-to-archive-slack-messages-featuring-and-34-docker-and-34/` was built on 2024-06-06T02:45:09.805Z -->
+		<!-- This page `/slackarchiver-and-58-using-mongo-to-archive-slack-messages-featuring-and-34-docker-and-34/` was built on 2024-06-06T02:54:04.651Z -->
 	</body>
 </html>
