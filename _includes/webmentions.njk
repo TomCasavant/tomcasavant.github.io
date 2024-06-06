@@ -58,7 +58,7 @@
   <h3>{{ repliesSize }} {% if repliesSize == "1" %}Reply{% else %}Replies{% endif %}</h3>
 
   {% for webmention in replies %}
-    REPLY
+    {% include 'webmention.njk' %}
   {% endfor %}
 </div>
 {% endif %}
