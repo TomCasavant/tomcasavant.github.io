@@ -68,7 +68,7 @@
 <form action="https://webmention.io/tomcasavant.com/webmention" method="post" class="form-webmention">
     <label for="form-webmention-source">URL</label><br>
     <input id="form-webmention-source" type="url" name="source" placeholder="https://example.com" required>
-    <input type="hidden" name="target" value="https://sia.codes/{{ page.url }}">
+    <input type="hidden" name="target" value="https://tomcasavant.com/{{ webmentionUrlTrimmed }}">
     <input type="submit" class="button button-small" value="Send Webmention">
   </form>
 </div>
