@@ -766,13 +766,19 @@ footer .form input, footer .form button {
 
 .postlist-webmentions {
     display: flex;
-    gap: 10px;
-    font-size: 14px;
-    color: #000;
+    gap: 0.5em;
     justify-content: flex-end; /* Aligns items to the right */
     position: absolute;
-    right: 0;
-    bottom: 0; /* Adjust as needed */
+    right: 0.5em;
+    bottom: 0;
+}
+
+.postlist-webmentions .heart-icon {
+    margin-right: 0.2em
+}
+
+.postlist-webmentions #retweet-round {
+    margin-right: 0.35em
 }
 
 .postlist-webmentions svg {
@@ -784,18 +790,13 @@ footer .form input, footer .form button {
     stroke: var(--text-color-link);
 }
 
-.postlist-webmentions .heart-icon {
-    width: 1.25rem; /* Increase size */
-    height: 1.25rem; /* Increase size */
-}
-
 .webmention-count {
     display: inline-block;
     vertical-align: middle;
     margin-left: 0.05rem;
     font-size: 0.85rem;
     color: var(--text-color-link);
-    transform: translateY(-5px);
+    transform: translateY(-0.5em);
 }
 
 .webmention-item {
@@ -1049,6 +1050,6 @@ minetest<span class="token punctuation">.</span><span class="token function">reg
 
 		<footer></footer>
 
-		<!-- This page `/experimenting-with-activitypub-minetest-activitypub-bridge/` was built on 2024-06-07T18:34:21.516Z -->
+		<!-- This page `/experimenting-with-activitypub-minetest-activitypub-bridge/` was built on 2024-06-07T18:42:28.503Z -->
 	</body>
 </html>
