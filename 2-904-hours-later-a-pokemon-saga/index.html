@@ -1,0 +1,1145 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>2,904 Hours Later: A Pokémon Saga</title>
+		<meta name="description" content="">
+		<link rel="webmention" href="https://webmention.io/tomcasavant.com/webmention" />
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Tom Casavant">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Tom Casavant">
+		<link rel="preconnect" href="https://fonts.gstatic.com"><link data-href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"><style data-href='https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'>/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwaPGQ3q5d0N7w.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwiPGQ3q5d0.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #BAB2B5;
+	--color-gray-50: #123C69;
+	--color-gray-90: #AC3B61;
+
+	--background-color: #EDC7B7;
+	--background-standout: #EDC7B7;
+	--highlight-color: rgba(0, 0, 0, 0.6);
+	--alternating-rows: #DCB6A6;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #AC3B61;
+	--text-color-link-active: #2E3944;
+	--text-color-link-visited: #DD3B61;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #A0A0A0;
+		--color-gray-90: #dad8d8;
+
+		--background-color: #121212;
+		--background-standout: #242120;
+		--highlight-color: rgba(255,255,255,0.6);
+		--alternating-rows: #473e3a;
+		
+		--text-color: var(--color-gray-50);
+		--text-color-link: #AC3B61;
+		--text-color-link-active: #9E9994;
+		--text-color-link-visited: #DD3B61;
+
+		/* --text-color is assigned to --color-gray-_ above 
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;*/
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+
+a[href]:visited{
+    color: var(--text-color-link-visited);
+}
+
+a[href]:hover,
+a[href]:active {
+    color: var(--text-color-link-active);
+}
+
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+table th, table td {
+    text-align: center;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 0.6em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+	position: relative;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	border: 1px solid #000;
+	text-align: center;
+	position: relative;
+	padding-bottom: 2.5em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	flex-basis: calc(100% - 1.5rem);
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-subtitle {
+	font-size: 0.8em;
+	font-weight: 300;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-align: center;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+.bookmark {
+	background-color: var(--background-standout);
+	border: 1px solid #000;
+	box-shaddow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bookmark-title {
+	text-align: center;
+}
+
+.bookmark-summary {
+	text-align: center;
+	font-size: 0.75em;
+}
+
+.activities {
+    border: 0.1px solid;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Lato', normal;
+}
+
+.activities-header {
+    text-align: left;
+}
+
+.activities tr:nth-child(even) {
+    background-color: var(--alternating-rows);
+}
+
+profile-image {
+	width: 0.1em;
+	height: 0.1em;
+}
+
+.message-box {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center; /* Center the icons vertically */
+}
+
+.icon {
+    width: 24px; 
+    height: 24px; 
+    margin-right: 8px; 
+    fill: currentColor; 
+}
+
+.bluesky-icon {
+    transform: translateY(1px) scale(1.1); 
+}
+.rss-icon {
+    transform: translateY(1px) scale(1.1); 
+}
+.github-icon {
+    transform: scale(1.1); 
+}
+
+.post-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+
+.message-box svg {
+    display: block;
+    vertical-align: middle;
+}
+
+.message-box svg:last-child {
+    margin-right: 0; /* Remove margin from the last icon */
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr; /* 2 rows */
+  grid-gap: 10px;
+}
+
+.image-item {
+  width: 100%;
+  height: 0;
+  padding-top: 200%; /* Maintain aspect ratio (2:1) for portrait-oriented images */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a.microblog-post-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.microblog-post {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.microblog-post:hover {
+  box-shadow: 0 4px 8px var(--highlight-color);
+}
+
+.microblog-post .post-description,
+.microblog-post .post-date {
+  font-size: 0.85em;
+  margin: 8px 0;
+  color: #666;
+  text-decoration: none;
+}
+
+.microblog-post .post-date {
+  font-size: 0.575em;
+  color: #999;
+  text-align: right;
+}
+
+.microblog-post .post-media {
+  max-width: 100%;
+  height: auto;
+  margin-top: 16px;
+  border-radius: 4px;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+picture {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+picture img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Webmentions */
+.webmentions img {
+  border-radius: 50%;
+  display: inline;
+  height: 48px;
+  width: 48px;
+  object-fit: cover;
+}
+.webmentions h3 {margin-top: 40px;}
+.webmentions__facepile span {
+  font-size: var(--size-600);
+  margin-right: 2rem;
+}
+.webmention-replies img {
+  height: 24px;
+  width: 24px;}
+.webmention-replies article {margin-bottom: 32px;}
+.webmention-replies .webmention__meta {margin-bottom: 8px;}
+.webmention-replies .webmention__meta time {display: block; margin-top: 8px;}
+.webmention-text {font-size: var(--size-400); margin-top: 0;}
+.webmention-text a {font-size: var(--size-300); margin-left: 4px;}
+article.webmention {
+  background-color: var(--grey-05);
+  padding: 16px 16px 12px;
+}
+form input[type="url"] {
+  display: block;
+  height: 2rem;
+  width: 100%;}
+.form-webmention {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 8px;
+  margin: 16px 0;
+  width: 100%;}
+.form-webmention input {width: 100%;}
+.form-webmention .button {
+  font-size: var(--size-300);
+  height: 2rem;}
+form label {
+  font-weight: 600;
+  margin: 4px 0 0 0;}
+.form {
+  background-color: var(--grey-05);
+  margin: 40px auto;
+  padding: 16px;
+  position: relative;}
+.form > * {position: relative;}
+.form svg {
+  position: absolute;
+  top: 5px;
+  right: 10px;}
+.form button, .form label, .form p {
+  display: block;
+  margin: 24px auto;
+  width: 90%;}
+.form input {
+  height: 2rem;}
+.form input, .form textarea {
+  border: 1px solid var(--grey-20);
+  color: var(--grey-80);
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--size-400);
+  font-weight: 400;
+  margin: 4px 0;
+  padding: 4px;
+  width: 100%;}
+footer .form {
+  background: none;
+  box-shadow: none;
+  text-align: left;
+}
+footer .button {
+  font-size: var(--size-400);
+  padding: 8px 12px;
+}
+footer .form input, footer .form button {
+  height: 2.3rem;
+}
+#honey {display: none;}
+.well {
+  background-color: rgba(222,221,227,0.4);
+  margin-top: 40px;
+  overflow: hidden;
+  padding: 32px;
+  position: relative;}
+.well > * {position: relative;}
+.well svg {
+  bottom: 0;
+  right: 100px;
+  position: absolute;
+  transform: rotate(45deg);}
+.tmpl-newspost .circles .content-780 {
+  margin: 0 auto;
+}
+
+.postlist-webmentions {
+    display: flex;
+    gap: 0.5em;
+    justify-content: flex-end; /* Aligns items to the right */
+    position: absolute;
+    right: 0.5em;
+    bottom: 0;
+}
+
+.postlist-webmentions .heart-icon {
+    margin-right: 0.2em
+}
+
+.postlist-webmentions #retweet-round {
+    margin-right: 0.35em
+}
+
+.postlist-webmentions svg {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    fill: var(--text-color-link); 
+    stroke: var(--text-color-link);
+}
+
+.webmention-count {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.05rem;
+    font-size: 0.85rem;
+    color: var(--text-color-link);
+    transform: translateY(-0.5em);
+}
+
+.webmention-item {
+    display: flex;
+    align-items: center;
+    gap: 0.01rem;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Tom Casavant</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/bookmarks/">Bookmarks</a></li>
+					<li class="nav-item"><a href="/feeds/">Feeds</a></li>
+					<li class="nav-item"><a href="/food/">Food</a></li>
+					<li class="nav-item"><a href="/running/">Running</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>2,904 Hours Later: A Pokémon Saga</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2024-06-10">10 June 2024</time></li>
+</ul>
+
+<p><a href="https://tomkahe.com/@pokemon"><img src="https://fedi-badge.deno.dev/@pokemon@tomkahe.com/followers.svg?style=plastic" alt="Follow @pokemon@tomkahe.com"></a></p>
+<p>On February 10th, almost entirely because I found a <a href="https://github.com/Baekalfen/PyBoy">repo</a> that lets you interface with gameboy and gameboy color games via python, I launched a <a href="https://github.com/TomCasavant/MastodonPlaysGameboy">bot that lets you play pokemon</a> by voting in polls in the social web.</p>
+<p>At first I looked around for easy way to play the GBA Pokémon games which I am far more familiar with, but settled on Pokémon Gold for the Gameboy Color.</p>
+<p>Playing Pokémon one frame every hour introduces a few more difficulties into the gameplay, the main one being that every single mistake you make could cost anywhere from a few hours to a few weeks to rectify.</p>
+<p>This is the journey so far.</p>
+<h2 id="february-10th-day-1" tabindex="-1">February 10th (Day 1) <a class="header-anchor" href="#february-10th-day-1">#</a></h2>
+<p><a href="https://tomkahe.com/@pokemon">@pokemon@tomkahe.com</a> is created and the bot generates its <a href="https://tomkahe.com/@pokemon/111908424046168338">first post</a>.</p>
+<p>Over the course of a few hours, 2-3 people named our adventurer Fry.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/nfyGNI-AQO-160.avif 160w" sizes="100vw"><source type="image/webp" srcset="/img/nfyGNI-AQO-160.webp 160w" sizes="100vw"><img alt="Screenshot of pokemon game: text reads Fry, are you ready?" loading="lazy" decoding="async" src="/img/nfyGNI-AQO-160.png" width="160" height="144"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://tomkahe.com/@pokemon/111910484583212491">Fry, are you ready?</a></td>
+</tr>
+</tbody>
+</table>
+<p>Early days involved <a href="https://tomkahe.com/@pokemon/111911428326064094">polls with 0 votes</a>, especially polls that happened overnight.</p>
+<h2 id="february-11th-day-2" tabindex="-1">February 11th (Day 2) <a class="header-anchor" href="#february-11th-day-2">#</a></h2>
+<p><a href="https://tomkahe.com/@pokemon/111914495434000447">Turned the PC on</a> and then immediately turned it off again</p>
+<h2 id="february-12th-day-3" tabindex="-1">February 12th (Day 3) <a class="header-anchor" href="#february-12th-day-3">#</a></h2>
+<p><a href="https://tomkahe.com/@pokemon/111917326546433527">Made our way downstairs</a> to talk with our mother</p>
+<h2 id="february-15th-day-6" tabindex="-1">February 15th (Day 6) <a class="header-anchor" href="#february-15th-day-6">#</a></h2>
+<p><a href="https://tomkahe.com/@pokemon/111934313499316348">Our hero meets Professor Elm</a> in order to begin the adventure</p>
+<h2 id="february-16th-day-7" tabindex="-1">February 16th (Day 7) <a class="header-anchor" href="#february-16th-day-7">#</a></h2>
+<p>Picked up our <a href="https://tomkahe.com/@pokemon/111941155456862566">first pokemon</a> (Cyndaquil)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/araB6DzlJU-160.avif 160w" sizes="100vw"><source type="image/webp" srcset="/img/araB6DzlJU-160.webp 160w" sizes="100vw"><img alt="Screenshot from pokemon gold, cyndaquil's image in the center" loading="lazy" decoding="async" src="/img/araB6DzlJU-160.png" width="160" height="144"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Cyndaquil</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="february-17th-day-8" tabindex="-1">February 17th (Day 8) <a class="header-anchor" href="#february-17th-day-8">#</a></h2>
+<p>Finished naming our new Cyndaquil, meet Ja?</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/moR1w5Q_dY-160.avif 160w" sizes="100vw"><source type="image/webp" srcset="/img/moR1w5Q_dY-160.webp 160w" sizes="100vw"><img alt="Text window in pokemon game 'Ja?' is typed out" loading="lazy" decoding="async" src="/img/moR1w5Q_dY-160.png" width="160" height="144"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://tomkahe.com/@pokemon/111945874054546278">Meet Ja?</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="february-19th-fry-touches-grass-day-10" tabindex="-1">February 19th: Fry touches grass (Day 10) <a class="header-anchor" href="#february-19th-fry-touches-grass-day-10">#</a></h2>
+<p>Fry's very first <a href="https://tomkahe.com/@pokemon/111959793874141458">pokemon battle</a></p>
+<h2 id="february-21st-day-12" tabindex="-1">February 21st (Day 12) <a class="header-anchor" href="#february-21st-day-12">#</a></h2>
+<p>Ja? <a href="https://tomkahe.com/@pokemon/111968287107453033">levels up</a> and learns Smokescreen</p>
+<h2 id="february-22nd-day-13" tabindex="-1">February 22nd (Day 13) <a class="header-anchor" href="#february-22nd-day-13">#</a></h2>
+<p>It became clear that whenever we entered a battle it was unclear how time was progressing so a feature was introduced to animate all battles into an <a href="https://tomkahe.com/@tom/111976216194451578">'action clip'</a></p>
+<h2 id="february-23rd-day-14" tabindex="-1">February 23rd (Day 14) <a class="header-anchor" href="#february-23rd-day-14">#</a></h2>
+<p>The very first <a href="https://tomkahe.com/@pokemon/111983386566859116">useful clip</a> is generated</p>
+<div class="video-container">
+  <video controls="">
+    <source src="/video/pokemon-action-clip.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+<h2 id="february-26th-day-17" tabindex="-1">February 26th (Day 17) <a class="header-anchor" href="#february-26th-day-17">#</a></h2>
+<p>Fry arrives at <a href="https://tomkahe.com/@pokemon/111996831610628933">Cherrygrove</a>, he proceeds to take a tour of that town for the next half day</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/EE4IkgCptd-160.avif 160w" sizes="100vw"><source type="image/webp" srcset="/img/EE4IkgCptd-160.webp 160w" sizes="100vw"><img alt="Old man describing to Fry, 'this is the sea as you can see.'" loading="lazy" decoding="async" src="/img/EE4IkgCptd-160.png" width="160" height="144"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://tomkahe.com/@pokemon/112000845998428315">The Sea</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="february-28th-day-19" tabindex="-1">February 28th (Day 19) <a class="header-anchor" href="#february-28th-day-19">#</a></h2>
+<p>First <a href="https://tomkahe.com/@pokemon/112012874805373596">Pokémon Center</a></p>
+<h2 id="march-6th-day-26" tabindex="-1">March 6th (Day 26) <a class="header-anchor" href="#march-6th-day-26">#</a></h2>
+<p>Ja? <a href="https://tomkahe.com/@pokemon/112047320594297168">Levels up!</a></p>
+<h2 id="march-7th-day-27" tabindex="-1">March 7th (Day 27) <a class="header-anchor" href="#march-7th-day-27">#</a></h2>
+<p>Mysterious man gives us a mysterious egg, that we promptly forget about.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/4jsirQgIrb-160.avif 160w" sizes="100vw"><source type="image/webp" srcset="/img/4jsirQgIrb-160.webp 160w" sizes="100vw"><img alt="Pokemon screenshot, text reads 'Fry received  MYSTERY EGG' " loading="lazy" decoding="async" src="/img/4jsirQgIrb-160.png" width="160" height="144"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://tomkahe.com/@pokemon/112052746886976002">Mystery Egg</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="march-8th-day-28" tabindex="-1">March 8th (Day 28) <a class="header-anchor" href="#march-8th-day-28">#</a></h2>
+<p>Professor Oak <a href="https://tomkahe.com/@pokemon/112061240469354964">hires us to do his job for him</a> (no pay).</p>
+<h2 id="march-9th-day-29" tabindex="-1">March 9th (Day 29) <a class="header-anchor" href="#march-9th-day-29">#</a></h2>
+<p>Our first <a href="https://tomkahe.com/@pokemon/112064781311639934">phone call</a>! Professor Elm tells us to get back now- which we promptly ignore.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/L0dY9uu3K0-160.avif 160w" sizes="100vw"><source type="image/webp" srcset="/img/L0dY9uu3K0-160.webp 160w" sizes="100vw"><img alt="Pokemon screenshot, text reads 'Please get back here now!'" loading="lazy" decoding="async" src="/img/L0dY9uu3K0-160.png" width="160" height="144"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://tomkahe.com/@pokemon/112065487230876419">See you never</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="march-12th-day-32" tabindex="-1">March 12th (Day 32) <a class="header-anchor" href="#march-12th-day-32">#</a></h2>
+<p>Ja? <a href="https://tomkahe.com/@pokemon/112086248935212353">levels up!</a></p>
+<h2 id="march-15th-day-35" tabindex="-1">March 15th (Day 35) <a class="header-anchor" href="#march-15th-day-35">#</a></h2>
+<p>Strange man gives us a <a href="https://tomkahe.com/@pokemon/112102292115376693">strange berry</a></p>
+<h2 id="march-19th-day-39" tabindex="-1">March 19th (Day 39) <a class="header-anchor" href="#march-19th-day-39">#</a></h2>
+<p>A wild rival appears</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/PDTxmH1fs5-160.avif 160w" sizes="100vw"><source type="image/webp" srcset="/img/PDTxmH1fs5-160.webp 160w" sizes="100vw"><img alt="Pokemon screenshot, text reads 'What a waste. A wimp like you.'" loading="lazy" decoding="async" src="/img/PDTxmH1fs5-160.png" width="160" height="144"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://tomkahe.com/@pokemon/112124469507883764">No you</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="march-26th-day-46" tabindex="-1">March 26th (Day 46) <a class="header-anchor" href="#march-26th-day-46">#</a></h2>
+<p>17 days after Professor Elm called us in a panic we arrive back at the lab, which was fortunate because that's how long it took <a href="https://tomkahe.com/@pokemon/112160566756891622">the police to start investigating</a> the stolen pokemon.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/10iFLv8-up-160.avif 160w" sizes="100vw"><source type="image/webp" srcset="/img/10iFLv8-up-160.webp 160w" sizes="100vw"><img alt="Pokemon screenshot, text reads 'OK! So BUTT was his name.'" loading="lazy" decoding="async" src="/img/10iFLv8-up-160.png" width="160" height="144"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://tomkahe.com/@pokemon/112165285321900386">Fry, meet BUTT</a></td>
+</tr>
+</tbody>
+</table>
+<p>In classic internet fashion, we <a href="https://tomkahe.com/@pokemon/112165285321900386">name our rival Butt</a>.</p>
+<p>Note: We forget to talk to Professor Elm to give him his weird egg.</p>
+<h2 id="march-29th-day-49" tabindex="-1">March 29th (Day 49) <a class="header-anchor" href="#march-29th-day-49">#</a></h2>
+<p>Ja? <a href="https://tomkahe.com/@pokemon/112179677033326177">levels up!</a></p>
+<h2 id="april-6th-day-57" tabindex="-1">April 6th (Day 57) <a class="header-anchor" href="#april-6th-day-57">#</a></h2>
+<p>Small change to the bot, the gif is now generated <a href="https://tomkahe.com/@pokemon/112226156011165858">every single hour</a> instead of just during battles.</p>
+<h2 id="april-10th-day-61" tabindex="-1">April 10th (Day 61) <a class="header-anchor" href="#april-10th-day-61">#</a></h2>
+<p>Pokémon <a href="https://tomkahe.com/@pokemon/112247861590138270">blocks our path</a> and a <a href="https://tomkahe.com/@pokemon/112259931160532490">new communication is established</a> because we forgot to deliver an egg to the Professor and have just wasted nearly a month walking back and forth.</p>
+<p>Since polls happen every hour, people would regularly try to talk with each other in the comments and the only one who was keenly aware of who wanted to do what was me because I got tagged in everything.</p>
+<p>Using the a.gup.pe group meant anyone could just click into the group and see a timeline of the conversation so far.</p>
+<h2 id="april-22nd-day-73" tabindex="-1">April 22nd (Day 73) <a class="header-anchor" href="#april-22nd-day-73">#</a></h2>
+<p>Nearly 30 days after Professor Elm told us to get back ASAP we talk to the professor and give him this egg we've been carrying around in our backpack for weeks.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/KRUPqqj-6Y-160.avif 160w" sizes="100vw"><source type="image/webp" srcset="/img/KRUPqqj-6Y-160.webp 160w" sizes="100vw"><img alt="Pokemon screenshot, text reads 'ELM: FRY, this is terrible...'" loading="lazy" decoding="async" src="/img/KRUPqqj-6Y-160.png" width="160" height="144"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://tomkahe.com/@pokemon/112314865493774646">You don't know the half of it</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="april-28th-day-79" tabindex="-1">April 28th (Day 79) <a class="header-anchor" href="#april-28th-day-79">#</a></h2>
+<p>Caught our <a href="https://tomkahe.com/@pokemon/112348839380190672">first pokemon!</a></p>
+<p>Controversy strikes as the splintered community try to name this Sentret (Also this starts a series of our most voted on polls, when we named Ja? there were about 10 votes, when we named BUTT there were 30-40 voters, these polls were minimum 50 but maxed out at about 110 votes)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/ishm64LuFi-160.avif 160w" sizes="100vw"><source type="image/webp" srcset="/img/ishm64LuFi-160.webp 160w" sizes="100vw"><img alt="Pokemon screenshot, name editor window reads 'PEID'" loading="lazy" decoding="async" src="/img/ishm64LuFi-160.png" width="160" height="144"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://tomkahe.com/@pokemon/112356624852310042">Surely nothing can go wrong here</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="april-29th-day-80" tabindex="-1">April 29th (Day 80) <a class="header-anchor" href="#april-29th-day-80">#</a></h2>
+<p>The Sentret is <a href="tomkahe.com/@pokemon/112357804718707917">named PEIDO</a> which is <a href="https://www.collinsdictionary.com/us/dictionary/portuguese-english/peido">slang</a></p>
+<h2 id="may-1st-day-82" tabindex="-1">May 1st (Day 82) <a class="header-anchor" href="#may-1st-day-82">#</a></h2>
+<p>Ja? <a href="https://tomkahe.com/@pokemon/112366770018654932">levels up!</a></p>
+<h2 id="may-5th-day-86" tabindex="-1">May 5th (Day 86) <a class="header-anchor" href="#may-5th-day-86">#</a></h2>
+<p>Gameboy Color game now played on <a href="https://tomkahe.com/@pokemon/112389891160651747">official hardware</a></p>
+<h2 id="may-7th-day-88" tabindex="-1">May 7th (Day 88) <a class="header-anchor" href="#may-7th-day-88">#</a></h2>
+<p>Gameboy Color game now played on the better looking transparent official hardware.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/yZRFYtZ3PI-448.avif 448w" sizes="100vw"><source type="image/webp" srcset="/img/yZRFYtZ3PI-448.webp 448w" sizes="100vw"><img alt="Pokemon screenshot inside transparent purple gameboy color" loading="lazy" decoding="async" src="/img/yZRFYtZ3PI-448.png" width="448" height="741"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://tomkahe.com/@pokemon/112402869917887919">Now I never have to change this image again, he said, lying.</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="may-9th-day-90" tabindex="-1">May 9th (Day 90) <a class="header-anchor" href="#may-9th-day-90">#</a></h2>
+<p>We finally <a href="https://tomkahe.com/@pokemon/112414665032979095">break through</a> to the other side</p>
+<h2 id="may-11th-day-92" tabindex="-1">May 11th (Day 92) <a class="header-anchor" href="#may-11th-day-92">#</a></h2>
+<p>Ja? <a href="https://tomkahe.com/@pokemon/112425517604590755">levels up!</a></p>
+<h2 id="may-15th-day-96" tabindex="-1">May 15th (Day 96) <a class="header-anchor" href="#may-15th-day-96">#</a></h2>
+<p>Phone call <a href="https://tomkahe.com/@pokemon/112446279463353545">from Mom</a></p>
+<h2 id="may-20th-day-101" tabindex="-1">May 20th (Day 101) <a class="header-anchor" href="#may-20th-day-101">#</a></h2>
+<p>Ja? <a href="https://tomkahe.com/@pokemon/112472703517081930">levels up!</a></p>
+<h2 id="may-22nd-day-103" tabindex="-1">May 22nd (Day 103) <a class="header-anchor" href="#may-22nd-day-103">#</a></h2>
+<p>Fry finally makes it to <a href="https://tomkahe.com/@pokemon/112486859056848759">Violet</a></p>
+<h2 id="may-26th-day-107" tabindex="-1">May 26th (Day 107) <a class="header-anchor" href="#may-26th-day-107">#</a></h2>
+<p>By popular demand, <a href="https://tomkahe.com/@pokemon/112507975031035361">polling rate is doubled</a> to 2 polls every hour.</p>
+<h2 id="may-28th-day-109" tabindex="-1">May 28th (Day 109) <a class="header-anchor" href="#may-28th-day-109">#</a></h2>
+<p>Ja? <a href="https://tomkahe.com/@pokemon/112521658890227130">levels up!</a></p>
+<h2 id="june-1st-day-113" tabindex="-1">June 1st (Day 113) <a class="header-anchor" href="#june-1st-day-113">#</a></h2>
+<p>Ja? levels up! and evolves into QUILAVA.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/PQiQEMnYLH-160.avif 160w" sizes="100vw"><source type="image/webp" srcset="/img/PQiQEMnYLH-160.webp 160w" sizes="100vw"><img alt="Pokemon screenshot, text reads 'evolved into QUILAVA!'" loading="lazy" decoding="async" src="/img/PQiQEMnYLH-160.png" width="160" height="144"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://tomkahe.com/@pokemon/112536876354565745">Ja? Is all grown up now</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="june-3rd-day-115" tabindex="-1">June 3rd (Day 115) <a class="header-anchor" href="#june-3rd-day-115">#</a></h2>
+<p>Ja? <a href="https://tomkahe.com/@pokemon/112551975598348271">levels up!</a></p>
+<h2 id="june-4th-day-116" tabindex="-1">June 4th (Day 116) <a class="header-anchor" href="#june-4th-day-116">#</a></h2>
+<p>We obtain our very first HM, <a href="https://tomkahe.com/@pokemon/112558345974118861">HM05 (Flash)</a></p>
+<h2 id="june-7th-day-119" tabindex="-1">June 7th (Day 119) <a class="header-anchor" href="#june-7th-day-119">#</a></h2>
+<p>Ja? <a href="https://tomkahe.com/@pokemon/112577456365796161">levels up!</a></p>
+<h2 id="june-8th-day-120" tabindex="-1">June 8th (Day 120) <a class="header-anchor" href="#june-8th-day-120">#</a></h2>
+<p>3 months since Fry set off on his adventure he has finally obtained his first gym badge.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><picture><source type="image/avif" srcset="/img/wWGqd7X_T3-160.avif 160w" sizes="100vw"><source type="image/webp" srcset="/img/wWGqd7X_T3-160.webp 160w" sizes="100vw"><img alt="Pokemon screenshot, text reads 'FRY received ZEPHYRBADGE'" loading="lazy" decoding="async" src="/img/wWGqd7X_T3-160.png" width="160" height="144"></picture></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://tomkahe.com/@pokemon/112583944417277818">1 of many</a></td>
+</tr>
+</tbody>
+</table>
+<div class="video-container">
+  <video controls="">
+    <source src="/video/pokemon-full-vid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<ul class="links-nextprev"><li>Previous: <a href="/things-i-did-not-blog-about/">Things I Did Not Blog About</a></li>
+</ul>
+
+<section>  
+	<h2>Webmentions</h2>  
+	
+	<div class="webmentions content-grid-sibling" id="webmentions">
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<p>These are <a href="https://indieweb.org/Webmention">webmentions</a> via the <a href="https://indieweb.org/">IndieWeb</a> and <a href="https://webmention.io/">webmention.io</a>. Mention this post from your site:</p>
+
+<form action="https://webmention.io/tomcasavant.com/webmention" method="post" class="form-webmention">
+    <label for="form-webmention-source">URL</label><br>
+    <input id="form-webmention-source" type="url" name="source" placeholder="https://example.com" required>
+    <input type="hidden" name="target" value="https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/">
+    <input type="submit" class="button button-small" value="Send Webmention">
+  </form>
+</div>
+
+</section>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/2-904-hours-later-a-pokemon-saga/` was built on 2024-06-10T14:00:56.698Z -->
+	</body>
+</html>
