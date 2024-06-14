@@ -397,6 +397,9 @@ profile-image {
 .github-icon {
     transform: scale(1.1); 
 }
+.ipod-icon {
+  transform: translateY(1.5px) scale(1.5);
+}
 
 .post-icon {
   position: absolute;
@@ -685,6 +688,12 @@ footer .form input, footer .form button {
 	margin: 0 0 0 20px;
 }
 
+.music-card {
+  background: transparent;
+  margin: 0 0 5px 20px; /* Adjusted margins to reduce space */
+  padding: 5px; /* Reduced padding */
+}
+
 /* Information about the timeline */
 .info {
 }
@@ -732,6 +741,17 @@ footer .form input, footer .form button {
   height: 28px; /* Adjust the height as needed */
   left: -40px;  /* Adjust the position as needed */
   top: 12px;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+
+.music-icon {
+	position: absolute;
+  width: 28px;  /* Adjust the width as needed */
+  height: 28px; /* Adjust the height as needed */
+  left: -40px;  /* Adjust the position as needed */
+  top: 7px;
   margin: 5px;
   color: var(--text-color-link-visited);
 }
@@ -810,6 +830,15 @@ footer .form input, footer .form button {
             </g>
         </svg>
     </a>
+
+    <a class="icon ipod-icon" href="https://mastodon.social/@TomsMusic" >
+		<div aria-label="Open Music Feed" target="_blank" rel="noopener">
+	    	<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			<title>Music</title>
+			<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+			</svg>
+	    </div>
+	</a>
     
      <a href="/blog.rss" aria-label="Open RSS feed" target="_blank" class="icon rss-icon" rel="noopener">
          <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 -256 1792 1792">
@@ -1900,6 +1929,6 @@ footer .form input, footer .form button {
 
 		<footer></footer>
 
-		<!-- This page `/blog/` was built on 2024-06-14T17:03:04.438Z -->
+		<!-- This page `/blog/` was built on 2024-06-14T20:29:07.990Z -->
 	</body>
 </html>
