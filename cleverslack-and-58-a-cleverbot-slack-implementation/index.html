@@ -210,7 +210,7 @@ pre[class*="language-diff-"] {
 	--color-gray-90: #AC3B61;
 
 	--background-color: #EDC7B7;
-	--background-standout: #EDC7B7;
+	--background-standout: #DDB7A7;
 	--highlight-color: rgba(0, 0, 0, 0.6);
 	--alternating-rows: #DCB6A6;
 
@@ -813,6 +813,107 @@ footer .form input, footer .form button {
     display: flex;
     align-items: center;
     gap: 0.01rem;
+}
+
+/* Timeline Container */
+.timeline-container {
+  display: flex;
+  justify-content: center; /* Centers the timeline horizontally */
+  background: var(--primary-color);
+  padding: 20px; /* Add padding to provide some space around the timeline */
+}
+
+/* Timeline */
+.timeline {
+  display: block;
+  background: var(--primary-color);
+  margin: auto;
+}
+
+/* Outer Layer with the timeline border */
+.outer {
+  border-left: 2px solid #333;
+}
+
+/* Card container */
+.card {
+  position: relative;
+  margin: 0 0 20px 20px;
+  padding: 10px;
+  background: var(--background-standout);
+  color: var(--text-color);
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.github-card {
+	background: transparent;
+	margin: 0 0 0 20px;
+}
+
+/* Information about the timeline */
+.info {
+}
+
+/* Title of the card */
+.title {
+  position: relative;
+}
+
+/* Timeline dot */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 25px;
+  background: var(--background-color);
+  border-radius: 999px;
+  left: -29px;
+  border: 3px solid var(--background-color);
+}
+
+.post-icon {
+  position: absolute;
+  width: 25px;  /* Adjust the width as needed */
+  height: 25px; /* Adjust the height as needed */
+  left: -38px;  /* Adjust the position as needed */
+  top: 10px;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+.fediverse-post-icon {
+	position: absolute;
+  width: 25px;  /* Adjust the width as needed */
+  height: 25px; /* Adjust the height as needed */
+  left: -38px;  /* Adjust the position as needed */
+  top: 13px;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+.running-icon {
+	position: absolute;
+  width: 28px;  /* Adjust the width as needed */
+  height: 28px; /* Adjust the height as needed */
+  left: -40px;  /* Adjust the position as needed */
+  top: 12px;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+.post-date {
+  background: rgba(0, 0, 0, 0.1); 
+  padding: 5px 10px;
+  border-radius: 4px;
+	font-size: 0.55em;
+}
+
+.post-media {
+  max-width: 100%;
+  height: auto; 
+  border-radius: 8px;
+  display: block;
 }</style>
 	</head>
 	<body>
@@ -923,6 +1024,6 @@ main()</p>
 
 		<footer></footer>
 
-		<!-- This page `/cleverslack-and-58-a-cleverbot-slack-implementation/` was built on 2024-06-14T15:24:12.697Z -->
+		<!-- This page `/cleverslack-and-58-a-cleverbot-slack-implementation/` was built on 2024-06-14T15:31:24.796Z -->
 	</body>
 </html>
