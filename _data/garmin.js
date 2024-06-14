@@ -116,8 +116,11 @@ module.exports = async function () {
         distance: formatDistance(activity.distance),
         duration: formatDuration(activity.duration),
         speed: formatSpeed(activity.averageSpeed),
-        type: activity.activityType.typeKey,
-        maxSpeed: formatSpeed(activity.maxSpeed)
+        specific_type: activity.activityType.typeKey,
+        maxSpeed: formatSpeed(activity.maxSpeed),
+        created_at: activity.startTimeLocal,
+        type: "garmin",
+        description: `Tom ran ${formatDistance(activity.distance)} miles`
     }));
 
        // Map the activities to a simpler format
@@ -127,7 +130,10 @@ module.exports = async function () {
         distance: formatDistance(activity.distance),
         duration: formatDuration(activity.duration),
         speed: formatSpeedMPH(activity.averageSpeed),
-        type: activity.activityType.typeKey
+        specific_type: activity.activityType.typeKey,
+        created_at: activity.startTimeLocal,
+        type: "garmin",
+        description: `Tom biked ${formatDistance(activity.distance)} miles`
     }));
 
     return {

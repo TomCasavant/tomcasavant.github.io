@@ -7,9 +7,12 @@ module.exports = async function() {
   console.log("Fetching all Activities")
   const githubActivities = await require('./github')();
   const microblogPosts = await require('./feeds')();
+  const garminActivities = await require('./garmin')();
+  const garminRuns = garminActivities.garminRuns
+  const garminBiking = garminActivities.garminBiking
   console.log("Combining activities")
-  console.log(githubActivities)
-  const combined = [...githubActivities.githubActivities, ...microblogPosts.posts]
+  console.log(garminRuns)
+  const combined = [...githubActivities.githubActivities, ...microblogPosts.posts, ...garminRuns, ...garminBiking]
   const feed = sortFeeds(combined);
 
   return {

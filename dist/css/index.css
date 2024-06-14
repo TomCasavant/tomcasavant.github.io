@@ -11,7 +11,7 @@
 	--color-gray-90: #AC3B61;
 
 	--background-color: #EDC7B7;
-	--background-standout: #EDC7B7;
+	--background-standout: #DDB7A7;
 	--highlight-color: rgba(0, 0, 0, 0.6);
 	--alternating-rows: #DCB6A6;
 
@@ -64,7 +64,7 @@ html {
 	overflow-y: scroll;
 }
 body {
-	max-width: 40em;
+	max-width: 60em;
 }
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
@@ -82,11 +82,11 @@ p:last-child {
 	margin-bottom: 0;
 }
 p {
-	line-height: 1.5;
+	line-height: 1.75;
 }
 
 li {
-	line-height: 1.5;
+	line-height: 1.75;
 }
 
 a[href] {
@@ -132,6 +132,14 @@ table td,
 table th {
 	padding-right: 1em;
 }
+table {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+table th, table td {
+    text-align: center;
+}
 
 pre,
 code {
@@ -162,12 +170,12 @@ header {
 	gap: 1em .5em;
 	flex-wrap: wrap;
 	align-items: center;
-	padding: 1em;
+	padding: 0.8em;
 }
 .home-link {
-	font-size: 1em; /* 16px /16 */
-	font-weight: 700;
-	margin-right: 2em;
+	font-size: 1.3em; /* 16px /16 */
+	font-weight: 710;
+	margin-right: 1em;
 }
 .home-link:link:not(:hover) {
 	text-decoration: none;
@@ -175,14 +183,16 @@ header {
 
 /* Nav */
 .nav {
-	display: flex;
+	display: inline-block;
 	padding: 0;
 	margin: 0;
 	list-style: none;
 }
 .nav-item {
 	display: inline-block;
-	margin-right: 0.6em;
+	margin-right: 1em;
+	font-size:1.1em;
+	font-weight:500;
 }
 .nav-item a[href]:not(:hover) {
 	text-decoration: none;
@@ -196,6 +206,7 @@ header {
 	list-style: none;
 	padding: 0;
 	padding-left: 1.5rem;
+	position: relative;
 }
 .postlist-item {
 	display: flex;
@@ -205,6 +216,8 @@ header {
 	margin-bottom: 1em;
 	border: 1px solid #000;
 	text-align: center;
+	position: relative;
+	padding-bottom: 2.5em;
 }
 .postlist-item:before {
 	display: inline-block;
@@ -216,7 +229,7 @@ header {
 }
 .postlist-date,
 .postlist-item:before {
-	font-size: 0.8125em; /* 13px /16 */
+	font-size: 1em; /* 13px /16 */
 	color: var(--color-gray-90);
 }
 .postlist-date {
@@ -224,7 +237,7 @@ header {
 	flex-basis: calc(100% - 1.5rem);
 }
 .postlist-link {
-	font-size: 1.1875em; /* 19px /16 */
+	font-size: 1.6em; /* 19px /16 */
 	font-weight: 700;
 	flex-basis: calc(100% - 1.5rem);
 	padding-left: .25em;
@@ -234,8 +247,8 @@ header {
 	text-decoration-thickness: 1px;
 }
 .postlist-subtitle {
-	font-size: 0.8em;
-	font-weight: 300;
+	font-size: 1em;
+	font-weight: 400;
 	flex-basis: calc(100% - 1.5rem);
 	padding-left: .25em;
 	padding-right: .5em;
@@ -463,4 +476,243 @@ picture img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+/* Webmentions */
+.webmentions img {
+  border-radius: 50%;
+  display: inline;
+  height: 48px;
+  width: 48px;
+  object-fit: cover;
+}
+.webmentions h3 {margin-top: 40px;}
+.webmentions__facepile span {
+  font-size: var(--size-600);
+  margin-right: 2rem;
+}
+.webmention-replies img {
+  height: 24px;
+  width: 24px;}
+.webmention-replies article {margin-bottom: 32px;}
+.webmention-replies .webmention__meta {margin-bottom: 8px;}
+.webmention-replies .webmention__meta time {display: block; margin-top: 8px;}
+.webmention-text {font-size: var(--size-400); margin-top: 0;}
+.webmention-text a {font-size: var(--size-300); margin-left: 4px;}
+article.webmention {
+  background-color: var(--grey-05);
+  padding: 16px 16px 12px;
+}
+form input[type="url"] {
+  display: block;
+  height: 2rem;
+  width: 100%;}
+.form-webmention {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 8px;
+  margin: 16px 0;
+  width: 100%;}
+.form-webmention input {width: 100%;}
+.form-webmention .button {
+  font-size: var(--size-300);
+  height: 2rem;}
+form label {
+  font-weight: 600;
+  margin: 4px 0 0 0;}
+.form {
+  background-color: var(--grey-05);
+  margin: 40px auto;
+  padding: 16px;
+  position: relative;}
+.form > * {position: relative;}
+.form svg {
+  position: absolute;
+  top: 5px;
+  right: 10px;}
+.form button, .form label, .form p {
+  display: block;
+  margin: 24px auto;
+  width: 90%;}
+.form input {
+  height: 2rem;}
+.form input, .form textarea {
+  border: 1px solid var(--grey-20);
+  color: var(--grey-80);
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--size-400);
+  font-weight: 400;
+  margin: 4px 0;
+  padding: 4px;
+  width: 100%;}
+footer .form {
+  background: none;
+  box-shadow: none;
+  text-align: left;
+}
+footer .button {
+  font-size: var(--size-400);
+  padding: 8px 12px;
+}
+footer .form input, footer .form button {
+  height: 2.3rem;
+}
+#honey {display: none;}
+.well {
+  background-color: rgba(222,221,227,0.4);
+  margin-top: 40px;
+  overflow: hidden;
+  padding: 32px;
+  position: relative;}
+.well > * {position: relative;}
+.well svg {
+  bottom: 0;
+  right: 100px;
+  position: absolute;
+  transform: rotate(45deg);}
+.tmpl-newspost .circles .content-780 {
+  margin: 0 auto;
+}
+
+.postlist-webmentions {
+    display: flex;
+    gap: 0.5em;
+    justify-content: flex-end; /* Aligns items to the right */
+    position: absolute;
+    right: 0.5em;
+    bottom: 0;
+}
+
+.postlist-webmentions .heart-icon {
+    margin-right: 0.2em
+}
+
+.postlist-webmentions #retweet-round {
+    margin-right: 0.35em
+}
+
+.postlist-webmentions svg {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    fill: var(--text-color-link); 
+    stroke: var(--text-color-link);
+}
+
+.webmention-count {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.05rem;
+    font-size: 0.85rem;
+    color: var(--text-color-link);
+    transform: translateY(-0.5em);
+}
+
+.webmention-item {
+    display: flex;
+    align-items: center;
+    gap: 0.01rem;
+}
+
+/* Timeline Container */
+.timeline-container {
+  display: flex;
+  justify-content: center; /* Centers the timeline horizontally */
+  background: var(--primary-color);
+  padding: 20px; /* Add padding to provide some space around the timeline */
+}
+
+/* Timeline */
+.timeline {
+  display: block;
+  background: var(--primary-color);
+  margin: auto;
+}
+
+/* Outer Layer with the timeline border */
+.outer {
+  border-left: 2px solid #333;
+}
+
+/* Card container */
+.card {
+  position: relative;
+  margin: 0 0 20px 20px;
+  padding: 10px;
+  background: var(--background-standout);
+  color: var(--text-color);
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.github-card {
+	background: transparent;
+	margin: 0 0 0 20px;
+}
+
+/* Information about the timeline */
+.info {
+}
+
+/* Title of the card */
+.title {
+  position: relative;
+}
+
+/* Timeline dot */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 25px;
+  background: var(--background-color);
+  border-radius: 999px;
+  left: -29px;
+  border: 3px solid var(--background-color);
+}
+
+.post-icon {
+  position: absolute;
+  width: 25px;  /* Adjust the width as needed */
+  height: 25px; /* Adjust the height as needed */
+  left: -38px;  /* Adjust the position as needed */
+  top: 10px;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+.fediverse-post-icon {
+	position: absolute;
+  width: 25px;  /* Adjust the width as needed */
+  height: 25px; /* Adjust the height as needed */
+  left: -38px;  /* Adjust the position as needed */
+  top: 13px;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+.running-icon {
+	position: absolute;
+  width: 28px;  /* Adjust the width as needed */
+  height: 28px; /* Adjust the height as needed */
+  left: -40px;  /* Adjust the position as needed */
+  top: 12px;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+.post-date {
+  background: rgba(0, 0, 0, 0.1); 
+  padding: 5px 10px;
+  border-radius: 4px;
+	font-size: 0.55em;
+}
+
+.post-media {
+  max-width: 100%;
+  height: auto; 
+  border-radius: 8px;
+  display: block;
 }
