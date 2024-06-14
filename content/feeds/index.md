@@ -76,6 +76,20 @@ eleventyNavigation:
 			<h4 class="title"> {{ post.description }} </p>
 		</div>
 	</div>
+	{% elif post.type == 'music' %}
+	<div class="card music-card">
+		<a href="{{ post.link }}" class="microblog-post-link">
+		<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
+	    	<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			<title>Music</title>
+			<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+			</svg>
+	    </div>
+		</a>
+		<div class="info">
+			<div class="post-description"> {{ post.description | safe }} </div>
+		</div>
+	</div>
   {% endif %} 
 {% endfor %}
 </div>
