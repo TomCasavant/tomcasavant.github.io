@@ -7,7 +7,7 @@ eleventyNavigation:
 ### Bookmarks from [@tom@tomcasavant.glitch.me](https://tomcasavant.glitch.me/)
 
 {% for item in bookmarks.bookmarks %}
-	<div class="bookmark">
+	<div class="card">
 		<h4 class="bookmark-title"> [{{item.title}}]({{item.link}}) </h4>
 		<p class="bookmark-summary"> {{item.summary}} </p>
 	</div>
