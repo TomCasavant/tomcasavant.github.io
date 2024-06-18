@@ -107,7 +107,7 @@ module.exports = async function () {
 
     const indoorCyclingActivities = activities.filter(activity => activity.activityType.typeKey === 'indoor_cycling');
     const runningActivities = activities.filter(activity => activity.activityType.typeKey === 'running');
-
+    const walkingActivities = activities.filter(activity => activity.activityType.typeKey === 'walking');
 
     // Map the activities to a simpler format
     const formattedRunningActivities = runningActivities.map(activity => ({
@@ -136,8 +136,22 @@ module.exports = async function () {
         description: `Tom biked ${formatDistance(activity.distance)} miles`
     }));
 
+    const formattedWalkingActivities = runningActivities.map(activity => ({
+        name: activity.activityName,
+        date: formatDate(activity.startTimeLocal),
+        distance: formatDistance(activity.distance),
+        duration: formatDuration(activity.duration),
+        speed: formatSpeed(activity.averageSpeed),
+        specific_type: activity.activityType.typeKey,
+        maxSpeed: formatSpeed(activity.maxSpeed),
+        created_at: activity.startTimeLocal,
+        type: "garmin",
+        description: `Tom walked ${formatDistance(activity.distance)} miles`
+    }));
+
     return {
         garminRuns: formattedRunningActivities,
-        garminBiking: formattedBikingActivities
+        garminBiking: formattedBikingActivities,
+        garminWalking: formattedWalkingActivities
     };
 };

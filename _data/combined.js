@@ -29,7 +29,8 @@ module.exports = async function() {
   const garminActivities = await require('./garmin')();
   const garminRuns = garminActivities.garminRuns
   const garminBiking = garminActivities.garminBiking
-  const combined = [...githubActivities.githubActivities, ...microblogPosts.posts, ...garminRuns, ...garminBiking, ...musicPosts.posts]
+  const garminWalking = garminActivities.garminWalking
+  const combined = [...githubActivities.githubActivities, ...microblogPosts.posts, ...garminRuns, ...garminBiking, ...musicPosts.posts, ...garminWalking]
   const feed = sortFeeds(combined);
 
   return {
