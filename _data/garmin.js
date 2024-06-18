@@ -136,7 +136,7 @@ module.exports = async function () {
         description: `Tom biked ${formatDistance(activity.distance)} miles`
     }));
 
-    const formattedWalkingActivities = runningActivities.map(activity => ({
+    const formattedWalkingActivities = walkingActivities.map(activity => ({
         name: activity.activityName,
         date: formatDate(activity.startTimeLocal),
         distance: formatDistance(activity.distance),
