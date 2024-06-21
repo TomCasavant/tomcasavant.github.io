@@ -1,5 +1,5 @@
 {
-  "lastFetched": "2024-06-14T20:26:45.458Z",
+  "lastFetched": "2024-06-21T16:29:53.237Z",
   "children": [
     {
       "type": "entry",
@@ -2234,6 +2234,44 @@
       "wm-target": "https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/",
       "wm-protocol": "webmention",
       "like-of": "https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/",
+      "wm-property": "like-of",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Mark Taylor",
+        "photo": "https://webmention.io/avatar/s3.us-east-2.amazonaws.com/3803c5ffbf5003be3d1d8ee8d29f9a1552303c6a574c20916f89a88ffc667020.jpg",
+        "url": "https://bsky.brid.gy/ap/did:plc:6dogihoiskbz3flxsifm22eq"
+      },
+      "url": "https://tomkahe.com/@tom/112616914574440533#favorited-by-112487693536705615",
+      "published": null,
+      "wm-received": "2024-06-14T20:52:09Z",
+      "wm-id": 1834572,
+      "wm-source": "https://brid.gy/like/mastodon/@tom@tomkahe.com/112616914574440533/112487693536705615",
+      "wm-target": "https://tomcasavant.com/feeds/",
+      "wm-protocol": "webmention",
+      "like-of": "https://tomcasavant.com/feeds/",
+      "wm-property": "like-of",
+      "wm-private": false
+    },
+    {
+      "type": "entry",
+      "author": {
+        "type": "card",
+        "name": "Stefan Bohacek",
+        "photo": "https://webmention.io/avatar/s3.us-east-2.amazonaws.com/f45e2e80d7970e1fd501b1fd1532f30e0aa815a4dae7526ef5ef467dd937a3ca.jpg",
+        "url": "https://stefanbohacek.online/@stefan"
+      },
+      "url": "https://tomkahe.com/@tom/112616914574440533#favorited-by-111596479759046410",
+      "published": null,
+      "wm-received": "2024-06-14T20:52:08Z",
+      "wm-id": 1834571,
+      "wm-source": "https://brid.gy/like/mastodon/@tom@tomkahe.com/112616914574440533/111596479759046410",
+      "wm-target": "https://tomcasavant.com/feeds/",
+      "wm-protocol": "webmention",
+      "like-of": "https://tomcasavant.com/feeds/",
       "wm-property": "like-of",
       "wm-private": false
     }

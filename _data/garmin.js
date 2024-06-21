@@ -40,13 +40,13 @@ function formatDate(dateString) {
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
-    console.log(`${day}-${month}-${year}`)
+    //console.log(`${day}-${month}-${year}`)
     return `${month}-${day}-${year}`;
 }
 
 function formatDistance(distanceInMeters) {
     const distanceInMiles = distanceInMeters / 1609.344; // 1 mile is approximately 1609.344 meters
-    console.log(distanceInMiles.toFixed(2));
+    //console.log(distanceInMiles.toFixed(2));
     return distanceInMiles.toFixed(2); // Round to 2 decimal places
 }
 
@@ -81,7 +81,7 @@ function formatSpeed(averageSpeed) {
 }
 
 
-module.exports = async function () {
+async function getGarminActivities() {
     let activities;
 
     try {
@@ -155,3 +155,5 @@ module.exports = async function () {
         garminWalking: formattedWalkingActivities
     };
 };
+
+module.exports = getGarminActivities

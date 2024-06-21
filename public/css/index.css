@@ -702,6 +702,16 @@ footer .form input, footer .form button {
   color: var(--text-color-link-visited);
 }
 
+.pixelfed-icon {
+	position: absolute;
+  width: 32px;  /* Adjust the width as needed */
+  height: 32px; /* Adjust the height as needed */
+  left: -42px;  /* Adjust the position as needed */
+  top: 7px;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
 .running-icon {
 	position: absolute;
   width: 28px;  /* Adjust the width as needed */

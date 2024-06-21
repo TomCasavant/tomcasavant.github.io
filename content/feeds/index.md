@@ -90,6 +90,43 @@ eleventyNavigation:
 			<div class="post-description"> {{ post.description | safe }} </div>
 		</div>
 	</div>
+	{% elif post.type == 'pixelfed' %}
+	<div class="card pixelfed-card">
+		<a href="{{ post.link }}" class="microblog-post-link">
+		<div  aria-label="Open Mastodon Feed" target="_blank" class="icon post-icon pixelfed-icon" rel="noopener">
+	    	<svg role="img" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 0 1034 1024">
+				<path
+				d="M500 176q-115 0 -215 58q-96 57 -152 153q-58 99 -58 214.5t58 214.5q56 96 152 152q100 58 215 58t215 -58q96 -56 152 -152q58 -99 58 -214.5t-58 -214.5q-56 -96 -152 -153q-100 -58 -215 -58zM432 435h112q36 0 66.5 17.5t48.5 47t18 65t-18 65t-48.5 47t-66.5 17.5
+				h-78l-111 106v-290q0 -31 22.5 -53t54.5 -22z" />
+			</svg>
+	    </div>
+		</a>
+		<div class="info">
+			{% if post.mediaUrl %}
+			    {% set extension = post.mediaUrl | slice(-4) %}
+			    {% if extension == '.mp4' or extension == '.webm' or extension == '.ogg' %}
+			        <video src="{{ post.mediaUrl }}" alt="Media content for the post" class="post-media" controls></video>
+			    {% else %}
+			        <img src="{{ post.mediaUrl }}" alt="Media content for the post" class="post-media">
+			    {% endif %}
+			{% endif %}
+			<div class="post-description"> {{ post.description | safe }} </div>
+		</div>
+		<p class="post-date"> {{ post.pubDate }} </p>
+	</div>
+  {% elif post.type == 'bookmark' %}
+	<div class="card microblog-card">
+		<a href="{{ post.link }}" class="microblog-post-link">
+		<div  aria-label="Open Bookmark" target="_blank" class="icon fediverse-icon fediverse-post-icon post-icon" rel="noopener">
+	    	<svg role='img' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m16 2h-8c-1.7 0-3 1.3-3 3v16c0 .2 0 .3.1.5.3.5.9.6 1.4.4l5.5-3.2 5.5 3.2c.2.1.3.1.5.1.6 0 1-.4 1-1v-16c0-1.7-1.3-3-3-3z"/>
+			</svg>
+	    </div>
+		</a>
+		<div class="info">
+			<div class="post-description"> {{ post.description | safe }} </div>
+		</div>
+		<p class="post-date"> {{ post.pubDate }} </p>
+	</div>
   {% endif %} 
 {% endfor %}
 </div>

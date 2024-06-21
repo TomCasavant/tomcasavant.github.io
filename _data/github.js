@@ -64,7 +64,7 @@ async function getUserIssues() {
 
 
 
-module.exports = async function () {
+async function getGithubActivities() {
 	console.log("Fetching Github data")
 	let activities;
 	let starredRepos = [];
@@ -84,3 +84,5 @@ module.exports = async function () {
 		githubActivities: combined
 	};
 }
+
+module.exports = getGithubActivities
