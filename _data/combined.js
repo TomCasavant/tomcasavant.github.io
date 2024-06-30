@@ -32,7 +32,7 @@ module.exports = async function() {
   const pixelfedPosts = await fetchRSSFeed("https://pixelfed.social/users/mrpresidenttom.atom", 'pixelfed');
   const musicPosts = simplifyDescriptions(await fetchRSSFeed("https://mastodon.social/@TomsMusic.rss", 'music'));
   //console.log(microblogPosts.posts);
-  console.log(bookmarks);
+  //console.log(bookmarks);
   const garminActivities = await getGarminActivities();
   const garminRuns = garminActivities.garminRuns
   const garminBiking = garminActivities.garminBiking
