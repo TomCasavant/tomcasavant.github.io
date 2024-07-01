@@ -205,7 +205,7 @@
     "profiles": [
       {
         "type": "blog",
-        "url": "https://erinkissane.com/feed.rss",
+        "url": "https://erinkissane.com/",
         "rss": "https://erinkissane.com/feed.rss"
       },
       {
@@ -220,7 +220,7 @@
     "profiles": [
       {
         "type": "blog",
-        "url": "https://www.timothychambers.net/feed.xml",
+        "url": "https://www.timothychambers.net/",
         "rss": "https://www.timothychambers.net/feed.xml"
       },
       {
@@ -240,7 +240,7 @@
     "profiles": [
       {
         "type": "blog",
-        "url": "https://evanp.me/feed/",
+        "url": "https://evanp.me/",
         "rss": "https://evanp.me/feed/"
       },
       {
@@ -255,7 +255,7 @@
     "profiles": [
       {
         "type": "blog",
-        "url": "https://blog.elenarossini.com/rss/",
+        "url": "https://blog.elenarossini.com/",
         "rss": "https://blog.elenarossini.com/rss/"
       },
       {
@@ -270,7 +270,7 @@
     "tags": ["fediverse"],
     "profiles": [{
       "type": "blog",
-      "url": "https://box464.com/feed.xml",
+      "url": "https://box464.com/",
       "rss": "https://box464.com/feed.xml"
     }]
   },
@@ -278,7 +278,7 @@
     "tags": ["fediverse", "activitypub", "bluesky"],
     "profiles": [{
       "type": "blog",
-      "url": "https://snarfed.org/feed",
+      "url": "https://snarfed.org/",
       "rss": "https://snarfed.org/feed"
     }]
   },
@@ -286,7 +286,7 @@
     "tags": ["fediverse"],
     "profiles": [{
       "type": "blog",
-      "url": "https://blog.erlend.sh/feed/",
+      "url": "https://blog.erlend.sh/",
       "rss": "https://blog.erlend.sh/feed/"
     }]
   },
@@ -294,7 +294,7 @@
     "tags": ["fediverse"],
     "profiles": [{
       "type": "blog",
-      "url": "https://shellsharks.com/feeds/feed.xml",
+      "url": "https://shellsharks.com/",
       "rss": "https://shellsharks.com/feeds/feed.xml"
     }]
   },
@@ -302,7 +302,7 @@
     "tags": ["general"],
     "profiles": [{
       "type": "blog",
-      "url": "http://longersky.com/feed/",
+      "url": "http://longersky.com/",
       "rss": "http://longersky.com/feed/"
     }]
   },
@@ -310,7 +310,7 @@
     "tags": ["general"],
     "profiles": [{
       "type": "blog",
-      "url": "http://cahatstrophe.neocities.org/feed.xml",
+      "url": "http://cahatstrophe.neocities.org/",
       "rss": "http://cahatstrophe.neocities.org/feed.xml"
     }]
   },
@@ -318,7 +318,7 @@
     "tags": ["general"],
     "profiles": [{
       "type": "blog",
-      "url": "http://blog.goodbyeplease.com/atom.xml",
+      "url": "http://blog.goodbyeplease.com/",
       "rss": "http://blog.goodbyeplease.com/atom.xml"
     }]
   },
@@ -326,7 +326,7 @@
     "tags": ["general"],
     "profiles": [{
       "type": "blog",
-      "url": "https://shkspr.mobi/blog/feed/atom/",
+      "url": "https://shkspr.mobi/blog/",
       "rss": "https://shkspr.mobi/blog/feed/atom/"
     }]
   },
@@ -334,7 +334,7 @@
     "tags": ["sports"],
     "profiles": [{
       "type": "blog",
-      "url": "http://cincyjungle.com/rss/index.xml",
+      "url": "http://cincyjungle.com/",
       "rss": "http://cincyjungle.com/rss/index.xml"
     }]
   },
@@ -342,7 +342,7 @@
     "tags": ["sports"],
     "profiles": [{
       "type": "blog",
-      "url": "https://www.redsminorleagues.com/feed/",
+      "url": "https://www.redsminorleagues.com/",
       "rss": "https://www.redsminorleagues.com/feed/"
     }]
   },
@@ -350,7 +350,7 @@
     "tags": ["tech"],
     "profiles": [{
       "type": "blog",
-      "url": "https://benmyers.dev/feed.xml",
+      "url": "https://benmyers.dev/",
       "rss": "https://benmyers.dev/feed.xml"
     }]
   },
@@ -358,12 +358,12 @@
     "tags": ["tech", "crypto", "Further Reading"],
     "profiles": [{
       "type": "blog",
-      "url": "https://www.citationneeded.news/rss/",
+      "url": "https://www.citationneeded.news/",
       "rss": "https://www.citationneeded.news/rss/"
     },
       {
         "type": "blog",
-        "url": "https://www.mollywhite.net/reading/shortform/feed.xml",
+        "url": "https://www.mollywhite.net/reading/shortform/",
         "rss": "https://www.mollywhite.net/reading/shortform/feed.xml"
       }
     ]
@@ -372,7 +372,7 @@
     "tags": ["tech"],
     "profiles": [{
       "type": "blog",
-      "url": "https://discursiveanomalies.com/feed/",
+      "url": "https://discursiveanomalies.com/",
       "rss": "https://discursiveanomalies.com/feed/"
     }]
   },
@@ -380,7 +380,7 @@
     "tags": ["tech"],
     "profiles": [{
       "type": "blog",
-      "url": "https://ianbetteridge.com/feed/",
+      "url": "https://ianbetteridge.com/",
       "rss": "https://ianbetteridge.com/feed/"
     }]
   },
@@ -388,7 +388,7 @@
     "tags": ["Tech/Programming"],
     "profiles": [{
       "type": "blog",
-      "url": "http://blog.jim-nielsen.com/feed.xml",
+      "url": "http://blog.jim-nielsen.com/",
       "rss": "http://blog.jim-nielsen.com/feed.xml"
     }]
   },
@@ -396,7 +396,7 @@
     "tags": ["tech"],
     "profiles": [{
       "type": "blog",
-      "url": "http://thisdaysportion.com/feed/index.xml",
+      "url": "http://thisdaysportion.com/",
       "rss": "http://thisdaysportion.com/feed/index.xml"
     }]
   },
@@ -404,7 +404,7 @@
     "tags": ["tech"],
     "profiles": [{
       "type": "blog",
-      "url": "http://jacky.wtf/essays/feed.atom",
+      "url": "http://jacky.wtf/essays/",
       "rss": "http://jacky.wtf/essays/feed.atom"
     }]
   },
@@ -412,7 +412,7 @@
     "tags": ["tech"],
     "profiles": [{
       "type": "blog",
-      "url": "https://blog.tobiasrevell.com/feed/",
+      "url": "https://blog.tobiasrevell.com/",
       "rss": "https://blog.tobiasrevell.com/feed/"
     }]
   },
@@ -420,7 +420,7 @@
     "tags": ["tech"],
     "profiles": [{
       "type": "blog",
-      "url": "http://mayank.co/blog/rss.xml",
+      "url": "http://mayank.co/blog/",
       "rss": "http://mayank.co/blog/rss.xml"
     }]
   },
@@ -428,7 +428,7 @@
     "tags": ["tech"],
     "profiles": [{
       "type": "blog",
-      "url": "https://qwertyuiop.ninja/feed.xml",
+      "url": "https://qwertyuiop.ninja/",
       "rss": "https://qwertyuiop.ninja/feed.xml"
     }]
   },
@@ -436,7 +436,7 @@
     "tags": ["tech"],
     "profiles": [{
       "type": "blog",
-      "url": "https://slott56.github.io/feeds/all.atom.xml",
+      "url": "https://slott56.github.io/",
       "rss": "https://slott56.github.io/feeds/all.atom.xml"
     }]
   },
@@ -444,7 +444,7 @@
     "tags": ["tech"],
     "profiles": [{
       "type": "blog",
-      "url": "https://george.mand.is/feed.xml",
+      "url": "https://george.mand.is/",
       "rss": "https://george.mand.is/feed.xml"
     }]
   },
@@ -452,7 +452,7 @@
     "tags": ["Tech/Programming"],
     "profiles": [{
       "type": "blog",
-      "url": "https://blog.dhsdevelopments.com/feed/",
+      "url": "https://blog.dhsdevelopments.com/",
       "rss": "https://blog.dhsdevelopments.com/feed/"
     }]
   },
@@ -460,7 +460,7 @@
     "tags": ["tech"],
     "profiles": [{
       "type": "blog",
-      "url": "https://claudiorimann.com/feed/",
+      "url": "https://claudiorimann.com/",
       "rss": "https://claudiorimann.com/feed/"
     }]
   },
@@ -468,7 +468,7 @@
     "tags": ["comedy", "tech"],
     "profiles": [{
       "type": "blog",
-      "url": "http://sam.casavant.org//feed.xml",
+      "url": "http://sam.casavant.org/",
       "rss": "http://sam.casavant.org//feed.xml"
     }]
   },
@@ -476,7 +476,7 @@
     "tags": ["tech", "politics"],
     "profiles": [{
       "type": "blog",
-      "url": "https://casavant.org/index.xml",
+      "url": "https://casavant.org/",
       "rss": "https://casavant.org/index.xml"
     }]
   },
