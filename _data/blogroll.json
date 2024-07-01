@@ -1,0 +1,570 @@
+{
+  "Bob Wulff": {
+    "tags": [
+      "retrogaming",
+      "gaming",
+      "handhelds"
+    ],
+    "profiles": [
+      {
+        "type": "youtube",
+        "username": "@WulffDen",
+        "url": "https://www.youtube.com/@WulffDen",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCr613nJgA50o8DUUT00qHvw"
+      },
+      {
+        "type": "youtube",
+        "username": "@BobWulff",
+        "url": "https://www.youtube.com/@BobWulff",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWS0Oe4Nvs3cPdMtCqy_sog"
+      },
+      {
+        "type": "youtube",
+        "username": "@WULFFDENPodcast",
+        "url": "https://www.youtube.com/@WULFFDENPodcast",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCPk41GIcjo_esggMgsV2rKQ"
+      },
+      {
+        "type": "fediverse",
+        "username": "@TheWulffDen@threads.net",
+        "url": "https://www.threads.net/@thewulffden"
+      }
+    ]
+  },
+  "Bill Fairchild": {
+    "tags": [
+      "steamdeck",
+      "gaming"
+    ],
+    "profiles": [
+      {
+        "type": "youtube",
+        "username": "@NerdNest",
+        "url": "https://www.youtube.com/@BillFairchild",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCiC38Llz5e3qR6EaQAGlWvw"
+      },
+      {
+        "type": "youtube",
+        "username": "@BillFairchild",
+        "url": "https://www.youtube.com/@BillFairchild",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCpbjK1uwLOgWli-7Kr84cVA"
+      },
+      {
+        "type": "fediverse",
+        "username": "@BillFairchild@threads.net",
+        "url": "https://www.threads.net/@BillFairchild"
+      }
+    ]
+  },
+  "Glarses": {
+    "tags": [
+      "keyboards",
+      "mechanicalkeyboards",
+      "comedy"
+    ],
+    "profiles": [
+      {
+        "type": "youtube",
+        "username": "@Glarses",
+        "url": "https://www.youtube.com/@Glarses",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFtOX-21N1earf-K58C7HjQ"
+      },
+      {
+        "type": "instagram",
+        "username": "@glarsesyt",
+        "url": "https://instagram.com/glarsesyt"
+      }
+    ]
+  },
+  "Drew Gooden": {
+    "tags": [
+      "comedy"
+    ],
+    "profiles": [
+      {
+        "type": "youtube",
+        "username": "@drewisgooden",
+        "url": "https://www.youtube.com/@drewisgooden",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCTSRIY3GLFYIpkR2QwyeklA"
+      },
+      {
+        "type": "fediverse",
+        "username": "@drewisgooden@threads.net",
+        "url": "https://www.threads.net/@drewisgooden"
+      }
+    ]
+  },
+  "Scott The Woz": {
+    "tags": [
+      "gaming",
+      "retrogaming"
+    ],
+    "profiles": [
+      {
+        "type": "youtube",
+        "username": "@ScottTheWoz",
+        "url": "https://www.youtube.com/@ScottTheWoz",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UC4rqhyiTs7XyuODcECvuiiQ"
+      },
+      {
+        "type": "youtube",
+        "username": "@ScottsStash",
+        "url": "https://www.youtube.com/@ScottsStash",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmm3qhYkdW699stV_28TQpw"
+      },
+      {
+        "type": "fediverse",
+        "username": "@scottthewoz@threads.net",
+        "url": "https://www.threads.net/@scottthewoz"
+      }
+    ]
+  },
+  "Tom 7": {
+    "tags": [
+      "ai",
+      "machinelearning"
+    ],
+    "profiles": [
+      {
+        "type": "youtube",
+        "username": "@tom7",
+        "url": "https://www.youtube.com/@tom7",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UC3azLjQuz9s5qk76KEXaTvA"
+      },
+      {
+        "type": "blog",
+        "url": "http://tom7.org/",
+        "rss": "http://radar.spacebar.org/f/a/weblog/rss/1"
+      },
+      {
+        "type": "fediverse",
+        "username": "@tom7@mastodon.social",
+        "url": "https://mastodon.social/@tom7"
+      }
+    ]
+  },
+  "In Deep Geek": {
+    "tags": [
+      "lotr",
+      "lordoftherings",
+      "gameofthrones",
+      "geek"
+    ],
+    "profiles": [
+      {
+        "type": "youtube",
+        "username": "@InDeepGeek",
+        "url": "https://www.youtube.com/@InDeepGeek",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVg2AVe6eTCTVoWQ9AwrIHg"
+      }
+    ]
+  },
+  "Jon Bois": {
+    "tags": [
+      "sports",
+      "cfb",
+      "nfl",
+      "comedy"
+    ],
+    "profiles": [
+      {
+        "type": "youtube",
+        "username": "@jonbois",
+        "url": "https://www.youtube.com/@jonbois",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCUNoEsSfUcyNlaJbieYkMvg"
+      },
+      {
+        "type": "bluesky",
+        "username": "@jonbois.bsky.social",
+        "url": "https://bsky.app/profile/jonbois.bsky.social",
+        "rss": "https://bsky.app/profile/did:plc:ovioxia6nlp5luphgf5ovg7p/rss"
+      }
+    ]
+  },
+  "Stefan Bohacek": {
+    "tags": [
+      "activitypub",
+      "fediverse",
+      "datascience"
+    ],
+    "profiles": [
+      {
+        "type": "fediverse",
+        "username": "@stefan@stefanbohacek.online",
+        "url": "https://stefanbohacek.online/@stefan"
+      },
+      {
+        "type": "blog",
+        "url": "https://stefanbohacek.com",
+        "rss": "https://stefanbohacek.com/feed"
+      }
+    ]
+  },
+  "Erin Kissane": {
+    "tags": ["fediverse"],
+    "profiles": [
+      {
+        "type": "blog",
+        "url": "https://erinkissane.com/feed.rss",
+        "rss": "https://erinkissane.com/feed.rss"
+      },
+      {
+        "type": "fediverse",
+        "username": "@kissane@mas.to",
+        "url": "https://mas.to/@kissane"
+      }
+    ]
+  },
+  "Timothy Chambers": {
+    "tags": ["fediverse"],
+    "profiles": [
+      {
+        "type": "blog",
+        "url": "https://www.timothychambers.net/feed.xml",
+        "rss": "https://www.timothychambers.net/feed.xml"
+      },
+      {
+        "type": "fediverse",
+        "username": "@tchambers@indieweb.social",
+        "url": "https://indieweb.social/@tchambers"
+      },
+      {
+        "type": "fediverse",
+        "username": "@timothyjchambers@threads.net",
+        "url": "https://www.threads.net/@timothyjchambers"
+      }
+    ]
+  },
+  "Evan Prodromou": {
+    "tags": ["fediverse", "activitypub"],
+    "profiles": [
+      {
+        "type": "blog",
+        "url": "https://evanp.me/feed/",
+        "rss": "https://evanp.me/feed/"
+      },
+      {
+        "type": "fediverse",
+        "username": "@evan@cosocial.ca",
+        "url": "https://cosocial.ca/@evan"
+      }
+    ]
+  },
+  "Elena Rossini": {
+    "tags": ["fediverse"],
+    "profiles": [
+      {
+        "type": "blog",
+        "url": "https://blog.elenarossini.com/rss/",
+        "rss": "https://blog.elenarossini.com/rss/"
+      },
+      {
+        "type": "fediverse",
+        "username": "@_elena@mastodon.social",
+        "url": "https://mastodon.social/@_elena"
+      }
+    ]
+
+  },
+  "Jeff Sikes": {
+    "tags": ["fediverse"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://box464.com/feed.xml",
+      "rss": "https://box464.com/feed.xml"
+    }]
+  },
+  "Ryan Barrett": {
+    "tags": ["fediverse", "activitypub", "bluesky"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://snarfed.org/feed",
+      "rss": "https://snarfed.org/feed"
+    }]
+  },
+  "Erlend Heggen": {
+    "tags": ["fediverse"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://blog.erlend.sh/feed/",
+      "rss": "https://blog.erlend.sh/feed/"
+    }]
+  },
+  "ShellSharks": {
+    "tags": ["fediverse"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://shellsharks.com/feeds/feed.xml",
+      "rss": "https://shellsharks.com/feeds/feed.xml"
+    }]
+  },
+  "LongerSky": {
+    "tags": ["general"],
+    "profiles": [{
+      "type": "blog",
+      "url": "http://longersky.com/feed/",
+      "rss": "http://longersky.com/feed/"
+    }]
+  },
+  "Cahatstrophe": {
+    "tags": ["general"],
+    "profiles": [{
+      "type": "blog",
+      "url": "http://cahatstrophe.neocities.org/feed.xml",
+      "rss": "http://cahatstrophe.neocities.org/feed.xml"
+    }]
+  },
+  "Goodbye Please": {
+    "tags": ["general"],
+    "profiles": [{
+      "type": "blog",
+      "url": "http://blog.goodbyeplease.com/atom.xml",
+      "rss": "http://blog.goodbyeplease.com/atom.xml"
+    }]
+  },
+  "Terence Eden": {
+    "tags": ["general"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://shkspr.mobi/blog/feed/atom/",
+      "rss": "https://shkspr.mobi/blog/feed/atom/"
+    }]
+  },
+  "Cincy Jungle": {
+    "tags": ["sports"],
+    "profiles": [{
+      "type": "blog",
+      "url": "http://cincyjungle.com/rss/index.xml",
+      "rss": "http://cincyjungle.com/rss/index.xml"
+    }]
+  },
+  "Doug Dirt": {
+    "tags": ["sports"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://www.redsminorleagues.com/feed/",
+      "rss": "https://www.redsminorleagues.com/feed/"
+    }]
+  },
+  "Ben Myers": {
+    "tags": ["tech"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://benmyers.dev/feed.xml",
+      "rss": "https://benmyers.dev/feed.xml"
+    }]
+  },
+  "Molly White": {
+    "tags": ["tech", "crypto", "Further Reading"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://www.citationneeded.news/rss/",
+      "rss": "https://www.citationneeded.news/rss/"
+    },
+      {
+        "type": "blog",
+        "url": "https://www.mollywhite.net/reading/shortform/feed.xml",
+        "rss": "https://www.mollywhite.net/reading/shortform/feed.xml"
+      }
+    ]
+  },
+  "Discursive Anomalies": {
+    "tags": ["tech"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://discursiveanomalies.com/feed/",
+      "rss": "https://discursiveanomalies.com/feed/"
+    }]
+  },
+  "Ian Betteridge": {
+    "tags": ["tech"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://ianbetteridge.com/feed/",
+      "rss": "https://ianbetteridge.com/feed/"
+    }]
+  },
+  "Jim Nielsen": {
+    "tags": ["Tech/Programming"],
+    "profiles": [{
+      "type": "blog",
+      "url": "http://blog.jim-nielsen.com/feed.xml",
+      "rss": "http://blog.jim-nielsen.com/feed.xml"
+    }]
+  },
+  "ThisDaysPortion": {
+    "tags": ["tech"],
+    "profiles": [{
+      "type": "blog",
+      "url": "http://thisdaysportion.com/feed/index.xml",
+      "rss": "http://thisdaysportion.com/feed/index.xml"
+    }]
+  },
+  "Jacky Alciné": {
+    "tags": ["tech"],
+    "profiles": [{
+      "type": "blog",
+      "url": "http://jacky.wtf/essays/feed.atom",
+      "rss": "http://jacky.wtf/essays/feed.atom"
+    }]
+  },
+  "Tobias Revell": {
+    "tags": ["tech"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://blog.tobiasrevell.com/feed/",
+      "rss": "https://blog.tobiasrevell.com/feed/"
+    }]
+  },
+  "Mayank": {
+    "tags": ["tech"],
+    "profiles": [{
+      "type": "blog",
+      "url": "http://mayank.co/blog/rss.xml",
+      "rss": "http://mayank.co/blog/rss.xml"
+    }]
+  },
+  "AstraLuma": {
+    "tags": ["tech"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://qwertyuiop.ninja/feed.xml",
+      "rss": "https://qwertyuiop.ninja/feed.xml"
+    }]
+  },
+  "Steven Lott": {
+    "tags": ["tech"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://slott56.github.io/feeds/all.atom.xml",
+      "rss": "https://slott56.github.io/feeds/all.atom.xml"
+    }]
+  },
+  "George Mandis": {
+    "tags": ["tech"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://george.mand.is/feed.xml",
+      "rss": "https://george.mand.is/feed.xml"
+    }]
+  },
+  "Elias Mårtenson": {
+    "tags": ["Tech/Programming"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://blog.dhsdevelopments.com/feed/",
+      "rss": "https://blog.dhsdevelopments.com/feed/"
+    }]
+  },
+  "Claudio Rimann": {
+    "tags": ["tech"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://claudiorimann.com/feed/",
+      "rss": "https://claudiorimann.com/feed/"
+    }]
+  },
+  "Sam Casavant": {
+    "tags": ["comedy", "tech"],
+    "profiles": [{
+      "type": "blog",
+      "url": "http://sam.casavant.org//feed.xml",
+      "rss": "http://sam.casavant.org//feed.xml"
+    }]
+  },
+  "Jeff Casavant": {
+    "tags": ["tech", "politics"],
+    "profiles": [{
+      "type": "blog",
+      "url": "https://casavant.org/index.xml",
+      "rss": "https://casavant.org/index.xml"
+    }]
+  },
+  "Mike McCue": {
+    "tags": [
+      "flipboard",
+      "ActivityPub",
+      "fediverse"
+    ],
+    "profiles": [
+      {
+        "type": "fediverse",
+        "url": "https://flipboard.social/@mike",
+        "username": "@mike@flipboard.social",
+        "rss": "https://flipboard.social/@mike.rss"
+      },
+      {
+        "type": "fediverse",
+        "url": "https://flipboard.com/@mike",
+        "username": "@mike@flipboard.com"
+      }
+    ]
+  },
+  "Dot Social": {
+    "tags": ["flipboard", "ActivityPub", "fediverse"],
+    "profiles": [
+      {
+        "type": "podcast",
+        "url": "https://feeds.simplecast.com/kk8bweIK",
+        "rss": "https://feeds.simplecast.com/kk8bweIK"
+      },
+      {
+        "type": "fediverse",
+        "url": "https://flipboard.video/video-channels/dot_social",
+        "username": "@dot_social@flipboard.video"
+      }
+    ]
+  },
+  "Zeltik": {
+    "tags": ["zelda", "nintendo"],
+    "profiles": [
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/@Zeltik",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UCudx6plmpbs5WtWvsvu-EdQ",
+        "username": "@Zeltik"
+      },
+      {
+        "type": "fediverse",
+        "url": "https://www.threads.net/@zeltikinsta",
+        "username": "@zeltikinsta@threads.net"
+      }
+    ]
+  },
+  "Strict Scrutiny": {
+    "tags": ["law", "politics", "scotus"],
+    "profiles": [
+      {
+        "type": "podcast",
+        "url": "https://crooked.com/podcast-series/strict-scrutiny/",
+        "rss": "https://crooked.com/podcast-series/strict-scrutiny/feed/"
+      }
+    ]
+  },
+  "Steven Haas": {
+    "tags": ["comedy", "shortform"],
+    "profiles": [
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/c/StevenHaas",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UC9qPggkcO84vZI1DLKhYqCw",
+        "username": "@StevenHaas"
+      },
+      {
+        "type": "fediverse",
+        "url": "https://www.threads.net/@stevenhaasinsta",
+        "username": "@stevenhaasinsta@threads.net"
+      }
+    ]
+  },
+  "Scott Alexander": {
+    "tags": ["politics", "humor", "philosophy"],
+    "profiles": [
+      {
+        "type": "blog",
+        "url": "https://www.astralcodexten.com/",
+        "rss": "https://www.astralcodexten.com/feed"
+      }
+    ]
+  }
+}
