@@ -40,17 +40,26 @@ async function fetchProfilesWithFeeds() {
   }
 
   // Sort profilesWithFeeds by most recent post update across all profiles
-  const sortedProfilesWithFeeds = {};
+	const sortedProfilesWithFeeds = {};
+	
+	Object.keys(profilesWithFeeds).sort((a, b) => {
+	  const getMostRecentPostDate = (profiles) => {
+	    return profiles.reduce((latest, profile) => {
+	      const postDate = new Date(profile.content?.created_at || 0);
+	      return postDate > latest ? postDate : latest;
+	    }, new Date(0));
+	  };
+	
+	  const mostRecentPostA = getMostRecentPostDate(profilesWithFeeds[a].profiles);
+	  const mostRecentPostB = getMostRecentPostDate(profilesWithFeeds[b].profiles);
+	
+	  return mostRecentPostB - mostRecentPostA;
+	}).forEach(key => {
+	  sortedProfilesWithFeeds[key] = profilesWithFeeds[key];
+	});
+	
+	return { blogroll: sortedProfilesWithFeeds };
 
-  Object.keys(profilesWithFeeds).sort((a, b) => {
-    const mostRecentPostA = profilesWithFeeds[a].profiles[0]?.content?.created_at || 0;
-    const mostRecentPostB = profilesWithFeeds[b].profiles[0]?.content?.created_at || 0;
-    return new Date(mostRecentPostB) - new Date(mostRecentPostA);
-  }).forEach(key => {
-    sortedProfilesWithFeeds[key] = profilesWithFeeds[key];
-  });
-
-  return { blogroll: sortedProfilesWithFeeds };
 }
 
 
