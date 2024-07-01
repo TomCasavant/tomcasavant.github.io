@@ -58,12 +58,12 @@ async function fetchProfilesWithFeeds() {
 async function saveFeedToFile(name, rssUrl, posts) {
   const filename = rssUrl.replace(/[^a-zA-Z0-9]/g, '_') + '.json'; // Ensure a valid filename
   const directory = path.join(feedsDirectory, name);
-  try {
+  /*try {
     await fs.mkdir(directory, { recursive: true });
     await fs.writeFile(path.join(directory, filename), JSON.stringify(posts, null, 2));
   } catch (error) {
     console.error(`Error saving ${rssUrl} feed for ${name}:`, error);
-  }
+  }*/
 }
 
 module.exports = fetchProfilesWithFeeds;

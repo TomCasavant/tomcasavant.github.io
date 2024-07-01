@@ -202,35 +202,69 @@
   },
   "Erin Kissane": {
     "tags": ["fediverse"],
-    "profiles": [{
-      "type": "blog",
-      "url": "https://erinkissane.com/feed.rss",
-      "rss": "https://erinkissane.com/feed.rss"
-    }]
+    "profiles": [
+      {
+        "type": "blog",
+        "url": "https://erinkissane.com/feed.rss",
+        "rss": "https://erinkissane.com/feed.rss"
+      },
+      {
+        "type": "fediverse",
+        "username": "@kissane@mas.to",
+        "url": "https://mas.to/@kissane"
+      }
+    ]
   },
   "Timothy Chambers": {
     "tags": ["fediverse"],
-    "profiles": [{
-      "type": "blog",
-      "url": "https://www.timothychambers.net/feed.xml",
-      "rss": "https://www.timothychambers.net/feed.xml"
-    }]
+    "profiles": [
+      {
+        "type": "blog",
+        "url": "https://www.timothychambers.net/feed.xml",
+        "rss": "https://www.timothychambers.net/feed.xml"
+      },
+      {
+        "type": "fediverse",
+        "username": "@tchambers@indieweb.social",
+        "url": "https://indieweb.social/@tchambers"
+      },
+      {
+        "type": "fediverse",
+        "username": "@timothyjchambers@threads.net",
+        "url": "https://www.threads.net/@timothyjchambers"
+      }
+    ]
   },
   "Evan Prodromou": {
     "tags": ["fediverse", "activitypub"],
-    "profiles": [{
-      "type": "blog",
-      "url": "https://evanp.me/feed/",
-      "rss": "https://evanp.me/feed/"
-    }]
+    "profiles": [
+      {
+        "type": "blog",
+        "url": "https://evanp.me/feed/",
+        "rss": "https://evanp.me/feed/"
+      },
+      {
+        "type": "fediverse",
+        "username": "@evan@cosocial.ca",
+        "url": "https://cosocial.ca/@evan"
+      }
+    ]
   },
   "Elena Rossini": {
     "tags": ["fediverse"],
-    "profiles": [{
-      "type": "blog",
-      "url": "https://blog.elenarossini.com/rss/",
-      "rss": "https://blog.elenarossini.com/rss/"
-    }]
+    "profiles": [
+      {
+        "type": "blog",
+        "url": "https://blog.elenarossini.com/rss/",
+        "rss": "https://blog.elenarossini.com/rss/"
+      },
+      {
+        "type": "fediverse",
+        "username": "@_elena@mastodon.social",
+        "url": "https://mastodon.social/@_elena"
+      }
+    ]
+
   },
   "Jeff Sikes": {
     "tags": ["fediverse"],
@@ -323,10 +357,10 @@
   "Molly White": {
     "tags": ["tech", "crypto", "Further Reading"],
     "profiles": [{
-        "type": "blog",
-        "url": "https://www.citationneeded.news/rss/",
-        "rss": "https://www.citationneeded.news/rss/"
-      },
+      "type": "blog",
+      "url": "https://www.citationneeded.news/rss/",
+      "rss": "https://www.citationneeded.news/rss/"
+    },
       {
         "type": "blog",
         "url": "https://www.mollywhite.net/reading/shortform/feed.xml",
@@ -481,7 +515,6 @@
       }
     ]
   },
-
   "Zeltik": {
     "tags": ["zelda", "nintendo"],
     "profiles": [
@@ -495,6 +528,42 @@
         "type": "fediverse",
         "url": "https://www.threads.net/@zeltikinsta",
         "username": "@zeltikinsta@threads.net"
+      }
+    ]
+  },
+  "Strict Scrutiny": {
+    "tags": ["law", "politics", "scotus"],
+    "profiles": [
+      {
+        "type": "podcast",
+        "url": "https://crooked.com/podcast-series/strict-scrutiny/",
+        "rss": "https://crooked.com/podcast-series/strict-scrutiny/feed/"
+      }
+    ]
+  },
+  "Steven Haas": {
+    "tags": ["comedy", "shortform"],
+    "profiles": [
+      {
+        "type": "youtube",
+        "url": "https://www.youtube.com/c/StevenHaas",
+        "rss": "https://www.youtube.com/feeds/videos.xml?channel_id=UC9qPggkcO84vZI1DLKhYqCw",
+        "username": "@StevenHaas"
+      },
+      {
+        "type": "fediverse",
+        "url": "https://www.threads.net/@stevenhaasinsta",
+        "username": "@stevenhaasinsta@threads.net"
+      }
+    ]
+  },
+  "Scott Alexander": {
+    "tags": ["politics", "humor", "philosophy"],
+    "profiles": [
+      {
+        "type": "blog",
+        "url": "https://www.astralcodexten.com/",
+        "rss": "https://www.astralcodexten.com/feed"
       }
     ]
   }
