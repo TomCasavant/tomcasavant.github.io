@@ -6,8 +6,17 @@
 		<title>Make OH/IO 2019</title>
 		<meta name="description" content="">
 		<link rel="webmention" href="https://webmention.io/tomcasavant.com/webmention" />
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Tom Casavant">
-		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Tom Casavant">
+		<link rel="alternate" href="/blog.rss" type="application/rss+xml" title="Tom Casavant">
+		<link rel="alternate" href="/feed.json" type="application/json" title="Tom Casavant">
+		<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Tom Casavant">
+
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+		<link rel="manifest" href="/img/favicons/site.webmanifest">
+		<link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileImage" content="/img/favicons/mstile-150x150.png">
+		<meta name="theme-color" content="#ffffff">
 		<link rel="preconnect" href="https://fonts.gstatic.com"><link data-href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"><style data-href='https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'>/* latin-ext */
 @font-face {
   font-family: 'Lato';
@@ -28,175 +37,7 @@
 }
 </style>
 		
-		<style>/**
- * okaidia theme for JavaScript, CSS and HTML
- * Loosely based on Monokai textmate theme by http://www.monokai.nl/
- * @author ocodia
- */
-
-code[class*="language-"],
-pre[class*="language-"] {
-	color: #f8f8f2;
-	background: none;
-	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	font-size: 1em;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	word-wrap: normal;
-	line-height: 1.5;
-
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-}
-
-/* Code blocks */
-pre[class*="language-"] {
-	padding: 1em;
-	margin: .5em 0;
-	overflow: auto;
-	border-radius: 0.3em;
-}
-
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-	background: #272822;
-}
-
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-	padding: .1em;
-	border-radius: .3em;
-	white-space: normal;
-}
-
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-	color: #8292a2;
-}
-
-.token.punctuation {
-	color: #f8f8f2;
-}
-
-.token.namespace {
-	opacity: .7;
-}
-
-.token.property,
-.token.tag,
-.token.constant,
-.token.symbol,
-.token.deleted {
-	color: #f92672;
-}
-
-.token.boolean,
-.token.number {
-	color: #ae81ff;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-	color: #a6e22e;
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string,
-.token.variable {
-	color: #f8f8f2;
-}
-
-.token.atrule,
-.token.attr-value,
-.token.function,
-.token.class-name {
-	color: #e6db74;
-}
-
-.token.keyword {
-	color: #66d9ef;
-}
-
-.token.regex,
-.token.important {
-	color: #fd971f;
-}
-
-.token.important,
-.token.bold {
-	font-weight: bold;
-}
-.token.italic {
-	font-style: italic;
-}
-
-.token.entity {
-	cursor: help;
-}
-/*
- * New diff- syntax
- */
-
-pre[class*="language-diff-"] {
-	--eleventy-code-padding: 1.25em;
-	padding-left: var(--eleventy-code-padding);
-	padding-right: var(--eleventy-code-padding);
-}
-.token.deleted {
-	background-color: hsl(0, 51%, 37%);
-	color: inherit;
-}
-.token.inserted {
-	background-color: hsl(126, 31%, 39%);
-	color: inherit;
-}
-
-/* Make the + and - characters unselectable for copy/paste */
-.token.prefix.unchanged,
-.token.prefix.inserted,
-.token.prefix.deleted {
-	-webkit-user-select: none;
-	user-select: none;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	padding-top: 2px;
-	padding-bottom: 2px;
-}
-.token.prefix.inserted,
-.token.prefix.deleted {
-	width: var(--eleventy-code-padding);
-	background-color: rgba(0,0,0,.2);
-}
-
-/* Optional: full-width background color */
-.token.inserted:not(.prefix),
-.token.deleted:not(.prefix) {
-	display: block;
-	margin-left: calc(-1 * var(--eleventy-code-padding));
-	margin-right: calc(-1 * var(--eleventy-code-padding));
-	text-decoration: none; /* override del, ins, mark defaults */
-	color: inherit; /* override del, ins, mark defaults */
-}
-* { box-sizing: border-box; }
+		<style>* { box-sizing: border-box; }
 /* Defaults */
 :root {
 	--font-family: -apple-system, system-ui, sans-serif;
@@ -945,6 +786,8 @@ footer .form input, footer .form button {
   border-radius: 8px;
   display: block;
 }</style>
+
+		
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
@@ -967,10 +810,11 @@ footer .form input, footer .form button {
 
 		<main id="skip">
 			
+
 <h1>Make OH/IO 2019</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2019-03-01">01 March 2019</time></li>
+    <li><time datetime="2019-03-01">01 March 2019</time></li>
 </ul>
 
 <p>Recently I had the opportunity to participate in a makeathon (a hackathon but focused on hardware) called Make OH/IO with two of my roommates, Spencer Christian (<a href="https://www.linkedin.com/in/spencer-christian/">Linkedin</a>) and Kwangeon Kim.</p>
@@ -984,44 +828,23 @@ footer .form input, footer .form button {
 <p><img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/batterypi.jpg?raw=true" alt="" title="It's battery powered!"></p>
 <p><img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/make19final.jpg?raw=true" alt="" title="Our final design"></p>
 
-<ul class="links-nextprev"><li>Previous: <a href="/nfl-win-chain-dijkstra-s-algorithm/">NFL Win-Chain (Dijkstra&#39;s Algorithm)</a></li><li>Next: <a href="/generating-heat-maps-from-gpx-files/">Generating Heat Maps from GPX Files</a></li>
-</ul>
-
-<section>  
-	<h2>Webmentions</h2>  
-	
-	<div class="webmentions content-grid-sibling" id="webmentions">
-
-  
-  
-  
-  
-  
-  
-  
 
 
 
 
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:title" content="Make OH/IO 2019">
+    <meta property="og:description" content="Default description if not set in front matter">
+    <meta property="og:image" content="/img/opengraph/opengraph.png">
+    <meta property="og:url" content="/make-oh-io-2019/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="">
 
-
-
-<p>These are <a href="https://indieweb.org/Webmention">webmentions</a> via the <a href="https://indieweb.org/">IndieWeb</a> and <a href="https://webmention.io/">webmention.io</a>. Mention this post from your site:</p>
-
-<form action="https://webmention.io/tomcasavant.com/webmention" method="post" class="form-webmention">
-    <label for="form-webmention-source">URL</label><br>
-    <input id="form-webmention-source" type="url" name="source" placeholder="https://example.com" required>
-    <input type="hidden" name="target" value="https://tomcasavant.com/make-oh-io-2019/">
-    <input type="submit" class="button button-small" value="Send Webmention">
-  </form>
-</div>
-
-</section>
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/make-oh-io-2019/` was built on 2024-07-02T21:43:04.173Z -->
+		<!-- This page `/make-oh-io-2019/` was built on 2024-07-03T15:44:48.416Z -->
 	</body>
 </html>
