@@ -21,7 +21,7 @@ ogImage: "img/opengraph/opengraph.png"
 
 {% block head %}
     <!-- OpenGraph Meta Tags -->
-    <meta property="og:title" content="{{ metadata.title }}">
+    <meta property="og:title" content="{{ title }} - {{ metadata.title }}">
     <meta property="og:description" content="{{ metadata.description }}">
     <meta property="og:image" content="{{ metadata.url + ogImage}}">
     <meta property="og:url" content="{{ page.url }}">
