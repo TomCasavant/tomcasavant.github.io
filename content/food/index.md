@@ -7,27 +7,57 @@ eleventyNavigation:
 # Food
 ### Badly taken photos of even worse foods
 
-<div class="image-grid">
-	<div class="image-item">{% image "./Ketchup-3.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./Ketchup-4.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./Ketchup-5.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./peep-brownies.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./pizza.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./shrimp-noodles.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./cake.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./cheesy-garlic-rolls.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./cinnamon-roll.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./clear-pumpkin-pie.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./cookie-pie.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./fruit-kolache.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./failed-pumpkin-pie.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./massive-buckeye.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./oreo-pie.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./oreo-pie2.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./chocolate-eclairs.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./bread.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./pancakes.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./orange-juice.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./refrigerated-dessert.jpg", "Image " ~ image %}</div>
-	<div class="image-item">{% image "./slushie.jpg", "Image " ~ image %}</div>
+<div class="row">
+  {% set totalImages = collections.foodImages | length %}
+  {% set imagesPerColumn = totalImages / 4 | round %}
+  {% set columnCounter = 0 %}
+  <div class="column">
+    {% for image in collections.foodImages %}
+      {% if columnCounter >= imagesPerColumn %}
+        </div><div class="column">
+        {% set columnCounter = 0 %}
+      {% endif %}
+      <div>
+        {% img image.file, image.caption %}
+      </div>
+      {% set columnCounter = columnCounter + 1 %}
+    {% endfor %}
 </div>
+
+<style>
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -8px; /* Adjusted margin to counter padding on columns */
+}
+
+.column {
+  flex: 0 0 25%; /* Four columns */
+  max-width: 25%;
+  padding: 8px; /* Added padding to create space between columns */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.column a {
+  display: block;
+  overflow: hidden; /* Ensure images don't overflow columns */
+  position: relative; /* Position for image zoom */
+}
+
+.column img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.column img:hover {
+  transform: scale(1.1); /* Zoom in on hover */
+}
+
+.desc {
+  margin-top: 8px;
+  text-align: center;
+}
+
+</style>
