@@ -23,6 +23,10 @@ module.exports = function(eleventyConfig) {
 		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css"
 	});
 
+	eleventyConfig.addCollection("foodImages", function(collectionApi) {
+		return require("./content/food/images.json");
+	});
+
 	eleventyConfig.addFilter("sanitize", function(content) {
 	    return sanitizeHtml(content, {
 	      allowedTags: [],

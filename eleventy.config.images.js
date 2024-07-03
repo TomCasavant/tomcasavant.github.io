@@ -52,4 +52,24 @@ module.exports = function(eleventyConfig) {
 
 		return eleventyImage.generateHTML(metadata, imageAttributes);
 	});
+
+	eleventyConfig.addAsyncShortcode("img", async function imgShortcode(src, alt = '') {
+		let input;
+		if (isFullUrl(src)) {
+		  input = src;
+		} else {
+		  input = relativeToInputPath(this.page.inputPath, src);
+		}
+	
+		let metadata = await eleventyImage(input, {
+		  widths: [null], // Adjust width as needed
+		  formats: ["jpeg"], // Adjust formats as needed
+		  outputDir: path.join(eleventyConfig.dir.output, "img"),
+		});
+	
+		// Get the URL of the processed image
+		let imgSrc = metadata.jpeg[0].url; // Adjust based on your formats
+	
+		return `<img src="${imgSrc}" alt="${alt}">`;
+	  });
 };
