@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.foodImages
+  size: 1
+  alias: image
+title: "Food Photo"
+permalink: /food/{{ image.file | splitPath | slug }}/
+---
+
+
+<div class="image-container">
+  {% image image.file, image.caption %}
+  <h1>{{ image.caption }}</h1>
+  <p>{{ image.date }}</p>
+</div>
+
+<style>
+  .image-container {
+    text-align: center;
+  }
+  .image-container img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #000; /* Optional: Add border */
+    padding: 10px; /* Optional: Add padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+  }
+  .image-container h1 {
+    margin-top: 10px; /* Optional: Add margin to the caption */
+  }
+  .image-container p {
+    margin-top: 5px; /* Optional: Add margin to the date */
+  }
+</style>

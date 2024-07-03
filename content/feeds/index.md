@@ -1,5 +1,6 @@
 ---
 layout: layouts/home.njk
+title: Feeds
 eleventyNavigation:
   key: Feeds
   order: 3

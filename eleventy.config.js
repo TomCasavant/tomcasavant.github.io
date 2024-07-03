@@ -23,9 +23,16 @@ module.exports = function(eleventyConfig) {
 		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css"
 	});
 
+	const foodImages = require("./content/food/images.json");
+
 	eleventyConfig.addCollection("foodImages", function(collectionApi) {
-		return require("./content/food/images.json");
+		return foodImages.sort((a, b) => new Date(b.date) - new Date(a.date));
 	});
+
+	eleventyConfig.addFilter("splitPath", function(value) {
+		return value.split("/").pop().split(".")[0];
+	  });
+	
 
 	eleventyConfig.addFilter("sanitize", function(content) {
 	    return sanitizeHtml(content, {

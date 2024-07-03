@@ -1,5 +1,6 @@
 ---
 layout: layouts/home.njk
+title: Food
 eleventyNavigation:
   key: Food
   order: 3
@@ -18,7 +19,9 @@ eleventyNavigation:
         {% set columnCounter = 0 %}
       {% endif %}
       <div>
-        {% img image.file, image.caption %}
+        <a href="/food/{{ image.file | splitPath | slug }}/">
+          {% img image.file, image.caption %}
+        </a>
       </div>
       {% set columnCounter = columnCounter + 1 %}
     {% endfor %}

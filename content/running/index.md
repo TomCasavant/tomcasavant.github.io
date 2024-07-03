@@ -1,5 +1,6 @@
 ---
 layout: layouts/home.njk
+title: Running
 eleventyNavigation:
   key: Running
   order: 3

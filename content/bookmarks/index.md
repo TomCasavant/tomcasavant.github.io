@@ -1,5 +1,6 @@
 ---
 layout: layouts/home.njk
+title:
 eleventyNavigation:
   key: Bookmarks
   order: 3

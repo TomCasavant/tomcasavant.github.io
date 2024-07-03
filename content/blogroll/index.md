@@ -1,5 +1,6 @@
 ---
 layout: layouts/home.njk
+title: Blogroll
 eleventyNavigation:
   key: Blogroll
   order: 9

@@ -44,6 +44,13 @@
 		{#- <link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> #}
 
 		{{ head | safe }}
+		<!-- OpenGraph Meta Tags -->
+		<meta property="og:title" content="{{ title or metadata.title }} - {{ metadata.title }}">
+		<meta property="og:description" content="{{ metadata.description }}">
+		<meta property="og:image" content="{{ metadata.url + "img/opengraph/opengraph.png"}}">
+		<meta property="og:url" content="{{ page.url }}">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="{{ metadata.title }}">
 	</head>
 	<body>
 		<a href="#skip" class="visually-hidden">Skip to main content</a>

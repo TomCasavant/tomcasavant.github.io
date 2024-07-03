@@ -8,20 +8,23 @@ permalink: /feeds/food.xml
 	<subtitle>{{ metadata.description }}</subtitle>
 	<link href="{{ permalink | htmlBaseUrl(metadata.url) }}" rel="self"/>
 	<link href="{{ metadata.url | addPathPrefixToFullUrl }}"/>
+
 	<id>{{ metadata.url }}</id>
 	<author>
 		<name>{{ metadata.author.name }}</name>
 		<email>{{ metadata.author.email }}</email>
 	</author>
+    
     {%- for image in collections.foodImages %}
         {% set relativeImagePath = '../food/' + image.file %}
-        {% set absoluteImageUrl %}{{ image.file | htmlBaseUrl(metadata.url) }}{% endset %}
+        {% set imageSlug = image.file | splitPath | slug %}
+        {% set absoluteImageUrl = metadata.url + 'food/' + imageSlug %}
         <entry>
             <title>{{ image.caption }}</title>
             <link href="{{ absoluteImageUrl }}"/>
+            <updated>{{ image.date }}</updated>
             <id>{{ absoluteImageUrl }}</id>
             <content type="html"><![CDATA[{% img relativeImagePath, image.caption %}]]></content>
         </entry>
     {%- endfor %}
-
 </feed>
