@@ -4,6 +4,7 @@
 	<subtitle>Blog about things</subtitle>
 	<link href="https://tomcasavant.com/feeds/food.xml" rel="self"/>
 	<link href="https://tomcasavant.com/"/>
+
 	<id>https://tomcasavant.com/</id>
 	<author>
 		<name>Tom Casavant</name>
@@ -11,179 +12,222 @@
 	</author>
         
         
-        <entry>
-            <title>Ketchup 3</title>
-            <link href="https://tomcasavant.com/feeds/images/Ketchup-3.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/Ketchup-3.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/BpQ4JmF0xl-1799.jpeg" alt="Ketchup 3">]]></content>
-        </entry>
-        
-        
-        <entry>
-            <title>Ketchup 4</title>
-            <link href="https://tomcasavant.com/feeds/images/Ketchup-4.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/Ketchup-4.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/tzI_RPTnzx-1799.jpeg" alt="Ketchup 4">]]></content>
-        </entry>
-        
-        
-        <entry>
-            <title>Ketchup 5</title>
-            <link href="https://tomcasavant.com/feeds/images/Ketchup-5.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/Ketchup-5.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/PfLIaLhoiU-1799.jpeg" alt="Ketchup 5">]]></content>
-        </entry>
-        
         
         <entry>
             <title>Peep Brownies</title>
-            <link href="https://tomcasavant.com/feeds/images/peep-brownies.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/peep-brownies.jpg</id>
+            <link href="https://tomcasavant.com/food/peep-brownies"/>
+            <updated>2024-04-06</updated>
+            <id>https://tomcasavant.com/food/peep-brownies</id>
             <content type="html"><![CDATA[<img src="/img/8bQX0nvse7-519.jpeg" alt="Peep Brownies">]]></content>
         </entry>
         
         
-        <entry>
-            <title>Pizza</title>
-            <link href="https://tomcasavant.com/feeds/images/pizza.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/pizza.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/Ol9EC5_LE_-519.jpeg" alt="Pizza">]]></content>
-        </entry>
-        
         
         <entry>
-            <title>Shrimp Noodles</title>
-            <link href="https://tomcasavant.com/feeds/images/shrimp-noodles.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/shrimp-noodles.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/bHeG2DL3b5-455.jpeg" alt="Shrimp Noodles">]]></content>
+            <title>Creamy Shrimp Pasta</title>
+            <link href="https://tomcasavant.com/food/shrimp-noodles"/>
+            <updated>2024-01-06</updated>
+            <id>https://tomcasavant.com/food/shrimp-noodles</id>
+            <content type="html"><![CDATA[<img src="/img/bHeG2DL3b5-455.jpeg" alt="Creamy Shrimp Pasta">]]></content>
         </entry>
         
-        
-        <entry>
-            <title>Cake</title>
-            <link href="https://tomcasavant.com/feeds/images/cake.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/cake.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/UAjjVvyzIB-455.jpeg" alt="Cake">]]></content>
-        </entry>
-        
-        
-        <entry>
-            <title>Cheesy Garlic Rolls</title>
-            <link href="https://tomcasavant.com/feeds/images/cheesy-garlic-rolls.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/cheesy-garlic-rolls.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/h2XvuCFSCP-124.jpeg" alt="Cheesy Garlic Rolls">]]></content>
-        </entry>
-        
-        
-        <entry>
-            <title>Cinnamon Roll</title>
-            <link href="https://tomcasavant.com/feeds/images/cinnamon-roll.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/cinnamon-roll.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/Dt7o4yZVhf-519.jpeg" alt="Cinnamon Roll">]]></content>
-        </entry>
         
         
         <entry>
             <title>Clear Pumpkin Pie</title>
-            <link href="https://tomcasavant.com/feeds/images/clear-pumpkin-pie.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/clear-pumpkin-pie.jpg</id>
+            <link href="https://tomcasavant.com/food/clear-pumpkin-pie"/>
+            <updated>2023-12-31</updated>
+            <id>https://tomcasavant.com/food/clear-pumpkin-pie</id>
             <content type="html"><![CDATA[<img src="/img/Qg5shFrCtl-692.jpeg" alt="Clear Pumpkin Pie">]]></content>
         </entry>
         
         
-        <entry>
-            <title>Cookie Pie</title>
-            <link href="https://tomcasavant.com/feeds/images/cookie-pie.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/cookie-pie.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/2CQE_66lzQ-692.jpeg" alt="Cookie Pie">]]></content>
-        </entry>
-        
         
         <entry>
             <title>Fruit Kolache</title>
-            <link href="https://tomcasavant.com/feeds/images/fruit-kolache.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/fruit-kolache.jpg</id>
+            <link href="https://tomcasavant.com/food/fruit-kolache"/>
+            <updated>2023-09-30</updated>
+            <id>https://tomcasavant.com/food/fruit-kolache</id>
             <content type="html"><![CDATA[<img src="/img/SvVq2qAOT_-960.jpeg" alt="Fruit Kolache">]]></content>
         </entry>
         
         
-        <entry>
-            <title>Failed Pumpkin Pie</title>
-            <link href="https://tomcasavant.com/feeds/images/failed-pumpkin-pie.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/failed-pumpkin-pie.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/VP6z4rDoDi-448.jpeg" alt="Failed Pumpkin Pie">]]></content>
-        </entry>
-        
         
         <entry>
-            <title>Massive Buckeye</title>
-            <link href="https://tomcasavant.com/feeds/images/massive-buckeye.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/massive-buckeye.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/xlUbfVEnEI-692.jpeg" alt="Massive Buckeye">]]></content>
+            <title>Cheesy Garlic Rolls</title>
+            <link href="https://tomcasavant.com/food/cheesy-garlic-rolls"/>
+            <updated>2023-05-03</updated>
+            <id>https://tomcasavant.com/food/cheesy-garlic-rolls</id>
+            <content type="html"><![CDATA[<img src="/img/h2XvuCFSCP-124.jpeg" alt="Cheesy Garlic Rolls">]]></content>
         </entry>
         
-        
-        <entry>
-            <title>Oreo Pie</title>
-            <link href="https://tomcasavant.com/feeds/images/oreo-pie.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/oreo-pie.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/wJ6JePj1gL-455.jpeg" alt="Oreo Pie">]]></content>
-        </entry>
-        
-        
-        <entry>
-            <title>Oreo Pie 2</title>
-            <link href="https://tomcasavant.com/feeds/images/oreo-pie2.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/oreo-pie2.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/49GWPYJZP--455.jpeg" alt="Oreo Pie 2">]]></content>
-        </entry>
         
         
         <entry>
             <title>Chocolate Eclairs</title>
-            <link href="https://tomcasavant.com/feeds/images/chocolate-eclairs.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/chocolate-eclairs.jpg</id>
+            <link href="https://tomcasavant.com/food/chocolate-eclairs"/>
+            <updated>2023-04-08</updated>
+            <id>https://tomcasavant.com/food/chocolate-eclairs</id>
             <content type="html"><![CDATA[<img src="/img/Cd89xh9-Ix-519.jpeg" alt="Chocolate Eclairs">]]></content>
         </entry>
         
         
+        
         <entry>
-            <title>Bread</title>
-            <link href="https://tomcasavant.com/feeds/images/bread.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/bread.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/2Wg21JAOOD-113.jpeg" alt="Bread">]]></content>
+            <title>Homemade Pizza</title>
+            <link href="https://tomcasavant.com/food/pizza"/>
+            <updated>2023-03-11</updated>
+            <id>https://tomcasavant.com/food/pizza</id>
+            <content type="html"><![CDATA[<img src="/img/Ol9EC5_LE_-519.jpeg" alt="Homemade Pizza">]]></content>
         </entry>
+        
+        
+        
+        <entry>
+            <title>Chocolate Cake</title>
+            <link href="https://tomcasavant.com/food/cake"/>
+            <updated>2023-01-14</updated>
+            <id>https://tomcasavant.com/food/cake</id>
+            <content type="html"><![CDATA[<img src="/img/UAjjVvyzIB-455.jpeg" alt="Chocolate Cake">]]></content>
+        </entry>
+        
+        
+        
+        <entry>
+            <title>Ketchup Cake</title>
+            <link href="https://tomcasavant.com/food/ketchup-3"/>
+            <updated>2022-12-31</updated>
+            <id>https://tomcasavant.com/food/ketchup-3</id>
+            <content type="html"><![CDATA[<img src="/img/BpQ4JmF0xl-1799.jpeg" alt="Ketchup Cake">]]></content>
+        </entry>
+        
+        
+        
+        <entry>
+            <title>Ketchup Cake</title>
+            <link href="https://tomcasavant.com/food/ketchup-4"/>
+            <updated>2022-12-31</updated>
+            <id>https://tomcasavant.com/food/ketchup-4</id>
+            <content type="html"><![CDATA[<img src="/img/tzI_RPTnzx-1799.jpeg" alt="Ketchup Cake">]]></content>
+        </entry>
+        
+        
+        
+        <entry>
+            <title>Ketchup Cake</title>
+            <link href="https://tomcasavant.com/food/ketchup-5"/>
+            <updated>2022-12-31</updated>
+            <id>https://tomcasavant.com/food/ketchup-5</id>
+            <content type="html"><![CDATA[<img src="/img/PfLIaLhoiU-1799.jpeg" alt="Ketchup Cake">]]></content>
+        </entry>
+        
         
         
         <entry>
             <title>Pancakes</title>
-            <link href="https://tomcasavant.com/feeds/images/pancakes.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/pancakes.jpg</id>
+            <link href="https://tomcasavant.com/food/pancakes"/>
+            <updated>2022-12-04</updated>
+            <id>https://tomcasavant.com/food/pancakes</id>
             <content type="html"><![CDATA[<img src="/img/FOfQIb8aVu-102.jpeg" alt="Pancakes">]]></content>
         </entry>
         
         
+        
         <entry>
-            <title>Orange Juice</title>
-            <link href="https://tomcasavant.com/feeds/images/orange-juice.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/orange-juice.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/di-vBBWtMj-497.jpeg" alt="Orange Juice">]]></content>
+            <title>Oreo Pie</title>
+            <link href="https://tomcasavant.com/food/oreo-pie"/>
+            <updated>2022-10-09</updated>
+            <id>https://tomcasavant.com/food/oreo-pie</id>
+            <content type="html"><![CDATA[<img src="/img/wJ6JePj1gL-455.jpeg" alt="Oreo Pie">]]></content>
         </entry>
+        
+        
+        
+        <entry>
+            <title>Oreo Pie 2</title>
+            <link href="https://tomcasavant.com/food/oreo-pie2"/>
+            <updated>2022-10-09</updated>
+            <id>https://tomcasavant.com/food/oreo-pie2</id>
+            <content type="html"><![CDATA[<img src="/img/49GWPYJZP--455.jpeg" alt="Oreo Pie 2">]]></content>
+        </entry>
+        
+        
+        
+        <entry>
+            <title>Massive Buckeye</title>
+            <link href="https://tomcasavant.com/food/massive-buckeye"/>
+            <updated>2022-07-14</updated>
+            <id>https://tomcasavant.com/food/massive-buckeye</id>
+            <content type="html"><![CDATA[<img src="/img/xlUbfVEnEI-692.jpeg" alt="Massive Buckeye">]]></content>
+        </entry>
+        
+        
+        
+        <entry>
+            <title>Cream Filled Cookie Bar</title>
+            <link href="https://tomcasavant.com/food/cookie-pie"/>
+            <updated>2022-07-04</updated>
+            <id>https://tomcasavant.com/food/cookie-pie</id>
+            <content type="html"><![CDATA[<img src="/img/2CQE_66lzQ-692.jpeg" alt="Cream Filled Cookie Bar">]]></content>
+        </entry>
+        
+        
+        
+        <entry>
+            <title>Bread</title>
+            <link href="https://tomcasavant.com/food/bread"/>
+            <updated>2022-03-16</updated>
+            <id>https://tomcasavant.com/food/bread</id>
+            <content type="html"><![CDATA[<img src="/img/2Wg21JAOOD-113.jpeg" alt="Bread">]]></content>
+        </entry>
+        
+        
+        
+        <entry>
+            <title>Pumpkin Pie Disaster</title>
+            <link href="https://tomcasavant.com/food/failed-pumpkin-pie"/>
+            <updated>2021-11-06</updated>
+            <id>https://tomcasavant.com/food/failed-pumpkin-pie</id>
+            <content type="html"><![CDATA[<img src="/img/VP6z4rDoDi-448.jpeg" alt="Pumpkin Pie Disaster">]]></content>
+        </entry>
+        
+        
+        
+        <entry>
+            <title>Homemade Slushie</title>
+            <link href="https://tomcasavant.com/food/slushie"/>
+            <updated>2021-10-17</updated>
+            <id>https://tomcasavant.com/food/slushie</id>
+            <content type="html"><![CDATA[<img src="/img/u2cERIVnni-513.jpeg" alt="Homemade Slushie">]]></content>
+        </entry>
+        
+        
+        
+        <entry>
+            <title>Cinnamon Rolls</title>
+            <link href="https://tomcasavant.com/food/cinnamon-roll"/>
+            <updated>2021-08-20</updated>
+            <id>https://tomcasavant.com/food/cinnamon-roll</id>
+            <content type="html"><![CDATA[<img src="/img/Dt7o4yZVhf-519.jpeg" alt="Cinnamon Rolls">]]></content>
+        </entry>
+        
         
         
         <entry>
             <title>Refrigerated Dessert</title>
-            <link href="https://tomcasavant.com/feeds/images/refrigerated-dessert.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/refrigerated-dessert.jpg</id>
+            <link href="https://tomcasavant.com/food/refrigerated-dessert"/>
+            <updated>2020-12-10</updated>
+            <id>https://tomcasavant.com/food/refrigerated-dessert</id>
             <content type="html"><![CDATA[<img src="/img/8jqdVDBDpF-528.jpeg" alt="Refrigerated Dessert">]]></content>
         </entry>
         
         
+        
         <entry>
-            <title>Slushie</title>
-            <link href="https://tomcasavant.com/feeds/images/slushie.jpg"/>
-            <id>https://tomcasavant.com/feeds/images/slushie.jpg</id>
-            <content type="html"><![CDATA[<img src="/img/u2cERIVnni-513.jpeg" alt="Slushie">]]></content>
+            <title>Orange Juice</title>
+            <link href="https://tomcasavant.com/food/orange-juice"/>
+            <updated>2020-05-07</updated>
+            <id>https://tomcasavant.com/food/orange-juice</id>
+            <content type="html"><![CDATA[<img src="/img/di-vBBWtMj-497.jpeg" alt="Orange Juice">]]></content>
         </entry>
-
 </feed>

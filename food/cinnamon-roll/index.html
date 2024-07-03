@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Food Photo</title>
+		<meta name="description" content="Blog about things">
+		<link rel="webmention" href="https://webmention.io/tomcasavant.com/webmention" />
+		<link rel="alternate" href="/blog.rss" type="application/rss+xml" title="Tom Casavant">
+		<link rel="alternate" href="/feed.json" type="application/json" title="Tom Casavant">
+		<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Tom Casavant">
+
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+		<link rel="manifest" href="/img/favicons/site.webmanifest">
+		<link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileImage" content="/img/favicons/mstile-150x150.png">
+		<meta name="theme-color" content="#ffffff">
+		<link rel="preconnect" href="https://fonts.gstatic.com"><link data-href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"><style data-href='https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'>/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwaPGQ3q5d0N7w.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh7USSwiPGQ3q5d0.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+		
+		<style>* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #BAB2B5;
+	--color-gray-50: #123C69;
+	--color-gray-90: #AC3B61;
+
+	--background-color: #EDC7B7;
+	--background-standout: #DDB7A7;
+	--highlight-color: rgba(0, 0, 0, 0.6);
+	--alternating-rows: #DCB6A6;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #AC3B61;
+	--text-color-link-active: #2E3944;
+	--text-color-link-visited: #DD3B61;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #A0A0A0;
+		--color-gray-90: #dad8d8;
+
+		--background-color: #121212;
+		--background-standout: #242120;
+		--highlight-color: rgba(255,255,255,0.6);
+		--alternating-rows: #473e3a;
+		
+		--text-color: var(--color-gray-50);
+		--text-color-link: #DD3B61;
+		--text-color-link-active: #9E9994;
+		--text-color-link-visited: #DD3B61;
+
+		/* --text-color is assigned to --color-gray-_ above 
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;*/
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 60em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.75;
+}
+
+li {
+	line-height: 1.75;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+
+a[href]:visited{
+    color: var(--text-color-link-visited);
+}
+
+a[href]:hover,
+a[href]:active {
+    color: var(--text-color-link-active);
+}
+
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+table th, table td {
+    text-align: center;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 0.8em;
+}
+.home-link {
+	font-size: 1.3em; /* 16px /16 */
+	font-weight: 710;
+	margin-right: 1em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+	font-size:1.1em;
+	font-weight:500;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+	position: relative;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	border: 1px solid #000;
+	text-align: center;
+	position: relative;
+	padding-bottom: 2.5em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 1em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	flex-basis: calc(100% - 1.5rem);
+}
+.postlist-link {
+	font-size: 1.6em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-subtitle {
+	font-size: 1em;
+	font-weight: 400;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-align: center;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+.bookmark {
+	background-color: var(--background-standout);
+	border: 1px solid #000;
+	box-shaddow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bookmark-title {
+	text-align: center;
+}
+
+.bookmark-summary {
+	text-align: center;
+	font-size: 0.75em;
+}
+
+.activities {
+    border: 0.1px solid;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Lato', normal;
+}
+
+.activities-header {
+    text-align: left;
+}
+
+.activities tr:nth-child(even) {
+    background-color: var(--alternating-rows);
+}
+
+profile-image {
+	width: 0.1em;
+	height: 0.1em;
+}
+
+.message-box {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center; /* Center the icons vertically */
+}
+
+.icon {
+    width: 24px; 
+    height: 24px; 
+    margin-right: 8px; 
+    fill: currentColor; 
+}
+
+.bluesky-icon {
+    transform: translateY(1px) scale(1.1); 
+}
+.rss-icon {
+    transform: translateY(1px) scale(1.1); 
+}
+.github-icon {
+    transform: scale(1.1); 
+}
+.ipod-icon {
+  transform: translateY(1.5px) scale(1.5);
+}
+
+.post-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+
+.message-box svg {
+    display: block;
+    vertical-align: middle;
+}
+
+.message-box svg:last-child {
+    margin-right: 0; /* Remove margin from the last icon */
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr; /* 2 rows */
+  grid-gap: 10px;
+}
+
+.image-item {
+  width: 100%;
+  height: 0;
+  padding-top: 200%; /* Maintain aspect ratio (2:1) for portrait-oriented images */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a.microblog-post-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.microblog-post {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.microblog-post:hover {
+  box-shadow: 0 4px 8px var(--highlight-color);
+}
+
+.microblog-post .post-description,
+.microblog-post .post-date {
+  font-size: 0.85em;
+  margin: 8px 0;
+  color: #666;
+  text-decoration: none;
+}
+
+.microblog-post .post-date {
+  font-size: 0.575em;
+  color: #999;
+  text-align: right;
+}
+
+.microblog-post .post-media {
+  max-width: 100%;
+  height: auto;
+  margin-top: 16px;
+  border-radius: 4px;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+picture {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+picture img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Webmentions */
+.webmentions img {
+  border-radius: 50%;
+  display: inline;
+  height: 48px;
+  width: 48px;
+  object-fit: cover;
+}
+.webmentions h3 {margin-top: 40px;}
+.webmentions__facepile span {
+  font-size: var(--size-600);
+  margin-right: 2rem;
+}
+.webmention-replies img {
+  height: 24px;
+  width: 24px;}
+.webmention-replies article {margin-bottom: 32px;}
+.webmention-replies .webmention__meta {margin-bottom: 8px;}
+.webmention-replies .webmention__meta time {display: block; margin-top: 8px;}
+.webmention-text {font-size: var(--size-400); margin-top: 0;}
+.webmention-text a {font-size: var(--size-300); margin-left: 4px;}
+article.webmention {
+  background-color: var(--grey-05);
+  padding: 16px 16px 12px;
+}
+form input[type="url"] {
+  display: block;
+  height: 2rem;
+  width: 100%;}
+.form-webmention {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 8px;
+  margin: 16px 0;
+  width: 100%;}
+.form-webmention input {width: 100%;}
+.form-webmention .button {
+  font-size: var(--size-300);
+  height: 2rem;}
+form label {
+  font-weight: 600;
+  margin: 4px 0 0 0;}
+.form {
+  background-color: var(--grey-05);
+  margin: 40px auto;
+  padding: 16px;
+  position: relative;}
+.form > * {position: relative;}
+.form svg {
+  position: absolute;
+  top: 5px;
+  right: 10px;}
+.form button, .form label, .form p {
+  display: block;
+  margin: 24px auto;
+  width: 90%;}
+.form input {
+  height: 2rem;}
+.form input, .form textarea {
+  border: 1px solid var(--grey-20);
+  color: var(--grey-80);
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--size-400);
+  font-weight: 400;
+  margin: 4px 0;
+  padding: 4px;
+  width: 100%;}
+footer .form {
+  background: none;
+  box-shadow: none;
+  text-align: left;
+}
+footer .button {
+  font-size: var(--size-400);
+  padding: 8px 12px;
+}
+footer .form input, footer .form button {
+  height: 2.3rem;
+}
+#honey {display: none;}
+.well {
+  background-color: rgba(222,221,227,0.4);
+  margin-top: 40px;
+  overflow: hidden;
+  padding: 32px;
+  position: relative;}
+.well > * {position: relative;}
+.well svg {
+  bottom: 0;
+  right: 100px;
+  position: absolute;
+  transform: rotate(45deg);}
+.tmpl-newspost .circles .content-780 {
+  margin: 0 auto;
+}
+
+.postlist-webmentions {
+    display: flex;
+    gap: 0.5em;
+    justify-content: flex-end; /* Aligns items to the right */
+    position: absolute;
+    right: 0.5em;
+    bottom: 0;
+}
+
+.postlist-webmentions .heart-icon {
+    margin-right: 0.2em
+}
+
+.postlist-webmentions #retweet-round {
+    margin-right: 0.35em
+}
+
+.postlist-webmentions svg {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    fill: var(--text-color-link); 
+    stroke: var(--text-color-link);
+}
+
+.webmention-count {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.05rem;
+    font-size: 0.85rem;
+    color: var(--text-color-link);
+    transform: translateY(-0.5em);
+}
+
+.webmention-item {
+    display: flex;
+    align-items: center;
+    gap: 0.01rem;
+}
+
+/* Timeline Container */
+.timeline-container {
+  display: flex;
+  justify-content: center; /* Centers the timeline horizontally */
+  background: var(--primary-color);
+  padding: 20px; /* Add padding to provide some space around the timeline */
+}
+
+/* Timeline */
+.timeline {
+  display: block;
+  background: var(--primary-color);
+  margin: auto;
+}
+
+/* Outer Layer with the timeline border */
+.outer {
+  border-left: 2px solid #333;
+}
+
+/* Card container */
+.card {
+  position: relative;
+  margin: 0 0 20px 20px;
+  padding: 10px;
+  background: var(--background-standout);
+  color: var(--text-color);
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.github-card {
+	background: transparent;
+	margin: 0 0 0 20px;
+}
+
+.music-card {
+  background: transparent;
+  margin: 0 0 5px 20px; /* Adjusted margins to reduce space */
+  padding: 5px; /* Reduced padding */
+}
+
+/* Information about the timeline */
+.info {
+}
+
+/* Title of the card */
+.title {
+  position: relative;
+}
+
+/* Timeline dot */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 25px;
+  background: var(--background-color);
+  border-radius: 999px;
+  left: -29px;
+  border: 3px solid var(--background-color);
+}
+
+.post-icon {
+  position: absolute;
+  width: 25px;  /* Adjust the width as needed */
+  height: 25px; /* Adjust the height as needed */
+  left: -38px;  /* Adjust the position as needed */
+  top: 10px;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+.fediverse-post-icon {
+	position: absolute;
+  width: 25px;  /* Adjust the width as needed */
+  height: 25px; /* Adjust the height as needed */
+  left: -38px;  /* Adjust the position as needed */
+  top: 13px;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+.pixelfed-icon {
+	position: absolute;
+  width: 32px;  /* Adjust the width as needed */
+  height: 32px; /* Adjust the height as needed */
+  left: -42px;  /* Adjust the position as needed */
+  top: 7px;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+.running-icon {
+	position: absolute;
+  width: 28px;  /* Adjust the width as needed */
+  height: 28px; /* Adjust the height as needed */
+  left: -40px;  /* Adjust the position as needed */
+  top: 12px;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+
+.music-icon {
+	position: absolute;
+  width: 28px;  /* Adjust the width as needed */
+  height: 28px; /* Adjust the height as needed */
+  left: -40px;  /* Adjust the position as needed */
+  top: 7px;
+  margin: 5px;
+  color: var(--text-color-link-visited);
+}
+
+.post-date {
+  background: rgba(0, 0, 0, 0.1); 
+  padding: 5px 10px;
+  border-radius: 4px;
+	font-size: 0.55em;
+}
+
+.post-media {
+  max-width: 100%;
+  height: auto; 
+  border-radius: 8px;
+  display: block;
+}</style>
+
+		
+		<!-- OpenGraph Meta Tags -->
+		<meta property="og:title" content="Food Photo - Tom Casavant">
+		<meta property="og:description" content="Blog about things">
+		<meta property="og:image" content="https://tomcasavant.com/img/opengraph/opengraph.png">
+		<meta property="og:url" content="/food/cinnamon-roll/">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Tom Casavant">
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Tom Casavant</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/bookmarks/">Bookmarks</a></li>
+					<li class="nav-item"><a href="/feeds/">Feeds</a></li>
+					<li class="nav-item"><a href="/food/">Food</a></li>
+					<li class="nav-item"><a href="/running/">Running</a></li>
+					<li class="nav-item"><a href="/blogroll/">Blogroll</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+<div class="image-container">
+  <picture><source type="image/avif" srcset="/img/Dt7o4yZVhf-519.avif 519w" sizes="100vw"><source type="image/webp" srcset="/img/Dt7o4yZVhf-519.webp 519w" sizes="100vw"><img alt="Cinnamon Rolls" loading="lazy" decoding="async" src="/img/Dt7o4yZVhf-519.jpeg" width="519" height="922"></picture>
+  <h1>Cinnamon Rolls</h1>
+  <p>2021-08-20</p>
+</div>
+
+<style>
+  .image-container {
+    text-align: center;
+  }
+  .image-container img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #000; /* Optional: Add border */
+    padding: 10px; /* Optional: Add padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+  }
+  .image-container h1 {
+    margin-top: 10px; /* Optional: Add margin to the caption */
+  }
+  .image-container p {
+    margin-top: 5px; /* Optional: Add margin to the date */
+  }
+</style>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/food/cinnamon-roll/` was built on 2024-07-03T19:43:45.717Z -->
+	</body>
+</html>
