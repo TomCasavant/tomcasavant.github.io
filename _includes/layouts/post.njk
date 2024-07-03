@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 permalink: "{{ title | slugify }}/"
-ogImage: "/img/opengraph/opengraph.png"
+ogImage: "img/opengraph/opengraph.png"
 ---
 
 {% block content %}
@@ -21,10 +21,14 @@ ogImage: "/img/opengraph/opengraph.png"
 
 {% block head %}
     <!-- OpenGraph Meta Tags -->
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{{ description | default('Default description if not set in front matter') }}">
-    <meta property="og:image" content="{{ ogImage | absoluteUrl(site.url) }}">
-    <meta property="og:url" content="{{ page.url | absoluteUrl(site.url) }}">
+    <meta property="og:title" content="{{ metadata.title }}">
+    <meta property="og:description" content="{{ metadata.description }}">
+    <meta property="og:image" content="{{ metadata.url + ogImage}}">
+    <meta property="og:url" content="{{ page.url }}">
     <meta property="og:type" content="article">
-    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:site_name" content="{{ metadata.title }}">
 {% endblock %}
+
+
+
+
