@@ -63,4 +63,12 @@ eleventyNavigation:
   text-align: center;
 }
 
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
 </style>
