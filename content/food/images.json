@@ -1,4 +1,16 @@
 [
+		{
+			"file": "./images/blueberry_cobbler.jpg",
+			"caption": "Blueberry Cobbler",
+			"date": "2024-06-23",
+			"orientation": "portrait"
+		},
+		{
+			"file": "./images/tortillas_and_guac.jpg",
+			"caption": "Homemade Tortilla Chips and Guacamole",
+			"date": "2024-06-28",
+			"orientation": "portrait"
+		},
     {
       "file": "./images/Ketchup-3.jpg",
       "caption": "Ketchup Cake",

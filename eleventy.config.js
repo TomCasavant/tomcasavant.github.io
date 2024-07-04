@@ -15,6 +15,8 @@ const sanitizeHtml = require('sanitize-html');
 const slugify = require("slugify");
 const filters = require('./_11ty/filters')
 
+const moment = require('moment');
+
 module.exports = function(eleventyConfig) {
 	// Copy the contents of the `public` folder to the output folder
 	// For example, `./public/css/` ends up in `_site/css/`
@@ -23,10 +25,47 @@ module.exports = function(eleventyConfig) {
 		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css"
 	});
 
+	eleventyConfig.addFilter('formatDate', function(dateString) {
+	    // Use moment.js to parse the datetime string
+	    const date = moment(dateString, "YYYY:MM:DD HH:mm:ss");
+
+	    if (!date.isValid()) {
+	        return dateString; // Return original string if date is invalid
+	    }
+
+	    // Format the date using moment.js
+	    return date.format('MMMM Do, YYYY h:mm A');
+	});
+
+
 	const foodImages = require("./content/food/images.json");
 
 	eleventyConfig.addCollection("foodImages", function(collectionApi) {
 		return foodImages.sort((a, b) => new Date(b.date) - new Date(a.date));
+	});
+
+	const photography = require("./content/photography/photos.json")
+	
+	function parseDate(datetime) {
+	  return moment(datetime, "YYYY:MM:DD HH:mm:ss").toDate();
+	}
+	
+	eleventyConfig.addCollection("photography", function(collectionApi) {
+		photography.forEach(photo => {
+			const parsedDate = parseDate(photo.datetime);
+		});
+		
+		const sortedPhotography = photography.sort((a, b) => {
+			const dateA = parseDate(a.datetime);
+			const dateB = parseDate(b.datetime);
+		    return dateB - dateA;
+		});
+		
+		sortedPhotography.forEach(photo => {
+		    const parsedDate = parseDate(photo.datetime);
+		});
+		
+		return sortedPhotography;
 	});
 
 	eleventyConfig.addFilter("splitPath", function(value) {
