@@ -9,6 +9,7 @@
 		<link rel="alternate" href="/blog.rss" type="application/rss+xml" title="Tom Casavant">
 		<link rel="alternate" href="/feed.json" type="application/json" title="Tom Casavant">
 		<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Tom Casavant">
+		<link rel="blogroll" type="text/xml" href="/subscriptions.opml">
 
 		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
@@ -661,19 +662,29 @@ footer .form input, footer .form button {
     gap: 0.01rem;
 }
 
-/* Timeline Container */
-.timeline-container {
-  display: flex;
-  justify-content: center; /* Centers the timeline horizontally */
-  background: var(--primary-color);
-  padding: 20px; /* Add padding to provide some space around the timeline */
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .timeline-container {
+    flex-direction: column; /* Stack items vertically */
+    padding: 10px; /* Reduce padding on smaller screens */
+  }
+
+  .timeline {
+    margin: 0 auto; /* Center the timeline */
+    width: 100%; /* Make the timeline take up the full width */
+  }
 }
 
-/* Timeline */
-.timeline {
-  display: block;
-  background: var(--primary-color);
-  margin: auto;
+/* Media Query for Even Smaller Screens */
+@media (max-width: 480px) {
+  .timeline-container {
+    padding: 5px; /* Further reduce padding on very small screens */
+  }
+
+  .timeline {
+    margin: 0; /* Remove margins */
+    width: 100%; /* Ensure it takes up the full width */
+  }
 }
 
 /* Outer Layer with the timeline border */
@@ -884,7 +895,7 @@ footer .form input, footer .form button {
 <div class="timeline">
 <div class="outer">
 <p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769983410737661" class="microblog-post-link">
+<a href="https://mastodon.social/@TomsMusic/112775689140941507" class="microblog-post-link">
 <div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
 <svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
 <title>Music</title>
@@ -893,11 +904,11 @@ footer .form input, footer .form button {
 </div>
 </a>
 <div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/7GqWnsKhMtEW0nzki5o0d8" target="_blank" rel="nofollow noopener noreferrer">Killer Queen - Remastered 2011</a> </div>
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/34uXlhi3eN9jpO95CgeV0o" target="_blank" rel="nofollow noopener noreferrer">Kill the Sun</a> </div>
 </div>
 </div></p>
 <p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769973590301227" class="microblog-post-link">
+<a href="https://mastodon.social/@TomsMusic/112775681281020609" class="microblog-post-link">
 <div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
 <svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
 <title>Music</title>
@@ -906,11 +917,11 @@ footer .form input, footer .form button {
 </div>
 </a>
 <div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/6GG73Jik4jUlQCkKg9JuGO" target="_blank" rel="nofollow noopener noreferrer">The Middle</a> </div>
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/0oTelkAghhQaETjlp6QXt3" target="_blank" rel="nofollow noopener noreferrer">Devils in the Canyon</a> </div>
 </div>
 </div></p>
 <p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769967696502869" class="microblog-post-link">
+<a href="https://mastodon.social/@TomsMusic/112775677360203818" class="microblog-post-link">
 <div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
 <svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
 <title>Music</title>
@@ -919,11 +930,11 @@ footer .form input, footer .form button {
 </div>
 </a>
 <div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/10Nmj3JCNoMeBQ87uw5j8k" target="_blank" rel="nofollow noopener noreferrer">Dani California</a> </div>
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/5piJiL6aRhvrKBa9YuEfS9" target="_blank" rel="nofollow noopener noreferrer">Peace Frog</a> </div>
 </div>
 </div></p>
 <p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769957872742402" class="microblog-post-link">
+<a href="https://mastodon.social/@TomsMusic/112775669487144313" class="microblog-post-link">
 <div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
 <svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
 <title>Music</title>
@@ -932,11 +943,11 @@ footer .form input, footer .form button {
 </div>
 </a>
 <div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/3B4q6KbHbGV51HO3GznBFF" target="_blank" rel="nofollow noopener noreferrer">What I Got</a> </div>
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/2MLHyLy5z5l5YRp7momlgw" target="_blank" rel="nofollow noopener noreferrer">Island In The Sun</a> </div>
 </div>
 </div></p>
 <p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769953922391156" class="microblog-post-link">
+<a href="https://mastodon.social/@TomsMusic/112774438675670929" class="microblog-post-link">
 <div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
 <svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
 <title>Music</title>
@@ -945,11 +956,11 @@ footer .form input, footer .form button {
 </div>
 </a>
 <div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/2LXISHBkx8FyoxCBkckh19" target="_blank" rel="nofollow noopener noreferrer">Do It Again</a> </div>
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/2MLHyLy5z5l5YRp7momlgw" target="_blank" rel="nofollow noopener noreferrer">Island In The Sun</a> </div>
 </div>
 </div></p>
 <p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769942121749870" class="microblog-post-link">
+<a href="https://mastodon.social/@TomsMusic/112774428850786721" class="microblog-post-link">
 <div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
 <svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
 <title>Music</title>
@@ -958,11 +969,11 @@ footer .form input, footer .form button {
 </div>
 </a>
 <div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/1s9Wu1vRfIr3JuO5BZOthT" target="_blank" rel="nofollow noopener noreferrer">Caroline</a> </div>
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/44Xyja7xYPlVC6v2CeweSi" target="_blank" rel="nofollow noopener noreferrer">GOSSIP (feat. Tom Morello)</a> </div>
 </div>
 </div></p>
 <p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769930324495689" class="microblog-post-link">
+<a href="https://mastodon.social/@TomsMusic/112774419017040505" class="microblog-post-link">
 <div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
 <svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
 <title>Music</title>
@@ -971,89 +982,11 @@ footer .form input, footer .form button {
 </div>
 </a>
 <div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/6i40XRqEwHAnSxwZWasMRp" target="_blank" rel="nofollow noopener noreferrer">For Elise</a> </div>
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/79DO6dBi8936P6EShLB209" target="_blank" rel="nofollow noopener noreferrer">Lightning Bolt</a> </div>
 </div>
 </div></p>
 <p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769916563553584" class="microblog-post-link">
-<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
-<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<title>Music</title>
-<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
-</svg>
-</div>
-</a>
-<div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/32l2qkI8F8mPyeLVdGhmEe" target="_blank" rel="nofollow noopener noreferrer">Out of Vogue</a> </div>
-</div>
-</div></p>
-<p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769894940093178" class="microblog-post-link">
-<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
-<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<title>Music</title>
-<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
-</svg>
-</div>
-</a>
-<div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/7f7MYbx4pfkYtTgIfTjuE6" target="_blank" rel="nofollow noopener noreferrer">27 Kids</a> </div>
-</div>
-</div></p>
-<p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769861513398965" class="microblog-post-link">
-<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
-<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<title>Music</title>
-<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
-</svg>
-</div>
-</a>
-<div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/5HUynLdprJzINndFXcidfu" target="_blank" rel="nofollow noopener noreferrer">Lay by Me</a> </div>
-</div>
-</div></p>
-<p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769849723666682" class="microblog-post-link">
-<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
-<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<title>Music</title>
-<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
-</svg>
-</div>
-</a>
-<div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/0PCtDCMDypMnUhVrLyOQZs" target="_blank" rel="nofollow noopener noreferrer">See You Later</a> </div>
-</div>
-</div></p>
-<p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769839891784900" class="microblog-post-link">
-<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
-<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<title>Music</title>
-<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
-</svg>
-</div>
-</a>
-<div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/2pA4ip3VIEVcIa3qE02oAX" target="_blank" rel="nofollow noopener noreferrer">10,000 Emerald Pools</a> </div>
-</div>
-</div></p>
-<p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769826162279360" class="microblog-post-link">
-<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
-<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<title>Music</title>
-<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
-</svg>
-</div>
-</a>
-<div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/7n6EgXVtdpCT4MRlqaVW5H" target="_blank" rel="nofollow noopener noreferrer">Telephones</a> </div>
-</div>
-</div></p>
-<p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769808427077853" class="microblog-post-link">
+<a href="https://mastodon.social/@TomsMusic/112774391515193887" class="microblog-post-link">
 <div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
 <svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
 <title>Music</title>
@@ -1066,7 +999,7 @@ footer .form input, footer .form button {
 </div>
 </div></p>
 <p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112769800568860374" class="microblog-post-link">
+<a href="https://mastodon.social/@TomsMusic/112774381666396448" class="microblog-post-link">
 <div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
 <svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
 <title>Music</title>
@@ -1075,7 +1008,206 @@ footer .form input, footer .form button {
 </div>
 </a>
 <div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/3jpWWWJpGEf5KCbICZ8agR" target="_blank" rel="nofollow noopener noreferrer">Van Dyke Brown</a> </div>
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/1OrD9RkuBnoNrrURFap9wi" target="_blank" rel="nofollow noopener noreferrer">Like or Like Like</a> </div>
+</div>
+</div></p>
+<p><div class="card music-card">
+<a href="https://mastodon.social/@TomsMusic/112774369866323950" class="microblog-post-link">
+<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
+<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<title>Music</title>
+<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+</svg>
+</div>
+</a>
+<div class="info">
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/79Usn4POWC308crb9UA1Rb" target="_blank" rel="nofollow noopener noreferrer">Instead of My Room</a> </div>
+</div>
+</div></p>
+<p><div class="card music-card">
+<a href="https://mastodon.social/@TomsMusic/112774360035075877" class="microblog-post-link">
+<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
+<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<title>Music</title>
+<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+</svg>
+</div>
+</a>
+<div class="info">
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/68JW0PqQ1hyw3bEhouRzy8" target="_blank" rel="nofollow noopener noreferrer">Backward in Love</a> </div>
+</div>
+</div></p>
+<p><div class="card music-card">
+<a href="https://mastodon.social/@TomsMusic/112773312085958270" class="microblog-post-link">
+<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
+<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<title>Music</title>
+<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+</svg>
+</div>
+</a>
+<div class="info">
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/68JW0PqQ1hyw3bEhouRzy8" target="_blank" rel="nofollow noopener noreferrer">Backward in Love</a> </div>
+</div>
+</div></p>
+<p><div class="card music-card">
+<a href="https://mastodon.social/@TomsMusic/112773310118416677" class="microblog-post-link">
+<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
+<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<title>Music</title>
+<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+</svg>
+</div>
+</a>
+<div class="info">
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/4lAasiKJZR4CkDygazvpvB" target="_blank" rel="nofollow noopener noreferrer">strawberry chainsaw</a> </div>
+</div>
+</div></p>
+<p><div class="card music-card">
+<a href="https://mastodon.social/@TomsMusic/112773308154005759" class="microblog-post-link">
+<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
+<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<title>Music</title>
+<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+</svg>
+</div>
+</a>
+<div class="info">
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/3II5NhDhjzIessLfaSjPQn" target="_blank" rel="nofollow noopener noreferrer">Groceries</a> </div>
+</div>
+</div></p>
+<p><div class="card music-card">
+<a href="https://mastodon.social/@TomsMusic/112773300288254896" class="microblog-post-link">
+<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
+<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<title>Music</title>
+<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+</svg>
+</div>
+</a>
+<div class="info">
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/4EaO2XR7gWaHq8DW7nu1iY" target="_blank" rel="nofollow noopener noreferrer">Paris</a> </div>
+</div>
+</div></p>
+<p><div class="card music-card">
+<a href="https://mastodon.social/@TomsMusic/112773292423360220" class="microblog-post-link">
+<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
+<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<title>Music</title>
+<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+</svg>
+</div>
+</a>
+<div class="info">
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/4mvPRLDf0ZedTzzXaXEavJ" target="_blank" rel="nofollow noopener noreferrer">Listen to Your Friends</a> </div>
+</div>
+</div></p>
+<p><div class="card music-card">
+<a href="https://mastodon.social/@TomsMusic/112773286518874202" class="microblog-post-link">
+<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
+<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<title>Music</title>
+<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+</svg>
+</div>
+</a>
+<div class="info">
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/1MHYAqWWdDRePmnqORynrq" target="_blank" rel="nofollow noopener noreferrer">Kathleen</a> </div>
+</div>
+</div></p>
+<p><div class="card music-card">
+<a href="https://mastodon.social/@TomsMusic/112773282596840741" class="microblog-post-link">
+<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
+<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<title>Music</title>
+<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+</svg>
+</div>
+</a>
+<div class="info">
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/3ZJZjjKFxTqVGJ8QIYKMjp" target="_blank" rel="nofollow noopener noreferrer">She Said</a> </div>
+</div>
+</div></p>
+<p><div class="card music-card">
+<a href="https://mastodon.social/@TomsMusic/112773278660571720" class="microblog-post-link">
+<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
+<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<title>Music</title>
+<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+</svg>
+</div>
+</a>
+<div class="info">
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/4m1qeec0mXXIMybWm4EGWc" target="_blank" rel="nofollow noopener noreferrer">Change of Seasons</a> </div>
+</div>
+</div></p>
+<p><div class="card music-card">
+<a href="https://mastodon.social/@TomsMusic/112773262925627239" class="microblog-post-link">
+<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
+<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<title>Music</title>
+<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+</svg>
+</div>
+</a>
+<div class="info">
+<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/0jfONt56vckywtWwm8wjki" target="_blank" rel="nofollow noopener noreferrer">Roam - Edit</a> </div>
+</div>
+</div></p>
+<p><div class="card github-card">
+<div class="icon running-icon post-icon w-5 h-5" aria-label="Open GitHub profile"  target="_blank" rel="noopener me">
+<svg roll="img" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 512.149 512.149" xml:space="preserve">
+<g transform="translate(-1)">
+<g>
+<g>
+<path d="M504.427,111.44l-1.253-1.254c-11.776-11.776-30.967-11.802-42.814,0.035l-46.089,46.574
+								c-2.428,2.436-6.312,2.534-8.845,0.203l-64.618-59.657c-6.276-5.8-14.442-8.987-22.996-8.987h-96.124
+								c-2.269,0-4.44,0.865-6.082,2.419l-81.47,77.356c-11.935,11.944-12.756,31.197-1.818,42.92
+								c5.844,6.268,13.736,9.719,22.219,9.719h0.15c8.413-0.044,16.499-3.619,22.087-9.728l57.538-60.893h20.595L120.63,300.218H37.81
+								c-19.633,0-35.778,14.68-36.758,33.421c-0.521,9.79,2.904,19.094,9.64,26.191c6.638,7,15.969,11.008,25.618,11.008h123.586
+								c2.436,0,4.767-1.006,6.444-2.798l63.32-67.593l53.248,55.684l-16.075,102.735c-4.052,17.02,4.114,34.357,19.412,41.198
+								c4.714,2.119,9.719,3.178,14.698,3.178c5.358,0,10.69-1.227,15.598-3.655c9.481-4.696,16.296-13.285,18.776-23.967
+								l27.463-147.306c0.53-2.86-0.38-5.809-2.445-7.865l-73.295-73.198l58.227-58.138l40.589,40.58
+								c11.335,11.335,31.091,11.335,42.417,0l76.156-76.147c5.623-5.623,8.722-13.109,8.722-21.054
+								C513.149,124.54,510.05,117.063,504.427,111.44z"/>
+<path d="M407.065,114.837c29.211,0,52.966-23.755,52.966-52.966c0-29.211-23.755-52.966-52.966-52.966
+								c-29.21,0-52.966,23.755-52.966,52.966C354.1,91.082,377.855,114.837,407.065,114.837z"/>
+</g>
+</g>
+</g>
+</svg>
+</div>
+<div class="info">
+<h4 class="title"> Tom walked 1.03 miles </p>
+</div>
+</div></p>
+<p><div class="card github-card">
+<div class="icon running-icon post-icon w-5 h-5" aria-label="Open GitHub profile"  target="_blank" rel="noopener me">
+<svg roll="img" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 512.149 512.149" xml:space="preserve">
+<g transform="translate(-1)">
+<g>
+<g>
+<path d="M504.427,111.44l-1.253-1.254c-11.776-11.776-30.967-11.802-42.814,0.035l-46.089,46.574
+								c-2.428,2.436-6.312,2.534-8.845,0.203l-64.618-59.657c-6.276-5.8-14.442-8.987-22.996-8.987h-96.124
+								c-2.269,0-4.44,0.865-6.082,2.419l-81.47,77.356c-11.935,11.944-12.756,31.197-1.818,42.92
+								c5.844,6.268,13.736,9.719,22.219,9.719h0.15c8.413-0.044,16.499-3.619,22.087-9.728l57.538-60.893h20.595L120.63,300.218H37.81
+								c-19.633,0-35.778,14.68-36.758,33.421c-0.521,9.79,2.904,19.094,9.64,26.191c6.638,7,15.969,11.008,25.618,11.008h123.586
+								c2.436,0,4.767-1.006,6.444-2.798l63.32-67.593l53.248,55.684l-16.075,102.735c-4.052,17.02,4.114,34.357,19.412,41.198
+								c4.714,2.119,9.719,3.178,14.698,3.178c5.358,0,10.69-1.227,15.598-3.655c9.481-4.696,16.296-13.285,18.776-23.967
+								l27.463-147.306c0.53-2.86-0.38-5.809-2.445-7.865l-73.295-73.198l58.227-58.138l40.589,40.58
+								c11.335,11.335,31.091,11.335,42.417,0l76.156-76.147c5.623-5.623,8.722-13.109,8.722-21.054
+								C513.149,124.54,510.05,117.063,504.427,111.44z"/>
+<path d="M407.065,114.837c29.211,0,52.966-23.755,52.966-52.966c0-29.211-23.755-52.966-52.966-52.966
+								c-29.21,0-52.966,23.755-52.966,52.966C354.1,91.082,377.855,114.837,407.065,114.837z"/>
+</g>
+</g>
+</g>
+</svg>
+</div>
+<div class="info">
+<h4 class="title"> Tom walked 1.08 miles </p>
 </div>
 </div></p>
 <p><div class="card microblog-card">
@@ -1186,71 +1318,6 @@ footer .form input, footer .form button {
 <div class="post-description"> <p>Watching the <a href="https://tomkahe.com/tags/Reds" class="mention hashtag" rel="tag">#<span>Reds</span></a></p> </div></p>
 <p></div>
 <p class="post-date"> July 10th, 2024 8:45:29 PM </p>
-</div></p>
-<p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112764218706578498" class="microblog-post-link">
-<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
-<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<title>Music</title>
-<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
-</svg>
-</div>
-</a>
-<div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/3jpWWWJpGEf5KCbICZ8agR" target="_blank" rel="nofollow noopener noreferrer">Van Dyke Brown</a> </div>
-</div>
-</div></p>
-<p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112764208878878308" class="microblog-post-link">
-<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
-<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<title>Music</title>
-<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
-</svg>
-</div>
-</a>
-<div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/5g1POu3HMfYQ0OX4lzlU6D" target="_blank" rel="nofollow noopener noreferrer">Complicated Creation</a> </div>
-</div>
-</div></p>
-<p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112764195110862858" class="microblog-post-link">
-<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
-<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<title>Music</title>
-<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
-</svg>
-</div>
-</a>
-<div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/6LREFtAefeqdTNdBAdmd99" target="_blank" rel="nofollow noopener noreferrer">Heart of a Dancer</a> </div>
-</div>
-</div></p>
-<p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112764179382660924" class="microblog-post-link">
-<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
-<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<title>Music</title>
-<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
-</svg>
-</div>
-</a>
-<div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/32l2qkI8F8mPyeLVdGhmEe" target="_blank" rel="nofollow noopener noreferrer">Out of Vogue</a> </div>
-</div>
-</div></p>
-<p><div class="card music-card">
-<a href="https://mastodon.social/@TomsMusic/112764165650922203" class="microblog-post-link">
-<div  aria-label="Open Music Feed" target="_blank" class="icon music-icon post-icon" rel="noopener">
-<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<title>Music</title>
-<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
-</svg>
-</div>
-</a>
-<div class="info">
-<div class="post-description"> Tom listened to <a href="https://open.spotify.com/track/08KTQSs3ickNki7FFTb6fY" target="_blank" rel="nofollow noopener noreferrer">The Cult of Dionysus</a> </div>
-</div>
 </div></p>
 <p><div class="card microblog-card">
 <a href="https://tomkahe.com/@tom/112764029112762042" class="microblog-post-link">
@@ -4535,62 +4602,6 @@ CAVEAT: While these numbers generally show how &quot;electable&quot; a candidate
 <h4 class="title"> Tom ran 5.10 miles </p>
 </div>
 </div></p>
-<p><div class="card github-card">
-<div class="icon running-icon post-icon w-5 h-5" aria-label="Open GitHub profile"  target="_blank" rel="noopener me">
-<svg roll="img" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 512.149 512.149" xml:space="preserve">
-<g transform="translate(-1)">
-<g>
-<g>
-<path d="M504.427,111.44l-1.253-1.254c-11.776-11.776-30.967-11.802-42.814,0.035l-46.089,46.574
-								c-2.428,2.436-6.312,2.534-8.845,0.203l-64.618-59.657c-6.276-5.8-14.442-8.987-22.996-8.987h-96.124
-								c-2.269,0-4.44,0.865-6.082,2.419l-81.47,77.356c-11.935,11.944-12.756,31.197-1.818,42.92
-								c5.844,6.268,13.736,9.719,22.219,9.719h0.15c8.413-0.044,16.499-3.619,22.087-9.728l57.538-60.893h20.595L120.63,300.218H37.81
-								c-19.633,0-35.778,14.68-36.758,33.421c-0.521,9.79,2.904,19.094,9.64,26.191c6.638,7,15.969,11.008,25.618,11.008h123.586
-								c2.436,0,4.767-1.006,6.444-2.798l63.32-67.593l53.248,55.684l-16.075,102.735c-4.052,17.02,4.114,34.357,19.412,41.198
-								c4.714,2.119,9.719,3.178,14.698,3.178c5.358,0,10.69-1.227,15.598-3.655c9.481-4.696,16.296-13.285,18.776-23.967
-								l27.463-147.306c0.53-2.86-0.38-5.809-2.445-7.865l-73.295-73.198l58.227-58.138l40.589,40.58
-								c11.335,11.335,31.091,11.335,42.417,0l76.156-76.147c5.623-5.623,8.722-13.109,8.722-21.054
-								C513.149,124.54,510.05,117.063,504.427,111.44z"/>
-<path d="M407.065,114.837c29.211,0,52.966-23.755,52.966-52.966c0-29.211-23.755-52.966-52.966-52.966
-								c-29.21,0-52.966,23.755-52.966,52.966C354.1,91.082,377.855,114.837,407.065,114.837z"/>
-</g>
-</g>
-</g>
-</svg>
-</div>
-<div class="info">
-<h4 class="title"> Tom walked 2.25 miles </p>
-</div>
-</div></p>
-<p><div class="card github-card">
-<div class="icon running-icon post-icon w-5 h-5" aria-label="Open GitHub profile"  target="_blank" rel="noopener me">
-<svg roll="img" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 512.149 512.149" xml:space="preserve">
-<g transform="translate(-1)">
-<g>
-<g>
-<path d="M504.427,111.44l-1.253-1.254c-11.776-11.776-30.967-11.802-42.814,0.035l-46.089,46.574
-								c-2.428,2.436-6.312,2.534-8.845,0.203l-64.618-59.657c-6.276-5.8-14.442-8.987-22.996-8.987h-96.124
-								c-2.269,0-4.44,0.865-6.082,2.419l-81.47,77.356c-11.935,11.944-12.756,31.197-1.818,42.92
-								c5.844,6.268,13.736,9.719,22.219,9.719h0.15c8.413-0.044,16.499-3.619,22.087-9.728l57.538-60.893h20.595L120.63,300.218H37.81
-								c-19.633,0-35.778,14.68-36.758,33.421c-0.521,9.79,2.904,19.094,9.64,26.191c6.638,7,15.969,11.008,25.618,11.008h123.586
-								c2.436,0,4.767-1.006,6.444-2.798l63.32-67.593l53.248,55.684l-16.075,102.735c-4.052,17.02,4.114,34.357,19.412,41.198
-								c4.714,2.119,9.719,3.178,14.698,3.178c5.358,0,10.69-1.227,15.598-3.655c9.481-4.696,16.296-13.285,18.776-23.967
-								l27.463-147.306c0.53-2.86-0.38-5.809-2.445-7.865l-73.295-73.198l58.227-58.138l40.589,40.58
-								c11.335,11.335,31.091,11.335,42.417,0l76.156-76.147c5.623-5.623,8.722-13.109,8.722-21.054
-								C513.149,124.54,510.05,117.063,504.427,111.44z"/>
-<path d="M407.065,114.837c29.211,0,52.966-23.755,52.966-52.966c0-29.211-23.755-52.966-52.966-52.966
-								c-29.21,0-52.966,23.755-52.966,52.966C354.1,91.082,377.855,114.837,407.065,114.837z"/>
-</g>
-</g>
-</g>
-</svg>
-</div>
-<div class="info">
-<h4 class="title"> Tom walked 1.85 miles </p>
-</div>
-</div></p>
 <p><div class="card pixelfed-card">
 <a href="https://pixelfed.social/p/mrpresidenttom/704492821934471919" class="microblog-post-link">
 <div  aria-label="Open Mastodon Feed" target="_blank" class="icon post-icon pixelfed-icon" rel="noopener">
@@ -4805,6 +4816,6 @@ CAVEAT: While these numbers generally show how &quot;electable&quot; a candidate
 
 		<footer></footer>
 
-		<!-- This page `/feeds/` was built on 2024-07-11T21:43:13.968Z -->
+		<!-- This page `/feeds/` was built on 2024-07-12T21:43:15.874Z -->
 	</body>
 </html>

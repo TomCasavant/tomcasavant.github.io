@@ -9,6 +9,7 @@
 		<link rel="alternate" href="/blog.rss" type="application/rss+xml" title="Tom Casavant">
 		<link rel="alternate" href="/feed.json" type="application/json" title="Tom Casavant">
 		<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Tom Casavant">
+		<link rel="blogroll" type="text/xml" href="/subscriptions.opml">
 
 		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
@@ -660,19 +661,29 @@ footer .form input, footer .form button {
     gap: 0.01rem;
 }
 
-/* Timeline Container */
-.timeline-container {
-  display: flex;
-  justify-content: center; /* Centers the timeline horizontally */
-  background: var(--primary-color);
-  padding: 20px; /* Add padding to provide some space around the timeline */
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .timeline-container {
+    flex-direction: column; /* Stack items vertically */
+    padding: 10px; /* Reduce padding on smaller screens */
+  }
+
+  .timeline {
+    margin: 0 auto; /* Center the timeline */
+    width: 100%; /* Make the timeline take up the full width */
+  }
 }
 
-/* Timeline */
-.timeline {
-  display: block;
-  background: var(--primary-color);
-  margin: auto;
+/* Media Query for Even Smaller Screens */
+@media (max-width: 480px) {
+  .timeline-container {
+    padding: 5px; /* Further reduce padding on very small screens */
+  }
+
+  .timeline {
+    margin: 0; /* Remove margins */
+    width: 100%; /* Ensure it takes up the full width */
+  }
 }
 
 /* Outer Layer with the timeline border */
@@ -852,6 +863,6 @@ footer .form input, footer .form button {
 
 		<footer></footer>
 
-		<!-- This page `/food/blueberry_cobbler/` was built on 2024-07-11T21:43:13.818Z -->
+		<!-- This page `/food/blueberry_cobbler/` was built on 2024-07-12T21:43:15.853Z -->
 	</body>
 </html>

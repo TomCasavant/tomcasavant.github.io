@@ -2,6 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="en">
 	<title>Tom Casavant</title>
 	<subtitle>Blog about things</subtitle>
+	<source:blogroll>https://tomcasavant.com/subscriptions.opml</source:blogroll>
 	<link href="https://tomcasavant.com/blog.rss" rel="self"/>
 	<link href="https://tomcasavant.com/"/>
 	<updated>2024-06-10T00:00:00Z</updated>

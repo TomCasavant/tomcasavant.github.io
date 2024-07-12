@@ -9,6 +9,7 @@
 		<link rel="alternate" href="/blog.rss" type="application/rss+xml" title="Tom Casavant">
 		<link rel="alternate" href="/feed.json" type="application/json" title="Tom Casavant">
 		<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Tom Casavant">
+		<link rel="blogroll" type="text/xml" href="/subscriptions.opml">
 
 		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
@@ -661,19 +662,29 @@ footer .form input, footer .form button {
     gap: 0.01rem;
 }
 
-/* Timeline Container */
-.timeline-container {
-  display: flex;
-  justify-content: center; /* Centers the timeline horizontally */
-  background: var(--primary-color);
-  padding: 20px; /* Add padding to provide some space around the timeline */
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .timeline-container {
+    flex-direction: column; /* Stack items vertically */
+    padding: 10px; /* Reduce padding on smaller screens */
+  }
+
+  .timeline {
+    margin: 0 auto; /* Center the timeline */
+    width: 100%; /* Make the timeline take up the full width */
+  }
 }
 
-/* Timeline */
-.timeline {
-  display: block;
-  background: var(--primary-color);
-  margin: auto;
+/* Media Query for Even Smaller Screens */
+@media (max-width: 480px) {
+  .timeline-container {
+    padding: 5px; /* Further reduce padding on very small screens */
+  }
+
+  .timeline {
+    margin: 0; /* Remove margins */
+    width: 100%; /* Ensure it takes up the full width */
+  }
 }
 
 /* Outer Layer with the timeline border */
@@ -893,15 +904,299 @@ footer .form input, footer .form button {
 <p><li>
 <a href="https://www.citationneeded.news/">https://www.citationneeded.news/</a> (blog)</p>
 <p><div class="blogroll-content"></p>
-<p><h4><a href="https://www.citationneeded.news/issue-61/">Issue 61 – Soft war by the enemy</a></h4></p>
-<p><p>July 5th, 2024 7:54:15 PM</p></p>
+<p><h4><a href="https://www.citationneeded.news/follow-the-crypto/">Follow the Crypto</a></h4></p>
+<p><p>July 12th, 2024 2:55:09 PM</p></p>
 <p></div></p>
 <p></li></p>
 <p><li>
 <a href="https://www.mollywhite.net/reading/shortform/">https://www.mollywhite.net/reading/shortform/</a> (blog)</p>
 <p><div class="blogroll-content"></p>
-<p><h4><a href="https://mollywhite.net/reading/shortform?search=An%20alarmingly%20concise%20and%20very%20hinged%20summary%20of%20what%20it%20was%20like%20to%20build%20this%20site%20from%20scratch">An alarmingly concise and very hinged summary of what it was like to build this site from scratch</a></h4></p>
-<p><p>July 11th, 2024 5:42:23 PM</p></p>
+<p><h4><a href="https://mollywhite.net/reading/shortform?search=Nathan%20Wade%20Speaks%20(Please%20Stop%20Speaking%2C%20Nathan%20Wade)">Nathan Wade Speaks (Please Stop Speaking, Nathan Wade)</a></h4></p>
+<p><p>July 12th, 2024 5:42:23 PM</p></p>
+<p></div></p>
+<p></li></p>
+<p></ul>
+</div>
+</div></p>
+<p><div class="spoiler-container blogroll">
+<p style="display: inline;">ThisDaysPortion</p>
+<input type="checkbox" id="ThisDaysPortion-checkbox" class="spoiler-checkbox">
+<label for="ThisDaysPortion-checkbox" class="spoiler-label">
+<span class="arrow-down">▲</span>
+</label>
+<div class="spoiler-content">
+<p class="blogroll-tags">Tags: tech</p>
+<ul class="blogroll-profiles"></p>
+<p><li>
+<a href="http://thisdaysportion.com/">http://thisdaysportion.com/</a> (blog)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://www.thisdaysportion.com/posts/just-give-web-a-chance/">See more</a></h4></p>
+<p><p>July 12th, 2024 4:17:21 PM</p></p>
+<p></div></p>
+<p></li></p>
+<p></ul>
+</div>
+</div></p>
+<p><div class="spoiler-container blogroll">
+<p style="display: inline;">In Deep Geek</p>
+<input type="checkbox" id="In-Deep-Geek-checkbox" class="spoiler-checkbox">
+<label for="In-Deep-Geek-checkbox" class="spoiler-label">
+<span class="arrow-down">▲</span>
+</label>
+<div class="spoiler-content">
+<p class="blogroll-tags">Tags: lotr, lordoftherings, gameofthrones, geek</p>
+<ul class="blogroll-profiles"></p>
+<p><li>
+<a href="https://www.youtube.com/@InDeepGeek">@InDeepGeek</a> (youtube)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://www.youtube.com/watch?v=PNwPEcc1r3k">How Powerful is The One Ring?</a></h4></p>
+<p><p>July 12th, 2024 4:00:08 PM</p></p>
+<p></div></p>
+<p></li></p>
+<p></ul>
+</div>
+</div></p>
+<p><div class="spoiler-container blogroll">
+<p style="display: inline;">Bill Fairchild</p>
+<input type="checkbox" id="Bill-Fairchild-checkbox" class="spoiler-checkbox">
+<label for="Bill-Fairchild-checkbox" class="spoiler-label">
+<span class="arrow-down">▲</span>
+</label>
+<div class="spoiler-content">
+<p class="blogroll-tags">Tags: steamdeck, gaming</p>
+<ul class="blogroll-profiles"></p>
+<p><li>
+<a href="https://www.youtube.com/@BillFairchild">@NerdNest</a> (youtube)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://www.youtube.com/watch?v=ZWTVUEwvIDU">HORIpad Steam is just the beginning  #gaming #steamdeck #steamos #steamcontroller</a></h4></p>
+<p><p>July 12th, 2024 3:29:53 PM</p></p>
+<p></div></p>
+<p></li></p>
+<p><li>
+<a href="https://www.youtube.com/@BillFairchild">@BillFairchild</a> (youtube)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://www.youtube.com/watch?v=ESCR8tS-3vY">My favorite podcast productivity tool 2024</a></h4></p>
+<p><p>April 25th, 2024 8:03:52 AM</p></p>
+<p></div></p>
+<p></li></p>
+<p><li>
+<a href="https://www.threads.net/@BillFairchild">@BillFairchild@threads.net</a> (fediverse)</p>
+<p></li></p>
+<p></ul>
+</div>
+</div></p>
+<p><div class="spoiler-container blogroll">
+<p style="display: inline;">Cincy Jungle</p>
+<input type="checkbox" id="Cincy-Jungle-checkbox" class="spoiler-checkbox">
+<label for="Cincy-Jungle-checkbox" class="spoiler-label">
+<span class="arrow-down">▲</span>
+</label>
+<div class="spoiler-content">
+<p class="blogroll-tags">Tags: sports</p>
+<ul class="blogroll-profiles"></p>
+<p><li>
+<a href="http://cincyjungle.com/">http://cincyjungle.com/</a> (blog)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://www.cincyjungle.com/2024/7/12/24197398/most-compelling-bengals-training-camp-talking-points-orange-and-black-insider">Most Compelling Bengals Training Camp Talking Points — Orange and Black Insider</a></h4></p>
+<p><p>July 12th, 2024 2:55:42 PM</p></p>
+<p></div></p>
+<p></li></p>
+<p></ul>
+</div>
+</div></p>
+<p><div class="spoiler-container blogroll">
+<p style="display: inline;">Jon Bois</p>
+<input type="checkbox" id="Jon-Bois-checkbox" class="spoiler-checkbox">
+<label for="Jon-Bois-checkbox" class="spoiler-label">
+<span class="arrow-down">▲</span>
+</label>
+<div class="spoiler-content">
+<p class="blogroll-tags">Tags: sports, cfb, nfl, comedy</p>
+<ul class="blogroll-profiles"></p>
+<p><li>
+<a href="https://www.youtube.com/@jonbois">@jonbois</a> (youtube)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://www.youtube.com/watch?v=1BZs005Hbgs">what year is it</a></h4></p>
+<p><p>July 8th, 2017 3:32:19 PM</p></p>
+<p></div></p>
+<p></li></p>
+<p><li>
+<a href="https://bsky.app/profile/jonbois.bsky.social">@jonbois.bsky.social</a> (bluesky)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://bsky.app/profile/jonbois.bsky.social/post/3kx44t7nn6q2q">See more</a></h4></p>
+<p><p>July 12th, 2024 2:03:00 PM</p></p>
+<p></div></p>
+<p></li></p>
+<p></ul>
+</div>
+</div></p>
+<p><div class="spoiler-container blogroll">
+<p style="display: inline;">Ian Betteridge</p>
+<input type="checkbox" id="Ian-Betteridge-checkbox" class="spoiler-checkbox">
+<label for="Ian-Betteridge-checkbox" class="spoiler-label">
+<span class="arrow-down">▲</span>
+</label>
+<div class="spoiler-content">
+<p class="blogroll-tags">Tags: tech</p>
+<ul class="blogroll-profiles"></p>
+<p><li>
+<a href="https://ianbetteridge.com/">https://ianbetteridge.com/</a> (blog)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://ianbetteridge.com/2024/07/12/ten-blue-links-three-lions-on-my-shirt-edition/">Ten Blue Links, “Three Lions On My Shirt” edition</a></h4></p>
+<p><p>July 12th, 2024 12:32:33 PM</p></p>
+<p></div></p>
+<p></li></p>
+<p></ul>
+</div>
+</div></p>
+<p><div class="spoiler-container blogroll">
+<p style="display: inline;">Scott Alexander</p>
+<input type="checkbox" id="Scott-Alexander-checkbox" class="spoiler-checkbox">
+<label for="Scott-Alexander-checkbox" class="spoiler-label">
+<span class="arrow-down">▲</span>
+</label>
+<div class="spoiler-content">
+<p class="blogroll-tags">Tags: politics, humor, philosophy</p>
+<ul class="blogroll-profiles"></p>
+<p><li>
+<a href="https://www.astralcodexten.com/">https://www.astralcodexten.com/</a> (blog)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://www.astralcodexten.com/p/your-book-review-the-family-that">Your Book Review: The Family That Couldn’t Sleep</a></h4></p>
+<p><p>July 12th, 2024 10:47:00 AM</p></p>
+<p></div></p>
+<p></li></p>
+<p></ul>
+</div>
+</div></p>
+<p><div class="spoiler-container blogroll">
+<p style="display: inline;">Bob Wulff</p>
+<input type="checkbox" id="Bob-Wulff-checkbox" class="spoiler-checkbox">
+<label for="Bob-Wulff-checkbox" class="spoiler-label">
+<span class="arrow-down">▲</span>
+</label>
+<div class="spoiler-content">
+<p class="blogroll-tags">Tags: retrogaming, gaming, handhelds</p>
+<ul class="blogroll-profiles"></p>
+<p><li>
+<a href="https://www.youtube.com/@WulffDen">@WulffDen</a> (youtube)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://www.youtube.com/watch?v=BCfmw7RQDQI">“Why don't you just use a controller with your phone?”</a></h4></p>
+<p><p>July 8th, 2024 4:00:49 PM</p></p>
+<p></div></p>
+<p></li></p>
+<p><li>
+<a href="https://www.youtube.com/@BobWulff">@BobWulff</a> (youtube)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://www.youtube.com/watch?v=5i8kbMQ8kLw">Japan has a lot of amazing Coffee ☕️</a></h4></p>
+<p><p>October 22nd, 2023 11:00:03 AM</p></p>
+<p></div></p>
+<p></li></p>
+<p><li>
+<a href="https://www.youtube.com/@WULFFDENPodcast">@WULFFDENPodcast</a> (youtube)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://www.youtube.com/watch?v=Y_MS77DSKaQ">Anbernic may be PIRATING MODERN GAMES!!</a></h4></p>
+<p><p>July 12th, 2024 10:00:28 AM</p></p>
+<p></div></p>
+<p></li></p>
+<p><li>
+<a href="https://www.threads.net/@thewulffden">@TheWulffDen@threads.net</a> (fediverse)</p>
+<p></li></p>
+<p></ul>
+</div>
+</div></p>
+<p><div class="spoiler-container blogroll">
+<p style="display: inline;">Stefan Bohacek</p>
+<input type="checkbox" id="Stefan-Bohacek-checkbox" class="spoiler-checkbox">
+<label for="Stefan-Bohacek-checkbox" class="spoiler-label">
+<span class="arrow-down">▲</span>
+</label>
+<div class="spoiler-content">
+<p class="blogroll-tags">Tags: activitypub, fediverse, datascience</p>
+<ul class="blogroll-profiles"></p>
+<p><li>
+<a href="https://stefanbohacek.online/@stefan">@stefan@stefanbohacek.online</a> (fediverse)</p>
+<p></li></p>
+<p><li>
+<a href="https://stefanbohacek.com">https://stefanbohacek.com</a> (blog)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://stefanbohacek.com/blog/custom-fediverse-emoji/">Custom fediverse emoji</a></h4></p>
+<p><p>July 12th, 2024 9:17:31 AM</p></p>
+<p></div></p>
+<p></li></p>
+<p></ul>
+</div>
+</div></p>
+<p><div class="spoiler-container blogroll">
+<p style="display: inline;">Terence Eden</p>
+<input type="checkbox" id="Terence-Eden-checkbox" class="spoiler-checkbox">
+<label for="Terence-Eden-checkbox" class="spoiler-label">
+<span class="arrow-down">▲</span>
+</label>
+<div class="spoiler-content">
+<p class="blogroll-tags">Tags: general</p>
+<ul class="blogroll-profiles"></p>
+<p><li>
+<a href="https://shkspr.mobi/blog/">https://shkspr.mobi/blog/</a> (blog)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://shkspr.mobi/blog/2024/07/llms-are-good-for-coding-because-your-documentation-is-shit/">LLMs are good for coding because your documentation is shit</a></h4></p>
+<p><p>July 12th, 2024 7:34:06 AM</p></p>
+<p></div></p>
+<p></li></p>
+<p></ul>
+</div>
+</div></p>
+<p><div class="spoiler-container blogroll">
+<p style="display: inline;">Claudio Rimann</p>
+<input type="checkbox" id="Claudio-Rimann-checkbox" class="spoiler-checkbox">
+<label for="Claudio-Rimann-checkbox" class="spoiler-label">
+<span class="arrow-down">▲</span>
+</label>
+<div class="spoiler-content">
+<p class="blogroll-tags">Tags: tech</p>
+<ul class="blogroll-profiles"></p>
+<p><li>
+<a href="https://claudiorimann.com/">https://claudiorimann.com/</a> (blog)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://claudiorimann.com/reading-list-82/">Reading List #82</a></h4></p>
+<p><p>July 12th, 2024 6:21:28 AM</p></p>
+<p></div></p>
+<p></li></p>
+<p></ul>
+</div>
+</div></p>
+<p><div class="spoiler-container blogroll">
+<p style="display: inline;">Discursive Anomalies</p>
+<input type="checkbox" id="Discursive-Anomalies-checkbox" class="spoiler-checkbox">
+<label for="Discursive-Anomalies-checkbox" class="spoiler-label">
+<span class="arrow-down">▲</span>
+</label>
+<div class="spoiler-content">
+<p class="blogroll-tags">Tags: tech</p>
+<ul class="blogroll-profiles"></p>
+<p><li>
+<a href="https://discursiveanomalies.com/">https://discursiveanomalies.com/</a> (blog)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://discursiveanomalies.com/2024/07/12/pynchon-vineland/">Pynchon: Vineland</a></h4></p>
+<p><p>July 12th, 2024 3:00:53 AM</p></p>
+<p></div></p>
+<p></li></p>
+<p></ul>
+</div>
+</div></p>
+<p><div class="spoiler-container blogroll">
+<p style="display: inline;">Doug Dirt</p>
+<input type="checkbox" id="Doug-Dirt-checkbox" class="spoiler-checkbox">
+<label for="Doug-Dirt-checkbox" class="spoiler-label">
+<span class="arrow-down">▲</span>
+</label>
+<div class="spoiler-content">
+<p class="blogroll-tags">Tags: sports</p>
+<ul class="blogroll-profiles"></p>
+<p><li>
+<a href="https://www.redsminorleagues.com/">https://www.redsminorleagues.com/</a> (blog)</p>
+<p><div class="blogroll-content"></p>
+<p><h4><a href="https://www.redsminorleagues.com/2024/07/12/cincinnati-reds-minor-league-game-review-july-11-2024/">Cincinnati Reds Minor League Game Review: July 11, 2024</a></h4></p>
+<p><p>July 12th, 2024 1:41:39 AM</p></p>
 <p></div></p>
 <p></li></p>
 <p></ul>
@@ -949,61 +1244,6 @@ footer .form input, footer .form button {
 </div>
 </div></p>
 <p><div class="spoiler-container blogroll">
-<p style="display: inline;">Bob Wulff</p>
-<input type="checkbox" id="Bob-Wulff-checkbox" class="spoiler-checkbox">
-<label for="Bob-Wulff-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: retrogaming, gaming, handhelds</p>
-<ul class="blogroll-profiles"></p>
-<p><li>
-<a href="https://www.youtube.com/@WulffDen">@WulffDen</a> (youtube)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://www.youtube.com/watch?v=BCfmw7RQDQI">“Why don't you just use a controller with your phone?”</a></h4></p>
-<p><p>July 8th, 2024 4:00:49 PM</p></p>
-<p></div></p>
-<p></li></p>
-<p><li>
-<a href="https://www.youtube.com/@BobWulff">@BobWulff</a> (youtube)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://www.youtube.com/watch?v=5i8kbMQ8kLw">Japan has a lot of amazing Coffee ☕️</a></h4></p>
-<p><p>October 22nd, 2023 11:00:03 AM</p></p>
-<p></div></p>
-<p></li></p>
-<p><li>
-<a href="https://www.youtube.com/@WULFFDENPodcast">@WULFFDENPodcast</a> (youtube)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://www.youtube.com/watch?v=rYNzBUgpW4I">Xbox CHANGES Game Pass FOR THE WORSE!</a></h4></p>
-<p><p>July 11th, 2024 10:00:48 AM</p></p>
-<p></div></p>
-<p></li></p>
-<p><li>
-<a href="https://www.threads.net/@thewulffden">@TheWulffDen@threads.net</a> (fediverse)</p>
-<p></li></p>
-<p></ul>
-</div>
-</div></p>
-<p><div class="spoiler-container blogroll">
-<p style="display: inline;">Cincy Jungle</p>
-<input type="checkbox" id="Cincy-Jungle-checkbox" class="spoiler-checkbox">
-<label for="Cincy-Jungle-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: sports</p>
-<ul class="blogroll-profiles"></p>
-<p><li>
-<a href="http://cincyjungle.com/">http://cincyjungle.com/</a> (blog)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://www.cincyjungle.com/2024/7/11/24194144/espn-ranks-bengals-no-17-in-under-25-talent">ESPN ranks Bengals No. 17 in under-25 talent </a></h4></p>
-<p><p>July 11th, 2024 7:00:00 AM</p></p>
-<p></div></p>
-<p></li></p>
-<p></ul>
-</div>
-</div></p>
-<p><div class="spoiler-container blogroll">
 <p style="display: inline;">Glarses</p>
 <input type="checkbox" id="Glarses-checkbox" class="spoiler-checkbox">
 <label for="Glarses-checkbox" class="spoiler-label">
@@ -1021,44 +1261,6 @@ footer .form input, footer .form button {
 <p></li></p>
 <p><li>
 <a href="https://instagram.com/glarsesyt">@glarsesyt</a> (instagram)</p>
-<p></li></p>
-<p></ul>
-</div>
-</div></p>
-<p><div class="spoiler-container blogroll">
-<p style="display: inline;">Scott Alexander</p>
-<input type="checkbox" id="Scott-Alexander-checkbox" class="spoiler-checkbox">
-<label for="Scott-Alexander-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: politics, humor, philosophy</p>
-<ul class="blogroll-profiles"></p>
-<p><li>
-<a href="https://www.astralcodexten.com/">https://www.astralcodexten.com/</a> (blog)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://www.astralcodexten.com/p/lifeboat-games-and-backscratchers">Lifeboat Games And Backscratchers Clubs</a></h4></p>
-<p><p>July 11th, 2024 6:07:02 AM</p></p>
-<p></div></p>
-<p></li></p>
-<p></ul>
-</div>
-</div></p>
-<p><div class="spoiler-container blogroll">
-<p style="display: inline;">Doug Dirt</p>
-<input type="checkbox" id="Doug-Dirt-checkbox" class="spoiler-checkbox">
-<label for="Doug-Dirt-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: sports</p>
-<ul class="blogroll-profiles"></p>
-<p><li>
-<a href="https://www.redsminorleagues.com/">https://www.redsminorleagues.com/</a> (blog)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://www.redsminorleagues.com/2024/07/11/cincinnati-reds-minor-league-game-review-july-10-2024/">Cincinnati Reds Minor League Game Review: July 10, 2024</a></h4></p>
-<p><p>July 11th, 2024 12:39:32 AM</p></p>
-<p></div></p>
 <p></li></p>
 <p></ul>
 </div>
@@ -1093,80 +1295,6 @@ footer .form input, footer .form button {
 </div>
 </div></p>
 <p><div class="spoiler-container blogroll">
-<p style="display: inline;">Jon Bois</p>
-<input type="checkbox" id="Jon-Bois-checkbox" class="spoiler-checkbox">
-<label for="Jon-Bois-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: sports, cfb, nfl, comedy</p>
-<ul class="blogroll-profiles"></p>
-<p><li>
-<a href="https://www.youtube.com/@jonbois">@jonbois</a> (youtube)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://www.youtube.com/watch?v=1BZs005Hbgs">what year is it</a></h4></p>
-<p><p>July 8th, 2017 3:32:19 PM</p></p>
-<p></div></p>
-<p></li></p>
-<p><li>
-<a href="https://bsky.app/profile/jonbois.bsky.social">@jonbois.bsky.social</a> (bluesky)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://bsky.app/profile/jonbois.bsky.social/post/3kwxlz7f6tc2l">See more</a></h4></p>
-<p><p>July 10th, 2024 6:51:00 PM</p></p>
-<p></div></p>
-<p></li></p>
-<p></ul>
-</div>
-</div></p>
-<p><div class="spoiler-container blogroll">
-<p style="display: inline;">Bill Fairchild</p>
-<input type="checkbox" id="Bill-Fairchild-checkbox" class="spoiler-checkbox">
-<label for="Bill-Fairchild-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: steamdeck, gaming</p>
-<ul class="blogroll-profiles"></p>
-<p><li>
-<a href="https://www.youtube.com/@BillFairchild">@NerdNest</a> (youtube)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://www.youtube.com/watch?v=N_9ZDGw_3Z4">Anbernic 40XX H hands on #gaming #retrogaming #anbernic</a></h4></p>
-<p><p>July 10th, 2024 8:04:20 AM</p></p>
-<p></div></p>
-<p></li></p>
-<p><li>
-<a href="https://www.youtube.com/@BillFairchild">@BillFairchild</a> (youtube)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://www.youtube.com/watch?v=ESCR8tS-3vY">My favorite podcast productivity tool 2024</a></h4></p>
-<p><p>April 25th, 2024 8:03:52 AM</p></p>
-<p></div></p>
-<p></li></p>
-<p><li>
-<a href="https://www.threads.net/@BillFairchild">@BillFairchild@threads.net</a> (fediverse)</p>
-<p></li></p>
-<p></ul>
-</div>
-</div></p>
-<p><div class="spoiler-container blogroll">
-<p style="display: inline;">Terence Eden</p>
-<input type="checkbox" id="Terence-Eden-checkbox" class="spoiler-checkbox">
-<label for="Terence-Eden-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: general</p>
-<ul class="blogroll-profiles"></p>
-<p><li>
-<a href="https://shkspr.mobi/blog/">https://shkspr.mobi/blog/</a> (blog)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://shkspr.mobi/blog/2024/07/disable-javascript-on-specific-sites-using-firefox-for-android-and-ublock-origin/">Disable JavaScript on Specific Sites using Firefox for Android and uBlock Origin</a></h4></p>
-<p><p>July 10th, 2024 7:34:11 AM</p></p>
-<p></div></p>
-<p></li></p>
-<p></ul>
-</div>
-</div></p>
-<p><div class="spoiler-container blogroll">
 <p style="display: inline;">Elena Rossini</p>
 <input type="checkbox" id="Elena-Rossini-checkbox" class="spoiler-checkbox">
 <label for="Elena-Rossini-checkbox" class="spoiler-label">
@@ -1184,66 +1312,6 @@ footer .form input, footer .form button {
 <p></li></p>
 <p><li>
 <a href="https://mastodon.social/@_elena">@_elena@mastodon.social</a> (fediverse)</p>
-<p></li></p>
-<p></ul>
-</div>
-</div></p>
-<p><div class="spoiler-container blogroll">
-<p style="display: inline;">ThisDaysPortion</p>
-<input type="checkbox" id="ThisDaysPortion-checkbox" class="spoiler-checkbox">
-<label for="ThisDaysPortion-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"></p>
-<p><li>
-<a href="http://thisdaysportion.com/">http://thisdaysportion.com/</a> (blog)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://www.thisdaysportion.com/posts/link-dynamic-websites-with-static-site-generators/">Link: Dynamic Websites with Static Site Generators</a></h4></p>
-<p><p>July 10th, 2024 2:44:43 AM</p></p>
-<p></div></p>
-<p></li></p>
-<p></ul>
-</div>
-</div></p>
-<p><div class="spoiler-container blogroll">
-<p style="display: inline;">In Deep Geek</p>
-<input type="checkbox" id="In-Deep-Geek-checkbox" class="spoiler-checkbox">
-<label for="In-Deep-Geek-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: lotr, lordoftherings, gameofthrones, geek</p>
-<ul class="blogroll-profiles"></p>
-<p><li>
-<a href="https://www.youtube.com/@InDeepGeek">@InDeepGeek</a> (youtube)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://www.youtube.com/watch?v=BZEbfmOzYS4">House of the Dragon, Season 2 Episode 4 Breakdown</a></h4></p>
-<p><p>July 9th, 2024 4:00:04 PM</p></p>
-<p></div></p>
-<p></li></p>
-<p></ul>
-</div>
-</div></p>
-<p><div class="spoiler-container blogroll">
-<p style="display: inline;">Stefan Bohacek</p>
-<input type="checkbox" id="Stefan-Bohacek-checkbox" class="spoiler-checkbox">
-<label for="Stefan-Bohacek-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: activitypub, fediverse, datascience</p>
-<ul class="blogroll-profiles"></p>
-<p><li>
-<a href="https://stefanbohacek.online/@stefan">@stefan@stefanbohacek.online</a> (fediverse)</p>
-<p></li></p>
-<p><li>
-<a href="https://stefanbohacek.com">https://stefanbohacek.com</a> (blog)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://stefanbohacek.com/project/pinned-posts-organizer/">Pinned posts organizer</a></h4></p>
-<p><p>July 9th, 2024 11:09:11 AM</p></p>
-<p></div></p>
 <p></li></p>
 <p></ul>
 </div>
@@ -1288,25 +1356,6 @@ footer .form input, footer .form button {
 <p></li></p>
 <p><li>
 <a href="https://www.threads.net/@timothyjchambers">@timothyjchambers@threads.net</a> (fediverse)</p>
-<p></li></p>
-<p></ul>
-</div>
-</div></p>
-<p><div class="spoiler-container blogroll">
-<p style="display: inline;">Ian Betteridge</p>
-<input type="checkbox" id="Ian-Betteridge-checkbox" class="spoiler-checkbox">
-<label for="Ian-Betteridge-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"></p>
-<p><li>
-<a href="https://ianbetteridge.com/">https://ianbetteridge.com/</a> (blog)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://ianbetteridge.com/2024/07/07/ten-blue-links-delayed-by-the-election-edition/">Ten Blue Links, “delayed by the election” edition</a></h4></p>
-<p><p>July 7th, 2024 1:37:31 PM</p></p>
-<p></div></p>
 <p></li></p>
 <p></ul>
 </div>
@@ -1565,25 +1614,6 @@ footer .form input, footer .form button {
 </div>
 </div></p>
 <p><div class="spoiler-container blogroll">
-<p style="display: inline;">Discursive Anomalies</p>
-<input type="checkbox" id="Discursive-Anomalies-checkbox" class="spoiler-checkbox">
-<label for="Discursive-Anomalies-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"></p>
-<p><li>
-<a href="https://discursiveanomalies.com/">https://discursiveanomalies.com/</a> (blog)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://discursiveanomalies.com/2024/06/04/accounting-for-artificial-intelligence/">Accounting for artificial intelligence</a></h4></p>
-<p><p>June 4th, 2024 12:15:12 AM</p></p>
-<p></div></p>
-<p></li></p>
-<p></ul>
-</div>
-</div></p>
-<p><div class="spoiler-container blogroll">
 <p style="display: inline;">LongerSky</p>
 <input type="checkbox" id="LongerSky-checkbox" class="spoiler-checkbox">
 <label for="LongerSky-checkbox" class="spoiler-label">
@@ -1597,25 +1627,6 @@ footer .form input, footer .form button {
 <p><div class="blogroll-content"></p>
 <p><h4><a href="https://longersky.com/2024/06/01/a-secret-horoscope/">A secret horoscope</a></h4></p>
 <p><p>June 1st, 2024 10:56:12 AM</p></p>
-<p></div></p>
-<p></li></p>
-<p></ul>
-</div>
-</div></p>
-<p><div class="spoiler-container blogroll">
-<p style="display: inline;">Claudio Rimann</p>
-<input type="checkbox" id="Claudio-Rimann-checkbox" class="spoiler-checkbox">
-<label for="Claudio-Rimann-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"></p>
-<p><li>
-<a href="https://claudiorimann.com/">https://claudiorimann.com/</a> (blog)</p>
-<p><div class="blogroll-content"></p>
-<p><h4><a href="https://claudiorimann.com/reading-list-81/">Reading List #81</a></h4></p>
-<p><p>June 1st, 2024 6:33:59 AM</p></p>
 <p></div></p>
 <p></li></p>
 <p></ul>
@@ -1938,6 +1949,6 @@ footer .form input, footer .form button {
 
 		<footer></footer>
 
-		<!-- This page `/blogroll/` was built on 2024-07-11T21:43:13.988Z -->
+		<!-- This page `/blogroll/` was built on 2024-07-12T21:43:15.880Z -->
 	</body>
 </html>
