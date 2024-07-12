@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+                <opml version="2.0">
+                    <head>
+                        <title>OPML Feeds</title>
+                    </head>
+                    <body>
+                        <outline text="https://cahatstrophe.neocities.org/feed.xml" title="https://cahatstrophe.neocities.org/feed.xml" type="rss" xmlUrl="https://cahatstrophe.neocities.org/feed.xml" htmlUrl="https://cahatstrophe.neocities.org/feed.xml" />
+                        <outline text="https://bsky.app/profile/did:plc:ovioxia6nlp5luphgf5ovg7p/rss" title="https://bsky.app/profile/did:plc:ovioxia6nlp5luphgf5ovg7p/rss" type="rss" xmlUrl="https://bsky.app/profile/did:plc:ovioxia6nlp5luphgf5ovg7p/rss" htmlUrl="https://bsky.app/profile/did:plc:ovioxia6nlp5luphgf5ovg7p/rss" />
+                        <outline text="https://casavant.org/index.xml" title="https://casavant.org/index.xml" type="rss" xmlUrl="https://casavant.org/index.xml" htmlUrl="https://casavant.org/index.xml" />
+                        <outline text="http://sam.casavant.org//feed.xml" title="http://sam.casavant.org//feed.xml" type="rss" xmlUrl="http://sam.casavant.org//feed.xml" htmlUrl="http://sam.casavant.org//feed.xml" />
+                        <outline text="https://tomcasavant.com/blog.rss" title="https://tomcasavant.com/blog.rss" type="rss" xmlUrl="https://tomcasavant.com/blog.rss" htmlUrl="https://tomcasavant.com/blog.rss" />
+                        <outline text="https://cassidyjames.com/feed.xml" title="https://cassidyjames.com/feed.xml" type="rss" xmlUrl="https://cassidyjames.com/feed.xml" htmlUrl="https://cassidyjames.com/feed.xml" />
+                        <outline text="https://evanp.me/feed/" title="https://evanp.me/feed/" type="rss" xmlUrl="https://evanp.me/feed/" htmlUrl="https://evanp.me/feed/" />
+                        <outline text="https://erinkissane.com/feed.rss" title="https://erinkissane.com/feed.rss" type="rss" xmlUrl="https://erinkissane.com/feed.rss" htmlUrl="https://erinkissane.com/feed.rss" />
+                        <outline text="https://snarfed.org/feed" title="https://snarfed.org/feed" type="rss" xmlUrl="https://snarfed.org/feed" htmlUrl="https://snarfed.org/feed" />
+                        <outline text="http://stefanbohacek.com/feed" title="http://stefanbohacek.com/feed" type="rss" xmlUrl="http://stefanbohacek.com/feed" htmlUrl="http://stefanbohacek.com/feed" />
+                        <outline text="https://shkspr.mobi/blog/feed/atom/" title="https://shkspr.mobi/blog/feed/atom/" type="rss" xmlUrl="https://shkspr.mobi/blog/feed/atom/" htmlUrl="https://shkspr.mobi/blog/feed/atom/" />
+                        <outline text="https://www.timothychambers.net/feed.xml" title="https://www.timothychambers.net/feed.xml" type="rss" xmlUrl="https://www.timothychambers.net/feed.xml" htmlUrl="https://www.timothychambers.net/feed.xml" />
+                        <outline text="https://box464.com/feed.xml" title="https://box464.com/feed.xml" type="rss" xmlUrl="https://box464.com/feed.xml" htmlUrl="https://box464.com/feed.xml" />
+                        <outline text="https://longersky.com/feed/" title="https://longersky.com/feed/" type="rss" xmlUrl="https://longersky.com/feed/" htmlUrl="https://longersky.com/feed/" />
+                        <outline text="https://www.citationneeded.news/rss/" title="https://www.citationneeded.news/rss/" type="rss" xmlUrl="https://www.citationneeded.news/rss/" htmlUrl="https://www.citationneeded.news/rss/" />
+                        <outline text="https://blog.elenarossini.com/rss/" title="https://blog.elenarossini.com/rss/" type="rss" xmlUrl="https://blog.elenarossini.com/rss/" htmlUrl="https://blog.elenarossini.com/rss/"/>
+                        <outline text="https://blog.erlend.sh/feed/" title="https://blog.erlend.sh/feed/" type="rss" xmlUrl="https://blog.erlend.sh/feed/" htmlUrl="https://blog.erlend.sh/feed/"/>
+                    </body>
+                </opml>

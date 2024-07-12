@@ -86,6 +86,7 @@ module.exports = function(eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy({ 'src/well-known': '.well-known' });
 	eleventyConfig.addPassthroughCopy("CNAME");
+	eleventyConfig.addPassthroughCopy("content/subscriptions.opml");
 
 	// Run Eleventy when these files change:
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
