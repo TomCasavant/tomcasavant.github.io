@@ -6,7 +6,6 @@ permalink: /blog.rss
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ metadata.language }}">
 	<title>{{ metadata.title }}</title>
 	<subtitle>{{ metadata.description }}</subtitle>
-	<source:blogroll>https://tomcasavant.com/subscriptions.opml</source:blogroll>
 	<link href="{{ permalink | htmlBaseUrl(metadata.url) }}" rel="self"/>
 	<link href="{{ metadata.url | addPathPrefixToFullUrl }}"/>
 	<updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
