@@ -1,8 +1,7 @@
 ---
 layout:     /layouts/post
 title:      "Blogrolls on Blogrolls on Blogrolls"
-subtitle:   "I enjoy reading blogs. Unfortunately, discovering blogs isn't exactly the easiest thing to do, most of the ones I've subscribed to after finding the authors on Twitter (formerly), The Fediverse, Flipboard, and other social platforms.
-A lot of the mainstream platforms tend to downrank links and there are not many platforms the open social web known for discoverability (yet)."
+subtitle:   "I enjoy reading blogs. Unfortunately, discovering blogs isn't exactly the easiest thing to do"
 date: 2024-07-13T10:00:00-04:00
 categories: blogging, blogroll
 ---
