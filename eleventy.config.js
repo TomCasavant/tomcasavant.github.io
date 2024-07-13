@@ -16,6 +16,7 @@ const slugify = require("slugify");
 const filters = require('./_11ty/filters')
 
 const moment = require('moment');
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function(eleventyConfig) {
 	// Copy the contents of the `public` folder to the output folder
@@ -36,6 +37,8 @@ module.exports = function(eleventyConfig) {
 	    // Format the date using moment.js
 	    return date.format('MMMM Do, YYYY h:mm A');
 	});
+
+	eleventyConfig.addPlugin(syntaxHighlight);
 
 
 	const foodImages = require("./content/food/images.json");
