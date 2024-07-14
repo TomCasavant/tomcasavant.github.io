@@ -3,26 +3,28 @@
 permalink: /blog.rss
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ metadata.language }}">
-	<title>{{ metadata.title }}</title>
-	<subtitle>{{ metadata.description }}</subtitle>
-	<source:blogroll>https://tomcasavant.com/subscriptions.opml</source:blogroll>
-	<link href="{{ permalink | htmlBaseUrl(metadata.url) }}" rel="self"/>
-	<link href="{{ metadata.url | addPathPrefixToFullUrl }}"/>
-	<updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
-	<id>{{ metadata.url }}</id>
-	<author>
-		<name>{{ metadata.author.name }}</name>
-		<email>{{ metadata.author.email }}</email>
-	</author>
-	{%- for post in collections.posts | reverse %}
-	{% set absolutePostUrl %}{{ post.url | htmlBaseUrl(metadata.url) }}{% endset %}
-	<entry>
-		<title>{{ post.data.title }}</title>
-		<link href="{{ absolutePostUrl }}"/>
-		<updated>{{ post.date | dateToRfc3339 }}</updated>
-		<id>{{ absolutePostUrl }}</id>
-		<content type="html">{{ post.templateContent | transformWithHtmlBase(absolutePostUrl, post.url) }}</content>
-	</entry>
-	{%- endfor %}
-</feed>
+<rss version="2.0" xmlns:source="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>{{ metadata.title }}</title>
+        <description>{{ metadata.description }}</description>
+        <link>{{ metadata.url }}</link>
+        <lastBuildDate>{{ collections.posts | getNewestCollectionItemDate | dateToRfc822 }}</lastBuildDate>
+        <language>{{ metadata.language }}</language>
+        <source:blogroll>https://tomcasavant.com/subscriptions.opml</source:blogroll>
+        <managingEditor>{{ metadata.author.email }} ({{ metadata.author.name }})</managingEditor>
+        <webMaster>{{ metadata.author.email }} ({{ metadata.author.name }})</webMaster>
+        <generator>Eleventy</generator>
+
+        {%- for post in collections.posts | reverse %}
+        {% set absolutePostUrl = post.url | htmlBaseUrl(metadata.url) %}
+        <item>
+            <title>{{ post.data.title }}</title>
+            <link>{{ absolutePostUrl }}</link>
+            <guid isPermaLink="true">{{ absolutePostUrl }}</guid>
+            <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
+            <description><![CDATA[{{ post.templateContent | transformWithHtmlBase(absolutePostUrl, post.url) }}]]></description>
+            <content:encoded><![CDATA[{{ post.templateContent | transformWithHtmlBase(absolutePostUrl, post.url) }}]]></content:encoded>
+        </item>
+        {%- endfor %}
+    </channel>
+</rss>
