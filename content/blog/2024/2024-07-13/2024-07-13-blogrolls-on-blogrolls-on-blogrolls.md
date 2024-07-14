@@ -13,6 +13,7 @@ A lot of the mainstream platforms tend to downrank links and there are not many 
 One possible option is to just search for them. [Marginalia](https://search.marginalia.nu/), for example, is a search engine that lets you easily find content across the indieweb.
 
 And another option is the Blogroll.
+
 ## Blogrolls
 The idea behind blogrolls is very simple: share the rss feeds you enjoy reading, forming a sort of [recommendation engine](https://bentsai.org/posts/my-recommendation-engine).
 
