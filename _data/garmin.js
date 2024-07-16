@@ -84,12 +84,14 @@ function formatSpeed(averageSpeed) {
 async function getGarminActivities() {
     let activities;
 
-    try {
-        // Attempt to fetch activities from Garmin Connect
-        activities = await fetchActivities();
-    } catch (error) {
-        console.error('Error fetching activities from Garmin Connect');
-			  console.error(error);
+    if (process.env.NODE_ENV === 'production') {
+        try {
+            // Attempt to fetch activities from Garmin Connect
+            activities = await fetchActivities();
+        } catch (error) {
+            console.error('Error fetching activities from Garmin Connect');
+                console.error(error);
+        }
     }
 
     if (!activities) {

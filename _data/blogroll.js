@@ -15,29 +15,32 @@ async function fetchProfilesWithFeeds() {
   const profilesWithFeeds = {};
 
   // Iterate over profiles and fetch RSS feeds if 'rss' attribute exists
-  for (const name in profiles) {
-    const details = profiles[name];
-
-    const profilesList = details.profiles.map(async profile => {
-      if (profile.rss) {
-        const feed = await fetchRSSFeed(profile.rss, profile.type);
-        await saveFeedToFile(name, profile.rss, feed.posts); // Save feed with RSS URL as filename
-
-        // Sort posts by 'created_at' in descending order (most recent first)
-        const sortedPosts = feed.posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
-        return { ...profile, content: sortedPosts[0] }; // Add content attribute with most recent post
-      } else {
-        return profile;
-      }
-    });
-
-    // Wait for all profiles to be processed and sorted
-    profilesWithFeeds[name] = {
-      tags: details.tags,
-      profiles: await Promise.all(profilesList),
-    };
+  if (process.env.NODE_ENV === 'production') {
+    for (const name in profiles) {
+      const details = profiles[name];
+  
+      const profilesList = details.profiles.map(async profile => {
+        if (profile.rss) {
+          const feed = await fetchRSSFeed(profile.rss, profile.type);
+          await saveFeedToFile(name, profile.rss, feed.posts); // Save feed with RSS URL as filename
+  
+          // Sort posts by 'created_at' in descending order (most recent first)
+          const sortedPosts = feed.posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  
+          return { ...profile, content: sortedPosts[0] }; // Add content attribute with most recent post
+        } else {
+          return profile;
+        }
+      });
+  
+      // Wait for all profiles to be processed and sorted
+      profilesWithFeeds[name] = {
+        tags: details.tags,
+        profiles: await Promise.all(profilesList),
+      };
+    }
   }
+  
 
   // Sort profilesWithFeeds by most recent post update across all profiles
 	const sortedProfilesWithFeeds = {};
