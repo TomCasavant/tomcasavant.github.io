@@ -22,7 +22,6 @@ permalink: /blog.rss
             <guid isPermaLink="true">{{ absolutePostUrl }}</guid>
             <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
             <description><![CDATA[{{ post.templateContent | transformWithHtmlBase(absolutePostUrl, post.url) }}]]></description>
-            <content:encoded><![CDATA[{{ post.templateContent | transformWithHtmlBase(absolutePostUrl, post.url) }}]]></content:encoded>
         </item>
         {%- endfor %}
     </channel>
