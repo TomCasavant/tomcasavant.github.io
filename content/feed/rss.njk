@@ -10,7 +10,6 @@ permalink: /blog.rss
         <link>{{ metadata.url }}</link>
         <lastBuildDate>{{ collections.posts | getNewestCollectionItemDate | dateToRfc822 }}</lastBuildDate>
         <language>{{ metadata.language }}</language>
-        <source:blogroll>https://tomcasavant.com/subscriptions.opml</source:blogroll>
         <managingEditor>{{ metadata.author.email }} ({{ metadata.author.name }})</managingEditor>
         <webMaster>{{ metadata.author.email }} ({{ metadata.author.name }})</webMaster>
         <generator>Eleventy</generator>
