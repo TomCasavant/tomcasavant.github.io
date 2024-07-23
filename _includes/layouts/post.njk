@@ -19,13 +19,15 @@ permalink: "{{ title | slugify }}/"
         {{ content | safe }}
     </div>
 
+    <a href="{{ page.url | url | absoluteUrl(site.url) }}" class="u-url"></a>
+
     {%- if collections.posts %}
     {%- set previousPost = collections.posts | getPreviousCollectionItem %}
     {%- set nextPost = collections.posts | getNextCollectionItem %}
     {%- if nextPost or previousPost %}
     <ul class="links-nextprev">
-        {%- if previousPost %}<li>Previous: <a href="{{ previousPost.url }}" class="u-url">{{ previousPost.data.title }}</a></li>{% endif %}
-        {%- if nextPost %}<li>Next: <a href="{{ nextPost.url }}" class="u-url">{{ nextPost.data.title }}</a></li>{% endif %}
+        {%- if previousPost %}<li>Previous: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
+        {%- if nextPost %}<li>Next: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
     </ul>
     {%- endif %}
     {%- endif %}
@@ -37,6 +39,5 @@ permalink: "{{ title | slugify }}/"
         {% endset %}
         {% include 'webmentions.njk' %}
     </section>
-    <a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
 </article>
 {% endblock %}
