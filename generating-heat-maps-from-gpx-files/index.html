@@ -834,13 +834,15 @@ footer .form input, footer .form button {
 		<main id="skip">
 			
 
-<h1>Generating Heat Maps from GPX Files</h1>
+<article class="h-entry">
+    <h1 class="p-name">Generating Heat Maps from GPX Files</h1>
 
-<ul class="post-metadata">
-    <li><time datetime="2019-04-18">18 April 2019</time></li>
-</ul>
+    <ul class="post-metadata">
+        <li><time class="dt-published" datetime="2019-04-18">18 April 2019</time></li>
+    </ul>
 
-<p><img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/heatmap.png?raw=true" alt="" title="Final generated heat map"></p>
+    <div class="e-content">
+        <p><img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/heatmap.png?raw=true" alt="" title="Final generated heat map"></p>
 <p>I own a smart watch (vivosport) that tracks my runs and other activities. The watch has a built-in GPS which will track my location. All of this data eventually gets transferred to Garmin, where I can view individual activities and the results of said activities.</p>
 <h2 id="getting-the-garmin-activity-data" tabindex="-1">Getting the Garmin Activity Data <a class="header-anchor" href="#getting-the-garmin-activity-data">#</a></h2>
 <p>Earlier this week I became interested as to whether or not I could view all my maps as a single heat map. The search brought me to an old Garmin forums page, where I was informed that the heat map functionality had long since been removed. There were two other options I found, using Strava to generate a heat map (unfortunately, this would involve signing up for their premium summit program) or generating a heat map from a series of gpx files (gpx being the gps filetype that each activity could output). Since I didn't desire to spend any money on this project I looked into the second option.</p>
@@ -1047,13 +1049,14 @@ if __name__ == '__main__':
 <code>python heatmap.py --output my_heat_map --input gpx_files --filter cycling</code></p>
 <p>That's it. The heat map gets generated and can be open in your web browser where you can manipulate it to your desire. Once again, all of this code can be found on my github at <a href="https://github.com/TomCasavant/GPXtoHeatmap">https://github.com/TomCasavant/GPXtoHeatmap</a>.</p>
 
-<ul class="links-nextprev"><li>Previous: <a href="/make-oh-io-2019/">Make OH/IO 2019</a></li><li>Next: <a href="/a-curious-case-of-osu-financial-aid/">A Curious Case of OSU Financial Aid</a></li>
-</ul>
+    </div>
+    <ul class="links-nextprev"><li>Previous: <a href="/make-oh-io-2019/" class="u-url">Make OH/IO 2019</a></li><li>Next: <a href="/a-curious-case-of-osu-financial-aid/" class="u-url">A Curious Case of OSU Financial Aid</a></li>
+    </ul>
 
-<section>  
-	<h2>Webmentions</h2>  
-	
-	<div class="webmentions content-grid-sibling" id="webmentions">
+    <section>  
+        <h2>Webmentions</h2>  
+        
+        <div class="webmentions content-grid-sibling" id="webmentions">
 
   
   
@@ -1222,20 +1225,14 @@ Final test
   </form>
 </div>
 
-</section>
-
-
-
-
-
-
-
+    </section>
+</article>
 
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/generating-heat-maps-from-gpx-files/` was built on 2024-07-22T21:43:24.732Z -->
+		<!-- This page `/generating-heat-maps-from-gpx-files/` was built on 2024-07-23T13:55:24.974Z -->
 	</body>
 </html>

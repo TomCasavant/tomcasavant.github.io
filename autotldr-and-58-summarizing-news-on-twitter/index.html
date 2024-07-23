@@ -834,13 +834,15 @@ footer .form input, footer .form button {
 		<main id="skip">
 			
 
-<h1>AutoTLDR&amp;#58; Summarizing News on Twitter</h1>
+<article class="h-entry">
+    <h1 class="p-name">AutoTLDR&amp;#58; Summarizing News on Twitter</h1>
 
-<ul class="post-metadata">
-    <li><time datetime="2017-04-05">05 April 2017</time></li>
-</ul>
+    <ul class="post-metadata">
+        <li><time class="dt-published" datetime="2017-04-05">05 April 2017</time></li>
+    </ul>
 
-<p>On Reddit, there is a bot named autotldr (<a href="https://www.reddit.com/user/autotldr">https://www.reddit.com/user/autotldr</a>) who uses one of the various text summarizer websites (i.e. <a href="http://textsummarization.net/text-summarizer">http://textsummarization.net/text-summarizer</a>) to simplify different news articles posted on Reddit in a few sentences. This intrigued me, so I looked into it and there is, in fact, a Python library that allows you to summarize articles very easily called sumy (https://pypi.python.org/pypi/sumy). Install with &quot;pip install sumy&quot; The Twython Library (pip install Twython) also interfaces with the Streaming API from Twitter, and API which lets me read tweets in real time. This is what we'll be using to create our AutoTLDR twitter account. Obviously, first you have to get your Twitter app credentials from <a href="https://dev.twitter.com/">https://dev.twitter.com/</a> and then create your config.ini file:</p>
+    <div class="e-content">
+        <p>On Reddit, there is a bot named autotldr (<a href="https://www.reddit.com/user/autotldr">https://www.reddit.com/user/autotldr</a>) who uses one of the various text summarizer websites (i.e. <a href="http://textsummarization.net/text-summarizer">http://textsummarization.net/text-summarizer</a>) to simplify different news articles posted on Reddit in a few sentences. This intrigued me, so I looked into it and there is, in fact, a Python library that allows you to summarize articles very easily called sumy (https://pypi.python.org/pypi/sumy). Install with &quot;pip install sumy&quot; The Twython Library (pip install Twython) also interfaces with the Streaming API from Twitter, and API which lets me read tweets in real time. This is what we'll be using to create our AutoTLDR twitter account. Obviously, first you have to get your Twitter app credentials from <a href="https://dev.twitter.com/">https://dev.twitter.com/</a> and then create your config.ini file:</p>
 <p>[twitter]
 API_KEY = ###API KEY HERE###
 API_SECRET = ###API SECRET HERE###
@@ -913,13 +915,14 @@ stream = myStreamer(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_SECRET)
 stream.statuses.filter(follow=['5392522', '612473', '5402612','742143','5741722'], filter_level='low') #Reads from certain Twitter Accounts (@NPR, @BBC, @BBCNews...)</p>
 <p>First, we obtain the API keys from our config file using SafeConfigParser, then we create a twitter instance and a streamer instance. The Streamer uses the &quot;follow=&quot; argument to follow certain accounts. You can obtain these id's using your own code, but I found it much easier to just go to <a href="http://mytwitterid.com/">http://mytwitterid.com/</a> and enter the username of the account you'd like the bot to keep track of. In my case, I followed NPR, BBC, and BBCNews (as well as a few others I can't remember off the top of my head). Now you can run your program in the background (if you're on a UNIX system) using &quot;nohup python main.py &amp;&quot;. My twitter account is currently active here: <a href="https://twitter.com/auto_tldr">https://twitter.com/auto_tldr</a> (@auto_tldr) You can view all this code on Github here: <a href="https://github.com/Twin802/AutoTLDR">https://github.com/Twin802/AutoTLDR</a></p>
 
-<ul class="links-nextprev"><li>Previous: <a href="/playlist-creator-and-58-a-python-spotify-creation/">Playlist Creator&amp;#58; A Python Spotify Creation</a></li><li>Next: <a href="/slackarchiver-and-58-using-mongo-to-archive-slack-messages-featuring-and-34-docker-and-34/">SlackArchiver&amp;#58; Using Mongo to archive Slack messages (Featuring &amp;#34;Docker&amp;#34;)</a></li>
-</ul>
+    </div>
+    <ul class="links-nextprev"><li>Previous: <a href="/playlist-creator-and-58-a-python-spotify-creation/" class="u-url">Playlist Creator&amp;#58; A Python Spotify Creation</a></li><li>Next: <a href="/slackarchiver-and-58-using-mongo-to-archive-slack-messages-featuring-and-34-docker-and-34/" class="u-url">SlackArchiver&amp;#58; Using Mongo to archive Slack messages (Featuring &amp;#34;Docker&amp;#34;)</a></li>
+    </ul>
 
-<section>  
-	<h2>Webmentions</h2>  
-	
-	<div class="webmentions content-grid-sibling" id="webmentions">
+    <section>  
+        <h2>Webmentions</h2>  
+        
+        <div class="webmentions content-grid-sibling" id="webmentions">
 
   
   
@@ -945,20 +948,14 @@ stream.statuses.filter(follow=['5392522', '612473', '5402612','742143','5741722'
   </form>
 </div>
 
-</section>
-
-
-
-
-
-
-
+    </section>
+</article>
 
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/autotldr-and-58-summarizing-news-on-twitter/` was built on 2024-07-22T21:43:24.714Z -->
+		<!-- This page `/autotldr-and-58-summarizing-news-on-twitter/` was built on 2024-07-23T13:55:24.957Z -->
 	</body>
 </html>

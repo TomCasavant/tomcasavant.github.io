@@ -834,13 +834,15 @@ footer .form input, footer .form button {
 		<main id="skip">
 			
 
-<h1>CleverSlack&amp;#58; A Cleverbot/Slack Implementation</h1>
+<article class="h-entry">
+    <h1 class="p-name">CleverSlack&amp;#58; A Cleverbot/Slack Implementation</h1>
 
-<ul class="post-metadata">
-    <li><time datetime="2017-03-30">30 March 2017</time></li>
-</ul>
+    <ul class="post-metadata">
+        <li><time class="dt-published" datetime="2017-03-30">30 March 2017</time></li>
+    </ul>
 
-<p>Cleverbot recently released an official API (that allows for 5,000 free requests every month) and with that, I wanted to experiment with this chat AI. I started using a website called Slack <a href="https://slack.com/">(https://slack.com/</a>) which is basically an easy way to communicate in large groups. So, I decided to combine the two and create a bot that would talk to people in this group chat. Prior to programming, you have to create an API key for both Slack and Cleverbot which is quite easy. You can follow the tutorial for creating a bot user in Slack here: <a href="https://api.slack.com/bot-users">https://api.slack.com/bot-users</a>. The Cleverbot API is located here: <a href="https://www.cleverbot.com/api/">https://www.cleverbot.com/api/</a> and all you need to do there is purchase the free API package. You will also need to install several libraries. Install slackclient and cleverwrap using pip. After generating all your API keys you can start with a config file. This, I learned, is necessary when loading sensitive information online as it keeps that data private. Python has a handy built-in library called ConfigParser that easily imports this data. Name your config file config.ini and add your API keys in there as such:</p>
+    <div class="e-content">
+        <p>Cleverbot recently released an official API (that allows for 5,000 free requests every month) and with that, I wanted to experiment with this chat AI. I started using a website called Slack <a href="https://slack.com/">(https://slack.com/</a>) which is basically an easy way to communicate in large groups. So, I decided to combine the two and create a bot that would talk to people in this group chat. Prior to programming, you have to create an API key for both Slack and Cleverbot which is quite easy. You can follow the tutorial for creating a bot user in Slack here: <a href="https://api.slack.com/bot-users">https://api.slack.com/bot-users</a>. The Cleverbot API is located here: <a href="https://www.cleverbot.com/api/">https://www.cleverbot.com/api/</a> and all you need to do there is purchase the free API package. You will also need to install several libraries. Install slackclient and cleverwrap using pip. After generating all your API keys you can start with a config file. This, I learned, is necessary when loading sensitive information online as it keeps that data private. Python has a handy built-in library called ConfigParser that easily imports this data. Name your config file config.ini and add your API keys in there as such:</p>
 <p>[slack]
 API_TOKEN = InsertSlackAPITokenHere
 [cleverbot]
@@ -884,13 +886,14 @@ main()</p>
 </blockquote>
 <p>Which logs anything printed out into nohup.out if you needed to read that. Thus you have a Cleverbot instance in your group chat to talk with.</p>
 
-<ul class="links-nextprev"><li>Previous: <a href="/markov-chain-and-58-a-harry-potter-quote-tweet-generator/">Markov Chain&amp;#58; A Harry Potter Quote/Tweet Generator</a></li><li>Next: <a href="/playlist-creator-and-58-a-python-spotify-creation/">Playlist Creator&amp;#58; A Python Spotify Creation</a></li>
-</ul>
+    </div>
+    <ul class="links-nextprev"><li>Previous: <a href="/markov-chain-and-58-a-harry-potter-quote-tweet-generator/" class="u-url">Markov Chain&amp;#58; A Harry Potter Quote/Tweet Generator</a></li><li>Next: <a href="/playlist-creator-and-58-a-python-spotify-creation/" class="u-url">Playlist Creator&amp;#58; A Python Spotify Creation</a></li>
+    </ul>
 
-<section>  
-	<h2>Webmentions</h2>  
-	
-	<div class="webmentions content-grid-sibling" id="webmentions">
+    <section>  
+        <h2>Webmentions</h2>  
+        
+        <div class="webmentions content-grid-sibling" id="webmentions">
 
   
   
@@ -916,20 +919,14 @@ main()</p>
   </form>
 </div>
 
-</section>
-
-
-
-
-
-
-
+    </section>
+</article>
 
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/cleverslack-and-58-a-cleverbot-slack-implementation/` was built on 2024-07-22T21:43:24.731Z -->
+		<!-- This page `/cleverslack-and-58-a-cleverbot-slack-implementation/` was built on 2024-07-23T13:55:24.950Z -->
 	</body>
 </html>

@@ -834,13 +834,15 @@ footer .form input, footer .form button {
 		<main id="skip">
 			
 
-<h1>NFL Win-Chain (Dijkstra&#39;s Algorithm)</h1>
+<article class="h-entry">
+    <h1 class="p-name">NFL Win-Chain (Dijkstra&#39;s Algorithm)</h1>
 
-<ul class="post-metadata">
-    <li><time datetime="2019-01-28">28 January 2019</time></li>
-</ul>
+    <ul class="post-metadata">
+        <li><time class="dt-published" datetime="2019-01-28">28 January 2019</time></li>
+    </ul>
 
-<p>Last semester I was taking a course at OSU called Foundations of Software Engineering. Towards the end of the course we learned about different algorithms to find paths between different nodes on a graph. One such algorithm was called Dijkstra's algorithm. I wanted to experiment with this algorithm, so I decided to write a program that would create nodes for each of the 32 NFL teams and have them connected via the wins between them, i.e. if the Bengals beat the Steelers then the Bengals would have a line pointing from themselves towards the Steelers.</p>
+    <div class="e-content">
+        <p>Last semester I was taking a course at OSU called Foundations of Software Engineering. Towards the end of the course we learned about different algorithms to find paths between different nodes on a graph. One such algorithm was called Dijkstra's algorithm. I wanted to experiment with this algorithm, so I decided to write a program that would create nodes for each of the 32 NFL teams and have them connected via the wins between them, i.e. if the Bengals beat the Steelers then the Bengals would have a line pointing from themselves towards the Steelers.</p>
 <p>The goal of the script was to be able to compare teams that didn't play each other during the season. For example, the Bengals and the Patriots did not play each other in the 2018 season. The shortest chain of wins between the Bengals and the Patriots was:</p>
 <blockquote>
 <p>Bengals -&gt; Colts -&gt; Redskins -&gt; Cardinals -&gt; 49ers -&gt; Lions -&gt; Patriots</p>
@@ -921,13 +923,14 @@ result = result + t.name + &quot; -&gt; &quot;</p>
 <p>print result</p>
 <p>And there we have it, we can now officially brag that the team of your choice is better than all other teams via the transitive win property. The full code can be viewed on my github at <a href="https://github.com/TomCasavant/NFLWinChains">https://github.com/TomCasavant/NFLWinChains</a></p>
 
-<ul class="links-nextprev"><li>Previous: <a href="/hack-oh-io-2018/">Hack OH/IO 2018</a></li><li>Next: <a href="/make-oh-io-2019/">Make OH/IO 2019</a></li>
-</ul>
+    </div>
+    <ul class="links-nextprev"><li>Previous: <a href="/hack-oh-io-2018/" class="u-url">Hack OH/IO 2018</a></li><li>Next: <a href="/make-oh-io-2019/" class="u-url">Make OH/IO 2019</a></li>
+    </ul>
 
-<section>  
-	<h2>Webmentions</h2>  
-	
-	<div class="webmentions content-grid-sibling" id="webmentions">
+    <section>  
+        <h2>Webmentions</h2>  
+        
+        <div class="webmentions content-grid-sibling" id="webmentions">
 
   
   
@@ -953,20 +956,14 @@ result = result + t.name + &quot; -&gt; &quot;</p>
   </form>
 </div>
 
-</section>
-
-
-
-
-
-
-
+    </section>
+</article>
 
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/nfl-win-chain-dijkstra-s-algorithm/` was built on 2024-07-22T21:43:24.700Z -->
+		<!-- This page `/nfl-win-chain-dijkstra-s-algorithm/` was built on 2024-07-23T13:55:24.965Z -->
 	</body>
 </html>

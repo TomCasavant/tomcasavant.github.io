@@ -834,13 +834,15 @@ footer .form input, footer .form button {
 		<main id="skip">
 			
 
-<h1>Twitter Profile Updater</h1>
+<article class="h-entry">
+    <h1 class="p-name">Twitter Profile Updater</h1>
 
-<ul class="post-metadata">
-    <li><time datetime="2016-07-21">21 July 2016</time></li>
-</ul>
+    <ul class="post-metadata">
+        <li><time class="dt-published" datetime="2016-07-21">21 July 2016</time></li>
+    </ul>
 
-<p>Recently, I have been playing around with Twython (https://twython.readthedocs.io/en/latest/), a Twitter Api wrapper for Python. I decided to write a simple script that would automatically update your profile with a new color scheme, avatar, and banner (or background). I have it changing my profile every hour. The first step was creating the App with the https://apps.twitter.com/ webpage. Which was a simple process: 1. Navigate to https://apps.twitter.com/ 2. Click on Create new App (and fill in required information) 3. View your app's page and click on 'Keys and Access Tokens' 4. Finally click 'Generate Access Keys' (At the bottom of the page) Now that we created the app, we now would have to program it. You'll need to install Twython using 'pip install twython', and then open up your preferred text editor. We will first create a class called User, in which all of our functions will be stored, then create an init function where we will authenticate the user</p>
+    <div class="e-content">
+        <p>Recently, I have been playing around with Twython (https://twython.readthedocs.io/en/latest/), a Twitter Api wrapper for Python. I decided to write a simple script that would automatically update your profile with a new color scheme, avatar, and banner (or background). I have it changing my profile every hour. The first step was creating the App with the https://apps.twitter.com/ webpage. Which was a simple process: 1. Navigate to https://apps.twitter.com/ 2. Click on Create new App (and fill in required information) 3. View your app's page and click on 'Keys and Access Tokens' 4. Finally click 'Generate Access Keys' (At the bottom of the page) Now that we created the app, we now would have to program it. You'll need to install Twython using 'pip install twython', and then open up your preferred text editor. We will first create a class called User, in which all of our functions will be stored, then create an init function where we will authenticate the user</p>
 <p>from twython import Twython
 class User():
 def <strong>init</strong>(self, app_key, app_secret, oauth_token, oauth_secret):
@@ -960,13 +962,14 @@ b = random.randint(0, 255)
 randHex = rgb2hex(r, g, b).replace(&quot;#&quot;, &quot;&quot;)
 user.updateColors(randHex)</p>
 
-<ul class="links-nextprev"><li>Previous: <a href="/making-a-chrome-extension/">Making a Chrome Extension</a></li><li>Next: <a href="/markov-chain-and-58-a-harry-potter-quote-tweet-generator/">Markov Chain&amp;#58; A Harry Potter Quote/Tweet Generator</a></li>
-</ul>
+    </div>
+    <ul class="links-nextprev"><li>Previous: <a href="/making-a-chrome-extension/" class="u-url">Making a Chrome Extension</a></li><li>Next: <a href="/markov-chain-and-58-a-harry-potter-quote-tweet-generator/" class="u-url">Markov Chain&amp;#58; A Harry Potter Quote/Tweet Generator</a></li>
+    </ul>
 
-<section>  
-	<h2>Webmentions</h2>  
-	
-	<div class="webmentions content-grid-sibling" id="webmentions">
+    <section>  
+        <h2>Webmentions</h2>  
+        
+        <div class="webmentions content-grid-sibling" id="webmentions">
 
   
   
@@ -992,20 +995,14 @@ user.updateColors(randHex)</p>
   </form>
 </div>
 
-</section>
-
-
-
-
-
-
-
+    </section>
+</article>
 
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/twitter-profile-updater/` was built on 2024-07-22T21:43:24.702Z -->
+		<!-- This page `/twitter-profile-updater/` was built on 2024-07-23T13:55:24.953Z -->
 	</body>
 </html>
