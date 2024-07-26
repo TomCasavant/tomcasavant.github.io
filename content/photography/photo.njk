@@ -11,7 +11,7 @@ permalink: /photography/{{ photo.file | splitPath | slug }}/
 <div class="image-container h-entry">
   {% set photoPath = 'photos/' + photo.file %}
   {% image photoPath, "" %}
-  <div class="p-summary">
+  <div class="e-content">
     <p><time class="dt-published">{{ photo.datetime | formatDate }}</time></p>
     <p>{{ photo.width }}x{{ photo.height }}</p>
     <p>{{ photo.model }}</p>
@@ -21,9 +21,8 @@ permalink: /photography/{{ photo.file | splitPath | slug }}/
     <p>Focal Length: {{ photo.focal_length }} mm</p>
     <p>Lens Model: {{ photo.lens_model }}</p>
   </div>
-	<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
+  <a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
 </div>
-
 <style>
 
   .image-container {
