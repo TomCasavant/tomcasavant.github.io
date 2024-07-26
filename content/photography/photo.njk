@@ -8,20 +8,23 @@ title: "Photo"
 permalink: /photography/{{ photo.file | splitPath | slug }}/
 ---
 
-<div class="image-container">
+<div class="image-container h-entry">
   {% set photoPath = 'photos/' + photo.file %}
   {% image photoPath, "" %}
-  <p>{{ photo.datetime | formatDate }}</p>
-  <p>{{ photo.width }}x{{ photo.height }}</p>
-  <p>{{ photo.model }}</p>
-  <p>Shutter Speed: {{ photo.exposure_time | formatExposureTime }}</p>
-  <p>Aperture: f/{{ photo.f_number }}</p>
-  <p>ISO: {{ photo.photographic_sensitivity }}</p>
-  <p>Focal Length: {{ photo.focal_length }} mm</p>
-  <p>Lens Model: {{ photo.lens_model }}</p>
+  <div class="p-summary">
+    <p>{{ photo.datetime | formatDate }}</p>
+    <p>{{ photo.width }}x{{ photo.height }}</p>
+    <p>{{ photo.model }}</p>
+    <p>Shutter Speed: {{ photo.exposure_time | formatExposureTime }}</p>
+    <p>Aperture: f/{{ photo.f_number }}</p>
+    <p>ISO: {{ photo.photographic_sensitivity }}</p>
+    <p>Focal Length: {{ photo.focal_length }} mm</p>
+    <p>Lens Model: {{ photo.lens_model }}</p>
+  </div>
 </div>
 
 <style>
+
   .image-container {
     text-align: center;
   }
@@ -32,10 +35,13 @@ permalink: /photography/{{ photo.file | splitPath | slug }}/
     max-width: 100%;
     height: auto;
     border: 2px solid #000; /* Optional: Add border */
-    padding: 10px; /* Optional: Add padding */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
   }
-  .image-container p {
-    margin-top: 5px; /* Optional: Add margin to the date */
+  .image-container p:first-of-type {
+    margin-top: 10px; /* Optional: Add margin to the date */
   }
+
+	p {
+	  line-height: 0.45;
+	}
 </style>
