@@ -32,14 +32,14 @@ permalink: "{{ title | slugify }}/"
     {%- endif %}
     {%- endif %}
 
-    <section>  
-        <h2>Webmentions</h2>  
-        {% set webmentionUrl %}
-        {{ page.url | url | absoluteUrl(site.url) }}
-        {% endset %}
-        {% include 'webmentions.njk' %}
-    </section>
-
 		<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
 </article>
+
+<section>  
+  <h2>Webmentions</h2>  
+  {% set webmentionUrl %}
+  {{ page.url | url | absoluteUrl(site.url) }}
+  {% endset %}
+  {% include 'webmentions.njk' %}
+</section>
 {% endblock %}
