@@ -48,6 +48,7 @@ module.exports = function(eleventyConfig) {
 			sizes,
 			loading: "lazy",
 			decoding: "async",
+			class: "u-photo"
 		};
 
 		return eleventyImage.generateHTML(metadata, imageAttributes);
@@ -72,6 +73,7 @@ module.exports = function(eleventyConfig) {
 			alt,
 			loading: "lazy",
 			decoding: "async",
+			class: "u-photo"
 		};
 
 		// Generate the HTML for the img tag
