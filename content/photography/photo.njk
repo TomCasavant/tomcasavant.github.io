@@ -12,7 +12,7 @@ permalink: /photography/{{ photo.file | splitPath | slug }}/
   {% set photoPath = 'photos/' + photo.file %}
   {% image photoPath, "" %}
   <div class="e-content">
-    <p>{{ photo.datetime | formatDate }}</p>
+    {{ photo.datetime | formatDate }}
     <p>{{ photo.width }}x{{ photo.height }}</p>
     <p>{{ photo.model }}</p>
     <p>Shutter Speed: {{ photo.exposure_time | formatExposureTime }}</p>
