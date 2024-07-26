@@ -26,17 +26,20 @@ module.exports = function(eleventyConfig) {
 		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css"
 	});
 
-	eleventyConfig.addFilter('formatDate', function(dateString) {
-	    // Use moment.js to parse the datetime string
-	    const date = moment(dateString, "YYYY:MM:DD HH:mm:ss");
+    eleventyConfig.addFilter('formatDate', function(dateString) {
+        // Use moment.js to parse the datetime string
+        const date = moment(dateString, "YYYY-MM-DD HH:mm:ss");
 
-	    if (!date.isValid()) {
-	        return dateString; // Return original string if date is invalid
-	    }
+        if (!date.isValid()) {
+            return dateString; // Return original string if date is invalid
+        }
 
-	    // Format the date using moment.js
-	    return date.format('MMMM Do, YYYY h:mm A');
-	});
+        // Convert to Eastern Time (ET) and format the date
+        const formattedDate = date.tz('America/New_York').format('MMMM Do, YYYY h:mm A');
+        const isoDate = date.tz('America/New_York').format();
+
+        return `<time class="dt-published" datetime="${isoDate}">${formattedDate}</time>`;
+    });
 
 	eleventyConfig.addPlugin(syntaxHighlight);
 
