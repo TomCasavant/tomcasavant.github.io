@@ -20,12 +20,19 @@ module.exports = {
         return DateTime.fromISO(dateStr).toFormat(formatStr);
     },
     formatDate: (dateString) => {
-        const date = moment(dateString, "YYYY:MM:DD HH:mm:ss");
-        if (!date.isValid()) {
-            return dateString; // Return original string if date is invalid
-        }
-        return date.format('MMMM Do, YYYY h:mm A');
-    },
+		    // Use moment.js to parse the datetime string
+		    const date = moment(dateString, "YYYY-MM-DD HH:mm:ss");
+		    if (!date.isValid()) {
+		        return dateString; // Return original string if date is invalid
+		    }
+		
+		    // Convert to Eastern Time (ET) and format the date
+		    const formattedDate = date.tz('America/New_York').format('MMMM Do, YYYY h:mm A');
+		    const isoDate = date.tz('America/New_York').format(); // ISO 8601 format
+		
+		    // Return the HTML time element with both formats
+		    return `<time class="dt-published" datetime="${isoDate}">${formattedDate}</time>`;
+		},
     formatExposureTime: (exposureTime) => {
         const time = parseFloat(exposureTime);
         if (time < 1) {
