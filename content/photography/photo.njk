@@ -10,7 +10,7 @@ permalink: /photography/{{ photo.file | splitPath | slug }}/
 
 <div class="image-container h-entry">
   {% set photoPath = 'photos/' + photo.file %}
-  {% image photoPath, "" %}
+  {% image photoPath, '', [600], '100vw', 1200, 800, true %}
   <p> {{ photo.datetime | formatDate | safe }} </p>
   <p>{{ photo.width }}x{{ photo.height }}</p>
   <div class="e-content">

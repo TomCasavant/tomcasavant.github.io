@@ -21,7 +21,7 @@ function isFullUrl(url) {
 module.exports = function(eleventyConfig) {
   // Eleventy Image shortcode
   // https://www.11ty.dev/docs/plugins/image/
-  eleventyConfig.addAsyncShortcode("image", async function imageShortcode(src, alt, widths = [600], sizes = '100vw', maxWidth = 1200, maxHeight = 800) {
+  eleventyConfig.addAsyncShortcode("image", async function imageShortcode(src, alt, widths = [600], sizes = '100vw', maxWidth = 1200, maxHeight = 800, fullsize=false) {
     let formats = ["avif", "webp", "auto"];
     let input;
     
@@ -47,24 +47,32 @@ module.exports = function(eleventyConfig) {
       outputDir: path.join(eleventyConfig.dir.output, "img"),
     });
 
+ 	let classes = 'u-photo visible'
+    if (fullsize) {
+    	classes = 'visible'
+    }
     let imageAttributes = {
       alt,
       sizes,
       loading: "lazy",
       decoding: "async",
-      class: "visible"
-    };
-
-    
-    let imageAttributes2 = {
-      alt,
-      class: "u-photo notvisible"
+      class: classes
     };
 
     let visibleImageHtml = eleventyImage.generateHTML(metadata, imageAttributes);
-    let invisibleImageHtml = eleventyImage.generateHTML(fullSizeMetadata, imageAttributes2);
+
+    let result = visibleImageHtml
+
+    if (fullsize) {
+    	let imageAttributes2 = {
+      		alt,
+      		class: "u-photo notvisible"
+    	};
+    	let invisibleImageHtml = eleventyImage.generateHTML(fullSizeMetadata, imageAttributes2);
+    	result += invisibleImageHtml
+    }
     
-    return `${invisibleImageHtml}\n${visibleImageHtml}`;
+    return result;
   });
 
   // Eleventy img shortcode
