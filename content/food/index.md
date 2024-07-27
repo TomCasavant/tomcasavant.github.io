@@ -47,7 +47,7 @@ eleventyNavigation:
   position: relative; /* Position for image zoom */
 }
 
-.column img {
+.column .visible {
   width: 100%;
   height: auto;
   display: block;

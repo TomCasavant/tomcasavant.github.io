@@ -19,64 +19,92 @@ function isFullUrl(url) {
 }
 
 module.exports = function(eleventyConfig) {
-	// Eleventy Image shortcode
-	// https://www.11ty.dev/docs/plugins/image/
-	eleventyConfig.addAsyncShortcode("image", async function imageShortcode(src, alt, widths = [600], sizes='100vw', maxWidth=1200, maxHeight=800) {
-		// Full list of formats here: https://www.11ty.dev/docs/plugins/image/#output-formats
-		// Warning: Avif can be resource-intensive so take care!
-		let formats = ["avif", "webp", "auto"];
-		let input;
-		if(isFullUrl(src)) {
-			input = src;
-		} else {
-			input = relativeToInputPath(this.page.inputPath, src);
-		}
+  // Eleventy Image shortcode
+  // https://www.11ty.dev/docs/plugins/image/
+  eleventyConfig.addAsyncShortcode("image", async function imageShortcode(src, alt, widths = [600], sizes = '100vw', maxWidth = 1200, maxHeight = 800) {
+    let formats = ["avif", "webp", "auto"];
+    let input;
+    
+    if (isFullUrl(src)) {
+      input = src;
+    } else {
+      input = relativeToInputPath(this.page.inputPath, src);
+    }
 
-		let metadata = await eleventyImage(input, {
-			widths: widths,
-			formats,
-			outputDir: path.join(eleventyConfig.dir.output, "img"), // Advanced usage note: `eleventyConfig.dir` works here because we’re using addPlugin.
-			outputOptions: {
-				maxWidth: maxWidth,
-				maxHeight: maxHeight,
-			},
-		});
+    let metadata = await eleventyImage(input, {
+      widths: widths,
+      formats,
+      outputDir: path.join(eleventyConfig.dir.output, "img"),
+      outputOptions: {
+        maxWidth: maxWidth,
+        maxHeight: maxHeight,
+      },
+    });
 
-		// TODO loading=eager and fetchpriority=high
-		let imageAttributes = {
-			alt,
-			sizes,
-			loading: "lazy",
-			decoding: "async",
-			class: "u-photo"
-		};
+    let fullSizeMetadata = await eleventyImage(input, {
+      widths: ['auto'],
+      formats: ['auto'],
+      outputDir: path.join(eleventyConfig.dir.output, "img"),
+    });
 
-		return eleventyImage.generateHTML(metadata, imageAttributes);
-	});
+    let imageAttributes = {
+      alt,
+      sizes,
+      loading: "lazy",
+      decoding: "async",
+      class: "visible"
+    };
 
-	eleventyConfig.addAsyncShortcode("img", async function imgShortcode(src, alt = '') {
-		let input;
-		if (isFullUrl(src)) {
-			input = src;
-		} else {
-			input = relativeToInputPath(this.page.inputPath, src);
-		}
+    
+    let imageAttributes2 = {
+      alt,
+      class: "u-photo notvisible"
+    };
 
-		let metadata = await eleventyImage(input, {
-			widths: [null], // Adjust width as needed
-			formats: ["jpeg"], // Adjust formats as needed
-			outputDir: path.join(eleventyConfig.dir.output, "img"),
-		});
+    let visibleImageHtml = eleventyImage.generateHTML(metadata, imageAttributes);
+    let invisibleImageHtml = eleventyImage.generateHTML(fullSizeMetadata, imageAttributes2);
+    
+    return `${invisibleImageHtml}\n${visibleImageHtml}`;
+  });
 
-		// Define the attributes for the image
-		let imageAttributes = {
-			alt,
-			loading: "lazy",
-			decoding: "async",
-			class: "u-photo"
-		};
+  // Eleventy img shortcode
+  eleventyConfig.addAsyncShortcode("img", async function imgShortcode(src, alt = '') {
+    let input;
+    
+    if (isFullUrl(src)) {
+      input = src;
+    } else {
+      input = relativeToInputPath(this.page.inputPath, src);
+    }
 
-		// Generate the HTML for the img tag
-		return eleventyImage.generateHTML(metadata, imageAttributes);
-	});
+    let metadata = await eleventyImage(input, {
+      widths: [null],
+      formats: ["jpeg"],
+      outputDir: path.join(eleventyConfig.dir.output, "img"),
+    });
+
+    let fullSizeMetadata = await eleventyImage(input, {
+      widths: ['auto'],
+      formats: ['auto'],
+      outputDir: path.join(eleventyConfig.dir.output, "img"),
+    });
+
+
+    let imageAttributes = {
+      alt,
+      loading: "lazy",
+      decoding: "async",
+      class: "visible"
+    };
+    
+    let imageAttributes2 = {
+      alt,
+      class: "u-photo notvisible"
+    };
+
+    let visibleImageHtml = eleventyImage.generateHTML(metadata, imageAttributes);
+    let invisibleImageHtml = eleventyImage.generateHTML(fullSizeMetadata, imageAttributes2);
+    
+    return `${invisibleImageHtml}\n${visibleImageHtml}`;
+  });
 };

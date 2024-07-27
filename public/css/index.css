@@ -756,3 +756,7 @@ footer .form input, footer .form button {
   border-radius: 8px;
   display: block;
 }
+
+.notvisible {
+	display: none;
+}
