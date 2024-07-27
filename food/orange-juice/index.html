@@ -800,6 +800,10 @@ footer .form input, footer .form button {
   height: auto; 
   border-radius: 8px;
   display: block;
+}
+
+.notvisible {
+	display: none;
 }</style>
 
 		
@@ -849,7 +853,8 @@ footer .form input, footer .form button {
 			
 
 <div class="image-container">
-  <picture><source type="image/avif" srcset="/img/di-vBBWtMj-497.avif 497w" sizes="100vw"><source type="image/webp" srcset="/img/di-vBBWtMj-497.webp 497w" sizes="100vw"><img alt="Orange Juice" loading="lazy" decoding="async" class="u-photo" src="/img/di-vBBWtMj-497.jpeg" width="497" height="963"></picture>
+  <img alt="Orange Juice" class="u-photo notvisible" src="/img/di-vBBWtMj-497.jpeg" width="497" height="963">
+<picture><source type="image/avif" srcset="/img/di-vBBWtMj-497.avif 497w" sizes="100vw"><source type="image/webp" srcset="/img/di-vBBWtMj-497.webp 497w" sizes="100vw"><img alt="Orange Juice" loading="lazy" decoding="async" class="visible" src="/img/di-vBBWtMj-497.jpeg" width="497" height="963"></picture>
   <h1>Orange Juice</h1>
   <p>2020-05-07</p>
 </div>
@@ -858,7 +863,7 @@ footer .form input, footer .form button {
   .image-container {
     text-align: center;
   }
-  .image-container img {
+  .image-container .visible {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -880,6 +885,6 @@ footer .form input, footer .form button {
 
 		<footer></footer>
 
-		<!-- This page `/food/orange-juice/` was built on 2024-07-27T01:23:45.662Z -->
+		<!-- This page `/food/orange-juice/` was built on 2024-07-27T03:12:40.019Z -->
 	</body>
 </html>

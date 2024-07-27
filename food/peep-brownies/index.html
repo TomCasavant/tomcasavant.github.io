@@ -800,6 +800,10 @@ footer .form input, footer .form button {
   height: auto; 
   border-radius: 8px;
   display: block;
+}
+
+.notvisible {
+	display: none;
 }</style>
 
 		
@@ -849,7 +853,8 @@ footer .form input, footer .form button {
 			
 
 <div class="image-container">
-  <picture><source type="image/avif" srcset="/img/8bQX0nvse7-519.avif 519w" sizes="100vw"><source type="image/webp" srcset="/img/8bQX0nvse7-519.webp 519w" sizes="100vw"><img alt="Peep Brownies" loading="lazy" decoding="async" class="u-photo" src="/img/8bQX0nvse7-519.jpeg" width="519" height="922"></picture>
+  <img alt="Peep Brownies" class="u-photo notvisible" src="/img/8bQX0nvse7-519.jpeg" width="519" height="922">
+<picture><source type="image/avif" srcset="/img/8bQX0nvse7-519.avif 519w" sizes="100vw"><source type="image/webp" srcset="/img/8bQX0nvse7-519.webp 519w" sizes="100vw"><img alt="Peep Brownies" loading="lazy" decoding="async" class="visible" src="/img/8bQX0nvse7-519.jpeg" width="519" height="922"></picture>
   <h1>Peep Brownies</h1>
   <p>2024-04-06</p>
 </div>
@@ -858,7 +863,7 @@ footer .form input, footer .form button {
   .image-container {
     text-align: center;
   }
-  .image-container img {
+  .image-container .visible {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -880,6 +885,6 @@ footer .form input, footer .form button {
 
 		<footer></footer>
 
-		<!-- This page `/food/peep-brownies/` was built on 2024-07-27T01:23:45.739Z -->
+		<!-- This page `/food/peep-brownies/` was built on 2024-07-27T03:12:40.110Z -->
 	</body>
 </html>

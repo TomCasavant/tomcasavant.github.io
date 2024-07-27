@@ -800,6 +800,10 @@ footer .form input, footer .form button {
   height: auto; 
   border-radius: 8px;
   display: block;
+}
+
+.notvisible {
+	display: none;
 }</style>
 
 		
@@ -849,7 +853,8 @@ footer .form input, footer .form button {
 			
 <div class="image-container h-entry">
   
-  <picture><source type="image/avif" srcset="/img/Q8akobkMHn-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/Q8akobkMHn-600.webp 600w" sizes="100vw"><img alt="" loading="lazy" decoding="async" class="u-photo" src="/img/Q8akobkMHn-600.jpeg" width="600" height="400"></picture>
+  <img alt="" class="u-photo notvisible" src="/img/Q8akobkMHn-5184.jpeg" width="5184" height="3456">
+<picture><source type="image/avif" srcset="/img/Q8akobkMHn-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/Q8akobkMHn-600.webp 600w" sizes="100vw"><img alt="" loading="lazy" decoding="async" class="visible" src="/img/Q8akobkMHn-600.jpeg" width="600" height="400"></picture>
   <p> <time class="dt-published" datetime="2024-07-03T18:54:55-04:00">July 3rd, 2024 6:54 PM</time> </p>
   <p>5184x3456</p>
   <div class="e-content">
@@ -867,7 +872,7 @@ footer .form input, footer .form button {
   .image-container {
     text-align: center;
   }
-  .image-container img {
+  .image-container .visible {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -889,6 +894,6 @@ footer .form input, footer .form button {
 
 		<footer></footer>
 
-		<!-- This page `/photography/img_2635/` was built on 2024-07-27T01:23:45.687Z -->
+		<!-- This page `/photography/img_2635/` was built on 2024-07-27T03:12:40.053Z -->
 	</body>
 </html>

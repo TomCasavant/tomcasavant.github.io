@@ -800,6 +800,10 @@ footer .form input, footer .form button {
   height: auto; 
   border-radius: 8px;
   display: block;
+}
+
+.notvisible {
+	display: none;
 }</style>
 
 		
@@ -849,7 +853,8 @@ footer .form input, footer .form button {
 			
 
 <div class="image-container">
-  <picture><source type="image/avif" srcset="/img/Dt7o4yZVhf-519.avif 519w" sizes="100vw"><source type="image/webp" srcset="/img/Dt7o4yZVhf-519.webp 519w" sizes="100vw"><img alt="Cinnamon Rolls" loading="lazy" decoding="async" class="u-photo" src="/img/Dt7o4yZVhf-519.jpeg" width="519" height="922"></picture>
+  <img alt="Cinnamon Rolls" class="u-photo notvisible" src="/img/Dt7o4yZVhf-519.jpeg" width="519" height="922">
+<picture><source type="image/avif" srcset="/img/Dt7o4yZVhf-519.avif 519w" sizes="100vw"><source type="image/webp" srcset="/img/Dt7o4yZVhf-519.webp 519w" sizes="100vw"><img alt="Cinnamon Rolls" loading="lazy" decoding="async" class="visible" src="/img/Dt7o4yZVhf-519.jpeg" width="519" height="922"></picture>
   <h1>Cinnamon Rolls</h1>
   <p>2021-08-20</p>
 </div>
@@ -858,7 +863,7 @@ footer .form input, footer .form button {
   .image-container {
     text-align: center;
   }
-  .image-container img {
+  .image-container .visible {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -880,6 +885,6 @@ footer .form input, footer .form button {
 
 		<footer></footer>
 
-		<!-- This page `/food/cinnamon-roll/` was built on 2024-07-27T01:23:45.658Z -->
+		<!-- This page `/food/cinnamon-roll/` was built on 2024-07-27T03:12:40.017Z -->
 	</body>
 </html>

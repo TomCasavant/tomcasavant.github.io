@@ -800,6 +800,10 @@ footer .form input, footer .form button {
   height: auto; 
   border-radius: 8px;
   display: block;
+}
+
+.notvisible {
+	display: none;
 }</style>
 
 		
@@ -849,7 +853,8 @@ footer .form input, footer .form button {
 			
 
 <div class="image-container">
-  <picture><source type="image/avif" srcset="/img/SvVq2qAOT_-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/SvVq2qAOT_-600.webp 600w" sizes="100vw"><img alt="Fruit Kolache" loading="lazy" decoding="async" class="u-photo" src="/img/SvVq2qAOT_-600.jpeg" width="600" height="450"></picture>
+  <img alt="Fruit Kolache" class="u-photo notvisible" src="/img/SvVq2qAOT_-960.jpeg" width="960" height="720">
+<picture><source type="image/avif" srcset="/img/SvVq2qAOT_-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/SvVq2qAOT_-600.webp 600w" sizes="100vw"><img alt="Fruit Kolache" loading="lazy" decoding="async" class="visible" src="/img/SvVq2qAOT_-600.jpeg" width="600" height="450"></picture>
   <h1>Fruit Kolache</h1>
   <p>2023-09-30</p>
 </div>
@@ -858,7 +863,7 @@ footer .form input, footer .form button {
   .image-container {
     text-align: center;
   }
-  .image-container img {
+  .image-container .visible {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -880,6 +885,6 @@ footer .form input, footer .form button {
 
 		<footer></footer>
 
-		<!-- This page `/food/fruit-kolache/` was built on 2024-07-27T01:23:45.742Z -->
+		<!-- This page `/food/fruit-kolache/` was built on 2024-07-27T03:12:40.105Z -->
 	</body>
 </html>
