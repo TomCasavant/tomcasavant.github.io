@@ -861,7 +861,7 @@ footer .form input, footer .form button {
 
     <div class="e-content">
         <p>I was working on a project and ran into a problem where I had to rank a set of objects based on an subjective value. My initial thought was to use some sort of bracket system</p>
-<p><picture><source type="image/avif" srcset="/img/f_RuCQbNkV-552.avif 552w" sizes="100vw"><source type="image/webp" srcset="/img/f_RuCQbNkV-552.webp 552w" sizes="100vw"><img alt="Ice Cream Bracket screenshot" loading="lazy" decoding="async" class="u-photo visible" src="/img/f_RuCQbNkV-552.jpeg" width="552" height="392"></picture></p>
+<p><a href="/img/f_RuCQbNkV-552.jpeg"><picture><source type="image/avif" srcset="/img/f_RuCQbNkV-552.avif 552w" sizes="100vw"><source type="image/webp" srcset="/img/f_RuCQbNkV-552.webp 552w" sizes="100vw"><img alt="Ice Cream Bracket screenshot" loading="lazy" decoding="async" class="u-photo visible" src="/img/f_RuCQbNkV-552.jpeg" width="552" height="392"></picture></a></p>
 <p>But that doesn't fully sort out my values (Is &quot;Vanilla&quot; better than &quot;Walnut&quot;?), the next thought was writing a function to repeatedly loop through the list and compare 2 values in a round-robin sort of way. But then I realized I was just creating a sort function and we can use the existing python sort function with a slight modification to solve this</p>
 <pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">import</span> functools
 ice_cream_flavors <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"Chocolate"</span><span class="token punctuation">,</span> <span class="token string">"Vanilla"</span><span class="token punctuation">,</span> <span class="token string">"Raspberry"</span><span class="token punctuation">,</span> <span class="token string">"Walnut"</span><span class="token punctuation">,</span> <span class="token string">"Strawberry"</span>x<span class="token punctuation">]</span>
@@ -878,7 +878,7 @@ ice_cream_flavors <span class="token operator">=</span> <span class="token punct
 
 
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">sorted</span><span class="token punctuation">(</span>ice_cream_flavors<span class="token punctuation">,</span> key<span class="token operator">=</span>functools<span class="token punctuation">.</span>cmp_to_key<span class="token punctuation">(</span>custom_sort<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
-<p><picture><source type="image/avif" srcset="/img/ZDhOaREPW9-500.avif 500w" sizes="100vw"><source type="image/webp" srcset="/img/ZDhOaREPW9-500.webp 500w" sizes="100vw"><img alt="Ice Cream Python output screenshot" loading="lazy" decoding="async" class="u-photo visible" src="/img/ZDhOaREPW9-500.jpeg" width="500" height="278"></picture></p>
+<p><a href="/img/ZDhOaREPW9-500.jpeg"><picture><source type="image/avif" srcset="/img/ZDhOaREPW9-500.avif 500w" sizes="100vw"><source type="image/webp" srcset="/img/ZDhOaREPW9-500.webp 500w" sizes="100vw"><img alt="Ice Cream Python output screenshot" loading="lazy" decoding="async" class="u-photo visible" src="/img/ZDhOaREPW9-500.jpeg" width="500" height="278"></picture></a></p>
 <p>By using the <code>functools.cmp_to_key</code> function we can create a custom comparator and ask the user (me) to decide which is better between 2 values.</p>
 <p>The one caveat to the method above is that I explicitly decided that no 2 values can be equal, if I were to replace that else statement with <code>return 0</code> it would work just fine, but would not necessarily have the definitive order I am looking for and allow values in the list to have the same subjective rating.</p>
 <p>One other possible issue in this setup is that there's no way to determine <em>how much</em> one flavor is preferred over another, which might be a useful measurement and something I'll explore in a future post.</p>
@@ -948,6 +948,6 @@ ice_cream_flavors <span class="token operator">=</span> <span class="token punct
 
 		<footer></footer>
 
-		<!-- This page `/subjective-ranked-sorting-in-python/` was built on 2024-07-27T21:43:51.000Z -->
+		<!-- This page `/subjective-ranked-sorting-in-python/` was built on 2024-07-28T02:15:15.769Z -->
 	</body>
 </html>
