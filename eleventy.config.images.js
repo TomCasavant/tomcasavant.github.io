@@ -60,8 +60,8 @@ module.exports = function(eleventyConfig) {
     };
 
     let visibleImageHtml = eleventyImage.generateHTML(metadata, imageAttributes);
-
-    let result = visibleImageHtml
+	let fullSizeSrc = fullSizeMetadata.avif?.[0].url || fullSizeMetadata.webp?.[0].url || fullSizeMetadata.jpeg?.[0].url;
+    let result = `<a href="${fullSizeSrc}">${visibleImageHtml}</a>`
 
     if (fullsize) {
     	let imageAttributes2 = {
@@ -71,7 +71,7 @@ module.exports = function(eleventyConfig) {
     	let invisibleImageHtml = eleventyImage.generateHTML(fullSizeMetadata, imageAttributes2);
     	result += invisibleImageHtml
     }
-    
+
     return result;
   });
 
