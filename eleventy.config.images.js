@@ -41,11 +41,11 @@ module.exports = function(eleventyConfig) {
       },
     });
 
-    let fullSizeMetadata = await eleventyImage(input, {
-      widths: ['auto'],
-      formats: ['auto'],
-      outputDir: path.join(eleventyConfig.dir.output, "img"),
-    });
+   let fullSizeMetadata = await eleventyImage(input, {
+    widths: ['auto'],
+    formats: ['auto'],
+    outputDir: path.join(eleventyConfig.dir.output, "img/full"), // Output full-size images to /img/full
+  });
 
  	let classes = 'u-photo visible'
     if (fullsize) {
