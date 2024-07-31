@@ -6,7 +6,6 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
-
 const pluginDrafts = require("./eleventy.config.drafts.js");
 const pluginImages = require("./eleventy.config.images.js");
 const eleventyGoogleFonts = require("eleventy-google-fonts");
@@ -91,7 +90,25 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addPlugin(eleventyGoogleFonts);
 
 	// Official plugins
-	eleventyConfig.addPlugin(pluginRss);
+	eleventyConfig.addPlugin(pluginRss, {
+		type: "atom", // or "rss", "json"
+		outputPath: "/blog.xml",
+		collection: {
+			name: "posts", // iterate over `collections.posts`
+			limit: 0,     // 0 means no limit
+		},
+		metadata: {
+			language: "en",
+			title: "Tom Casavant",
+			subtitle: "Blog about things.",
+			base: "https://tomcasavant.com/",
+			author: {
+				name: "Tom Casavant",
+				email: "tfcasavant@gmail.com", // Optional
+			}
+		}
+	});
+
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
 		preAttributes: { tabindex: 0 }
 	});
