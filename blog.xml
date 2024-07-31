@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="en">
 	<title>Tom Casavant</title>
 	<subtitle>Blog about things</subtitle>
-	<link href="https://tomcasavant.com/feed.xml" rel="self"/>
+	<link href="https://tomcasavant.com/blog.xml" rel="self"/>
 	<link href="https://tomcasavant.com/"/>
 	<updated>2024-07-13T14:00:00Z</updated>
 	<id>https://tomcasavant.com/</id>
