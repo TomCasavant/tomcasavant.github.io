@@ -51,7 +51,12 @@
 		<!-- OpenGraph Meta Tags -->
 		<meta property="og:title" content="{{ title or metadata.title }} - {{ metadata.title }}">
 		<meta property="og:description" content="{{ metadata.description }}">
-		<meta property="og:image" content="{{ metadata.url + "img/opengraph/opengraph.png"}}">
+		{% if photo.og_image %}
+		  <meta property="og:image" content="{{ photo.og_image }}">
+		{% else %}
+		  <meta property="og:image" content="/img/opengraph/opengraph.png">
+		{% endif %}
+		
 		<meta property="og:url" content="{{ page.url }}">
 		<meta property="og:type" content="article">
 		<meta property="og:site_name" content="{{ metadata.title }}">

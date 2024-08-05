@@ -34,30 +34,6 @@ module.exports = function(eleventyConfig) {
 		return foodImages.sort((a, b) => new Date(b.date) - new Date(a.date));
 	});
 
-	const photography = require("./content/photography/photos.json")
-	
-	function parseDate(datetime) {
-	  return moment(datetime, "YYYY:MM:DD HH:mm:ss").toDate();
-	}
-	
-	eleventyConfig.addCollection("photography", function(collectionApi) {
-		photography.forEach(photo => {
-			const parsedDate = parseDate(photo.datetime);
-		});
-		
-		const sortedPhotography = photography.sort((a, b) => {
-			const dateA = parseDate(a.datetime);
-			const dateB = parseDate(b.datetime);
-		    return dateB - dateA;
-		});
-		
-		/*sortedPhotography.forEach(photo => {
-		    const parsedDate = parseDate(photo.datetime);
-		});*/
-		
-		return sortedPhotography;
-	});
-
 	eleventyConfig.addFilter("splitPath", function(value) {
 		return value.split("/").pop().split(".")[0];
 	  });

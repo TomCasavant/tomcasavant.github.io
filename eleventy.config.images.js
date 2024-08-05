@@ -1,6 +1,8 @@
 const path = require("path");
 const eleventyImage = require("@11ty/eleventy-img");
 
+const moment = require('moment');
+
 function relativeToInputPath(inputPath, relativeFilePath) {
 	let split = inputPath.split("/");
 	split.pop();
@@ -18,7 +20,24 @@ function isFullUrl(url) {
 	}
 }
 
+
+  
 module.exports = function(eleventyConfig) {
+
+ async function generateOgImageUrl(photo, inputPath) {
+  	  let src = 'photos/' + photo.file;
+  	  let input = isFullUrl(src) ? src : relativeToInputPath(inputPath, src);
+  	
+  	  let metadata = await eleventyImage(input, {
+  	    widths: ['auto'],
+  	    formats: ['auto'],
+  	    outputDir: path.join(eleventyConfig.dir.output, "img"), // Use the output directory
+  	  });
+
+  	  console.log(metadata)
+  	
+  	  return metadata.avif?.[0].url || metadata.webp?.[0].url || metadata.jpeg?.[0].url;	
+  };
   // Eleventy Image shortcode
   // https://www.11ty.dev/docs/plugins/image/
   eleventyConfig.addAsyncShortcode("image", async function imageShortcode(src, alt, widths = [600], sizes = '100vw', maxWidth = 1200, maxHeight = 800, fullsize=false) {
@@ -114,5 +133,43 @@ module.exports = function(eleventyConfig) {
     let invisibleImageHtml = eleventyImage.generateHTML(fullSizeMetadata, imageAttributes2);
     
     return `${invisibleImageHtml}\n${visibleImageHtml}`;
+  });
+
+  eleventyConfig.addAsyncShortcode("getImageUrl", async function(src) {
+    let input;
+
+    if (isFullUrl(src)) {
+      input = src;
+    } else {
+      input = relativeToInputPath(this.page.inputPath, src);
+    }
+
+    let metadata = await eleventyImage(input, {
+      widths: [600],
+      formats: ["jpeg"],
+      outputDir: path.join(eleventyConfig.dir.output, "img"),
+    });
+
+    let props = metadata.jpeg[0];
+    return props.url;
+  });
+
+  	const photography = require("./content/photography/photos.json")
+	
+	function parseDate(datetime) {
+	  return moment(datetime, "YYYY:MM:DD HH:mm:ss").toDate();
+	}
+	
+  eleventyConfig.addCollection("photography", async function(collectionApi) {
+    // Populate `photography` array with og_image
+    for (let photo of photography) {
+      photo.parsedDate = parseDate(photo.datetime);
+      photo.og_image = await generateOgImageUrl(photo, './content/photography/');
+    }
+
+    // Sort photos by date
+    const sortedPhotography = photography.sort((a, b) => b.parsedDate - a.parsedDate);
+
+    return sortedPhotography;
   });
 };
