@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Food Photo</title>
+		<title>DuckDuckSocial</title>
 		<meta name="description" content="Blog about things">
 		<link rel="webmention" href="https://webmention.io/tomcasavant.com/webmention" />
 		<link rel="alternate" href="/blog.xml" type="application/rss+xml" title="Tom Casavant">
@@ -808,13 +808,13 @@ footer .form input, footer .form button {
 
 		
 		<!-- OpenGraph Meta Tags -->
-		<meta property="og:title" content="Food Photo - Tom Casavant">
+		<meta property="og:title" content="DuckDuckSocial - Tom Casavant">
 		<meta property="og:description" content="Blog about things">
 		
 		  <meta property="og:image" content="/img/opengraph/opengraph.png">
 		
 		
-		<meta property="og:url" content="/food/fruit-kolache/">
+		<meta property="og:url" content="/duckducksocial/">
 		<meta property="og:type" content="article">
 		<meta property="og:site_name" content="Tom Casavant">
 	</head>
@@ -855,38 +855,84 @@ footer .form input, footer .form button {
 		<main id="skip">
 			
 
-<div class="image-container">
-  <a href="/img/SvVq2qAOT_-960.jpeg"><picture><source type="image/avif" srcset="/img/SvVq2qAOT_-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/SvVq2qAOT_-600.webp 600w" sizes="100vw"><img alt="Fruit Kolache" loading="lazy" decoding="async" class="u-photo visible" src="/img/SvVq2qAOT_-600.jpeg" width="600" height="450"></picture></a>
-  <h1>Fruit Kolache</h1>
-  <p>2023-09-30</p>
+<article class="h-entry">
+    <h1 class="p-name">DuckDuckSocial</h1>
+
+    <ul class="post-metadata">
+        <li><time class="dt-published" datetime="2024-08-21">21 August 2024</time></li>
+    </ul>
+
+    <div class="e-content">
+        <p>A while ago, Google started displaying relevant tweets whenever you searched for anything, allowing you to see more up-to-date news on whatever you were searching for because Twitter (for a long time) was where news would often drop first, before organizations had time to write articles (or before Google had a chance to index them). Last week, I needed some info about something and couldn’t find it after searching DuckDuckGo and Google, but I <em>did</em> end up finding it in a quick search of my Mastodon instance—someone had blogged about it that same day.</p>
+<p>Shortly after that, I built a Firefox extension called <a href="https://addons.mozilla.org/en-US/firefox/addon/duckducksocial/?utm_source=addons.mozilla.org&amp;utm_medium=referral&amp;utm_content=search">DuckDuckSocial</a> (excuse the name, I tried a few and eventually gave up), which uses your Mastodon-compatible fediverse instance (just plug in a developer API key) to append a set of relevant posts to your search results.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="/img/J872dll2Dz-1055.png"><picture><source type="image/avif" srcset="/img/J872dll2Dz-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/J872dll2Dz-600.webp 600w" sizes="100vw"><img alt="Screenshot of DuckDuckGo page with fediverse search results" loading="lazy" decoding="async" class="u-photo visible" src="/img/J872dll2Dz-600.png" width="600" height="522"></picture></a></th>
+</tr>
+</thead>
+</table>
+<p>And with mobile support!</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="/img/Hxr-5TY0yW-600.jpeg"><picture><source type="image/avif" srcset="/img/Hxr-5TY0yW-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/Hxr-5TY0yW-600.webp 600w" sizes="100vw"><img alt="Screenshot of Mobile DuckDuckGo page with fediverse search results" loading="lazy" decoding="async" class="u-photo visible" src="/img/Hxr-5TY0yW-600.jpeg" width="600" height="923"></picture></a></th>
+</tr>
+</thead>
+</table>
+<p>I figured I would try it out for a few days before I published it, but it <em>has</em> helped me several times since then, so here it is.</p>
+<p>The two issues right now:</p>
+<ol>
+<li>The pop-in is pretty weird; it takes about 1-2 seconds after a page loads before the instance search results load in. I’m not sure of the best way to handle this or if this is as good as it gets.</li>
+<li>Mastodon’s search is pretty limited, and with me being on a smaller instance, it tends to result in 0 results. Maybe one day, Mastodon will provide some form of ranked search to provide more relevant results, but as it is, it has its limits.</li>
+</ol>
+<p><a href="https://github.com/TomCasavant/DuckDuckSocial">Source Code</a></p>
+
+    </div>
+
+    <a href="/duckducksocial/" class="u-url"></a>
+    <ul class="links-nextprev"><li>Previous: <a href="/blogrolls-on-blogrolls-on-blogrolls/">Blogrolls on Blogrolls on Blogrolls</a></li>
+    </ul>
+
+		<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
+</article>
+
+<section>  
+  <h2>Webmentions</h2>  
+  
+  <div class="webmentions content-grid-sibling" id="webmentions">
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<p>These are <a href="https://indieweb.org/Webmention">webmentions</a> via the <a href="https://indieweb.org/">IndieWeb</a> and <a href="https://webmention.io/">webmention.io</a>. Mention this post from your site:</p>
+
+<form action="https://webmention.io/tomcasavant.com/webmention" method="post" class="form-webmention">
+    <label for="form-webmention-source">URL</label><br>
+    <input id="form-webmention-source" type="url" name="source" placeholder="https://example.com" required>
+    <input type="hidden" name="target" value="https://tomcasavant.com/duckducksocial/">
+    <input type="submit" class="button button-small" value="Send Webmention">
+  </form>
 </div>
 
-<style>
-  .image-container {
-    text-align: center;
-  }
-  .image-container .visible {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    height: auto;
-    border: 2px solid #000; /* Optional: Add border */
-    padding: 10px; /* Optional: Add padding */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
-  }
-  .image-container h1 {
-    margin-top: 10px; /* Optional: Add margin to the caption */
-  }
-  .image-container p {
-    margin-top: 5px; /* Optional: Add margin to the date */
-  }
-</style>
+</section>
+
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/food/fruit-kolache/` was built on 2024-08-21T23:26:07.943Z -->
+		<!-- This page `/duckducksocial/` was built on 2024-08-21T23:26:07.930Z -->
 	</body>
 </html>

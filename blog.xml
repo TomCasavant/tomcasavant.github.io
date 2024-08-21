@@ -4,12 +4,44 @@
 	<subtitle>Blog about things</subtitle>
 	<link href="https://tomcasavant.com/blog.xml" rel="self"/>
 	<link href="https://tomcasavant.com/"/>
-	<updated>2024-07-13T14:00:00Z</updated>
+	<updated>2024-08-21T14:00:00Z</updated>
 	<id>https://tomcasavant.com/</id>
 	<author>
 		<name>Tom Casavant</name>
 		<email>tfcasavant@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>DuckDuckSocial</title>
+		<link href="https://tomcasavant.com/duckducksocial/"/>
+		<updated>2024-08-21T14:00:00Z</updated>
+		<id>https://tomcasavant.com/duckducksocial/</id>
+		<content type="html">&lt;p&gt;A while ago, Google started displaying relevant tweets whenever you searched for anything, allowing you to see more up-to-date news on whatever you were searching for because Twitter (for a long time) was where news would often drop first, before organizations had time to write articles (or before Google had a chance to index them). Last week, I needed some info about something and couldn’t find it after searching DuckDuckGo and Google, but I &lt;em&gt;did&lt;/em&gt; end up finding it in a quick search of my Mastodon instance—someone had blogged about it that same day.&lt;/p&gt;
+&lt;p&gt;Shortly after that, I built a Firefox extension called &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/duckducksocial/?utm_source=addons.mozilla.org&amp;amp;utm_medium=referral&amp;amp;utm_content=search&quot;&gt;DuckDuckSocial&lt;/a&gt; (excuse the name, I tried a few and eventually gave up), which uses your Mastodon-compatible fediverse instance (just plug in a developer API key) to append a set of relevant posts to your search results.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/J872dll2Dz-1055.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/J872dll2Dz-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/J872dll2Dz-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of DuckDuckGo page with fediverse search results&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/J872dll2Dz-600.png&quot; width=&quot;600&quot; height=&quot;522&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;p&gt;And with mobile support!&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/Hxr-5TY0yW-600.jpeg&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/Hxr-5TY0yW-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/Hxr-5TY0yW-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of Mobile DuckDuckGo page with fediverse search results&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/Hxr-5TY0yW-600.jpeg&quot; width=&quot;600&quot; height=&quot;923&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;p&gt;I figured I would try it out for a few days before I published it, but it &lt;em&gt;has&lt;/em&gt; helped me several times since then, so here it is.&lt;/p&gt;
+&lt;p&gt;The two issues right now:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The pop-in is pretty weird; it takes about 1-2 seconds after a page loads before the instance search results load in. I’m not sure of the best way to handle this or if this is as good as it gets.&lt;/li&gt;
+&lt;li&gt;Mastodon’s search is pretty limited, and with me being on a smaller instance, it tends to result in 0 results. Maybe one day, Mastodon will provide some form of ranked search to provide more relevant results, but as it is, it has its limits.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/TomCasavant/DuckDuckSocial&quot;&gt;Source Code&lt;/a&gt;&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Blogrolls on Blogrolls on Blogrolls</title>
@@ -168,7 +200,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/nfyGNI-AQO-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/nfyGNI-AQO-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of pokemon game: text reads Fry, are you ready?&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/nfyGNI-AQO-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/nfyGNI-AQO-160.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/nfyGNI-AQO-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/nfyGNI-AQO-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of pokemon game: text reads Fry, are you ready?&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/nfyGNI-AQO-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -189,7 +221,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/araB6DzlJU-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/araB6DzlJU-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot from pokemon gold, cyndaquil&#39;s image in the center&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/araB6DzlJU-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/araB6DzlJU-160.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/araB6DzlJU-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/araB6DzlJU-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot from pokemon gold, cyndaquil&#39;s image in the center&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/araB6DzlJU-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -203,7 +235,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/moR1w5Q_dY-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/moR1w5Q_dY-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Text window in pokemon game &#39;Ja?&#39; is typed out&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/moR1w5Q_dY-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/moR1w5Q_dY-160.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/moR1w5Q_dY-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/moR1w5Q_dY-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Text window in pokemon game &#39;Ja?&#39; is typed out&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/moR1w5Q_dY-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -231,7 +263,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/EE4IkgCptd-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/EE4IkgCptd-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Old man describing to Fry, &#39;this is the sea as you can see.&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/EE4IkgCptd-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/EE4IkgCptd-160.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/EE4IkgCptd-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/EE4IkgCptd-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Old man describing to Fry, &#39;this is the sea as you can see.&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/EE4IkgCptd-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -249,7 +281,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/4jsirQgIrb-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/4jsirQgIrb-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;Fry received  MYSTERY EGG&#39; &quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/4jsirQgIrb-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/4jsirQgIrb-160.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/4jsirQgIrb-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/4jsirQgIrb-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;Fry received  MYSTERY EGG&#39; &quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/4jsirQgIrb-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -265,7 +297,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/L0dY9uu3K0-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/L0dY9uu3K0-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;Please get back here now!&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/L0dY9uu3K0-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/L0dY9uu3K0-160.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/L0dY9uu3K0-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/L0dY9uu3K0-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;Please get back here now!&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/L0dY9uu3K0-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -283,7 +315,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/PDTxmH1fs5-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/PDTxmH1fs5-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;What a waste. A wimp like you.&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/PDTxmH1fs5-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/PDTxmH1fs5-160.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/PDTxmH1fs5-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/PDTxmH1fs5-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;What a waste. A wimp like you.&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/PDTxmH1fs5-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -297,7 +329,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/10iFLv8-up-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/10iFLv8-up-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;OK! So BUTT was his name.&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/10iFLv8-up-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/10iFLv8-up-160.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/10iFLv8-up-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/10iFLv8-up-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;OK! So BUTT was his name.&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/10iFLv8-up-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -321,7 +353,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/KRUPqqj-6Y-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/KRUPqqj-6Y-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;ELM: FRY, this is terrible...&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/KRUPqqj-6Y-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/KRUPqqj-6Y-160.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/KRUPqqj-6Y-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/KRUPqqj-6Y-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;ELM: FRY, this is terrible...&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/KRUPqqj-6Y-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -336,7 +368,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/ishm64LuFi-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/ishm64LuFi-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, name editor window reads &#39;PEID&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/ishm64LuFi-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/ishm64LuFi-160.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/ishm64LuFi-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/ishm64LuFi-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, name editor window reads &#39;PEID&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/ishm64LuFi-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -356,7 +388,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/yZRFYtZ3PI-448.avif 448w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/yZRFYtZ3PI-448.webp 448w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot inside transparent purple gameboy color&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/yZRFYtZ3PI-448.png&quot; width=&quot;448&quot; height=&quot;741&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/yZRFYtZ3PI-448.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/yZRFYtZ3PI-448.avif 448w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/yZRFYtZ3PI-448.webp 448w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot inside transparent purple gameboy color&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/yZRFYtZ3PI-448.png&quot; width=&quot;448&quot; height=&quot;741&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -384,7 +416,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/PQiQEMnYLH-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/PQiQEMnYLH-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;evolved into QUILAVA!&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/PQiQEMnYLH-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/PQiQEMnYLH-160.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/PQiQEMnYLH-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/PQiQEMnYLH-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;evolved into QUILAVA!&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/PQiQEMnYLH-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -404,7 +436,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/wWGqd7X_T3-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/wWGqd7X_T3-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;FRY received ZEPHYRBADGE&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/wWGqd7X_T3-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/wWGqd7X_T3-160.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/wWGqd7X_T3-160.avif 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/wWGqd7X_T3-160.webp 160w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Pokemon screenshot, text reads &#39;FRY received ZEPHYRBADGE&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/wWGqd7X_T3-160.png&quot; width=&quot;160&quot; height=&quot;144&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -494,7 +526,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/Oh2tAO_njJ-542.avif 542w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/Oh2tAO_njJ-542.webp 542w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of the ring from Lord of the Rings as a lamp, lit up with Red LEDs&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/Oh2tAO_njJ-542.png&quot; width=&quot;542&quot; height=&quot;820&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/Oh2tAO_njJ-542.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/Oh2tAO_njJ-542.avif 542w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/Oh2tAO_njJ-542.webp 542w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of the ring from Lord of the Rings as a lamp, lit up with Red LEDs&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/Oh2tAO_njJ-542.png&quot; width=&quot;542&quot; height=&quot;820&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;/table&gt;
@@ -536,7 +568,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/4Z4JdDdoYG-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/4Z4JdDdoYG-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of a youtube thumbnail entitled &#39;classical music but its lofi&#39; with my brother inserted into the thumbnail&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/4Z4JdDdoYG-600.png&quot; width=&quot;600&quot; height=&quot;375&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/4Z4JdDdoYG-640.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/4Z4JdDdoYG-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/4Z4JdDdoYG-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of a youtube thumbnail entitled &#39;classical music but its lofi&#39; with my brother inserted into the thumbnail&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/4Z4JdDdoYG-600.png&quot; width=&quot;600&quot; height=&quot;375&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;/table&gt;
@@ -544,7 +576,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/RQojm5BJsa-456.avif 456w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/RQojm5BJsa-456.webp 456w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of a switch showing my Animal Crossing character saying &#39;Invisible String&#39; which was the Taylor Swift song I was listening to&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/RQojm5BJsa-456.png&quot; width=&quot;456&quot; height=&quot;396&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/RQojm5BJsa-456.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/RQojm5BJsa-456.avif 456w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/RQojm5BJsa-456.webp 456w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of a switch showing my Animal Crossing character saying &#39;Invisible String&#39; which was the Taylor Swift song I was listening to&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/RQojm5BJsa-456.png&quot; width=&quot;456&quot; height=&quot;396&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;/table&gt;
@@ -582,7 +614,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/tomline/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/Zx8pSuzG7o-484.avif 484w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/Zx8pSuzG7o-484.webp 484w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of the Tomline in action&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/Zx8pSuzG7o-484.png&quot; width=&quot;484&quot; height=&quot;404&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/Zx8pSuzG7o-484.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/Zx8pSuzG7o-484.avif 484w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/Zx8pSuzG7o-484.webp 484w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of the Tomline in action&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/Zx8pSuzG7o-484.png&quot; width=&quot;484&quot; height=&quot;404&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -830,7 +862,7 @@ minetest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/the-problem-with-hashtags/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/vMaQ0tXSb4-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/vMaQ0tXSb4-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of a poorly tagged post&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/vMaQ0tXSb4-600.png&quot; width=&quot;600&quot; height=&quot;352&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/vMaQ0tXSb4-719.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/vMaQ0tXSb4-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/vMaQ0tXSb4-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of a poorly tagged post&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/vMaQ0tXSb4-600.png&quot; width=&quot;600&quot; height=&quot;352&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -841,7 +873,7 @@ minetest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 &lt;/table&gt;
 &lt;p&gt;The problem is, no matter how annoying hashtags are to look at, they continue to be incredibly useful. Mastodon (and other activitypub software) would be nearly impossible to use without the ability to discover users and posts through hashtags (despite rolling out opt-in search last year). Threads ran into a similar issue when they launched where users found it difficult to discover other users and launched &lt;a href=&quot;https://www.theverge.com/2023/12/7/23992357/threads-hashtags-tags&quot;&gt;their version&lt;/a&gt; of hashtags 5 months later. For now they&#39;re unavoidable.&lt;/p&gt;
 &lt;p&gt;However, that doesn&#39;t mean they can&#39;t be improved. Hashtags in Threads, for example, don&#39;t include the &#39;#&#39; and are restricted to 1 tag per post. I don&#39;t use threads all that often and the limit of one tag per post feels pretty restrictive, but it &lt;em&gt;does&lt;/em&gt; look significantly better.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://tomcasavant.com/the-problem-with-hashtags/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/ctexdF70NB-584.avif 584w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/ctexdF70NB-584.webp 584w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/ctexdF70NB-584.png&quot; width=&quot;584&quot; height=&quot;220&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://tomcasavant.com/img/ctexdF70NB-584.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/ctexdF70NB-584.avif 584w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/ctexdF70NB-584.webp 584w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/ctexdF70NB-584.png&quot; width=&quot;584&quot; height=&quot;220&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;the-solution&quot; tabindex=&quot;-1&quot;&gt;The Solution &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/the-problem-with-hashtags/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Over the past few months I&#39;ve been working on a better solution for my mastodon experience.&lt;/p&gt;
 &lt;ol&gt;
@@ -851,7 +883,7 @@ minetest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/the-problem-with-hashtags/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/Qzg6CJ9WNQ-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/Qzg6CJ9WNQ-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Bee movie script with and without hashtags&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/Qzg6CJ9WNQ-600.png&quot; width=&quot;600&quot; height=&quot;328&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/Qzg6CJ9WNQ-720.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/Qzg6CJ9WNQ-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/Qzg6CJ9WNQ-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Bee movie script with and without hashtags&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/Qzg6CJ9WNQ-600.png&quot; width=&quot;600&quot; height=&quot;328&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
@@ -869,7 +901,7 @@ minetest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/the-problem-with-hashtags/undefined&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/SAcKQrp_d7-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/SAcKQrp_d7-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;UI Result after changes&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/SAcKQrp_d7-600.png&quot; width=&quot;600&quot; height=&quot;344&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/SAcKQrp_d7-1762.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/SAcKQrp_d7-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/SAcKQrp_d7-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;UI Result after changes&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/SAcKQrp_d7-600.png&quot; width=&quot;600&quot; height=&quot;344&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
