@@ -79,8 +79,15 @@ module.exports = function(eleventyConfig) {
     };
 
     let visibleImageHtml = eleventyImage.generateHTML(metadata, imageAttributes);
-	let fullSizeSrc = fullSizeMetadata.avif?.[0].url || fullSizeMetadata.webp?.[0].url || fullSizeMetadata.jpeg?.[0].url;
-    let result = `<a href="${fullSizeSrc}">${visibleImageHtml}</a>`
+	let fullSizeSrc = fullSizeMetadata.avif?.[0].url || 
+	                  fullSizeMetadata.webp?.[0].url || 
+	                  fullSizeMetadata.jpeg?.[0].url || 
+	                  fullSizeMetadata.png?.[0].url || 
+	                  fullSizeMetadata.jpg?.[0].url || 
+	                  fullSizeMetadata.gif?.[0].url || 
+	                  fullSizeMetadata.svg?.[0].url;
+	                  
+	let result = `<a href="${fullSizeSrc}">${visibleImageHtml}</a>`
 
     if (fullsize) {
     	let imageAttributes2 = {
