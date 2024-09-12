@@ -1,16 +1,28 @@
 [
-		{
-			"file": "./images/blueberry_cobbler.jpg",
-			"caption": "Blueberry Cobbler",
-			"date": "2024-06-23",
-			"orientation": "portrait"
-		},
-		{
-			"file": "./images/tortillas_and_guac.jpg",
-			"caption": "Homemade Tortilla Chips and Guacamole",
-			"date": "2024-06-28",
-			"orientation": "portrait"
-		},
+    {
+      "file": "./images/apples-in-pasta-sauce.jpg",
+      "caption": "Someone put Apple Slices in my Pasta Sauce",
+      "date": "2024-08-10",
+      "orientation": "portrait"
+    },
+    {
+      "file": "./images/large-sub.jpg",
+      "caption": "Large Sub Sandwich",
+      "date": "2024-08-12",
+      "orientation": "portrait"
+    },
+    {
+      "file": "./images/pizza-2.jpg",
+      "caption": "Homemade Pizza",
+      "date": "2024-09-02",
+      "orientation": "portrait"
+    },
+    {
+      "file": "./images/tortillas_and_guac.jpg",
+      "caption": "Homemade Tortilla Chips and Guacamole",
+      "date": "2024-06-28",
+      "orientation": "portrait"
+    },
     {
       "file": "./images/Ketchup-3.jpg",
       "caption": "Ketchup Cake",
