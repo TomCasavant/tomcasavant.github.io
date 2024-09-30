@@ -4,12 +4,26 @@
 	<subtitle>Blog about things</subtitle>
 	<link href="https://tomcasavant.com/blog.xml" rel="self"/>
 	<link href="https://tomcasavant.com/"/>
-	<updated>2024-08-21T14:00:00Z</updated>
+	<updated>2024-09-30T14:00:00Z</updated>
 	<id>https://tomcasavant.com/</id>
 	<author>
 		<name>Tom Casavant</name>
 		<email>tfcasavant@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>Surrender Index Bot</title>
+		<link href="https://tomcasavant.com/surrender-index-bot/"/>
+		<updated>2024-09-30T14:00:00Z</updated>
+		<id>https://tomcasavant.com/surrender-index-bot/</id>
+		<content type="html">&lt;p&gt;There were a few different projects I was working on the last month, most didn&#39;t feel all that worthy of a blog post. I modified my Mastodon server to only process posts from a relay if a user on my server is following a hashtag in the post to hopefully save money on storage and bandwith costs (but then Mastodon announced a project to &lt;a href=&quot;https://www.fediscovery.org/&quot;&gt;improve discoverability&lt;/a&gt; and I ended up moving my S3 bucket to local storage so none of that ultimately mattered). I&#39;m working on a project with one of my Spotify playlists (I &lt;a href=&quot;https://tomcasavant.com/playlist-creator-and-58-a-python-spotify-creation/&quot;&gt;haven&#39;t touched&lt;/a&gt; the spotify API in &lt;a href=&quot;https://github.com/TomCasavant/SpotifyAnimated&quot;&gt;awhile&lt;/a&gt; and wanted to do some &lt;a href=&quot;https://github.com/TomCasavant/SpotifyTrackComparison&quot;&gt;more&lt;/a&gt; with it- but it&#39;s still not in a good enough state for a blog post)&lt;/p&gt;
+&lt;p&gt;Over the weekend, however, I really wanted to revive one of my favorite Twitter bots from years ago that was based on a &lt;a href=&quot;https://bsky.app/profile/jonbois.bsky.social&quot;&gt;Jon Bois&lt;/a&gt; video. If you haven&#39;t seen it (&lt;a href=&quot;https://www.youtube.com/watch?v=F9H9LwGmc-0&quot;&gt;https://www.youtube.com/watch?v=F9H9LwGmc-0&lt;/a&gt;) basically, Jon Bois describes an algorithm that can be used to determine just how cowardly any given punt is. Punting from 4th and 25 from your own side of the field, for instance, is significantly less cowardly than punting at 4th and 1 from the opposing side of the field. There was a bot developed that would grab data from ESPN and live-calculate the score for every punt during games and tweet it out, which was a lot of fun and made it easy to judge your least favorite team for being weak-minded.&lt;/p&gt;
+&lt;p&gt;I took a look at the &lt;a href=&quot;https://github.com/andrew-shackelford/Surrender-Index&quot;&gt;existing source code&lt;/a&gt; for the Twitter-based bot and it looked pretty straightforward aside from using selenium to interact with Twitter elements (I can only assume this was to avoid the Twitter API costs). I cleaned up the code and implemented the Mastodon API to bring the 2 bots to my Mastodon server which you can follow here:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://tomkahe.com/@surrender_index&quot;&gt;@surrender_index@tomkahe.com&lt;/a&gt; - Posts a status for &lt;em&gt;every&lt;/em&gt; punt in each NFL game indicating the surrender index of that punt.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://tomkahe.com/@surrender_idx90&quot;&gt;@surrender_idx90@tomkahe.com&lt;/a&gt; - Boosts posts from the main surrender index account if the index is &amp;gt;90. It also posts polls which allows you to &#39;cancel&#39; a punt&#39;s surrender index if you think the punt wasn&#39;t &lt;em&gt;truly&lt;/em&gt; cowardly (it&#39;ll unboost the post if the poll determines it to be an invalid index)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/TomCasavant/Surrender-Index&quot;&gt;Soure Code&lt;/a&gt;&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>DuckDuckSocial</title>

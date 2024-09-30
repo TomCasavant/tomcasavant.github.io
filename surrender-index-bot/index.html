@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Food Photo</title>
+		<title>Surrender Index Bot</title>
 		<meta name="description" content="Blog about things">
 		<link rel="webmention" href="https://webmention.io/tomcasavant.com/webmention" />
 		<link rel="alternate" href="/blog.xml" type="application/rss+xml" title="Tom Casavant">
@@ -808,13 +808,13 @@ footer .form input, footer .form button {
 
 		
 		<!-- OpenGraph Meta Tags -->
-		<meta property="og:title" content="Food Photo - Tom Casavant">
+		<meta property="og:title" content="Surrender Index Bot - Tom Casavant">
 		<meta property="og:description" content="Blog about things">
 		
 		  <meta property="og:image" content="/img/opengraph/opengraph.png">
 		
 		
-		<meta property="og:url" content="/food/peep-brownies/">
+		<meta property="og:url" content="/surrender-index-bot/">
 		<meta property="og:type" content="article">
 		<meta property="og:site_name" content="Tom Casavant">
 	</head>
@@ -855,38 +855,66 @@ footer .form input, footer .form button {
 		<main id="skip">
 			
 
-<div class="image-container">
-  <a href="/img/8bQX0nvse7-519.jpeg"><picture><source type="image/avif" srcset="/img/8bQX0nvse7-519.avif 519w" sizes="100vw"><source type="image/webp" srcset="/img/8bQX0nvse7-519.webp 519w" sizes="100vw"><img alt="Peep Brownies" loading="lazy" decoding="async" class="u-photo visible" src="/img/8bQX0nvse7-519.jpeg" width="519" height="922"></picture></a>
-  <h1>Peep Brownies</h1>
-  <p>2024-04-06</p>
+<article class="h-entry">
+    <h1 class="p-name">Surrender Index Bot</h1>
+
+    <ul class="post-metadata">
+        <li><time class="dt-published" datetime="2024-09-30">30 September 2024</time></li>
+    </ul>
+
+    <div class="e-content">
+        <p>There were a few different projects I was working on the last month, most didn't feel all that worthy of a blog post. I modified my Mastodon server to only process posts from a relay if a user on my server is following a hashtag in the post to hopefully save money on storage and bandwith costs (but then Mastodon announced a project to <a href="https://www.fediscovery.org/">improve discoverability</a> and I ended up moving my S3 bucket to local storage so none of that ultimately mattered). I'm working on a project with one of my Spotify playlists (I <a href="https://tomcasavant.com/playlist-creator-and-58-a-python-spotify-creation/">haven't touched</a> the spotify API in <a href="https://github.com/TomCasavant/SpotifyAnimated">awhile</a> and wanted to do some <a href="https://github.com/TomCasavant/SpotifyTrackComparison">more</a> with it- but it's still not in a good enough state for a blog post)</p>
+<p>Over the weekend, however, I really wanted to revive one of my favorite Twitter bots from years ago that was based on a <a href="https://bsky.app/profile/jonbois.bsky.social">Jon Bois</a> video. If you haven't seen it (<a href="https://www.youtube.com/watch?v=F9H9LwGmc-0">https://www.youtube.com/watch?v=F9H9LwGmc-0</a>) basically, Jon Bois describes an algorithm that can be used to determine just how cowardly any given punt is. Punting from 4th and 25 from your own side of the field, for instance, is significantly less cowardly than punting at 4th and 1 from the opposing side of the field. There was a bot developed that would grab data from ESPN and live-calculate the score for every punt during games and tweet it out, which was a lot of fun and made it easy to judge your least favorite team for being weak-minded.</p>
+<p>I took a look at the <a href="https://github.com/andrew-shackelford/Surrender-Index">existing source code</a> for the Twitter-based bot and it looked pretty straightforward aside from using selenium to interact with Twitter elements (I can only assume this was to avoid the Twitter API costs). I cleaned up the code and implemented the Mastodon API to bring the 2 bots to my Mastodon server which you can follow here:</p>
+<p><a href="https://tomkahe.com/@surrender_index">@surrender_index@tomkahe.com</a> - Posts a status for <em>every</em> punt in each NFL game indicating the surrender index of that punt.</p>
+<p><a href="https://tomkahe.com/@surrender_idx90">@surrender_idx90@tomkahe.com</a> - Boosts posts from the main surrender index account if the index is &gt;90. It also posts polls which allows you to 'cancel' a punt's surrender index if you think the punt wasn't <em>truly</em> cowardly (it'll unboost the post if the poll determines it to be an invalid index)</p>
+<p><a href="https://github.com/TomCasavant/Surrender-Index">Soure Code</a></p>
+
+    </div>
+
+    <a href="/surrender-index-bot/" class="u-url"></a>
+    <ul class="links-nextprev"><li>Previous: <a href="/duckducksocial/">DuckDuckSocial</a></li>
+    </ul>
+
+		<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
+</article>
+
+<section>  
+  <h2>Webmentions</h2>  
+  
+  <div class="webmentions content-grid-sibling" id="webmentions">
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<p>These are <a href="https://indieweb.org/Webmention">webmentions</a> via the <a href="https://indieweb.org/">IndieWeb</a> and <a href="https://webmention.io/">webmention.io</a>. Mention this post from your site:</p>
+
+<form action="https://webmention.io/tomcasavant.com/webmention" method="post" class="form-webmention">
+    <label for="form-webmention-source">URL</label><br>
+    <input id="form-webmention-source" type="url" name="source" placeholder="https://example.com" required>
+    <input type="hidden" name="target" value="https://tomcasavant.com/surrender-index-bot/">
+    <input type="submit" class="button button-small" value="Send Webmention">
+  </form>
 </div>
 
-<style>
-  .image-container {
-    text-align: center;
-  }
-  .image-container .visible {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    height: auto;
-    border: 2px solid #000; /* Optional: Add border */
-    padding: 10px; /* Optional: Add padding */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
-  }
-  .image-container h1 {
-    margin-top: 10px; /* Optional: Add margin to the caption */
-  }
-  .image-container p {
-    margin-top: 5px; /* Optional: Add margin to the date */
-  }
-</style>
+</section>
+
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/food/peep-brownies/` was built on 2024-09-30T16:23:28.917Z -->
+		<!-- This page `/surrender-index-bot/` was built on 2024-09-30T16:23:29.069Z -->
 	</body>
 </html>
