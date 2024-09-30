@@ -1,7 +1,7 @@
 ---
 layout:     /layouts/post
-title:      "Surrender Index"
-subtitle:   "Porting twitter bots to the fediverse"
+title:      "Surrender Index Bot"
+subtitle:   "Porting Twitter bots to Mastodon"
 date: 2024-09-30T10:00:00-04:00
 categories: fediverse, mastodon, jonbois, bot, nfl
 ---
