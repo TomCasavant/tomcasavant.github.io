@@ -4,12 +4,47 @@
 	<subtitle>Blog about things</subtitle>
 	<link href="https://tomcasavant.com/blog.xml" rel="self"/>
 	<link href="https://tomcasavant.com/"/>
-	<updated>2024-09-30T14:00:00Z</updated>
+	<updated>2024-10-07T20:00:00Z</updated>
 	<id>https://tomcasavant.com/</id>
 	<author>
 		<name>Tom Casavant</name>
 		<email>tfcasavant@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>OHGO Wrapper</title>
+		<link href="https://tomcasavant.com/ohgo-wrapper/"/>
+		<updated>2024-10-07T20:00:00Z</updated>
+		<id>https://tomcasavant.com/ohgo-wrapper/</id>
+		<content type="html">&lt;p&gt;One of the problems I have with a lot of my Open Source projects is the code tends to be difficult to use in other projects
+because the classes end up blending into each other until it makes zero sense to pull out any of the code. So, for a project I&#39;m working on
+I made concerted effort to abstract the code enough to be useful to other people.&lt;/p&gt;
+&lt;p&gt;This is a wrapper for the Ohio Department of Transportation&#39;s &lt;a href=&quot;https://dev.api.ohgo.com/&quot;&gt;OHGO API&lt;/a&gt;. The API is a JSON REST API that provides access to traffic cameras, weather sensors, incidents, closures, and delays in the state of Ohio. I found a &lt;a href=&quot;https://www.pretzellogix.net/2021/12/08/how-to-write-a-python3-sdk-library-module-for-a-json-rest-api/&quot;&gt;fantastic guide&lt;/a&gt;
+that goes through the basic process of organizing a wrapper. And I was able to turn it into a useful package that I &lt;a href=&quot;https://pypi.org/project/ohgo/&quot;&gt;published on pypi&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Getting started with the wrapper is simple, for example this is how you grab images from a traffic camera (after you install via pip):&lt;/p&gt;
+&lt;pre class=&quot;language-python&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; ohgo &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; OHGOClient
+
+client &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; OHGOClient&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;your-api-key&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+cameras &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; client&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_cameras&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# -&gt; Returns a list of first 500 cameras in Ohio, pass in a QueryParams object with page_all=True to get all cameras&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Or if you prefer to get a specific group of cameras we can filter it further&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; ohgo&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;models &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; QueryParams
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; ohgo&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;types &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Region
+params &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; QueryParams&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;region&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;Region&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;COLUMBUS&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# -&gt; Returns a list of cameras in Columbus&lt;/span&gt;
+cameras &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; client&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_cameras&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;params&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Now we can get the image from the camera&lt;/span&gt;
+camera &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cameras&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+image &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; client&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_images&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;camera&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# -&gt; Returns a list of PIL images from the camera&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Something I didn&#39;t know before this, is that we can overload functions in python3 (so they behave differently depending on the arguments passed in).
+So, I used that to make the &lt;code&gt;get_image&lt;/code&gt; and &lt;code&gt;get_images&lt;/code&gt; functions behave differently depending on if you pass in a Camera, CameraView, or a DigitalSign object.&lt;/p&gt;
+&lt;p&gt;That guide also led me to the &lt;a href=&quot;https://quicktype.io/&quot;&gt;Quicktype&lt;/a&gt; website which lets you pass in JSON, and it will generate a Python class for you (or nearly any other language) that matches the provided JSON.&lt;/p&gt;
+&lt;p&gt;I also wanted to build a small demo for the wrapper, so I made a Mastodon api compatible bot that posts a random traffic camera image every hour which you can find here: &lt;a href=&quot;https://tomkahe.com/@ohgo&quot;&gt;@ohgo@tomkahe.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/TomCasavant/ohgo-wrapper/&quot;&gt;OHGO Wrapper Source Code&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://pypi.org/project/ohgo/&quot;&gt;OHGO Wrapper PyPi&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/TomCasavant/ohgo-mastodon-example/&quot;&gt;OHGO Mastodon Bot Source Code&lt;/a&gt;&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Surrender Index Bot</title>

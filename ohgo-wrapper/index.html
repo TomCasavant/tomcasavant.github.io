@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Photo</title>
+		<title>OHGO Wrapper</title>
 		<meta name="description" content="Blog about things">
 		<link rel="webmention" href="https://webmention.io/tomcasavant.com/webmention" />
 		<link rel="alternate" href="/blog.xml" type="application/rss+xml" title="Tom Casavant">
@@ -808,13 +808,13 @@ footer .form input, footer .form button {
 
 		
 		<!-- OpenGraph Meta Tags -->
-		<meta property="og:title" content="Photo - Tom Casavant">
+		<meta property="og:title" content="OHGO Wrapper - Tom Casavant">
 		<meta property="og:description" content="Blog about things">
 		
-		  <meta property="og:image" content="/img/IANrQ4mPVd-5184.jpeg">
+		  <meta property="og:image" content="/img/opengraph/opengraph.png">
 		
 		
-		<meta property="og:url" content="/photography/img_2668/">
+		<meta property="og:url" content="/ohgo-wrapper/">
 		<meta property="og:type" content="article">
 		<meta property="og:site_name" content="Tom Casavant">
 	</head>
@@ -853,49 +853,89 @@ footer .form input, footer .form button {
 		</header>
 
 		<main id="skip">
-			<div class="image-container h-entry">
+			
+
+<article class="h-entry">
+    <h1 class="p-name">OHGO Wrapper</h1>
+
+    <ul class="post-metadata">
+        <li><time class="dt-published" datetime="2024-10-07">07 October 2024</time></li>
+    </ul>
+
+    <div class="e-content">
+        <p>One of the problems I have with a lot of my Open Source projects is the code tends to be difficult to use in other projects
+because the classes end up blending into each other until it makes zero sense to pull out any of the code. So, for a project I'm working on
+I made concerted effort to abstract the code enough to be useful to other people.</p>
+<p>This is a wrapper for the Ohio Department of Transportation's <a href="https://dev.api.ohgo.com/">OHGO API</a>. The API is a JSON REST API that provides access to traffic cameras, weather sensors, incidents, closures, and delays in the state of Ohio. I found a <a href="https://www.pretzellogix.net/2021/12/08/how-to-write-a-python3-sdk-library-module-for-a-json-rest-api/">fantastic guide</a>
+that goes through the basic process of organizing a wrapper. And I was able to turn it into a useful package that I <a href="https://pypi.org/project/ohgo/">published on pypi</a>.</p>
+<p>Getting started with the wrapper is simple, for example this is how you grab images from a traffic camera (after you install via pip):</p>
+<pre class="language-python" tabindex="0"><code class="language-python"><span class="token keyword">from</span> ohgo <span class="token keyword">import</span> OHGOClient
+
+client <span class="token operator">=</span> OHGOClient<span class="token punctuation">(</span><span class="token string">'your-api-key'</span><span class="token punctuation">)</span>
+cameras <span class="token operator">=</span> client<span class="token punctuation">.</span>get_cameras<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># -> Returns a list of first 500 cameras in Ohio, pass in a QueryParams object with page_all=True to get all cameras</span>
+
+<span class="token comment"># Or if you prefer to get a specific group of cameras we can filter it further</span>
+<span class="token keyword">from</span> ohgo<span class="token punctuation">.</span>models <span class="token keyword">import</span> QueryParams
+<span class="token keyword">from</span> ohgo<span class="token punctuation">.</span>types <span class="token keyword">import</span> Region
+params <span class="token operator">=</span> QueryParams<span class="token punctuation">(</span>region<span class="token operator">=</span>Region<span class="token punctuation">.</span>COLUMBUS<span class="token punctuation">)</span> <span class="token comment"># -> Returns a list of cameras in Columbus</span>
+cameras <span class="token operator">=</span> client<span class="token punctuation">.</span>get_cameras<span class="token punctuation">(</span>params<span class="token punctuation">)</span>
+
+<span class="token comment"># Now we can get the image from the camera</span>
+camera <span class="token operator">=</span> cameras<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+image <span class="token operator">=</span> client<span class="token punctuation">.</span>get_images<span class="token punctuation">(</span>camera<span class="token punctuation">)</span> <span class="token comment"># -> Returns a list of PIL images from the camera</span></code></pre>
+<p>Something I didn't know before this, is that we can overload functions in python3 (so they behave differently depending on the arguments passed in).
+So, I used that to make the <code>get_image</code> and <code>get_images</code> functions behave differently depending on if you pass in a Camera, CameraView, or a DigitalSign object.</p>
+<p>That guide also led me to the <a href="https://quicktype.io/">Quicktype</a> website which lets you pass in JSON, and it will generate a Python class for you (or nearly any other language) that matches the provided JSON.</p>
+<p>I also wanted to build a small demo for the wrapper, so I made a Mastodon api compatible bot that posts a random traffic camera image every hour which you can find here: <a href="https://tomkahe.com/@ohgo">@ohgo@tomkahe.com</a></p>
+<p><a href="https://github.com/TomCasavant/ohgo-wrapper/">OHGO Wrapper Source Code</a></p>
+<p><a href="https://pypi.org/project/ohgo/">OHGO Wrapper PyPi</a></p>
+<p><a href="https://github.com/TomCasavant/ohgo-mastodon-example/">OHGO Mastodon Bot Source Code</a></p>
+
+    </div>
+
+    <a href="/ohgo-wrapper/" class="u-url"></a>
+    <ul class="links-nextprev"><li>Previous: <a href="/surrender-index-bot/">Surrender Index Bot</a></li>
+    </ul>
+
+		<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
+</article>
+
+<section>  
+  <h2>Webmentions</h2>  
   
-  <a href="/img/IANrQ4mPVd-5184.jpeg"><picture><source type="image/avif" srcset="/img/IANrQ4mPVd-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/IANrQ4mPVd-600.webp 600w" sizes="100vw"><img alt="" loading="lazy" decoding="async" class="visible" src="/img/IANrQ4mPVd-600.jpeg" width="600" height="400"></picture></a><img alt="" class="u-photo notvisible" src="/img/IANrQ4mPVd-5184.jpeg" width="5184" height="3456">
-  <p> <time class="dt-published" datetime="2024-07-04T07:48:33-04:00">July 4th, 2024 7:48 AM</time> </p>
-  <p>5184x3456</p>
-  <div class="e-content">
-    <p>Canon EOS REBEL T4i - EF50mm f/1.8 II</p>
-    <p>Shutter Speed: 1/100</p>
-    <p>Aperture: f/3.5</p>
-    <p>ISO: 100</p>
-    <p>Focal Length: 50.0 mm</p>
-		<a class="p-category" href="https://tomkahe.com/tags/photography" hidden="from-humans">#photography</a>
-  </div>
-  <a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
-  <p> Click image to view fullsize, uncropped photo </p>
+  <div class="webmentions content-grid-sibling" id="webmentions">
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<p>These are <a href="https://indieweb.org/Webmention">webmentions</a> via the <a href="https://indieweb.org/">IndieWeb</a> and <a href="https://webmention.io/">webmention.io</a>. Mention this post from your site:</p>
+
+<form action="https://webmention.io/tomcasavant.com/webmention" method="post" class="form-webmention">
+    <label for="form-webmention-source">URL</label><br>
+    <input id="form-webmention-source" type="url" name="source" placeholder="https://example.com" required>
+    <input type="hidden" name="target" value="https://tomcasavant.com/ohgo-wrapper/">
+    <input type="submit" class="button button-small" value="Send Webmention">
+  </form>
 </div>
-<style>
 
-  .image-container {
-    text-align: center;
-  }
-  .image-container .visible {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    height: auto;
-    border: 2px solid #000; /* Optional: Add border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
-  }
-  .image-container p:first-of-type {
-    margin-top: 10px; /* Optional: Add margin to the date */
-  }
+</section>
 
-	p {
-	  line-height: 0.45;
-	}
-</style>
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/photography/img_2668/` was built on 2024-10-07T23:23:04.687Z -->
+		<!-- This page `/ohgo-wrapper/` was built on 2024-10-07T23:23:04.696Z -->
 	</body>
 </html>
