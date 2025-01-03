@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Photo</title>
+		<title>Untitled Gaming Social</title>
 		<meta name="description" content="Blog about things">
 		<link rel="webmention" href="https://webmention.io/tomcasavant.com/webmention" />
 		<link rel="alternate" href="/blog.xml" type="application/rss+xml" title="Tom Casavant">
@@ -808,13 +808,13 @@ footer .form input, footer .form button {
 
 		
 		<!-- OpenGraph Meta Tags -->
-		<meta property="og:title" content="Photo - Tom Casavant">
+		<meta property="og:title" content="Untitled Gaming Social - Tom Casavant">
 		<meta property="og:description" content="Blog about things">
 		
-		  <meta property="og:image" content="/img/9xV4I7Jyvf-5184.jpeg">
+		  <meta property="og:image" content="/img/opengraph/opengraph.png">
 		
 		
-		<meta property="og:url" content="/photography/img_3176/">
+		<meta property="og:url" content="/untitled-gaming-social/">
 		<meta property="og:type" content="article">
 		<meta property="og:site_name" content="Tom Casavant">
 	</head>
@@ -851,49 +851,109 @@ footer .form input, footer .form button {
 		</header>
 
 		<main id="skip">
-			<div class="image-container h-entry">
+			
+
+<article class="h-entry">
+    <h1 class="p-name">Untitled Gaming Social</h1>
+
+    <ul class="post-metadata">
+        <li><time class="dt-published" datetime="2025-01-03">03 January 2025</time></li>
+    </ul>
+
+    <div class="e-content">
+        <p><a href="https://ugs.tomkahe.com/user/MrPresidentTom"><img src="https://fedi-badge.deno.dev/@MrPresidentTom@ugs.tomkahe.com/followers.svg?style=plastic" alt="Follow @MrPresidentTom@ugs.tomkahe.com"></a></p>
+<p>Early last year I had built a plugin for Steam Decky Loader that would <a href="https://github.com/TomCasavant/DeckMastodonPoster">upload your screenshots to a mastodon-compatible API</a>.
+My goal was to automatically upload those images to a Pixelfed profile, but I ran into several issues (there was no secure way to store passwords/keys
+in decky and <a href="https://github.com/pixelfed/pixelfed/issues/2522">Pixelfed has a persistent bug</a> I was running into with OAuth) and eventually
+I just threw it away.</p>
+<p>Finally, I have come back to this general idea. But, instead of implementing it in the Steam client, I've instead set up a small ActivityPub
+server that uses the Steam API to fetch new screenshots and publish them to followers of the account. The server doesn't actually store any image files at the moment so it should be rather lightweight, though this may change in the future.</p>
+<p>I'm not sure what this will look like in the future, but I'd like to also find a way to federate achievements on both Steam as well as other gaming platforms.
+(My current thinking is a <code>Note</code> object with additional fields and an emoji representing the achievement icon? Still working it out)</p>
+<p>Current features:</p>
+<ul>
+<li>Creates an ActivityPub profile with your Steam profile image as the user image.</li>
+<li>Each profile, when viewed at the original page, should redirect to the user's Steam profile</li>
+<li>Each screenshot has a corresponding <code>Note</code> object with the image attachment and the game name</li>
+<li>Maintains a list of followers for the user</li>
+<li>Every 10 minutes it looks back at the most recent uploaded screenshots via the Steam web API, if there are any new posts it makes a <code>Create</code> activity and shares it with the account's followers</li>
+<li>(May be removed later) Every 45 minutes it grabs a screenshot from the database, if it hasn't already made a <code>Create</code> activity it will send out that post to all the followers (this is intended to backfill all my previous screenshots)</li>
+<li>Searching for a post via its Steam URL
+<ul>
+<li>e.g. searching for <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2856153203">https://ugs.tomkahe.com/activities/https://steamcommunity.com/sharedfiles/filedetails/?id=2856153203</a> should fetch the activity</li>
+</ul>
+</li>
+</ul>
+<p>Up Next:</p>
+<ul>
+<li>Add a web frontend</li>
+<li>Handle Like/Boost activities and display them in the frontend</li>
+<li>Discoverability tag for profile/posts</li>
+<li>Steam Achievement Support</li>
+<li>Retroachievement profile support</li>
+<li>Ability to follow other users</li>
+</ul>
+<p>Longer Term Plans:</p>
+<ul>
+<li>Multi-user support</li>
+<li>Some sort of API that lets you share screenshots from games outside of traditional platforms (e.g. upload screenshots from an Android App)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="/img/ESJvrvIwjP-635.png"><picture><source type="image/avif" srcset="/img/ESJvrvIwjP-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/ESJvrvIwjP-600.webp 600w" sizes="100vw"><img alt="Screenshot of the UGS profile as visible from my Mastodon server." loading="lazy" decoding="async" class="u-photo visible" src="/img/ESJvrvIwjP-600.png" width="600" height="852"></picture></a></th>
+</tr>
+</thead>
+</table>
+<p>I wouldn't recommend attempting to build/run it just yet, there's still a lot of work to be done and the database structure is far from finalized but the source code is available under the MIT license up on github.
+I also have my instance running up on a Linode server at <a href="https://ugs.tomkahe.com/">https://ugs.tomkahe.com/</a>, so you should <em>theoretically</em> be able to follow that account from your own instance by searching for @MrPresidentTom@ugs.tomkahe.com.</p>
+<p><a href="https://github.com/TomCasavant/ugs">Source Code</a></p>
+
+    </div>
+
+    <a href="/untitled-gaming-social/" class="u-url"></a>
+    <ul class="links-nextprev"><li>Previous: <a href="/10-201-frames-fediverse-plays-pokemon-2nd-update/">10,201 Frames: Fediverse Plays Pokemon 2nd Update</a></li>
+    </ul>
+
+		<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
+</article>
+
+<section>  
+  <h2>Webmentions</h2>  
   
-  <a href="/img/9xV4I7Jyvf-5184.jpeg"><picture><source type="image/avif" srcset="/img/9xV4I7Jyvf-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/9xV4I7Jyvf-600.webp 600w" sizes="100vw"><img alt="" loading="lazy" decoding="async" class="visible" src="/img/9xV4I7Jyvf-600.jpeg" width="600" height="400"></picture></a><img alt="" class="u-photo notvisible" src="/img/9xV4I7Jyvf-5184.jpeg" width="5184" height="3456">
-  <p> <time class="dt-published" datetime="2024-08-19T13:41:46-04:00">August 19th, 2024 1:41 PM</time> </p>
-  <p>5184x3456</p>
-  <div class="e-content">
-    <p>Canon EOS REBEL T4i - EF50mm f/1.8 II</p>
-    <p>Shutter Speed: 1/160</p>
-    <p>Aperture: f/1.8</p>
-    <p>ISO: 200</p>
-    <p>Focal Length: 50.0 mm</p>
-		<a class="p-category" href="https://tomkahe.com/tags/photography" hidden="from-humans">#photography</a>
-  </div>
-  <a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
-  <p> Click image to view fullsize, uncropped photo </p>
+  <div class="webmentions content-grid-sibling" id="webmentions">
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<p>These are <a href="https://indieweb.org/Webmention">webmentions</a> via the <a href="https://indieweb.org/">IndieWeb</a> and <a href="https://webmention.io/">webmention.io</a>. Mention this post from your site:</p>
+
+<form action="https://webmention.io/tomcasavant.com/webmention" method="post" class="form-webmention">
+    <label for="form-webmention-source">URL</label><br>
+    <input id="form-webmention-source" type="url" name="source" placeholder="https://example.com" required>
+    <input type="hidden" name="target" value="https://tomcasavant.com/untitled-gaming-social/">
+    <input type="submit" class="button button-small" value="Send Webmention">
+  </form>
 </div>
-<style>
 
-  .image-container {
-    text-align: center;
-  }
-  .image-container .visible {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    height: auto;
-    border: 2px solid #000; /* Optional: Add border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
-  }
-  .image-container p:first-of-type {
-    margin-top: 10px; /* Optional: Add margin to the date */
-  }
+</section>
 
-	p {
-	  line-height: 0.45;
-	}
-</style>
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/photography/img_3176/` was built on 2025-01-03T19:55:18.328Z -->
+		<!-- This page `/untitled-gaming-social/` was built on 2025-01-03T19:55:18.542Z -->
 	</body>
 </html>
