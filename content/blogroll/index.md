@@ -1,9 +1,6 @@
 ---
 layout: layouts/home.njk
 title: Blogroll
-eleventyNavigation:
-  key: Blogroll
-  order: 9
 ---
 ## Content I Consume
 #### (Sorted by most recent post)
