@@ -4,12 +4,57 @@
 	<subtitle>Blog about things</subtitle>
 	<link href="https://tomcasavant.com/feed.xml" rel="self"/>
 	<link href="https://tomcasavant.com/"/>
-	<updated>2025-01-03T15:00:00Z</updated>
+	<updated>2025-03-31T15:00:00Z</updated>
 	<id>https://tomcasavant.com/</id>
 	<author>
 		<name>Tom Casavant</name>
 		<email>tfcasavant@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>Things I Did Not Blog About 2</title>
+		<link href="https://tomcasavant.com/things-i-did-not-blog-about-2/"/>
+		<updated>2025-03-31T15:00:00Z</updated>
+		<id>https://tomcasavant.com/things-i-did-not-blog-about-2/</id>
+		<content type="html">&lt;p&gt;&lt;a href=&quot;https://tomkahe.com/@GiftArticles&quot;&gt;&lt;img src=&quot;https://fedi-badge.deno.dev/@GiftArticles@tomkahe.com/followers.svg?style=plastic&quot; alt=&quot;Follow @GiftArticles@tomkahe.com&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;https://logos.deno.dev&quot;&gt;&lt;img src=&quot;https://fedi-badge.deno.dev/@tmnt@logos.deno.dev/followers.svg?style=plastic&quot; alt=&quot;Follow @tmnt@logos.deno.dev&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;https://mapbot.deno.dev&quot;&gt;&lt;img src=&quot;https://fedi-badge.deno.dev/@gulfof@mapbot.deno.dev/followers.svg?style=plastic&quot; alt=&quot;Follow @gulfof@mapbot.deno.dev&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Last year I wrote about &lt;a href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/&quot;&gt;everything I hadn&#39;t written about&lt;/a&gt; and now I have done it again.&lt;/p&gt;
+&lt;h1 id=&quot;bots-bots-bots&quot; tabindex=&quot;-1&quot;&gt;Bots, Bots, Bots &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about-2/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Early this year, a framework for easily building bots on the fediverse w/o being attached to a specific instance called &lt;a href=&quot;https://botkit.fedify.dev/&quot;&gt;BotKit&lt;/a&gt; was released. This lets you write a bot that can be deployed to deno (or other hosting platform) with ease.&lt;/p&gt;
+&lt;p&gt;Also earlier this year, MapQuest released a tool to rename the Gulf of Mexico to whatever you want. I noticed that the generated image could be grabbed directly by plugging arguments into this url &lt;a href=&quot;https://gulfof.mapquest.com/img/map?name=example+text&quot;&gt;https://gulfof.mapquest.com/img/map?name=example+text&lt;/a&gt; which meant that I could display images without actually storing any of them on deno. I quickly got to work and combined BotKit with the MapQuest API and created &lt;a href=&quot;https://mapbot.deno.dev&quot;&gt;@gulfof@mapbot.deno.dev&lt;/a&gt;, a very simple bot that will reply with the edited map when tagged on the fediverse. &lt;a href=&quot;https://github.com/TomCasavant/GulfOf&quot;&gt;Source Code&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A week later, I couldn&#39;t stop thinking about that image endpoint and so I was interested in building one myself a website that dynamically generates an image that didn&#39;t need to be stored anywhere. Years ago &lt;a href=&quot;https://xkcd.com/1412/&quot;&gt;based on this xkcd&lt;/a&gt;, there was a website released that let you plug in any text and it would generate the TMNT logo, unfortunately, it was built entirely with css and html which made it very difficult to convert it into an image. I tried a few ways to screenshot it from my glitch site but nothing was working, so I ended up just building a glitch page from scratch that builds the image. Thus, &lt;a href=&quot;https://tmnt-logo.glitch.me/&quot;&gt;https://tmnt-logo.glitch.me/&lt;/a&gt; was born. You can generate the image by plugging in any text to &lt;a href=&quot;https://tmnt-logo.glitch.me/img?text=teenage+mutant+ninja+turtles&amp;amp;background=transparent&amp;amp;width=550&amp;amp;height=200&quot;&gt;https://tmnt-logo.glitch.me/img?text=teenage+mutant+ninja+turtles&amp;amp;background=transparent&amp;amp;width=550&amp;amp;height=200&lt;/a&gt; (and an optional width/height and background. If the width/height isn&#39;t provided it will attempt to fit the image to the text w/ reasonable accuracy). Source Code: &lt;a href=&quot;https://glitch.com/edit/#!/tmnt-logo&quot;&gt;remixable on glitch.com&lt;/a&gt; or &lt;a href=&quot;https://github.com/TomCasavant/tmnt-logo-generator&quot;&gt;on github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now that I had that website, I could quickly build the &lt;a href=&quot;https://logos.deno.dev&quot;&gt;@tmnt@logos.deno.dev&lt;/a&gt; bot by making some modifications to the earlier @GulfOf bot. If you tag @tmnt@logos.deno.dev with some text it will automatically reply to you with the generated image. &lt;a href=&quot;https://github.com/TomCasavant/tmnt-logo-bot&quot;&gt;Source Code&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The last bot I&#39;ve made (so far) this year is &lt;a href=&quot;https://tomkahe.com/@GiftArticles&quot;&gt;@GiftArticles@tomkahe.com&lt;/a&gt;. Early last year I was looking for a way to get RSS feeds of Bluesky feeds to no avail, but I went looking for it again last month and found the perfect alternative. Bluesky has a public API that lets you view a feed as JSON: &lt;a href=&quot;https://public.api.bsky.app/xrpc/app.bsky.feed.getFeed?feed=at://did:plc:o4s55v3tsfph6whswxccpsia/app.bsky.feed.generator/aaaixbb5liqbu&quot;&gt;here is what that looks like&lt;/a&gt;, which meant I could finally bring my favorite Bluesky feed over to the Fediverse. &lt;a href=&quot;https://bsky.app/profile/davidsacerdote.bsky.social/feed/aaaixbb5liqbu&quot;&gt;this&lt;/a&gt; is a feed that finds any post on Bluesky/atproto that has shared a gift article (or a URL that lets you bypass a news paywall). It&#39;s a rather noisy bot so the way I use it at the moment is I mute it from my home timeline and when I&#39;m browsing the trending links from any news site I &lt;em&gt;don&#39;t&lt;/em&gt; subscribe to, I can just scroll through the users discussing it and find @GiftArticles.&lt;/p&gt;
+&lt;h1 id=&quot;glance&quot; tabindex=&quot;-1&quot;&gt;Glance &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about-2/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;I started using a self-hosted dashboard called &lt;a href=&quot;https://github.com/glanceapp/glance&quot;&gt;Glance&lt;/a&gt; this month and added a couple of &lt;a href=&quot;https://github.com/glanceapp/community-widgets&quot;&gt;community widgets&lt;/a&gt; that have improved my experience. &lt;a href=&quot;https://github.com/glanceapp/community-widgets/pull/8&quot;&gt;This one&lt;/a&gt; fetches all the trending news on my Mastodon instance and &lt;a href=&quot;https://github.com/glanceapp/community-widgets/pull/7&quot;&gt;this one&lt;/a&gt; fetches trending news from the Trending News feed on Bluesky.&lt;/p&gt;
+&lt;h1 id=&quot;diy&quot; tabindex=&quot;-1&quot;&gt;DIY &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about-2/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;I printed a case for a Heltek meshtastic device, but I have deemed it too ugly to share.&lt;/p&gt;
+&lt;p&gt;3D Printed Television &lt;a href=&quot;https://makerworld.com/en/models/480190-retro-style-tv-case-for-4inch-waveshare-screen#profileId-391702&quot;&gt;source&lt;/a&gt;. I wrapped the resulting print in a wood vinyl film.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/ZAgikPPyWz-3000.jpeg&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/ZAgikPPyWz-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/ZAgikPPyWz-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of the completed retro 3D printed TV with a fake wood-grain wrap.&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/ZAgikPPyWz-600.jpeg&quot; width=&quot;600&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;p&gt;And finally for the crème de la crème, I received a Game Boy Color along with something else I ordered a few years ago for a unrelated project. The GBC was listed as broken but from what I could determine it was just the buttons that weren&#39;t working, it was reading cartridges just fine. That sat in my closet for years &lt;em&gt;until now&lt;/em&gt;. I swapped out the old screen for an OLED display and cleaned all the button pads and now I&#39;ve got a modern and beautiful Game Boy Color (the speaker still needs to be replaced but that replacement won&#39;t be here until this weekend).&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/GLg5xQrn_E-1440.jpeg&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/GLg5xQrn_E-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/GLg5xQrn_E-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Before photo of a purple Game Boy Color with a dim screen showing Link&#39;s Awakening&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/GLg5xQrn_E-600.jpeg&quot; width=&quot;600&quot; height=&quot;1066&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/ieT1cCuuC7-1440.jpeg&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/ieT1cCuuC7-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/ieT1cCuuC7-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;After photo of a transparent purple Game Boy Color with a bright OLED showing Link&#39;s Awakening&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/ieT1cCuuC7-600.jpeg&quot; width=&quot;600&quot; height=&quot;1066&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;Before&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;After&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Untitled Gaming Social</title>
