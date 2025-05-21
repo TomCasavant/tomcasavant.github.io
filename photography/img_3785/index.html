@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>NFL Win-Chain (Dijkstra&#39;s Algorithm)</title>
+		<title>Photo</title>
 		<meta name="description" content="Blog about things">
 		<link rel="webmention" href="https://webmention.io/tomcasavant.com/webmention" />
 		<link rel="alternate" href="/blog.xml" type="application/rss+xml" title="Tom Casavant">
@@ -808,13 +808,13 @@ footer .form input, footer .form button {
 
 		
 		<!-- OpenGraph Meta Tags -->
-		<meta property="og:title" content="NFL Win-Chain (Dijkstra&#39;s Algorithm) - Tom Casavant">
+		<meta property="og:title" content="Photo - Tom Casavant">
 		<meta property="og:description" content="Blog about things">
 		
-		  <meta property="og:image" content="/img/opengraph/opengraph.png">
+		  <meta property="og:image" content="/img/LyQQnu09fR-5184.jpeg">
 		
 		
-		<meta property="og:url" content="/nfl-win-chain-dijkstra-s-algorithm/">
+		<meta property="og:url" content="/photography/img_3785/">
 		<meta property="og:type" content="article">
 		<meta property="og:site_name" content="Tom Casavant">
 	</head>
@@ -851,142 +851,49 @@ footer .form input, footer .form button {
 		</header>
 
 		<main id="skip">
-			
-
-<article class="h-entry">
-    <h1 class="p-name">NFL Win-Chain (Dijkstra&#39;s Algorithm)</h1>
-
-    <ul class="post-metadata">
-        <li><time class="dt-published" datetime="2019-01-28">28 January 2019</time></li>
-    </ul>
-
-    <div class="e-content">
-        <p>Last semester I was taking a course at OSU called Foundations of Software Engineering. Towards the end of the course we learned about different algorithms to find paths between different nodes on a graph. One such algorithm was called Dijkstra's algorithm. I wanted to experiment with this algorithm, so I decided to write a program that would create nodes for each of the 32 NFL teams and have them connected via the wins between them, i.e. if the Bengals beat the Steelers then the Bengals would have a line pointing from themselves towards the Steelers.</p>
-<p>The goal of the script was to be able to compare teams that didn't play each other during the season. For example, the Bengals and the Patriots did not play each other in the 2018 season. The shortest chain of wins between the Bengals and the Patriots was:</p>
-<blockquote>
-<p>Bengals -&gt; Colts -&gt; Redskins -&gt; Cardinals -&gt; 49ers -&gt; Lions -&gt; Patriots</p>
-</blockquote>
-<p>Essentially, the point was so that I could brag that the Bengals were better than other teams through the teams that they beat.</p>
-<p>The first step was to define the nodes themselves. I created a file called league.py and defined 2 classes, Team and League.</p>
-<p>class Team:
-&quot;&quot;&quot;A node, representing a team in a graph&quot;&quot;&quot;
-def <strong>init</strong>(self, name):
-self.name = name
-self.wins = []
-self.seen = False</p>
-<p>def numberOfWins(self):
-self.numWins = len(self.wins)</p>
-<p>def numberOfLosses(self):
-self.numLosses = len(self.losses)</p>
-<p>class League:
-&quot;&quot;&quot; A collection of team nodes representing the league (i.e the graph of nodes)&quot;&quot;&quot;
-def <strong>init</strong>(self):
-self.teams = []
-self.rankedTeams = []</p>
-<p>def resetSeen(self):
-for team in self.teams:
-team.seen = False</p>
-<p>def getWinChain(self, team1, team2):
-team1.seen = True
-chain = [team1] + self.winChain(team1, team2)
-self.resetSeen()
-return chain</p>
-<p>Imagine each node as a circle on a graph with arrows pointing to the teams that they beat. The picture below shows 2 teams, the Bengals and the Steelers, each with one win against each other.</p>
-<p><img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/Diagram.png?raw=true" alt="" title="Bengals &gt; Steelers"></p>
-<p>After creating the classes we have to fill the league with all the teams in the NFL. I searched around and found an api called nflgame (<a href="https://github.com/BurntSushi/nflgame">https://github.com/BurntSushi/nflgame</a>) that would retrieve all the data I need for this project. I then proceeded to create a file called teamCreation.py to create the teams and create an interface for the user. The first step of this file would be to create functions to retrieve the data I need and to establish the nodes.</p>
-<p>import nflgame
-from league import Team, League #The classes we just created</p>
-<p>teams = ['ARI','ATL','BAL','BUF','CAR','CHI','CIN','CLE','DAL','DEN','DET','GB','HOU','IND','JAX','KC','LA','MIA','MIN','NE','NO','NYG','NYJ','OAK','PHI','PIT','SEA','SF','TB','TEN','WAS', 'LAC'] #Shortened names for every team in the NFL</p>
-<p>def getData(year, weeks):
-&quot;&quot;&quot;Gets all the games from the given year&quot;&quot;&quot;
-return nflgame.games(year, week=weeks)</p>
-<p>def createLeague():
-&quot;&quot;&quot;Creates a league object and fills it with all the nfl teams&quot;&quot;&quot;
-league = League()
-for team in teams:
-league.teams.append(Team(team))</p>
-<p>return league</p>
-<p>The next step is to set the attributes for the nodes in the graph (i.e. to read in the wins from each team).</p>
-<p>def loadLeague(league, data):
-&quot;&quot;&quot;Loads the league object with the results of all the games&quot;&quot;&quot;
-for game in data:
-if (game.winner != None): #If the game as finished
-positionw = league.positionOfTeam(game.winner)
-positionl = league.positionOfTeam(game.loser)
-league.teams[positionw].wins.append(league.teams[positionl])</p>
-<p>def setup():
-data = getData(2018, range(1,17))
-league = createLeague()
-loadLeague(league, data)
-return league</p>
-<p>Then we can write a function that compares two given teams in a league.</p>
-<p>def compareTeams(team1, team2, league):
-&quot;&quot;&quot;Creates a chain linking the two given teams&quot;&quot;&quot;
-team1Pos = league.positionOfTeam(nflgame.standard_team(team1))
-team2Pos = league.positionOfTeam(nflgame.standard_team(team2))</p>
-<p>firstTeam = league.teams[team1Pos]
-secondTeam = league.teams[team2Pos]</p>
-<p>return league.getWinChain(firstTeam, secondTeam)</p>
-<p>Finally, we have to be able to have the user interface with this by giving the program 2 team names. So we finish it off with a main method:</p>
-<p>if <strong>name</strong> == &quot;<strong>main</strong>&quot;:</p>
-<p>data = getData(2018, range(1,17))
-league = createLeague()
-loadLeague(league, data)
-league.assignSOS()
-league.rankTeams()
-while True:
-chain = compareTeams(raw_input(&quot;First Team: &quot;), raw_input(&quot;Second Team: &quot;), league)
-result = &quot;&quot;
-for t in chain:
-result = result + t.name + &quot; -&gt; &quot;</p>
-<p>print result</p>
-<p>And there we have it, we can now officially brag that the team of your choice is better than all other teams via the transitive win property. The full code can be viewed on my github at <a href="https://github.com/TomCasavant/NFLWinChains">https://github.com/TomCasavant/NFLWinChains</a></p>
-
-    </div>
-
-    <a href="/nfl-win-chain-dijkstra-s-algorithm/" class="u-url"></a>
-    <ul class="links-nextprev"><li>Previous: <a href="/hack-oh-io-2018/">Hack OH/IO 2018</a></li><li>Next: <a href="/make-oh-io-2019/">Make OH/IO 2019</a></li>
-    </ul>
-
-		<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
-</article>
-
-<section>  
-  <h2>Webmentions</h2>  
+			<div class="image-container h-entry">
   
-  <div class="webmentions content-grid-sibling" id="webmentions">
-
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-<p>These are <a href="https://indieweb.org/Webmention">webmentions</a> via the <a href="https://indieweb.org/">IndieWeb</a> and <a href="https://webmention.io/">webmention.io</a>. Mention this post from your site:</p>
-
-<form action="https://webmention.io/tomcasavant.com/webmention" method="post" class="form-webmention">
-    <label for="form-webmention-source">URL</label><br>
-    <input id="form-webmention-source" type="url" name="source" placeholder="https://example.com" required>
-    <input type="hidden" name="target" value="https://tomcasavant.com/nfl-win-chain-dijkstra-s-algorithm/">
-    <input type="submit" class="button button-small" value="Send Webmention">
-  </form>
+  <a href="/img/LyQQnu09fR-5184.jpeg"><picture><source type="image/avif" srcset="/img/LyQQnu09fR-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/LyQQnu09fR-600.webp 600w" sizes="100vw"><img alt="" loading="lazy" decoding="async" class="visible" src="/img/LyQQnu09fR-600.jpeg" width="600" height="400"></picture></a><img alt="" class="u-photo notvisible" src="/img/LyQQnu09fR-5184.jpeg" width="5184" height="3456">
+  <p> <time class="dt-published" datetime="2024-11-16T17:21:42-05:00">November 16th, 2024 5:21 PM</time> </p>
+  <p>5184x3456</p>
+  <div class="e-content">
+    <p>Canon EOS REBEL T4i - EF50mm f/1.8 II</p>
+    <p>Shutter Speed: 1/250</p>
+    <p>Aperture: f/2.2</p>
+    <p>ISO: 200</p>
+    <p>Focal Length: 50.0 mm</p>
+		<a class="p-category" href="https://tomkahe.com/tags/photography" hidden="from-humans">#photography</a>
+  </div>
+  <a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
+  <p> Click image to view fullsize, uncropped photo </p>
 </div>
+<style>
 
-</section>
+  .image-container {
+    text-align: center;
+  }
+  .image-container .visible {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #000; /* Optional: Add border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+  }
+  .image-container p:first-of-type {
+    margin-top: 10px; /* Optional: Add margin to the date */
+  }
 
+	p {
+	  line-height: 0.45;
+	}
+</style>
 
 		</main>
 
 		<footer></footer>
 
-		<!-- This page `/nfl-win-chain-dijkstra-s-algorithm/` was built on 2025-05-14T21:41:32.952Z -->
+		<!-- This page `/photography/img_3785/` was built on 2025-05-21T01:46:54.973Z -->
 	</body>
 </html>

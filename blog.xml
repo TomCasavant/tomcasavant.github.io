@@ -20,15 +20,15 @@
 &lt;a href=&quot;https://logos.deno.dev&quot;&gt;&lt;img src=&quot;https://fedi-badge.deno.dev/@tmnt@logos.deno.dev/followers.svg?style=plastic&quot; alt=&quot;Follow @tmnt@logos.deno.dev&quot;&gt;&lt;/a&gt;
 &lt;a href=&quot;https://mapbot.deno.dev&quot;&gt;&lt;img src=&quot;https://fedi-badge.deno.dev/@gulfof@mapbot.deno.dev/followers.svg?style=plastic&quot; alt=&quot;Follow @gulfof@mapbot.deno.dev&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Last year I wrote about &lt;a href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/&quot;&gt;everything I hadn&#39;t written about&lt;/a&gt; and now I have done it again.&lt;/p&gt;
-&lt;h1 id=&quot;bots-bots-bots&quot; tabindex=&quot;-1&quot;&gt;Bots, Bots, Bots &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about-2/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;bots-bots-bots&quot; tabindex=&quot;-1&quot;&gt;Bots, Bots, Bots &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about-2/#bots-bots-bots&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Early this year, a framework for easily building bots on the fediverse w/o being attached to a specific instance called &lt;a href=&quot;https://botkit.fedify.dev/&quot;&gt;BotKit&lt;/a&gt; was released. This lets you write a bot that can be deployed to deno (or other hosting platform) with ease.&lt;/p&gt;
 &lt;p&gt;Also earlier this year, MapQuest released a tool to rename the Gulf of Mexico to whatever you want. I noticed that the generated image could be grabbed directly by plugging arguments into this url &lt;a href=&quot;https://gulfof.mapquest.com/img/map?name=example+text&quot;&gt;https://gulfof.mapquest.com/img/map?name=example+text&lt;/a&gt; which meant that I could display images without actually storing any of them on deno. I quickly got to work and combined BotKit with the MapQuest API and created &lt;a href=&quot;https://mapbot.deno.dev&quot;&gt;@gulfof@mapbot.deno.dev&lt;/a&gt;, a very simple bot that will reply with the edited map when tagged on the fediverse. &lt;a href=&quot;https://github.com/TomCasavant/GulfOf&quot;&gt;Source Code&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;A week later, I couldn&#39;t stop thinking about that image endpoint and so I was interested in building one myself a website that dynamically generates an image that didn&#39;t need to be stored anywhere. Years ago &lt;a href=&quot;https://xkcd.com/1412/&quot;&gt;based on this xkcd&lt;/a&gt;, there was a website released that let you plug in any text and it would generate the TMNT logo, unfortunately, it was built entirely with css and html which made it very difficult to convert it into an image. I tried a few ways to screenshot it from my glitch site but nothing was working, so I ended up just building a glitch page from scratch that builds the image. Thus, &lt;a href=&quot;https://tmnt-logo.glitch.me/&quot;&gt;https://tmnt-logo.glitch.me/&lt;/a&gt; was born. You can generate the image by plugging in any text to &lt;a href=&quot;https://tmnt-logo.glitch.me/img?text=teenage+mutant+ninja+turtles&amp;amp;background=transparent&amp;amp;width=550&amp;amp;height=200&quot;&gt;https://tmnt-logo.glitch.me/img?text=teenage+mutant+ninja+turtles&amp;amp;background=transparent&amp;amp;width=550&amp;amp;height=200&lt;/a&gt; (and an optional width/height and background. If the width/height isn&#39;t provided it will attempt to fit the image to the text w/ reasonable accuracy). Source Code: &lt;a href=&quot;https://glitch.com/edit/#!/tmnt-logo&quot;&gt;remixable on glitch.com&lt;/a&gt; or &lt;a href=&quot;https://github.com/TomCasavant/tmnt-logo-generator&quot;&gt;on github&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Now that I had that website, I could quickly build the &lt;a href=&quot;https://logos.deno.dev&quot;&gt;@tmnt@logos.deno.dev&lt;/a&gt; bot by making some modifications to the earlier @GulfOf bot. If you tag @tmnt@logos.deno.dev with some text it will automatically reply to you with the generated image. &lt;a href=&quot;https://github.com/TomCasavant/tmnt-logo-bot&quot;&gt;Source Code&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The last bot I&#39;ve made (so far) this year is &lt;a href=&quot;https://tomkahe.com/@GiftArticles&quot;&gt;@GiftArticles@tomkahe.com&lt;/a&gt;. Early last year I was looking for a way to get RSS feeds of Bluesky feeds to no avail, but I went looking for it again last month and found the perfect alternative. Bluesky has a public API that lets you view a feed as JSON: &lt;a href=&quot;https://public.api.bsky.app/xrpc/app.bsky.feed.getFeed?feed=at://did:plc:o4s55v3tsfph6whswxccpsia/app.bsky.feed.generator/aaaixbb5liqbu&quot;&gt;here is what that looks like&lt;/a&gt;, which meant I could finally bring my favorite Bluesky feed over to the Fediverse. &lt;a href=&quot;https://bsky.app/profile/davidsacerdote.bsky.social/feed/aaaixbb5liqbu&quot;&gt;this&lt;/a&gt; is a feed that finds any post on Bluesky/atproto that has shared a gift article (or a URL that lets you bypass a news paywall). It&#39;s a rather noisy bot so the way I use it at the moment is I mute it from my home timeline and when I&#39;m browsing the trending links from any news site I &lt;em&gt;don&#39;t&lt;/em&gt; subscribe to, I can just scroll through the users discussing it and find @GiftArticles.&lt;/p&gt;
-&lt;h1 id=&quot;glance&quot; tabindex=&quot;-1&quot;&gt;Glance &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about-2/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;glance&quot; tabindex=&quot;-1&quot;&gt;Glance &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about-2/#glance&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;I started using a self-hosted dashboard called &lt;a href=&quot;https://github.com/glanceapp/glance&quot;&gt;Glance&lt;/a&gt; this month and added a couple of &lt;a href=&quot;https://github.com/glanceapp/community-widgets&quot;&gt;community widgets&lt;/a&gt; that have improved my experience. &lt;a href=&quot;https://github.com/glanceapp/community-widgets/pull/8&quot;&gt;This one&lt;/a&gt; fetches all the trending news on my Mastodon instance and &lt;a href=&quot;https://github.com/glanceapp/community-widgets/pull/7&quot;&gt;this one&lt;/a&gt; fetches trending news from the Trending News feed on Bluesky.&lt;/p&gt;
-&lt;h1 id=&quot;diy&quot; tabindex=&quot;-1&quot;&gt;DIY &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about-2/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;diy&quot; tabindex=&quot;-1&quot;&gt;DIY &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about-2/#diy&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;I printed a case for a Heltek meshtastic device, but I have deemed it too ugly to share.&lt;/p&gt;
 &lt;p&gt;3D Printed Television &lt;a href=&quot;https://makerworld.com/en/models/480190-retro-style-tv-case-for-4inch-waveshare-screen#profileId-391702&quot;&gt;source&lt;/a&gt;. I wrapped the resulting print in a wood vinyl film.&lt;/p&gt;
 &lt;table&gt;
@@ -211,15 +211,15 @@ So, I used that to make the &lt;code&gt;get_image&lt;/code&gt; and &lt;code&gt;g
 		<link href="https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/"/>
 		<updated>2024-07-13T14:00:00Z</updated>
 		<id>https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/</id>
-		<content type="html">&lt;h1 id=&quot;blogs&quot; tabindex=&quot;-1&quot;&gt;Blogs &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+		<content type="html">&lt;h1 id=&quot;blogs&quot; tabindex=&quot;-1&quot;&gt;Blogs &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/#blogs&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;I enjoy reading blogs. Unfortunately, discovering blogs isn&#39;t exactly the easiest thing to do, most of the ones I&#39;ve subscribed to after finding the authors on Twitter (formerly), The Fediverse, Flipboard, and other social platforms.
 A lot of the mainstream platforms tend to downrank links and there are not many platforms the open social web known for discoverability (yet).&lt;/p&gt;
 &lt;p&gt;One possible option is to just search for them. &lt;a href=&quot;https://search.marginalia.nu/&quot;&gt;Marginalia&lt;/a&gt;, for example, is a search engine that lets you easily find content across the indieweb.&lt;/p&gt;
 &lt;p&gt;And another option is the Blogroll.&lt;/p&gt;
-&lt;h2 id=&quot;blogrolls&quot; tabindex=&quot;-1&quot;&gt;Blogrolls &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;blogrolls&quot; tabindex=&quot;-1&quot;&gt;Blogrolls &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/#blogrolls&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The idea behind blogrolls is very simple: share the rss feeds you enjoy reading, forming a sort of &lt;a href=&quot;https://bentsai.org/posts/my-recommendation-engine&quot;&gt;recommendation engine&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;If I enjoy reading a blog the best way to find out what other blogs to read is to figure out what that author reads and read that.&lt;/p&gt;
-&lt;h2 id=&quot;blogrolls-on-blogroll&quot; tabindex=&quot;-1&quot;&gt;Blogrolls on Blogroll &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;blogrolls-on-blogroll&quot; tabindex=&quot;-1&quot;&gt;Blogrolls on Blogroll &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/#blogrolls-on-blogroll&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;It stands to reason that I might also enjoy reading the blogs recommended by those blogs that were recommended by the authors I read.&lt;/p&gt;
 &lt;p&gt;Unfortunately, at this point there are quite a lot of blogs adding up.
 If I follow 5 blogs and each of them follow 5 blogs we&#39;re up to 25 new blogs, if each of those recommend 5 unique blogs we&#39;re up to 150 new feeds.&lt;/p&gt;
@@ -306,12 +306,12 @@ If I follow 5 blogs and each of them follow 5 blogs we&#39;re up to 25 new blogs
             &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;feed_scores&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 
             &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; blogroll_tree&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;blogrolls-on-blogrolls-on-blogrolls&quot; tabindex=&quot;-1&quot;&gt;Blogrolls on Blogrolls on Blogrolls &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;blogrolls-on-blogrolls-on-blogrolls&quot; tabindex=&quot;-1&quot;&gt;Blogrolls on Blogrolls on Blogrolls &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/#blogrolls-on-blogrolls-on-blogrolls&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;As you can see in the above code, I&#39;ve added a few arguments to our get_blogroll_tree() function.
 If I assume I&#39;ll enjoy the blogs that the people I read recommend, and then to a lesser extent the blogs that are recommended on those blogs, then it follows that I might also enjoy the blogs that are recommended by the blogs that are recommended by the blogs I enjoy.&lt;/p&gt;
 &lt;p&gt;So we plug in a depth to our blogroll tree to specify how many blogs should be searched. (if I plug in 0, only my blog shows up. If I plug in 1 the blogs I recommend will appear. 2, the blogs that those blogs recommend will appear and so on)&lt;/p&gt;
 &lt;p&gt;Finally, we can assign a score to these blogs to find which ones I might most like to read. If we assume that as we get longer branches to the blogroll tree the content on the blogs further out will be&lt;/p&gt;
-&lt;h2 id=&quot;further-exploration&quot; tabindex=&quot;-1&quot;&gt;Further Exploration &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;further-exploration&quot; tabindex=&quot;-1&quot;&gt;Further Exploration &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/#further-exploration&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Having a bunch of RSS feeds is only useful if I can read them. I&#39;ve got a &lt;a href=&quot;https://www.freshrss.org/&quot;&gt;FreshRSS&lt;/a&gt; feed aggregator running on my server, which opens up a GReader API.
 Using that API we can take all our new feeds and add it to a specific category on FreshRSS to be browsed at my leisure.&lt;/p&gt;
 &lt;pre class=&quot;language-python&quot; tabindex=&quot;0&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;GReader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
@@ -339,7 +339,7 @@ Using that API we can take all our new feeds and add it to a specific category o
 &lt;p&gt;The reason I started exploring this was a discussion on &lt;a href=&quot;https://github.com/ckolderup/postmarks&quot;&gt;Postmarks&lt;/a&gt; about &lt;a href=&quot;https://github.com/ckolderup/postmarks/issues/140&quot;&gt;user discovery in the fediverse&lt;/a&gt;. Mastodon still technically has a feature where users can &lt;a href=&quot;https://docs.joinmastodon.org/user/discoverability/&quot;&gt;promote other profiles&lt;/a&gt;, though it seems to have dropped the UI for that
 so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a href=&quot;https://github.com/mastodon/mastodon/issues/19655&quot;&gt;federated alongside profiles&lt;/a&gt; it would have the potential of bringing easy blogroll-like functionality to the social web.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&quot;further-reading&quot; tabindex=&quot;-1&quot;&gt;Further Reading &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;further-reading&quot; tabindex=&quot;-1&quot;&gt;Further Reading &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/#further-reading&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;If you expand on the above code you can map out the &lt;a href=&quot;https://alexsci.com/rss-blogroll-network/&quot;&gt;entire blogroll network&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://box464.com/posts/mastodon-featured-profiles/&quot;&gt;Mastodon Featured Profiles&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://blogroll.org/what-are-blogrolls/&quot;&gt;What are blogrolls&lt;/a&gt;&lt;/p&gt;
@@ -357,7 +357,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;p&gt;At first I looked around for an easy way to play the GBA Pokémon games which I am far more familiar with, but settled on Pokémon Gold for the Gameboy Color.&lt;/p&gt;
 &lt;p&gt;Playing Pokémon one frame every hour introduces a few more difficulties into the gameplay, the main one being that every single mistake you make could cost anywhere from a few hours to a few weeks to rectify.&lt;/p&gt;
 &lt;p&gt;This is the journey so far.&lt;/p&gt;
-&lt;h2 id=&quot;february-10th-day-1&quot; tabindex=&quot;-1&quot;&gt;February 10th (Day 1) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;february-10th-day-1&quot; tabindex=&quot;-1&quot;&gt;February 10th (Day 1) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#february-10th-day-1&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://tomkahe.com/@pokemon&quot;&gt;@pokemon@tomkahe.com&lt;/a&gt; is created and the bot generates its &lt;a href=&quot;https://tomkahe.com/@pokemon/111908424046168338&quot;&gt;first post&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Over the course of a few hours, 2-3 people named our adventurer Fry.&lt;/p&gt;
 &lt;table&gt;
@@ -373,13 +373,13 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;Early days involved &lt;a href=&quot;https://tomkahe.com/@pokemon/111911428326064094&quot;&gt;polls with 0 votes&lt;/a&gt;, especially polls that happened overnight.&lt;/p&gt;
-&lt;h2 id=&quot;february-11th-day-2&quot; tabindex=&quot;-1&quot;&gt;February 11th (Day 2) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;february-11th-day-2&quot; tabindex=&quot;-1&quot;&gt;February 11th (Day 2) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#february-11th-day-2&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://tomkahe.com/@pokemon/111914495434000447&quot;&gt;Turned the PC on&lt;/a&gt; and then immediately turned it off again&lt;/p&gt;
-&lt;h2 id=&quot;february-12th-day-3&quot; tabindex=&quot;-1&quot;&gt;February 12th (Day 3) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;february-12th-day-3&quot; tabindex=&quot;-1&quot;&gt;February 12th (Day 3) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#february-12th-day-3&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://tomkahe.com/@pokemon/111917326546433527&quot;&gt;Made our way downstairs&lt;/a&gt; to talk with our mother&lt;/p&gt;
-&lt;h2 id=&quot;february-15th-day-6&quot; tabindex=&quot;-1&quot;&gt;February 15th (Day 6) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;february-15th-day-6&quot; tabindex=&quot;-1&quot;&gt;February 15th (Day 6) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#february-15th-day-6&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://tomkahe.com/@pokemon/111934313499316348&quot;&gt;Our hero meets Professor Elm&lt;/a&gt; in order to begin the adventure&lt;/p&gt;
-&lt;h2 id=&quot;february-16th-day-7&quot; tabindex=&quot;-1&quot;&gt;February 16th (Day 7) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;february-16th-day-7&quot; tabindex=&quot;-1&quot;&gt;February 16th (Day 7) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#february-16th-day-7&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Picked up our &lt;a href=&quot;https://tomkahe.com/@pokemon/111941155456862566&quot;&gt;first pokemon&lt;/a&gt; (Cyndaquil)&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -393,7 +393,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;february-17th-day-8&quot; tabindex=&quot;-1&quot;&gt;February 17th (Day 8) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;february-17th-day-8&quot; tabindex=&quot;-1&quot;&gt;February 17th (Day 8) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#february-17th-day-8&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Finished naming our new Cyndaquil, meet Ja?&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -407,13 +407,13 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;february-19th-fry-touches-grass-day-10&quot; tabindex=&quot;-1&quot;&gt;February 19th: Fry touches grass (Day 10) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;february-19th-fry-touches-grass-day-10&quot; tabindex=&quot;-1&quot;&gt;February 19th: Fry touches grass (Day 10) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#february-19th-fry-touches-grass-day-10&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Fry&#39;s very first &lt;a href=&quot;https://tomkahe.com/@pokemon/111959793874141458&quot;&gt;pokemon battle&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;february-21st-day-12&quot; tabindex=&quot;-1&quot;&gt;February 21st (Day 12) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;february-21st-day-12&quot; tabindex=&quot;-1&quot;&gt;February 21st (Day 12) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#february-21st-day-12&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Ja? &lt;a href=&quot;https://tomkahe.com/@pokemon/111968287107453033&quot;&gt;levels up&lt;/a&gt; and learns Smokescreen&lt;/p&gt;
-&lt;h2 id=&quot;february-22nd-day-13&quot; tabindex=&quot;-1&quot;&gt;February 22nd (Day 13) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;february-22nd-day-13&quot; tabindex=&quot;-1&quot;&gt;February 22nd (Day 13) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#february-22nd-day-13&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;It became clear that whenever we entered a battle it was unclear how time was progressing so a feature was introduced to animate all battles into an &lt;a href=&quot;https://tomkahe.com/@tom/111976216194451578&quot;&gt;&#39;action clip&#39;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;february-23rd-day-14&quot; tabindex=&quot;-1&quot;&gt;February 23rd (Day 14) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;february-23rd-day-14&quot; tabindex=&quot;-1&quot;&gt;February 23rd (Day 14) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#february-23rd-day-14&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The very first &lt;a href=&quot;https://tomkahe.com/@pokemon/111983386566859116&quot;&gt;useful clip&lt;/a&gt; is generated&lt;/p&gt;
 &lt;div class=&quot;video-container&quot;&gt;
   &lt;video controls=&quot;&quot;&gt;
@@ -421,7 +421,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
     Your browser does not support the video tag.
   &lt;/video&gt;
 &lt;/div&gt;
-&lt;h2 id=&quot;february-26th-day-17&quot; tabindex=&quot;-1&quot;&gt;February 26th (Day 17) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;february-26th-day-17&quot; tabindex=&quot;-1&quot;&gt;February 26th (Day 17) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#february-26th-day-17&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Fry arrives at &lt;a href=&quot;https://tomkahe.com/@pokemon/111996831610628933&quot;&gt;Cherrygrove&lt;/a&gt;, he proceeds to take a tour of that town for the next half day&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -435,11 +435,11 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;february-28th-day-19&quot; tabindex=&quot;-1&quot;&gt;February 28th (Day 19) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;february-28th-day-19&quot; tabindex=&quot;-1&quot;&gt;February 28th (Day 19) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#february-28th-day-19&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;First &lt;a href=&quot;https://tomkahe.com/@pokemon/112012874805373596&quot;&gt;Pokémon Center&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;march-6th-day-26&quot; tabindex=&quot;-1&quot;&gt;March 6th (Day 26) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;march-6th-day-26&quot; tabindex=&quot;-1&quot;&gt;March 6th (Day 26) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#march-6th-day-26&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Ja? &lt;a href=&quot;https://tomkahe.com/@pokemon/112047320594297168&quot;&gt;Levels up!&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;march-7th-day-27&quot; tabindex=&quot;-1&quot;&gt;March 7th (Day 27) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;march-7th-day-27&quot; tabindex=&quot;-1&quot;&gt;March 7th (Day 27) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#march-7th-day-27&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Mysterious man gives us a mysterious egg, that we promptly forget about.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -453,9 +453,9 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;march-8th-day-28&quot; tabindex=&quot;-1&quot;&gt;March 8th (Day 28) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;march-8th-day-28&quot; tabindex=&quot;-1&quot;&gt;March 8th (Day 28) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#march-8th-day-28&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Professor Oak &lt;a href=&quot;https://tomkahe.com/@pokemon/112061240469354964&quot;&gt;hires us to do his job for him&lt;/a&gt; (no pay).&lt;/p&gt;
-&lt;h2 id=&quot;march-9th-day-29&quot; tabindex=&quot;-1&quot;&gt;March 9th (Day 29) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;march-9th-day-29&quot; tabindex=&quot;-1&quot;&gt;March 9th (Day 29) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#march-9th-day-29&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Our first &lt;a href=&quot;https://tomkahe.com/@pokemon/112064781311639934&quot;&gt;phone call&lt;/a&gt;! Professor Elm tells us to get back now- which we promptly ignore.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -469,11 +469,11 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;march-12th-day-32&quot; tabindex=&quot;-1&quot;&gt;March 12th (Day 32) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;march-12th-day-32&quot; tabindex=&quot;-1&quot;&gt;March 12th (Day 32) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#march-12th-day-32&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Ja? &lt;a href=&quot;https://tomkahe.com/@pokemon/112086248935212353&quot;&gt;levels up!&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;march-15th-day-35&quot; tabindex=&quot;-1&quot;&gt;March 15th (Day 35) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;march-15th-day-35&quot; tabindex=&quot;-1&quot;&gt;March 15th (Day 35) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#march-15th-day-35&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Strange man gives us a &lt;a href=&quot;https://tomkahe.com/@pokemon/112102292115376693&quot;&gt;strange berry&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;march-19th-day-39&quot; tabindex=&quot;-1&quot;&gt;March 19th (Day 39) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;march-19th-day-39&quot; tabindex=&quot;-1&quot;&gt;March 19th (Day 39) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#march-19th-day-39&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;A wild rival appears&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -487,7 +487,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;march-26th-day-46&quot; tabindex=&quot;-1&quot;&gt;March 26th (Day 46) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;march-26th-day-46&quot; tabindex=&quot;-1&quot;&gt;March 26th (Day 46) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#march-26th-day-46&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;17 days after Professor Elm called us in a panic we arrive back at the lab, which was fortunate because that&#39;s how long it took &lt;a href=&quot;https://tomkahe.com/@pokemon/112160566756891622&quot;&gt;the police to start investigating&lt;/a&gt; the stolen pokemon.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -503,15 +503,15 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/table&gt;
 &lt;p&gt;In classic internet fashion, we &lt;a href=&quot;https://tomkahe.com/@pokemon/112165285321900386&quot;&gt;name our rival Butt&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Note: We forget to talk to Professor Elm to give him his weird egg.&lt;/p&gt;
-&lt;h2 id=&quot;march-29th-day-49&quot; tabindex=&quot;-1&quot;&gt;March 29th (Day 49) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;march-29th-day-49&quot; tabindex=&quot;-1&quot;&gt;March 29th (Day 49) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#march-29th-day-49&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Ja? &lt;a href=&quot;https://tomkahe.com/@pokemon/112179677033326177&quot;&gt;levels up!&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;april-6th-day-57&quot; tabindex=&quot;-1&quot;&gt;April 6th (Day 57) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;april-6th-day-57&quot; tabindex=&quot;-1&quot;&gt;April 6th (Day 57) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#april-6th-day-57&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Small change to the bot, the gif is now generated &lt;a href=&quot;https://tomkahe.com/@pokemon/112226156011165858&quot;&gt;every single hour&lt;/a&gt; instead of just during battles.&lt;/p&gt;
-&lt;h2 id=&quot;april-10th-day-61&quot; tabindex=&quot;-1&quot;&gt;April 10th (Day 61) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;april-10th-day-61&quot; tabindex=&quot;-1&quot;&gt;April 10th (Day 61) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#april-10th-day-61&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Pokémon &lt;a href=&quot;https://tomkahe.com/@pokemon/112247861590138270&quot;&gt;blocks our path&lt;/a&gt; and a &lt;a href=&quot;https://tomkahe.com/@pokemon/112259931160532490&quot;&gt;new communication is established&lt;/a&gt; because we forgot to deliver an egg to the Professor and have just wasted nearly a month walking back and forth.&lt;/p&gt;
 &lt;p&gt;Since polls happen every hour, people would regularly try to talk with each other in the comments and the only one who was keenly aware of who wanted to do what was me because I got tagged in everything.&lt;/p&gt;
 &lt;p&gt;Using the a.gup.pe group meant anyone could just click into the group and see a timeline of the conversation so far.&lt;/p&gt;
-&lt;h2 id=&quot;april-22nd-day-73&quot; tabindex=&quot;-1&quot;&gt;April 22nd (Day 73) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;april-22nd-day-73&quot; tabindex=&quot;-1&quot;&gt;April 22nd (Day 73) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#april-22nd-day-73&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Nearly 30 days after Professor Elm told us to get back ASAP we talk to the professor and give him this egg we&#39;ve been carrying around in our backpack for weeks.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -525,7 +525,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;april-28th-day-79&quot; tabindex=&quot;-1&quot;&gt;April 28th (Day 79) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;april-28th-day-79&quot; tabindex=&quot;-1&quot;&gt;April 28th (Day 79) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#april-28th-day-79&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Caught our &lt;a href=&quot;https://tomkahe.com/@pokemon/112348839380190672&quot;&gt;first pokemon!&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Controversy strikes as the splintered community try to name this Sentret (Also this starts a series of our most voted on polls, when we named Ja? there were about 10 votes, when we named BUTT there were 30-40 voters, these polls were minimum 50 but maxed out at about 110 votes)&lt;/p&gt;
 &lt;table&gt;
@@ -540,13 +540,13 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;april-29th-day-80&quot; tabindex=&quot;-1&quot;&gt;April 29th (Day 80) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;april-29th-day-80&quot; tabindex=&quot;-1&quot;&gt;April 29th (Day 80) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#april-29th-day-80&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The Sentret is &lt;a href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/tomkahe.com/@pokemon/112357804718707917&quot;&gt;named PEIDO&lt;/a&gt; which is &lt;a href=&quot;https://www.collinsdictionary.com/us/dictionary/portuguese-english/peido&quot;&gt;slang&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;may-1st-day-82&quot; tabindex=&quot;-1&quot;&gt;May 1st (Day 82) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;may-1st-day-82&quot; tabindex=&quot;-1&quot;&gt;May 1st (Day 82) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#may-1st-day-82&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Ja? &lt;a href=&quot;https://tomkahe.com/@pokemon/112366770018654932&quot;&gt;levels up!&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;may-5th-day-86&quot; tabindex=&quot;-1&quot;&gt;May 5th (Day 86) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;may-5th-day-86&quot; tabindex=&quot;-1&quot;&gt;May 5th (Day 86) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#may-5th-day-86&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Gameboy Color game now played on &lt;a href=&quot;https://tomkahe.com/@pokemon/112389891160651747&quot;&gt;official hardware&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;may-7th-day-88&quot; tabindex=&quot;-1&quot;&gt;May 7th (Day 88) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;may-7th-day-88&quot; tabindex=&quot;-1&quot;&gt;May 7th (Day 88) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#may-7th-day-88&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Gameboy Color game now played on the better looking transparent official hardware.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -560,21 +560,21 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;may-9th-day-90&quot; tabindex=&quot;-1&quot;&gt;May 9th (Day 90) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;may-9th-day-90&quot; tabindex=&quot;-1&quot;&gt;May 9th (Day 90) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#may-9th-day-90&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;We finally &lt;a href=&quot;https://tomkahe.com/@pokemon/112414665032979095&quot;&gt;break through&lt;/a&gt; to the other side&lt;/p&gt;
-&lt;h2 id=&quot;may-11th-day-92&quot; tabindex=&quot;-1&quot;&gt;May 11th (Day 92) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;may-11th-day-92&quot; tabindex=&quot;-1&quot;&gt;May 11th (Day 92) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#may-11th-day-92&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Ja? &lt;a href=&quot;https://tomkahe.com/@pokemon/112425517604590755&quot;&gt;levels up!&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;may-15th-day-96&quot; tabindex=&quot;-1&quot;&gt;May 15th (Day 96) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;may-15th-day-96&quot; tabindex=&quot;-1&quot;&gt;May 15th (Day 96) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#may-15th-day-96&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Phone call &lt;a href=&quot;https://tomkahe.com/@pokemon/112446279463353545&quot;&gt;from Mom&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;may-20th-day-101&quot; tabindex=&quot;-1&quot;&gt;May 20th (Day 101) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;may-20th-day-101&quot; tabindex=&quot;-1&quot;&gt;May 20th (Day 101) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#may-20th-day-101&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Ja? &lt;a href=&quot;https://tomkahe.com/@pokemon/112472703517081930&quot;&gt;levels up!&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;may-22nd-day-103&quot; tabindex=&quot;-1&quot;&gt;May 22nd (Day 103) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;may-22nd-day-103&quot; tabindex=&quot;-1&quot;&gt;May 22nd (Day 103) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#may-22nd-day-103&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Fry finally makes it to &lt;a href=&quot;https://tomkahe.com/@pokemon/112486859056848759&quot;&gt;Violet&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;may-26th-day-107&quot; tabindex=&quot;-1&quot;&gt;May 26th (Day 107) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;may-26th-day-107&quot; tabindex=&quot;-1&quot;&gt;May 26th (Day 107) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#may-26th-day-107&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;By popular demand, &lt;a href=&quot;https://tomkahe.com/@pokemon/112507975031035361&quot;&gt;polling rate is doubled&lt;/a&gt; to 2 polls every hour.&lt;/p&gt;
-&lt;h2 id=&quot;may-28th-day-109&quot; tabindex=&quot;-1&quot;&gt;May 28th (Day 109) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;may-28th-day-109&quot; tabindex=&quot;-1&quot;&gt;May 28th (Day 109) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#may-28th-day-109&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Ja? &lt;a href=&quot;https://tomkahe.com/@pokemon/112521658890227130&quot;&gt;levels up!&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;june-1st-day-113&quot; tabindex=&quot;-1&quot;&gt;June 1st (Day 113) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;june-1st-day-113&quot; tabindex=&quot;-1&quot;&gt;June 1st (Day 113) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#june-1st-day-113&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Ja? levels up! and evolves into QUILAVA.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -588,13 +588,13 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;june-3rd-day-115&quot; tabindex=&quot;-1&quot;&gt;June 3rd (Day 115) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;june-3rd-day-115&quot; tabindex=&quot;-1&quot;&gt;June 3rd (Day 115) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#june-3rd-day-115&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Ja? &lt;a href=&quot;https://tomkahe.com/@pokemon/112551975598348271&quot;&gt;levels up!&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;june-4th-day-116&quot; tabindex=&quot;-1&quot;&gt;June 4th (Day 116) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;june-4th-day-116&quot; tabindex=&quot;-1&quot;&gt;June 4th (Day 116) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#june-4th-day-116&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;We obtain our very first HM, &lt;a href=&quot;https://tomkahe.com/@pokemon/112558345974118861&quot;&gt;HM05 (Flash)&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;june-7th-day-119&quot; tabindex=&quot;-1&quot;&gt;June 7th (Day 119) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;june-7th-day-119&quot; tabindex=&quot;-1&quot;&gt;June 7th (Day 119) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#june-7th-day-119&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Ja? &lt;a href=&quot;https://tomkahe.com/@pokemon/112577456365796161&quot;&gt;levels up!&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;june-8th-day-120&quot; tabindex=&quot;-1&quot;&gt;June 8th (Day 120) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;june-8th-day-120&quot; tabindex=&quot;-1&quot;&gt;June 8th (Day 120) &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/#june-8th-day-120&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;3 months since Fry set off on his adventure he has finally obtained his first gym badge.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -623,7 +623,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 		<updated>2024-05-29T00:00:00Z</updated>
 		<id>https://tomcasavant.com/things-i-did-not-blog-about/</id>
 		<content type="html">&lt;p&gt;Here&#39;s a bunch of things I did that, for any number of reasons, I didn&#39;t bother writing about.&lt;/p&gt;
-&lt;h2 id=&quot;my-brother-s-keeper&quot; tabindex=&quot;-1&quot;&gt;My Brother&#39;s Keeper &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;my-brothers-keeper&quot; tabindex=&quot;-1&quot;&gt;My Brother&#39;s Keeper &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/#my-brothers-keeper&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -651,7 +651,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
     Your browser does not support the video tag.
   &lt;/video&gt;
 &lt;/div&gt;
-&lt;h2 id=&quot;mechanical-keyboards&quot; tabindex=&quot;-1&quot;&gt;Mechanical Keyboards &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;mechanical-keyboards&quot; tabindex=&quot;-1&quot;&gt;Mechanical Keyboards &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/#mechanical-keyboards&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Assembled a hot swappable keyboard with &lt;a href=&quot;https://drop.com/featured/lotr&quot;&gt;Lord of the Rings keycaps&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -668,7 +668,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;3d-prints-hardware&quot; tabindex=&quot;-1&quot;&gt;3D Prints/Hardware &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;3d-prints-hardware&quot; tabindex=&quot;-1&quot;&gt;3D Prints/Hardware &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/#3d-prints-hardware&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I assembled the &lt;a href=&quot;https://inputlabs.io/alpakka&quot;&gt;Input Labs Alpakka&lt;/a&gt;, an open source gyro focused gamepad, which was surprisingly comfortable to hold considering it was entirely made of 3d printed parts.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -719,7 +719,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;software&quot; tabindex=&quot;-1&quot;&gt;Software &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;software&quot; tabindex=&quot;-1&quot;&gt;Software &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/#software&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I used github actions to slowly simulate a chess game while displaying the current chess piece formation using LaTeX which you can see in this &lt;a href=&quot;https://github.com/TomCasavant/latex-chess&quot;&gt;Github Repo&lt;/a&gt; - Basically there was a github action on a cron schedule to run a python script that would load in the current moves in a chess game, pick the next action, generate a .tex file with the new chessboard, convert that to a PDF and then convert the PDF to a screenshot of the board which would display in the README.&lt;/p&gt;
 &lt;p&gt;I created a &lt;a href=&quot;https://decky.xyz/&quot;&gt;Decky Loader&lt;/a&gt; plugin for the Steam Deck that lets you upload a screenshot straight from the Gamepad UI to any mastodon-compatible API, it can also auto-upload screenshots immediately after taking them. It&#39;s still somewhat glitchy and I was running into issues with Pixelfed&#39;s API (which I believe have been fixed recently) which required users to create a APP manually from their pixelfed settings. Repo: &lt;a href=&quot;https://github.com/TomCasavant/DeckMastodonPoster&quot;&gt;TomCasavant/DeckMastodonPoster&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;While experimenting with the mastodon API, I created a very simple Wikipedia-Mastodon Bot which posts a &#39;Today in History&#39; post every day at 6PM EST to &lt;a href=&quot;https://tomkahe.com/@daily_wikipedia&quot;&gt;@daily_wikipedia@tomkahe.com&lt;/a&gt;. Repo: &lt;a href=&quot;https://github.com/TomCasavant/wikibot&quot;&gt;TomCasavant/wikibot&lt;/a&gt;&lt;/p&gt;
@@ -743,7 +743,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;/table&gt;
-&lt;h2 id=&quot;running&quot; tabindex=&quot;-1&quot;&gt;Running &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;running&quot; tabindex=&quot;-1&quot;&gt;Running &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/things-i-did-not-blog-about/#running&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I ran a 5k while carrying a 5lb pumpkin&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -771,7 +771,7 @@ so it&#39;s not clear if it&#39;s going to stick around. But if it gets &lt;a hr
 		<updated>2024-04-01T00:00:00Z</updated>
 		<id>https://tomcasavant.com/tomline/</id>
 		<content type="html">&lt;p&gt;Everyone on mastodon is always &#39;federated timeline&#39; this and &#39;local timeline&#39; that but nobody ever asks, where&#39;s OUR timeline? Well everything is about to change as we are &lt;em&gt;proud&lt;/em&gt; to announce&lt;/p&gt;
-&lt;h1 id=&quot;the-tomline&quot; tabindex=&quot;-1&quot;&gt;The Tomline. &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/tomline/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;the-tomline&quot; tabindex=&quot;-1&quot;&gt;The Tomline. &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/tomline/#the-tomline&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;(The Tomline is live @ https://tomkahe.com/public)&lt;/p&gt;
 &lt;p&gt;The Tomline is an innovative design focused on providing the best experience in the fediverse. We combine AI technologies of the future with the blockchain technologies of the past to create the perfect blend of form and function. A timeline consisting entirely of people named Tom, Thomas, Tomas, and all other variants.&lt;/p&gt;
 &lt;table&gt;
@@ -840,7 +840,7 @@ It also has an in-game chat window for communicating with other players on a giv
 &lt;p&gt;But what if it could do more than that? What if you could send and receive messages from anyone and anywhere?&lt;/p&gt;
 &lt;p&gt;&amp;quot;But Tom,&amp;quot; you ask, &amp;quot;won&#39;t that just clog up the chat with pointless messages from strangers?&amp;quot;
 And yes, you would be correct. But (TODO: COME UP WITH REASON WHY THIS IS USEFUL).&lt;/p&gt;
-&lt;h2 id=&quot;the-plan&quot; tabindex=&quot;-1&quot;&gt;The Plan &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;the-plan&quot; tabindex=&quot;-1&quot;&gt;The Plan &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/#the-plan&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;For reasons other than this project I have already been looking for an ActivityPub server that will let me generate users at-will. Most servers are designed for users so they require you to add emails and passwords and useless junk that I do not care about.
 Having failed to find anything that would suit my needs I created &lt;a href=&quot;https://github.com/TomCasavant/DynamicActivityPub/&quot;&gt;this project&lt;/a&gt; which would allow me to split this project into 2 parts.&lt;/p&gt;
 &lt;ol&gt;
@@ -848,7 +848,7 @@ Having failed to find anything that would suit my needs I created &lt;a href=&qu
 &lt;li&gt;The Mod - A Lua minetest mod that communicates with the server, when a user sends a message upload it to the server. When the server receives a message it should send that to the chat through this mod.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;I had considered implementing the server in Lua so it could be built into the mod itself, but as far as I could find Minetest won&#39;t let me create web enpoints from the mod (the &lt;a href=&quot;https://content.minetest.net/packages/heger/webchat/&quot;&gt;few mods&lt;/a&gt; where that would be useful just have a separate server that the user has to setup the files for)&lt;/p&gt;
-&lt;h2 id=&quot;activitypub-implementation&quot; tabindex=&quot;-1&quot;&gt;ActivityPub Implementation &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;activitypub-implementation&quot; tabindex=&quot;-1&quot;&gt;ActivityPub Implementation &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/#activitypub-implementation&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This was by far the harder of the 2 portions of the project, primarily because there is &lt;em&gt;not&lt;/em&gt; a lot of documentation for this protocol.&lt;/p&gt;
 &lt;p&gt;Well, that&#39;s not entirely true. &lt;a href=&quot;https://www.w3.org/TR/activitypub/&quot;&gt;w3&lt;/a&gt; has some very detailed descriptions which were incredibly useful, but the protocol is defined slightly differently from server-to-server. So something that mastodon is able to understand and accept doesn&#39;t necessarily show up on an &lt;a href=&quot;https://github.com/MbinOrg/mbin&quot;&gt;Mbin&lt;/a&gt; server unless certain requirements are met.&lt;/p&gt;
 &lt;p&gt;Getting a basic account to be discoverable was actually VERY easy. The base protocol calls for an endpoint for each user that returns json with a few attributes, Mastodon (and most others from what I&#39;ve seen) require slightly more information including a &lt;code&gt;publicKey&lt;/code&gt; and &lt;code&gt;preferredUsername&lt;/code&gt;.
@@ -938,7 +938,7 @@ I learned during this that Mastodon requires that you send a signed &#39;Accept&
 &lt;p&gt;The last ActivityPub type I messed around with was Group. Unlike the user (or Person) entity, there is not a very unified description of how a group functions.
 Through some experimentation in &lt;a href=&quot;https://activitypub.academy/&quot;&gt;https://activitypub.academy&lt;/a&gt; I learned that Lemmy&#39;s groups just send Announce activities to mastodon (which mastodon displays as boosts), but I believe they&#39;re a little more complex when a lemmy community talks with another server that actually supports groups.&lt;/p&gt;
 &lt;p&gt;I didn&#39;t delve that much into it, I just need to create a Group entity that boosts all of the messages from each individual user that way you can see a feed of all the server messages.&lt;/p&gt;
-&lt;h2 id=&quot;minetest&quot; tabindex=&quot;-1&quot;&gt;Minetest &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;minetest&quot; tabindex=&quot;-1&quot;&gt;Minetest &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/#minetest&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Don&#39;t worry, this a much shorter topic. A minetest mod consists of 2 files (mine consists of 3), the init.lua and hte mod.conf.
 mod.conf just defines what a plugin is and allows you to set configuration variables.
 init.lua contains the lua script that interacts with the minetest server.&lt;/p&gt;
@@ -1006,7 +1006,7 @@ minetest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
     Your browser does not support the video tag.
   &lt;/video&gt;
 &lt;/div&gt;
-&lt;h2 id=&quot;issues&quot; tabindex=&quot;-1&quot;&gt;Issues &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;issues&quot; tabindex=&quot;-1&quot;&gt;Issues &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/#issues&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This was all to experiment with ActivityPub, but I didn&#39;t do anything to secure the server. All private keys are stored unencrypted in a sqlite database, most of the endpoints that generate users and posts are not secured by any form of authentication.&lt;/p&gt;
 &lt;p&gt;I wasn&#39;t able to find much information about testing an activitypub server. I&#39;m sure there&#39;s some way to locally run a mastodon server to test against, it feels incorrect to publicly host a website in development just to test my ActivityPub implementation.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/TomCasavant/DynamicActivityPub&quot;&gt;ActivityPub Server repo&lt;/a&gt;
@@ -1020,7 +1020,7 @@ minetest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 		<updated>2024-03-14T00:00:00Z</updated>
 		<id>https://tomcasavant.com/the-problem-with-hashtags/</id>
 		<content type="html">&lt;p&gt;I have never been a fan of hashtags and for most of my life I&#39;ve never bothered to use them.&lt;/p&gt;
-&lt;h1 id=&quot;the-problem&quot; tabindex=&quot;-1&quot;&gt;The Problem &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/the-problem-with-hashtags/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;the-problem&quot; tabindex=&quot;-1&quot;&gt;The Problem &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/the-problem-with-hashtags/#the-problem&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;There&#39;s a number of things I dislike about hashtags and I am &lt;a href=&quot;https://medium.com/endless/an-open-letter-to-people-who-use-hashtags-89fb7694c97e&quot;&gt;far&lt;/a&gt; from the &lt;a href=&quot;https://markwyner.medium.com/hashtag-accessibility-by-everyone-for-everyone-298667b2d891&quot;&gt;first&lt;/a&gt; person to  &lt;a href=&quot;https://medium.com/chris-messina/the-problem-with-the-problems-with-hashtags-35d4ba29b04d&quot;&gt;express problems&lt;/a&gt; with them. But to boil down my own general sentiment: they&#39;re annoying to read and (more importantly) they&#39;re ugly.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1037,7 +1037,7 @@ minetest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 &lt;p&gt;The problem is, no matter how annoying hashtags are to look at, they continue to be incredibly useful. Mastodon (and other activitypub software) would be nearly impossible to use without the ability to discover users and posts through hashtags (despite rolling out opt-in search last year). Threads ran into a similar issue when they launched where users found it difficult to discover other users and launched &lt;a href=&quot;https://www.theverge.com/2023/12/7/23992357/threads-hashtags-tags&quot;&gt;their version&lt;/a&gt; of hashtags 5 months later. For now they&#39;re unavoidable.&lt;/p&gt;
 &lt;p&gt;However, that doesn&#39;t mean they can&#39;t be improved. Hashtags in Threads, for example, don&#39;t include the &#39;#&#39; and are restricted to 1 tag per post. I don&#39;t use threads all that often and the limit of one tag per post feels pretty restrictive, but it &lt;em&gt;does&lt;/em&gt; look significantly better.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://tomcasavant.com/img/ctexdF70NB-584.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/ctexdF70NB-584.avif 584w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/ctexdF70NB-584.webp 584w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/ctexdF70NB-584.png&quot; width=&quot;584&quot; height=&quot;220&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;the-solution&quot; tabindex=&quot;-1&quot;&gt;The Solution &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/the-problem-with-hashtags/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;the-solution&quot; tabindex=&quot;-1&quot;&gt;The Solution &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/the-problem-with-hashtags/#the-solution&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Over the past few months I&#39;ve been working on a better solution for my mastodon experience.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;I should be able to use any number of hashtags in a single post. If I post about the Bengals with #Bengals very few people wil see it. If I instead use #NFL many people will see it but nobody who is &lt;em&gt;exclusively&lt;/em&gt; interested in the Bengals will. Since mastodon is already setup this way no changes need to be made.&lt;/li&gt;
@@ -1073,10 +1073,10 @@ minetest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h1 id=&quot;implementation&quot; tabindex=&quot;-1&quot;&gt;Implementation &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/the-problem-with-hashtags/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;implementation&quot; tabindex=&quot;-1&quot;&gt;Implementation &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/the-problem-with-hashtags/#implementation&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;In my &lt;a href=&quot;https://github.com/TomCasavant/mastodon&quot;&gt;fork of mastodon&lt;/a&gt; I&#39;ve implemented those changes. ActivityPub made this a lot easier because they already separate out the tags from the CREATE activity so all I needed to do was remove them from the status after the post was created/updated, using the same setup that mastodon uses to create the HashtagBar I was able to remove categorical hashtags entirely.&lt;/p&gt;
 &lt;p&gt;I also created a &lt;a href=&quot;https://github.com/TomCasavant/moshidon&quot;&gt;fork of moshidon&lt;/a&gt;, I chose moshidon because I already use it as my primary client but also because it already has an a callout that appears when a post is in your timeline because of a hashtag you follow (4). With a few small changes I was able to fix the edit window so it requests all the tags in the original post from my server and appends them to the edit window and set it up so hashtags would render as normal URLs w/o the &#39;#&#39; symbol (they still link to the hashtag view).&lt;/p&gt;
-&lt;h1 id=&quot;issues&quot; tabindex=&quot;-1&quot;&gt;Issues &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/the-problem-with-hashtags/&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;issues&quot; tabindex=&quot;-1&quot;&gt;Issues &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/the-problem-with-hashtags/#issues&quot;&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;There are a few things that as of this moment I have not figured out a good solution to.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;If I want to remove the in-line hashtags from the status before I send it out to other servers all foreign servers/clients will link my hashtags as &#39;https://tomkahe.com/tags/TAG&#39; instead of linking to their own respective hashtag view. From what I&#39;ve seen there are already servers that render tags like this. My best guess of what to do in this situation is to send the position in the text where tags occur alongside all the tags in the status then clients would be able to properly render them. But for now I&#39;ve backed off on this point and so in-line tags will only render properly in my clients, other clients/users will still see the &#39;#&#39; symbol in my posts.&lt;/li&gt;
@@ -1225,7 +1225,7 @@ a cat in a hat&lt;/p&gt;
 		<updated>2019-04-19T00:00:00Z</updated>
 		<id>https://tomcasavant.com/a-curious-case-of-osu-financial-aid/</id>
 		<content type="html">&lt;p&gt;Not long ago I had to deal with the unfortunate system that is &lt;em&gt;Ohio State bureaucracy&lt;/em&gt;. This is that story.&lt;/p&gt;
-&lt;h2 id=&quot;dr-e-the-premise&quot; tabindex=&quot;-1&quot;&gt;Dr. E: The Premise &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/a-curious-case-of-osu-financial-aid/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;dr-e-the-premise&quot; tabindex=&quot;-1&quot;&gt;Dr. E: The Premise &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/a-curious-case-of-osu-financial-aid/#dr-e-the-premise&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Wednesday, October 31th 2018&lt;/em&gt;: Midterm 2&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;It was a cold Wednesday morning and by cold I mean a cool 62°F. I was on my way to my 8 AM software algorithms course. The course was taught by a professor that I had previously had a calculus course with. I will refer to him from here on out as Dr. E. I had an awful feeling in pit of my stomach as this wasn&#39;t your typical Wednesday morning. It was the kind of morning that occurs roughly 4-6 times a semester. The typical not-so-typical Wednesday morning. The reason being that later that day I would be partaking in one of the dreadful events that all students must complete on a semi-regular basis. I was taking a midterm. More specifically, at 8PM that night I would be taking the second of two midterms for Dr. E&#39;s algorithms course. It wasn&#39;t an all too difficult course, but nevertheless the apprehension was building for the exam.&lt;/p&gt;
 &lt;p&gt;That afternoon I participated in a review session whose only purpose seemed to be to make me feel worse about the upcoming exam. Despite the nervousness, I choked down a dinner and rested for an hour before the exam. Then I took the exam and a few hours it was all finished. The nervousness was replaced with regret. At least it was over.&lt;/p&gt;
@@ -1244,7 +1244,7 @@ a cat in a hat&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Thursday, December 20th 2018 - Monday, December 24 2018&lt;/em&gt;: The Campaign for Information&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Up until Christmas Eve, emails were sent to Dr. E trying to get information. Absolutely nobody got a reply. Eventually, the campaign died off and the era of acceptance began. I just accepted that I had done inexplicably awful on the final exam and that resulted in my grade drop.&lt;/p&gt;
 &lt;p&gt;During this week I got notified by the advising office that I would not be admitted into my major due to my GPA being dropped from this class. I accepted it and moved on.&lt;/p&gt;
-&lt;h2 id=&quot;the-financial-crisis&quot; tabindex=&quot;-1&quot;&gt;The Financial Crisis &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/a-curious-case-of-osu-financial-aid/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;the-financial-crisis&quot; tabindex=&quot;-1&quot;&gt;The Financial Crisis &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/a-curious-case-of-osu-financial-aid/#the-financial-crisis&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Monday, December 31st 2018&lt;/em&gt;: Missing Money&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;I am fortunate enough to have most of my college education funded by scholarships. Unfortunately, when looking at my bill for the upcoming Spring semester I realized that my scholarships had not been applied. I was advised to wait until they got applied rather than trying to pay the whole thing in full and expect a refund. So that&#39;s what I did.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Monday, January 7th 2019&lt;/em&gt;: A New Beginning&lt;/strong&gt;&lt;/p&gt;
@@ -1296,7 +1296,7 @@ CSE 2421&lt;/p&gt;
 &lt;p&gt;I entered the advising office with my form and waited roughly 15 minutes. I handed over the form. They entered in the data. Then they informed me that I couldn&#39;t enroll in the course because there was a late fee on my account. A late fee. The fee I got because I didn&#39;t pay the bill. The bill I didn&#39;t pay because I was waiting for the financial aid. The financial aid I couldn&#39;t get because I wasn&#39;t enrolled in enough classes. The classes I couldn&#39;t enroll in because I had a late fee on my account and so on. The OSU catch 22.&lt;/p&gt;
 &lt;p&gt;At this point I was at a loss. I gave up. The system won. I paid the entire bill in full, got enrolled in my class, and awaited my refund. That was the end of it.&lt;/p&gt;
 &lt;p&gt;Or so I thought.&lt;/p&gt;
-&lt;h2 id=&quot;there-and-back-again&quot; tabindex=&quot;-1&quot;&gt;There and Back Again &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/a-curious-case-of-osu-financial-aid/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;there-and-back-again&quot; tabindex=&quot;-1&quot;&gt;There and Back Again &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/a-curious-case-of-osu-financial-aid/#there-and-back-again&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Tuesday, January 29th 2019&lt;/em&gt;: Procrastination&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Everyone procrastinates now and then. Some more than others. It&#39;s the human condition and it&#39;s what many of us do best. Procrastination, however, has the potential to cause many problems. When we procrastinate on a personal project (homework, chores...etc) it has little impact on those around us. Yet, if we procrastinate on projects that involve other people (such as group projects) it will almost assuredly cause others to struggle. Dr. E procrastinated on something that impacted others and it definitely caused issues.&lt;/p&gt;
 &lt;p&gt;Tuesday began like any other day. At this point I was content, I had not thought about the &#39;financial crisis&#39; since I had received my refund. Sure, my class schedule was noticeably lacking in credit hours, but what could I do about it? Tuesday afternoon I was sitting in my room when I received a Carmen notification:&lt;/p&gt;
@@ -1349,7 +1349,7 @@ Your academic record has been adjusted for the Autumn 2018 Term. CSE 2321 has a 
 &lt;p&gt;My grade was finally updated.&lt;/p&gt;
 &lt;p&gt;My GPA was also adjusted, and it was raised enough that I was able to enter the major. I went to the CSE advising office to inquire as to whether I could retroactively enter the major. My adviser did not know the answer on the spot and told me that he would confer with his boss and get back to me.&lt;/p&gt;
 &lt;p&gt;Later that day I received an email from my advisor, informing me that I could and would be retroactively be added to the major.&lt;/p&gt;
-&lt;h2 id=&quot;a-financial-revival&quot; tabindex=&quot;-1&quot;&gt;A Financial Revival &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/a-curious-case-of-osu-financial-aid/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;a-financial-revival&quot; tabindex=&quot;-1&quot;&gt;A Financial Revival &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/a-curious-case-of-osu-financial-aid/#a-financial-revival&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Monday, March 4 2019&lt;/em&gt;: The Scarlet and Gray Financial Meeting&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Monday afternoon I attended the Scarlet and Gray Financial meeting. Scarlet and Gray Financial is a peer to peer financial mentoring organization. I met with a senior (whom I&#39;ll call Kevin) who was a little over a year older than me. I mean no disrespect to Kevin when I say that this meeting was a huge waste of an hour. Nonetheless, this meeting was a huge waste of an hour.&lt;/p&gt;
 &lt;p&gt;I entered the meeting with no expectations whatsoever, and left disappointed. The meeting began with me explaining the situation you&#39;ve just spent your time reading about. Kevin essentially then said that I really didn&#39;t need to be there. Kevin then said that it was his job and that I would still have to wait the whole hour. Kevin then spent the rest of the time showing me self-help books and websites that described how to retire at the age of 30. The meeting ended and Kevin signed off on my papers to allow me to move onto the second financial meeting.&lt;/p&gt;
@@ -1391,7 +1391,7 @@ From: housing@osu.edu&lt;/p&gt;
 From: Me&lt;/p&gt;
 &lt;p&gt;Sweet, thanks a lot!&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;conclusion&quot; tabindex=&quot;-1&quot;&gt;Conclusion &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/a-curious-case-of-osu-financial-aid/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;conclusion&quot; tabindex=&quot;-1&quot;&gt;Conclusion &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/a-curious-case-of-osu-financial-aid/#conclusion&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;After 6 months the course of events that began with a midterm in an algorithms course finally came to a complete* and total* conclusion.&lt;/p&gt;
 &lt;p&gt;* The repercussions of these events extend into the Summer. Since I lacked credit hours in the Spring semester I have to make up some classes throughout the Summer, or else I would have to take an extra semester at the end of these 4 years.&lt;/p&gt;
 &lt;p&gt;I fully concede that not all of this was the fault of the University. There were plenty of opportunities where I could&#39;ve stepped in and prevented issues from happening.&lt;/p&gt;
@@ -1413,10 +1413,10 @@ From: Me&lt;/p&gt;
 		<id>https://tomcasavant.com/generating-heat-maps-from-gpx-files/</id>
 		<content type="html">&lt;p&gt;&lt;img src=&quot;https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/heatmap.png?raw=true&quot; alt=&quot;&quot; title=&quot;Final generated heat map&quot;&gt;&lt;/p&gt;
 &lt;p&gt;I own a smart watch (vivosport) that tracks my runs and other activities. The watch has a built-in GPS which will track my location. All of this data eventually gets transferred to Garmin, where I can view individual activities and the results of said activities.&lt;/p&gt;
-&lt;h2 id=&quot;getting-the-garmin-activity-data&quot; tabindex=&quot;-1&quot;&gt;Getting the Garmin Activity Data &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/generating-heat-maps-from-gpx-files/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;getting-the-garmin-activity-data&quot; tabindex=&quot;-1&quot;&gt;Getting the Garmin Activity Data &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/generating-heat-maps-from-gpx-files/#getting-the-garmin-activity-data&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Earlier this week I became interested as to whether or not I could view all my maps as a single heat map. The search brought me to an old Garmin forums page, where I was informed that the heat map functionality had long since been removed. There were two other options I found, using Strava to generate a heat map (unfortunately, this would involve signing up for their premium summit program) or generating a heat map from a series of gpx files (gpx being the gps filetype that each activity could output). Since I didn&#39;t desire to spend any money on this project I looked into the second option.&lt;/p&gt;
 &lt;p&gt;The first issue I discovered was that, for no apparent reason, Garmin would not let me download all of my gpx files in bulk. Off I went to look for a solution to that problem (I figured, that if it comes to it I could just have a macro go through and download those for me, but that seemed inefficient). The first few github repositories I discovered just didn&#39;t work. Likely because Garmin&#39;s website security had changed in the years since those repos were created. Then I discovered &lt;a href=&quot;https://github.com/petergardfjall/garminexport&quot;&gt;garminexport&lt;/a&gt; which turned out to be almost exactly what I wanted. The one issue was that it would go through and download every piece of data from every activity (rather than just the gpx files) but this was definitely something I could work with. It worked immediately and as such I was onto the next step.&lt;/p&gt;
-&lt;h2 id=&quot;generating-the-heat-map&quot; tabindex=&quot;-1&quot;&gt;Generating the Heat Map &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/generating-heat-maps-from-gpx-files/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;generating-the-heat-map&quot; tabindex=&quot;-1&quot;&gt;Generating the Heat Map &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/generating-heat-maps-from-gpx-files/#generating-the-heat-map&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;This part proved to be more complex than I desired. I searched and searched until I came up with &lt;a href=&quot;http://www.gpsheatmaps.com/about/&quot;&gt;this website&lt;/a&gt; which claimed it would generate heat maps from gpx files. I took my gpx files and submitted it to the website. The first thing I noticed was that it only accepted ~50 files. Which was unfortunate because I had many hundreds of files. The next thing I noticed was that it had no options to display the heat map on an actual map, which is what I wanted. The website&#39;s about page said that the creator planned to overlay the heat maps onto Google maps. I contacted the creator and was informed that this project was abandoned and that there were no plans to update it. Darn.&lt;/p&gt;
 &lt;p&gt;That&#39;s when I decided to just make it myself. After a bit of research I decided to use the following libraries:&lt;/p&gt;
 &lt;ul&gt;
@@ -1424,7 +1424,7 @@ From: Me&lt;/p&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/pallets/click&quot;&gt;click&lt;/a&gt; - A library to develop an easy to use CLI for my project. Largely because I had heard about this at a recent Open Source Club meeting and I was intrigued.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Note that I didn&#39;t use a google maps libraries. This is because I decided the best course of action was to develop an html file with javascript functions for manipulating the heatmap. Most of the my html setup came from Google&#39;s &lt;a href=&quot;https://developers.google.com/maps/documentation/javascript/examples/layer-heatmap&quot;&gt;Javascript API Documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&quot;the-code&quot; tabindex=&quot;-1&quot;&gt;The Code &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/generating-heat-maps-from-gpx-files/&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;the-code&quot; tabindex=&quot;-1&quot;&gt;The Code &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/generating-heat-maps-from-gpx-files/#the-code&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;The entirety of this project can be found on my github at &lt;a href=&quot;https://github.com/TomCasavant/GPXtoHeatmap&quot;&gt;https://github.com/TomCasavant/GPXtoHeatmap&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The first step to this project was getting all the points from the gpx files as such:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;import gpxpy
@@ -1640,9 +1640,9 @@ if __name__ == &#39;__main__&#39;:
 	
 	<entry>
 		<title>NFL Win-Chain (Dijkstra&#39;s Algorithm)</title>
-		<link href="https://tomcasavant.com/nfl-win-chain-dijkstra-s-algorithm/"/>
+		<link href="https://tomcasavant.com/nfl-win-chain-dijkstras-algorithm/"/>
 		<updated>2019-01-28T00:00:00Z</updated>
-		<id>https://tomcasavant.com/nfl-win-chain-dijkstra-s-algorithm/</id>
+		<id>https://tomcasavant.com/nfl-win-chain-dijkstras-algorithm/</id>
 		<content type="html">&lt;p&gt;Last semester I was taking a course at OSU called Foundations of Software Engineering. Towards the end of the course we learned about different algorithms to find paths between different nodes on a graph. One such algorithm was called Dijkstra&#39;s algorithm. I wanted to experiment with this algorithm, so I decided to write a program that would create nodes for each of the 32 NFL teams and have them connected via the wins between them, i.e. if the Bengals beat the Steelers then the Bengals would have a line pointing from themselves towards the Steelers.&lt;/p&gt;
 &lt;p&gt;The goal of the script was to be able to compare teams that didn&#39;t play each other during the season. For example, the Bengals and the Patriots did not play each other in the 2018 season. The shortest chain of wins between the Bengals and the Patriots was:&lt;/p&gt;
 &lt;blockquote&gt;
