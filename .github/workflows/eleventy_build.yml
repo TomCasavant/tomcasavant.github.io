@@ -36,8 +36,12 @@ jobs:
 
       - run: npm ci
 
-      - name: Eleventy
-        run: npx @11ty/eleventy
+      - name: Build Eleventy site (Kill node because it is stalling for some reason)
+        run: |
+          npx @11ty/eleventy
+          echo "Build complete"
+          pkill -f eleventy || true
+
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
