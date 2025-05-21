@@ -35,13 +35,9 @@ jobs:
           node-version: 20
 
       - run: npm ci
-
-      - name: Build Eleventy site (Kill node because it is stalling for some reason)
-        run: |
-          npx @11ty/eleventy
-          echo "Build complete"
-          pkill -f eleventy || true
-
+  
+      - name: Build Eleventy with timeout
+        run: timeout 300 npx @11ty/eleventy 
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
