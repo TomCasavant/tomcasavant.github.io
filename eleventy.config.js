@@ -1,200 +1,155 @@
 const { DateTime } = require("luxon");
 const markdownItAnchor = require("markdown-it-anchor");
+const sanitizeHtml = require("sanitize-html");
+const slugify = require("slugify");
+const moment = require("moment");
+const filters = require("./_11ty/filters");
+const foodImages = require("./content/food/images.json");
 
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const pluginBundle = require("@11ty/eleventy-plugin-bundle");
-const pluginNavigation = require("@11ty/eleventy-navigation");
-const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
+// Local plugins
 const pluginDrafts = require("./eleventy.config.drafts.js");
 const pluginImages = require("./eleventy.config.images.js");
-const eleventyGoogleFonts = require("eleventy-google-fonts");
-const sanitizeHtml = require('sanitize-html');
 
-const slugify = require("slugify");
-const filters = require('./_11ty/filters')
+// Helper: Dynamic import with fallback for default or named export
+const dynamicImport = async (pkg) =>
+  await import(pkg).then((m) => m.default || m);
 
-const moment = require('moment');
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+module.exports = async function (eleventyConfig) {
 
-module.exports = function(eleventyConfig) {
-	// Copy the contents of the `public` folder to the output folder
-	// For example, `./public/css/` ends up in `_site/css/`
-	eleventyConfig.addPassthroughCopy({
-		"./public/": "/",
-		"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css"
-	});
+  const { HtmlBasePlugin } = await import("@11ty/eleventy");
+  
+  // Passthrough copies
+  eleventyConfig.addPassthroughCopy({
+    "./public/": "/",
+    "./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css",
+    "CNAME": "CNAME",
+    "content/subscriptions.opml": "subscriptions.opml",
+    "src/well-known": ".well-known",
+  });
 
-	eleventyConfig.addPlugin(syntaxHighlight);
+  // Watch content images
+  eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
 
+  // Add filters
+  Object.entries(filters).forEach(([name, fn]) => {
+    eleventyConfig.addFilter(name, fn);
+  });
 
-	const foodImages = require("./content/food/images.json");
+  eleventyConfig.addFilter("splitPath", (value) =>
+    value.split("/").pop().split(".")[0]
+  );
 
-	eleventyConfig.addCollection("foodImages", function(collectionApi) {
-		return foodImages.sort((a, b) => new Date(b.date) - new Date(a.date));
-	});
+  eleventyConfig.addFilter("sanitize", (content) =>
+    sanitizeHtml(content, {
+      allowedTags: [],
+      allowedAttributes: {},
+    })
+  );
 
-	eleventyConfig.addFilter("splitPath", function(value) {
-		return value.split("/").pop().split(".")[0];
-	  });
-	
+  eleventyConfig.addFilter("readableDate", (dateObj, format, zone) =>
+    DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(
+      format || "dd LLLL yyyy"
+    )
+  );
 
-	eleventyConfig.addFilter("sanitize", function(content) {
-	    return sanitizeHtml(content, {
-	      allowedTags: [],
-	      allowedAttributes: {}
-	    });
-	});
+  eleventyConfig.addFilter("htmlDateString", (dateObj) =>
+    DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd")
+  );
 
-	Object.keys(filters).forEach(filterName => {
-		eleventyConfig.addFilter(filterName, filters[filterName])
-	})
+  eleventyConfig.addFilter("head", (array, n) => {
+    if (!Array.isArray(array) || array.length === 0) return [];
+    return n < 0 ? array.slice(n) : array.slice(0, n);
+  });
 
-	eleventyConfig.addPassthroughCopy({ 'src/well-known': '.well-known' });
-	eleventyConfig.addPassthroughCopy("CNAME");
-	eleventyConfig.addPassthroughCopy("content/subscriptions.opml");
+  eleventyConfig.addFilter("min", (...numbers) => Math.min(...numbers));
 
-	// Run Eleventy when these files change:
-	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
+  eleventyConfig.addFilter("getAllTags", (collection) => {
+    const tagSet = new Set();
+    for (let item of collection) {
+      (item.data.tags || []).forEach((tag) => tagSet.add(tag));
+    }
+    return [...tagSet];
+  });
 
-	// Watch content images for the image pipeline.
-	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
+  eleventyConfig.addFilter("filterTagList", (tags) =>
+    (tags || []).filter((tag) => !["all", "nav", "post", "posts"].includes(tag))
+  );
 
-	// App plugins
-	eleventyConfig.addPlugin(pluginDrafts);
-	eleventyConfig.addPlugin(pluginImages);
-	eleventyConfig.addPlugin(eleventyGoogleFonts);
+  // Shortcodes
+  eleventyConfig.addShortcode("currentBuildDate", () => new Date().toISOString());
 
-	// Official plugins
-	eleventyConfig.addPlugin(pluginRss, {
-		type: "atom", // or "rss", "json"
-		outputPath: "/blog.xml",
-		collection: {
-			name: "posts", // iterate over `collections.posts`
-			limit: 0,     // 0 means no limit
-		},
-		metadata: {
-			language: "en",
-			title: "Tom Casavant",
-			subtitle: "Blog about things.",
-			base: "https://tomcasavant.com/",
-			author: {
-				name: "Tom Casavant",
-				email: "tfcasavant@gmail.com", // Optional
-			}
-		}
-	});
+  // Collections
+  eleventyConfig.addCollection("foodImages", () =>
+    foodImages.sort((a, b) => new Date(b.date) - new Date(a.date))
+  );
 
-	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
-		preAttributes: { tabindex: 0 }
-	});
-	eleventyConfig.addPlugin(pluginNavigation);
-	eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
-	eleventyConfig.addPlugin(pluginBundle);
+  // Markdown anchor config
+  eleventyConfig.amendLibrary("md", (mdLib) => {
+    mdLib.use(markdownItAnchor, {
+      permalink: markdownItAnchor.permalink.ariaHidden({
+        placement: "after",
+        class: "header-anchor",
+        symbol: "#",
+        ariaHidden: false,
+      }),
+      level: [1, 2, 3, 4],
+      slugify: eleventyConfig.getFilter("slugify") || slugify,
+    });
+  });
 
-	// Filters
-	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
-		// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
-		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
-	});
+  // Load official plugins (via dynamic import)
+  const [
+    pluginRss,
+    pluginSyntaxHighlight,
+    pluginNavigation,
+    pluginBundle,
+    eleventyGoogleFonts,
+  ] = await Promise.all([
+    dynamicImport("@11ty/eleventy-plugin-rss"),
+    dynamicImport("@11ty/eleventy-plugin-syntaxhighlight"),
+    dynamicImport("@11ty/eleventy-navigation"),
+    dynamicImport("@11ty/eleventy-plugin-bundle"),
+    dynamicImport("eleventy-google-fonts"),
+  ]);
 
-	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-		// dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-		return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
-	});
+  eleventyConfig.addPlugin(pluginRss, {
+    type: "atom",
+    outputPath: "/blog.xml",
+    collection: { name: "posts", limit: 0 },
+    metadata: {
+      language: "en",
+      title: "Tom Casavant",
+      subtitle: "Blog about things.",
+      base: "https://tomcasavant.com/",
+      author: {
+        name: "Tom Casavant",
+        email: "tfcasavant@gmail.com",
+      },
+    },
+  });
 
-	// Get the first `n` elements of a collection.
-	eleventyConfig.addFilter("head", (array, n) => {
-		if(!Array.isArray(array) || array.length === 0) {
-			return [];
-		}
-		if( n < 0 ) {
-			return array.slice(n);
-		}
+  eleventyConfig.addPlugin(pluginSyntaxHighlight, {
+    preAttributes: { tabindex: 0 },
+  });
 
-		return array.slice(0, n);
-	});
+  eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(HtmlBasePlugin);
+  eleventyConfig.addPlugin(pluginBundle);
+  eleventyConfig.addPlugin(pluginDrafts);
+  eleventyConfig.addPlugin(pluginImages);
+  eleventyConfig.addPlugin(eleventyGoogleFonts);
 
-	// Return the smallest number argument
-	eleventyConfig.addFilter("min", (...numbers) => {
-		return Math.min.apply(null, numbers);
-	});
-
-	// Return all the tags used in a collection
-	eleventyConfig.addFilter("getAllTags", collection => {
-		let tagSet = new Set();
-		for(let item of collection) {
-			(item.data.tags || []).forEach(tag => tagSet.add(tag));
-		}
-		return Array.from(tagSet);
-	});
-
-	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
-		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
-	});
-
-	// Customize Markdown library settings:
-	eleventyConfig.amendLibrary("md", mdLib => {
-		mdLib.use(markdownItAnchor, {
-			permalink: markdownItAnchor.permalink.ariaHidden({
-				placement: "after",
-				class: "header-anchor",
-				symbol: "#",
-				ariaHidden: false,
-			}),
-			level: [1,2,3,4],
-			slugify: eleventyConfig.getFilter("slugify")
-		});
-	});
-
-	eleventyConfig.addShortcode("currentBuildDate", () => {
-		return (new Date()).toISOString();
-	})
-
-	// Features to make your build faster (when you need them)
-
-	// If your passthrough copy gets heavy and cumbersome, add this line
-	// to emulate the file copy on the dev server. Learn more:
-	// https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
-
-	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
-
-	return {
-		// Control which files Eleventy will process
-		// e.g.: *.md, *.njk, *.html, *.liquid
-		templateFormats: [
-			"md",
-			"njk",
-			"html",
-			"liquid",
-		],
-
-		// Pre-process *.md files with: (default: `liquid`)
-		markdownTemplateEngine: "njk",
-
-		// Pre-process *.html files with: (default: `liquid`)
-		htmlTemplateEngine: "njk",
-
-		// These are all optional:
-		dir: {
-			input: "content",          // default: "."
-			includes: "../_includes",  // default: "_includes"
-			data: "../_data",          // default: "_data"
-			output: "dist"
-		},
-
-		permalink: "/{{ title | slug }}/",
-
-		// -----------------------------------------------------------------
-		// Optional items:
-		// -----------------------------------------------------------------
-
-		// If your site deploys to a subdirectory, change `pathPrefix`.
-		// Read more: https://www.11ty.dev/docs/config/#deploy-to-a-subdirectory-with-a-path-prefix
-
-		// When paired with the HTML <base> plugin https://www.11ty.dev/docs/plugins/html-base/
-		// it will transform any absolute URLs in your HTML to include this
-		// folder name and does **not** affect where things go in the output folder.
-		pathPrefix: "/",
-	};
+  return {
+    templateFormats: ["md", "njk", "html", "liquid"],
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
+    dir: {
+      input: "content",
+      includes: "../_includes",
+      data: "../_data",
+      output: "dist",
+    },
+    permalink: "/{{ title | slug }}/",
+    pathPrefix: "/",
+  };
 };
