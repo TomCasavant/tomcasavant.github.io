@@ -142,6 +142,36 @@ module.exports = function(eleventyConfig) {
     return `${invisibleImageHtml}\n${visibleImageHtml}`;
   });
 
+  eleventyConfig.addAsyncShortcode("imgVisibleOnly", async function imgVisibleOnlyShortcode(src, alt = '') {
+    let input;
+  
+    if (isFullUrl(src)) {
+      input = src;
+    } else {
+      input = relativeToInputPath(this.page.inputPath, src);
+    }
+  
+    // Generate only the visible image metadata
+    let metadata = await eleventyImage(input, {
+      widths: [null],
+      formats: ["jpeg"],
+      outputDir: path.join(eleventyConfig.dir.output, "img"),
+    });
+  
+    let imageAttributes = {
+      alt,
+      loading: "lazy",
+      decoding: "async",
+      class: "visible"
+    };
+  
+    // Generate HTML for visible image only (no invisible image)
+    let visibleImageHtml = eleventyImage.generateHTML(metadata, imageAttributes);
+  
+    return visibleImageHtml;
+  });
+  
+
   eleventyConfig.addAsyncShortcode("getImageUrl", async function(src) {
     let input;
 

@@ -21,14 +21,14 @@ module.exports = async function (eleventyConfig) {
   // Passthrough copies
   eleventyConfig.addPassthroughCopy({
     "./public/": "/",
-    "./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css",
+    //"./node_modules/prismjs/themes/prism-okaidia.css": "/css/prism-okaidia.css",
     "CNAME": "CNAME",
     "content/subscriptions.opml": "subscriptions.opml",
     "src/well-known": ".well-known",
   });
 
   // Watch content images
-  eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
+  //eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
 
   // Add filters
   Object.entries(filters).forEach(([name, fn]) => {
@@ -102,13 +102,13 @@ module.exports = async function (eleventyConfig) {
     pluginRss,
     pluginSyntaxHighlight,
     pluginNavigation,
-    pluginBundle,
+    //pluginBundle,
     eleventyGoogleFonts,
   ] = await Promise.all([
     dynamicImport("@11ty/eleventy-plugin-rss"),
     dynamicImport("@11ty/eleventy-plugin-syntaxhighlight"),
     dynamicImport("@11ty/eleventy-navigation"),
-    dynamicImport("@11ty/eleventy-plugin-bundle"),
+    //dynamicImport("@11ty/eleventy-plugin-bundle"),
     dynamicImport("eleventy-google-fonts"),
   ]);
 
@@ -134,7 +134,8 @@ module.exports = async function (eleventyConfig) {
 
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(HtmlBasePlugin);
-  eleventyConfig.addPlugin(pluginBundle);
+  //eleventyConfig.addPlugin(pluginBundle);
+  eleventyConfig.addBundle("css");
   eleventyConfig.addPlugin(pluginDrafts);
   eleventyConfig.addPlugin(pluginImages);
   eleventyConfig.addPlugin(eleventyGoogleFonts);
