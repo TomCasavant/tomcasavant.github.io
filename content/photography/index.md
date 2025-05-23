@@ -20,8 +20,8 @@ eleventyNavigation:
 <style>
 #images-wrapper {    
   line-height: 0;       
-  column-count: 5;
-  column-gap: 12px;
+  column-count: 4;
+  column-gap: 8px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 8px;
@@ -30,7 +30,7 @@ eleventyNavigation:
 #images-wrapper img {    
   width: 100%;    
   height: auto;  
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   display: block;
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -38,7 +38,7 @@ eleventyNavigation:
 }
 
 #images-wrapper img:hover {
-  transform: scale(1.05);
+  transform: scale(1.09);
 }
 
 @media (max-width: 1200px) {
