@@ -36,8 +36,8 @@ jobs:
 
       - run: npm ci
   
-      - name: Run Eleventy with timeout
-        run: timeout 3m npx @11ty/eleventy --quiet || true
+      - name: Build Eleventy
+        run: npx @11ty/eleventy
   
 
 
