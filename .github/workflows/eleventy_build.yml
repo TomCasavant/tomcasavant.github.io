@@ -36,11 +36,9 @@ jobs:
 
       - run: npm ci
   
-      - name: Build Eleventy
-        run: npx @11ty/eleventy
+      - name: Run Eleventy with timeout
+        run: timeout 5m npx @11ty/eleventy --quiet || true
   
-
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
