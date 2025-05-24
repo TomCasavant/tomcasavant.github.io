@@ -2,7 +2,7 @@
 layout:     /layouts/post
 title:      "I Posted to Mastodon 1 Mile Away from an Internet Connection"
 subtitle:   "Meshtastic Mastastic"
-date: 		2025-05-24T10:00:00-05:00
+date: 		2025-05-23T10:00:00-05:00
 categories: fediverse, mastodon, meshtastic
 ---
 
