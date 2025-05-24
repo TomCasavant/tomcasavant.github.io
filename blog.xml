@@ -4,12 +4,162 @@
 	<subtitle>Blog about things</subtitle>
 	<link href="https://tomcasavant.com/blog.xml" rel="self"/>
 	<link href="https://tomcasavant.com/"/>
-	<updated>2025-03-31T15:00:00Z</updated>
+	<updated>2025-05-23T15:00:00Z</updated>
 	<id>https://tomcasavant.com/</id>
 	<author>
 		<name>Tom Casavant</name>
 		<email>tfcasavant@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>I Posted to Mastodon 1 Mile Away from an Internet Connection</title>
+		<link href="https://tomcasavant.com/i-posted-to-mastodon-1-mile-away-from-an-internet-connection/"/>
+		<updated>2025-05-23T15:00:00Z</updated>
+		<id>https://tomcasavant.com/i-posted-to-mastodon-1-mile-away-from-an-internet-connection/</id>
+		<content type="html">&lt;p&gt;Over the past few months, I&#39;ve amassed the world&#39;s largest collection of &lt;a href=&quot;https://meshtastic.org/&quot;&gt;Meshtastic&lt;/a&gt; devices (read: 4), and using my newfound power, I have built a Mastodon client that doesn&#39;t require an internet connection¹.&lt;/p&gt;
+&lt;h3 id=&quot;the-plan&quot; tabindex=&quot;-1&quot;&gt;The Plan: &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/i-posted-to-mastodon-1-mile-away-from-an-internet-connection/#the-plan&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Chain together a series of Meshtastic radios so I can post to my account anywhere in the city without access to my phone.&lt;/p&gt;
+&lt;h3 id=&quot;the-implementation&quot; tabindex=&quot;-1&quot;&gt;The Implementation: &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/i-posted-to-mastodon-1-mile-away-from-an-internet-connection/#the-implementation&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Meshtastic provides a &lt;a href=&quot;https://github.com/meshtastic/python&quot;&gt;Python library&lt;/a&gt; to interact with a connected Meshtastic device over serial (USB) or Bluetooth. We use this to receive messages from our device(s).&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Connect radio to PC&lt;/li&gt;
+&lt;li&gt;Python script reads messages from Meshtastic&lt;/li&gt;
+&lt;li&gt;If sent from authenticated user, post a status to configured Mastodon instance&lt;/li&gt;
+&lt;li&gt;Python script subscribes to Mastodon user&#39;s notifications&lt;/li&gt;
+&lt;li&gt;When a notification is received, send that to the configured Meshtastic channel&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The script for &lt;a href=&quot;https://github.com/TomCasavant/Mastastic&quot;&gt;&#39;Mastastic&#39; can be found here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The problem with my apartment is it&#39;s mostly beneath the ground, and the problem with Columbus is it&#39;s mostly a city.&lt;br&gt;
+Both of these problems combine to make it very difficult to have the long-range Meshtastic mesh of my dreams.&lt;/p&gt;
+&lt;p&gt;I used a state-of-the-art extension system for the radio connected to my computer to give it access to the outside world.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/qHk7ut7g2u-3000.jpeg&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/qHk7ut7g2u-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/qHk7ut7g2u-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of a Heltek v3 meshtastic node connected to a USB cable popping out of a green bush&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/qHk7ut7g2u-600.jpeg&quot; width=&quot;600&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;8ft of pure, bona fide USB routed through a hole created by a cat who broke into my apartment&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The next radio was magnetically secured to a dumpster.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/4N6wMczG4l-3000.jpeg&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/4N6wMczG4l-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/4N6wMczG4l-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of a T1000 meshtastic device in a magnetic pencil case attached to a dumpster&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/4N6wMczG4l-600.jpeg&quot; width=&quot;600&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;A breath of fresh air&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;And the final one was attached to a tree just outside a cemetery.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/QU-54v9DXh-3000.jpeg&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/QU-54v9DXh-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/QU-54v9DXh-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of a Heltek v3 in a camo case wedged in a tree&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/QU-54v9DXh-600.jpeg&quot; width=&quot;600&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;Just dying to get in&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&quot;the-result&quot; tabindex=&quot;-1&quot;&gt;The Result: &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/i-posted-to-mastodon-1-mile-away-from-an-internet-connection/#the-result&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;At 5:02 PM, I found myself in a desolate Kohl&#39;s parking lot 0.5 miles away from my apartment. &lt;s&gt;I pulled out my deck&lt;/s&gt;&lt;br&gt;
+Using my &lt;a href=&quot;https://meshtastic.org/docs/hardware/devices/lilygo/tdeck/&quot;&gt;LilyGo T-Deck&lt;/a&gt;, a standalone device I have that doesn&#39;t require a Bluetooth connection to a phone to use,&lt;br&gt;
+I typed out a command: &#39;&lt;code&gt;!post sending this #mastodon post over #meshtastic from about 0.5 miles away&lt;/code&gt;&#39;,&lt;br&gt;
+and instantly got the acknowledgment from Mastastic that my message was received. Success.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/qSJ4JUj8nd-640.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/qSJ4JUj8nd-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/qSJ4JUj8nd-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of mastodon post that says &#39;sending this #mastodon post over #meshtastic from about 0.5 miles away&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/qSJ4JUj8nd-600.png&quot; width=&quot;600&quot; height=&quot;216&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://tomkahe.com/@tom/114559165475833367&quot;&gt;https://tomkahe.com/@tom/114559165475833367&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Time to push my luck. I moved across the river to a nearby park, roughly 0.75 miles away from my house, typed out the message:&lt;br&gt;
+&#39;&lt;code&gt;!post sending this one in a park about 0.75 miles away&lt;/code&gt;&#39;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/xfE8HoGBSo-643.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/xfE8HoGBSo-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/xfE8HoGBSo-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of mastodon post that says &#39;sending this one in a park about 0.75 miles away&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/xfE8HoGBSo-600.png&quot; width=&quot;600&quot; height=&quot;191&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://tomkahe.com/@tom/114559209932611789&quot;&gt;https://tomkahe.com/@tom/114559209932611789&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;And for the grand finale? I drove up to a nearby Kroger, exactly 1 mile away.&lt;/p&gt;
+&lt;p&gt;I sent out a &#39;&lt;code&gt;!ping&lt;/code&gt;&#39; and got the response &#39;&lt;code&gt;pong!&lt;/code&gt;&#39; from the Python script, and sent forth my command:&lt;br&gt;
+&#39;&lt;code&gt;!post sending this from a Kroger parking lot exactly 1 mile away&lt;/code&gt;&#39;. The message turned red — it wasn&#39;t received by any nodes in the area.&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!post barely sending this from a Kroger 1 mile away&lt;/code&gt;&#39; I tried again. And again the message turned red. Nothing.&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!post barely sending this from a Kroger 1 mile away #mastodon #meshtastic&lt;/code&gt;&#39;. It turned green! Unfortunately, not detected by any of my nodes — no post made.&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!post *barely* sending this from a Kroger 1 mile away&lt;/code&gt;&#39;. Nothing.&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!ping&lt;/code&gt;&#39;. No response.&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!ping&lt;/code&gt;&#39;. No response.&lt;/p&gt;
+&lt;p&gt;Twelve minutes have passed.&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!ping&lt;/code&gt;&#39;. It turned green! No response.&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!post sending this from a Kroger&lt;/code&gt;&#39;. Nothing.&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!post from 1 mile away, barely&lt;/code&gt;&#39;. Nothing.&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!post sending this from 1 mile away?&lt;/code&gt;&#39;. Green! Nothing.&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!post maybe possibly 1 mile away?&lt;/code&gt;&#39;. Green! Nothing.&lt;/p&gt;
+&lt;p&gt;Twenty minutes have passed.&lt;/p&gt;
+&lt;p&gt;The T-Deck makes a notification sound — new message: &#39;&lt;code&gt;(username_hidden_for_privacy) liked your status&lt;/code&gt;&#39;.&lt;/p&gt;
+&lt;p&gt;It was clear the connection was (somewhat) there, but no matter what I did, my messages weren&#39;t getting sent out.&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!post 1 mile away maybe hopefully&lt;/code&gt;&#39;. Nothing.&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!ping&lt;/code&gt;&#39;. It turned green! No response.&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!post I&#39;m getting notifications from 1 mile away but no posts :(&lt;/code&gt;&#39;. It turned green! Nothing.&lt;/p&gt;
+&lt;p&gt;After 25 minutes, I finally started to give up hope and decided to head to my next destination 1.5 miles away.&lt;br&gt;
+(The &lt;a href=&quot;https://meshtastic.org/docs/software/site-planner/&quot;&gt;Meshtastic Site Planner&lt;/a&gt; had suggested that my apartment might have better signal in an area slightly farther away.)&lt;/p&gt;
+&lt;p&gt;So, I sent out one final message:&lt;/p&gt;
+&lt;p&gt;&#39;&lt;code&gt;!post last try, 1 mile?&lt;/code&gt;&#39;. It turned red. No luck.&lt;/p&gt;
+&lt;p&gt;But wait, what&#39;s this?&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/vmtaXJEk_B-643.png&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/vmtaXJEk_B-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/vmtaXJEk_B-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Screenshot of mastodon post that says &#39;last try, 1 mile?&#39;&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/vmtaXJEk_B-600.png&quot; width=&quot;600&quot; height=&quot;191&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://tomkahe.com/@tom/114559331767436047&quot;&gt;https://tomkahe.com/@tom/114559331767436047&lt;/a&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;It worked! From exactly 1 mile away, I was able to post to Mastodon, achieving the lifelong goal of millions of posters everywhere.&lt;/p&gt;
+&lt;h3 id=&quot;outcomes&quot; tabindex=&quot;-1&quot;&gt;Outcomes &lt;a class=&quot;header-anchor&quot; href=&quot;https://tomcasavant.com/i-posted-to-mastodon-1-mile-away-from-an-internet-connection/#outcomes&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;It should be easy for someone to take this and extend it to significantly greater distances—and I hope they do. Unfortunately, for now, one mile is the best I can manage.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;https://tomcasavant.com/img/z042lCEpfR-3000.jpeg&quot;&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://tomcasavant.com/img/z042lCEpfR-600.avif 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://tomcasavant.com/img/z042lCEpfR-600.webp 600w&quot; sizes=&quot;100vw&quot;&gt;&lt;img alt=&quot;Photo of the LILYGO TDeck with a Kohl&#39;s Sign in the background&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; class=&quot;u-photo visible&quot; src=&quot;https://tomcasavant.com/img/z042lCEpfR-600.jpeg&quot; width=&quot;600&quot; height=&quot;800&quot;&gt;&lt;/picture&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;strong&gt;expect great things&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;This is a blatant lie. I am a liar.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/TomCasavant/Mastastic&quot;&gt;Mastastic Source Code&lt;/a&gt;&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Things I Did Not Blog About 2</title>
