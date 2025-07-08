@@ -8,7 +8,7 @@ async function getBookmarks() {
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
   try {
-    const response = await fetch("https://tomcasavant.glitch.me/index.xml");
+    const response = await fetch("https://bookmarks.tomkahe.com/index.xml");
     const xml = await response.text();
     const json = await parseStringPromise(xml);
     
