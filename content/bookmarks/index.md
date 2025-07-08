@@ -5,7 +5,7 @@ eleventyNavigation:
   key: Bookmarks
   order: 3
 ---
-### Bookmarks from [@tom@tomcasavant.glitch.me](https://tomcasavant.glitch.me/)
+### Bookmarks from [@tom@bookmarks.tomkahe.com](https://bookmarks.tomkahe.com/)
 
 {% for item in bookmarks.bookmarks %}
 	<div class="card">
