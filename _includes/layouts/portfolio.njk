@@ -1,0 +1,10 @@
+---
+layout: layouts/home.njk
+---
+<!-- Delete this message, it will also remove the component CSS from the bundle -->
+{%- css %}
+{% include "public/css/message-box.css" %}
+{% include "public/css/project-box.css" %}
+{% endcss %}
+
+{{ content | safe }}

@@ -1,0 +1,18 @@
+<div class="project-box">
+  <h3>{{ currentProject.data.title }}</h3>
+  <p>{{ currentProject.data.blurb }}</p>
+  {% if currentProject.data.links %}
+  <p class="project-links">
+    {% for link in currentProject.data.links %}
+      <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.text }}</a>
+    {% endfor %}
+  </p>
+  {% endif %}
+  {% if currentProject.data.tags %}
+  <ul class="project-tags">
+    {% for tag in currentProject.data.tags %}
+      <li>{{ tag }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>

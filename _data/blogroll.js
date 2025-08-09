@@ -8,7 +8,7 @@ const feedsDirectory = path.join(__dirname, 'blogroll-feeds');
 
 // Function to fetch profiles and their RSS feeds
 async function fetchProfilesWithFeeds() {
-  console.log("Fetching blogroll profiles");
+  /*console.log("Fetching blogroll profiles");
   const json = await fs.readFile(jsonFilePath, 'utf8');
   const profiles = JSON.parse(json);
 
@@ -59,7 +59,7 @@ async function fetchProfilesWithFeeds() {
 	});
 	
 	return { blogroll: sortedProfilesWithFeeds };
-
+	*/
 }
 
 
