@@ -22,208 +22,225 @@
 		<link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
 		<style>/* Message Box */
 * { box-sizing: border-box; }
-/* Defaults */
+/* Message Box */
+* { box-sizing: border-box; }
+.postlist { counter-reset: start-from 35 }
+/* Message Box */
+* { box-sizing: border-box; }
+/* ========================================================================== */
+/*                            CSS Variables & Themes                          */
+/* ========================================================================== */
+
+/* Base font families */
 :root {
-	--font-family: -apple-system, system-ui, sans-serif;
-	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-mono: Consolas, Menlo, Monaco, "Andale Mono", "Lucida Console",
+    monospace;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+
+  /* Font sizes */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+
+  /* Border radius */
+  --radius: 8px;
+
+  /* Colors — Light theme */
+  --color-bg: #fefefe;
+  --color-bg-standout: #fff8f1;
+  --color-text: #2a2a2a;
+  --color-text-muted: #555;
+  --color-text-link: #ad4e27;
+  --color-text-link-hover: #d2691e;
+  --color-border: #ddd;
+  --color-shadow: rgba(0, 0, 0, 0.05);
+
+  /* Accent */
+  --color-accent: #d2691e;
+
+  /* Syntax */
+  --syntax-tab-size: 2;
 }
 
-/* Theme colors 
-:root {
-	--color-gray-20: #BAB2B5;
-	--color-gray-50: #123C69;
-	--color-gray-90: #AC3B61;
+/* Dark theme overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-bg-standout: #1e1e1e;
+    --color-text: #e0e0e0;
+    --color-text-muted: #999;
+    --color-text-link: #ffa500;
+    --color-text-link-hover: #ffb733;
+    --color-border: #333;
+    --color-shadow: rgba(255, 255, 255, 0.1);
+    --color-accent: #ffa500;
+  }
+}
 
-	--background-color: #EDC7B7;
-	--background-standout: #DDB7A7;
-	--highlight-color: rgba(0, 0, 0, 0.6);
-	--alternating-rows: #DCB6A6;
+/* ========================================================================== */
+/*                                Base Reset                                  */
+/* ========================================================================== */
 
-	--text-color: var(--color-gray-90);
-	--text-color-link: #AC3B61;
-	--text-color-link-active: #2E3944;
-	--text-color-link-visited: #DD3B61;
-
-	--syntax-tab-size: 2;
-}*/
-
-/*@media (prefers-color-scheme: dark) {*/
-	:root {
-		--color-gray-20: #e0e0e0;
-		--color-gray-50: #A0A0A0;
-		--color-gray-90: #dad8d8;
-
-		--background-color: #121212;
-		--background-standout: #242120;
-		--highlight-color: rgba(255,255,255,0.6);
-		--alternating-rows: #473e3a;
-		
-		--text-color: var(--color-gray-50);
-		--text-color-link: #DD3B61;
-		--text-color-link-active: #9E9994;
-		--text-color-link-visited: #DD3B61;
-
-		/* --text-color is assigned to --color-gray-_ above 
-		--text-color-link: #1493fb;
-		--text-color-link-active: #6969f7;
-		--text-color-link-visited: #a6a6f8;*/
-	}
-/*}*/
-
-
-/* Global stylesheet */
-* {
-	box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html,
 body {
-	padding: 0;
-	margin: 0 auto;
-	font-family: var(--font-family);
-	color: var(--text-color);
-	background-color: var(--background-color);
-}
-html {
-	overflow-y: scroll;
-}
-body {
-	max-width: 60em;
+  margin: 0 auto;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-md);
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+  overflow-y: scroll;
 }
 
-/* https://www.a11yproject.com/posts/how-to-hide-content/ */
-.visually-hidden {
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
-	height: 1px;
-	overflow: hidden;
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+p,
+li {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
 }
 
 p:last-child {
-	margin-bottom: 0;
-}
-p {
-	line-height: 1.75;
+  margin-bottom: 0;
 }
 
-li {
-	line-height: 1.75;
+/* ========================================================================== */
+/*                                Typography                                  */
+/* ========================================================================== */
+
+code,
+pre {
+  font-family: var(--font-mono);
+  background-color: var(--color-bg-standout);
+  border-radius: var(--radius);
+  padding: 0.15em 0.3em;
+  font-size: var(--font-sm);
+  color: var(--color-accent);
 }
 
-a[href] {
-	color: var(--text-color-link);
+pre {
+  display: block;
+  padding: var(--space-md);
+  overflow-x: auto;
+  line-height: 1.4;
+  margin: var(--space-lg) 0;
+  white-space: pre-wrap;
+  tab-size: var(--syntax-tab-size);
 }
 
-a[href]:visited{
-    color: var(--text-color-link-visited);
+a {
+  color: var(--color-text-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-a[href]:hover,
-a[href]:active {
-    color: var(--text-color-link-active);
+a:hover,
+a:focus {
+  color: var(--color-text-link-hover);
+  outline: none;
+  text-decoration: underline;
 }
 
+/* ========================================================================== */
+/*                                Layout & Containers                         */
+/* ========================================================================== */
 
 main {
-	padding: 1rem;
-}
-main :first-child {
-	margin-top: 0;
+  max-width: 60em;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
 }
 
 header {
-	border-bottom: 1px dashed var(--color-gray-20);
-}
-header:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-.links-nextprev {
-	list-style: none;
-	border-top: 1px dashed var(--color-gray-20);
-	padding: 1em 0;
+  display: flex;
+  align-items: center;    /* vertically center items */
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-md);
+  max-width: 60em;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--color-border);
+  /* no justify-content, so items stay grouped on the left */
 }
 
-table {
-	margin: 1em 0;
-}
-table td,
-table th {
-	padding-right: 1em;
-}
-table {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-table th, table td {
-    text-align: center;
-}
-
-pre,
-code {
-	font-family: var(--font-family-monospace);
-}
-pre:not([class*="language-"]) {
-	margin: .5em 0;
-	line-height: 1.375; /* 22px /16 */
-	-moz-tab-size: var(--syntax-tab-size);
-	-o-tab-size: var(--syntax-tab-size);
-	tab-size: var(--syntax-tab-size);
-	-webkit-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-	direction: ltr;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-}
-code {
-	word-break: break-all;
-}
-
-/* Header */
-header {
-	display: flex;
-	gap: 1em .5em;
-	flex-wrap: wrap;
-	align-items: center;
-	padding: 0.8em;
-}
 .home-link {
-	font-size: 1.3em; /* 16px /16 */
-	font-weight: 710;
-	margin-right: 1em;
-}
-.home-link:link:not(:hover) {
-	text-decoration: none;
+  font-size: var(--font-lg);
+  font-weight: 700;
+  line-height: 1;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -3px;  /* nudge up to align with nav */
 }
 
-/* Nav */
 .nav {
-	display: inline-block;
-	padding: 0;
-	margin: 0;
-	list-style: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-md);
+  font-size: var(--font-md);
+  font-weight: 600;
 }
-.nav-item {
-	display: inline-block;
-	margin-right: 1em;
-	font-size:1.1em;
-	font-weight:500;
+
+.nav-item a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  line-height: 1.2;
+  padding: 0;
 }
-.nav-item a[href]:not(:hover) {
-	text-decoration: none;
+
+.nav-item a[aria-current='page'],
+.nav-item a:hover,
+.nav-item a:focus {
+  color: var(--color-text-link);
+  text-decoration: underline;
 }
-.nav a[href][aria-current="page"] {
-	text-decoration: underline;
+
+
+footer {
+  padding: var(--space-lg) var(--space-md);
+  font-size: var(--font-sm);
+  text-align: center;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
 }
+
+/* ========================================================================== */
+/*                              Post List & Webmentions                       */
+/* ========================================================================== */
 
 /* Posts list */
 .postlist {
@@ -282,503 +299,474 @@ header {
 	font-weight: bold;
 }
 
-/* Tags */
-.post-tag {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	text-transform: capitalize;
-	font-style: italic;
-}
-.postlist-item > .post-tag {
-	align-self: center;
-}
-
-/* Tags list */
-.post-metadata {
-	display: inline-flex;
-	flex-wrap: wrap;
-	gap: .5em;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.post-metadata time {
-	margin-right: 1em;
+/* Webmention container */
+.postlist-webmentions {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-/* Direct Links / Markdown Headers */
-.header-anchor {
-	text-decoration: none;
-	font-style: normal;
-	font-size: 1em;
-	margin-left: .1em;
-}
-a[href].header-anchor,
-a[href].header-anchor:visited {
-	color: transparent;
-}
-a[href].header-anchor:focus,
-a[href].header-anchor:hover {
-	text-decoration: underline;
-}
-a[href].header-anchor:focus,
-:hover > a[href].header-anchor {
-	color: #aaa;
+/* Webmention item */
+.webmention-item {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--color-text-link);
+  user-select: none;
 }
 
-h2 + .header-anchor {
-	font-size: 1.5em;
+/* Webmention SVG icons */
+.webmention-item svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--color-text-link);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.bookmark {
-	background-color: var(--background-standout);
-	border: 1px solid #000;
-	box-shaddow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+/* Heart icon */
+.heart-icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--color-text-link);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.bookmark-title {
-	text-align: center;
+/* Count text */
+.webmention-count {
+  margin-left: 0.1rem;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: var(--color-text-link);
 }
 
-.bookmark-summary {
-	text-align: center;
-	font-size: 0.75em;
-}
-
-.activities {
-    border: 0.1px solid;
-    width: 100%;
-    border-collapse: collapse;
-    font-family: 'Lato', normal;
-}
-
-.activities-header {
-    text-align: left;
-}
-
-.activities tr:nth-child(even) {
-    background-color: var(--alternating-rows);
-}
-
-profile-image {
-	width: 0.1em;
-	height: 0.1em;
-}
+/* ========================================================================== */
+/*                            SVG & Icon Styling                             */
+/* ========================================================================== */
 
 .message-box {
-    display: flex;
-    justify-content: center; /* Center the icons horizontally */
-    align-items: center; /* Center the icons vertically */
+  display: flex;
+  justify-content: center;   /* Center icons horizontally */
+  align-items: center;       /* Center icons vertically */
+  gap: 0.5rem;               /* Space between icons */
 }
 
-.icon {
-    width: 24px; 
-    height: 24px; 
-    margin-right: 8px; 
-    fill: currentColor; 
+.message-box svg {
+  display: block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;        /* Inherit text color */
+  transition: fill 0.2s ease;
 }
 
-.bluesky-icon {
-    transform: translateY(1px) scale(1.1); 
+.message-box svg:last-child {
+  margin-right: 0;           /* Remove right margin on last icon */
 }
+
+/* Example individual icon tweaks (adjust if needed) */
+.bluesky-icon,
 .rss-icon {
-    transform: translateY(1px) scale(1.1); 
+  transform: translateY(1px) scale(1.1);
 }
+
 .github-icon {
-    transform: scale(1.1); 
+  transform: scale(1.1);
 }
+
 .ipod-icon {
   transform: translateY(1.5px) scale(1.5);
 }
 
-.post-icon {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 5px;
-  color: var(--text-color-link-visited);
-}
-
-
-.message-box svg {
-    display: block;
-    vertical-align: middle;
-}
-
-.message-box svg:last-child {
-    margin-right: 0; /* Remove margin from the last icon */
-}
-
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr 1fr; /* 2 rows */
-  grid-gap: 10px;
-}
-
-.image-item {
-  width: 100%;
-  height: 0;
-  padding-top: 200%; /* Maintain aspect ratio (2:1) for portrait-oriented images */
-  position: relative;
-  overflow: hidden;
-}
-
-.image-item img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-a.microblog-post-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.microblog-post {
-  position: relative;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 16px 0;
-  background-color: transparent;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.2s ease;
-}
-
-.microblog-post:hover {
-  box-shadow: 0 4px 8px var(--highlight-color);
-}
-
-.microblog-post .post-description,
-.microblog-post .post-date {
-  font-size: 0.85em;
-  margin: 8px 0;
-  color: #666;
-  text-decoration: none;
-}
-
-.microblog-post .post-date {
-  font-size: 0.575em;
-  color: #999;
-  text-align: right;
-}
-
-.microblog-post .post-media {
-  max-width: 100%;
-  height: auto;
-  margin-top: 16px;
-  border-radius: 4px;
-}
-
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  background: #000;
-}
-
-.video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-picture {
-  display: block;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-picture img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* Webmentions */
-.webmentions img {
-  border-radius: 50%;
-  display: inline;
-  height: 48px;
-  width: 48px;
-  object-fit: cover;
-}
-.webmentions h3 {margin-top: 40px;}
-.webmentions__facepile span {
-  font-size: var(--size-600);
-  margin-right: 2rem;
-}
-.webmention-replies img {
-  height: 24px;
-  width: 24px;}
-.webmention-replies article {margin-bottom: 32px;}
-.webmention-replies .webmention__meta {margin-bottom: 8px;}
-.webmention-replies .webmention__meta time {display: block; margin-top: 8px;}
-.webmention-text {font-size: var(--size-400); margin-top: 0;}
-.webmention-text a {font-size: var(--size-300); margin-left: 4px;}
-article.webmention {
-  background-color: var(--grey-05);
-  padding: 16px 16px 12px;
-}
-form input[type="url"] {
-  display: block;
-  height: 2rem;
-  width: 100%;}
-.form-webmention {
-  display: grid;
-  grid-template-columns: auto;
-  gap: 8px;
-  margin: 16px 0;
-  width: 100%;}
-.form-webmention input {width: 100%;}
-.form-webmention .button {
-  font-size: var(--size-300);
-  height: 2rem;}
-form label {
-  font-weight: 600;
-  margin: 4px 0 0 0;}
-.form {
-  background-color: var(--grey-05);
-  margin: 40px auto;
-  padding: 16px;
-  position: relative;}
-.form > * {position: relative;}
+/* Form SVGs (e.g. search icon inside inputs) */
 .form svg {
   position: absolute;
   top: 5px;
-  right: 10px;}
-.form button, .form label, .form p {
-  display: block;
-  margin: 24px auto;
-  width: 90%;}
-.form input {
-  height: 2rem;}
-.form input, .form textarea {
-  border: 1px solid var(--grey-20);
-  color: var(--grey-80);
-  display: block;
-  font-family: var(--font-body);
-  font-size: var(--size-400);
-  font-weight: 400;
-  margin: 4px 0;
-  padding: 4px;
-  width: 100%;}
-footer .form {
-  background: none;
-  box-shadow: none;
-  text-align: left;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  fill: var(--color-text-muted);
+  pointer-events: none; /* Prevents interfering with form */
 }
-footer .button {
-  font-size: var(--size-400);
-  padding: 8px 12px;
-}
-footer .form input, footer .form button {
-  height: 2.3rem;
-}
-#honey {display: none;}
-.well {
-  background-color: rgba(222,221,227,0.4);
-  margin-top: 40px;
-  overflow: hidden;
-  padding: 32px;
-  position: relative;}
-.well > * {position: relative;}
+
+/* Decorative SVG inside .well container */
 .well svg {
+  position: absolute;
   bottom: 0;
   right: 100px;
-  position: absolute;
-  transform: rotate(45deg);}
+  transform: rotate(45deg);
+  opacity: 0.15; /* Subtle effect */
+  pointer-events: none;
+}
+
+/* Adjust margin for specific templating layout */
 .tmpl-newspost .circles .content-780 {
   margin: 0 auto;
 }
 
-.postlist-webmentions {
-    display: flex;
-    gap: 0.5em;
-    justify-content: flex-end; /* Aligns items to the right */
-    position: absolute;
-    right: 0.5em;
-    bottom: 0;
+/* ========================================================================== */
+/*                                Buttons & Links                            */
+/* ========================================================================== */
+
+.button,
+button,
+input[type='submit'] {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.postlist-webmentions .heart-icon {
-    margin-right: 0.2em
+.button:hover,
+button:hover,
+input[type='submit']:hover {
+  background-color: #bf621e; /* Slightly darker accent */
 }
 
-.postlist-webmentions #retweet-round {
-    margin-right: 0.35em
+.button:focus,
+button:focus,
+input[type='submit']:focus {
+  outline: 2px solid var(--color-text-link);
+  outline-offset: 2px;
 }
 
-.postlist-webmentions svg {
-    width: 1rem;
-    height: 1rem;
-    display: inline-block;
-    vertical-align: middle;
-    fill: var(--text-color-link); 
-    stroke: var(--text-color-link);
+/* ========================================================================== */
+/*                                Portfolio Grid                              */
+/* ========================================================================== */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
 }
 
-.webmention-count {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 0.05rem;
-    font-size: 0.85rem;
-    color: var(--text-color-link);
-    transform: translateY(-0.5em);
+.project-box {
+  background-color: var(--color-bg-standout);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px var(--color-shadow);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.webmention-item {
-    display: flex;
-    align-items: center;
-    gap: 0.01rem;
+.project-box:hover,
+.project-box:focus-within {
+  box-shadow: 0 8px 20px rgba(214, 105, 30, 0.35);
+  transform: translateY(-3px);
+  outline: none;
 }
 
-/* Media Query for Smaller Screens */
+.project-box h3 {
+  margin: 0;
+  font-size: var(--font-lg);
+  color: var(--color-text);
+}
+
+.project-box p {
+  flex-grow: 1;
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+}
+
+.project-links a {
+  font-size: var(--font-xs);
+  color: var(--color-text-link);
+  margin-right: var(--space-sm);
+  transition: color 0.2s ease;
+}
+
+.project-links a:hover,
+.project-links a:focus {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+.project-tags {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-sm) 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.project-tags li {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-size: var(--font-xs);
+  padding: 0.2em 0.5em;
+  border-radius: var(--radius);
+  text-transform: capitalize;
+}
+
+/* ========================================================================== */
+/*                              Tables & Lists                                */
+/* ========================================================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-md) 0;
+  font-family: var(--font-sans);
+}
+
+table th,
+table td {
+  padding: var(--space-sm);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  vertical-align: middle;
+}
+
+table tr:nth-child(even) {
+  background-color: var(--color-bg-standout);
+}
+
+/* ========================================================================== */
+/*                             Forms & Inputs                                 */
+/* ========================================================================== */
+
+input,
+textarea,
+select,
+button {
+  font-family: var(--font-sans);
+  font-size: var(--font-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-sm);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: border-color 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.3);
+}
+
+/* ========================================================================== */
+/*                             Utility & Helpers                              */
+/* ========================================================================== */
+
+.card {
+  background-color: var(--color-bg-standout);
+  border: 1px solid var(--color-border);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  max-width: 400px;
+  margin: var(--space-lg) auto; /* centers horizontally and adds vertical spacing */
+  color: var(--color-text);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-size: var(--font-md);
+}
+
+
+.card:hover,
+.card:focus-within {
+  box-shadow: 4px 4px 15px rgba(210, 105, 30, 0.4);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.bookmark-title {
+  margin: 0 0 var(--space-sm) 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--font-lg);
+}
+
+.bookmark-title a {
+  color: var(--color-text-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bookmark-title a:hover,
+.bookmark-title a:focus {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+.bookmark-summary {
+  margin: 0;
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Ensure spacing between multiple cards */
+.card + .card {
+  margin-top: var(--space-lg);
+}
+
+
+/* Visually hidden for accessibility */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Center text utility */
+.text-center {
+  text-align: center;
+}
+
+/* Margin and padding utilities */
+.m-0 {
+  margin: 0 !important;
+}
+.p-0 {
+  padding: 0 !important;
+}
+
+/* ========================================================================== */
+/*                               Responsive Design                            */
+/* ========================================================================== */
+
+@media (max-width: 768px) {
+  main {
+    padding: var(--space-md);
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+}
+
+.timeline-container {
+  max-width: 60em;
+  margin: var(--space-lg) auto;
+  padding: 0 var(--space-md);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: relative;
+  padding-left: 1.5rem; /* space for timeline line */
+  border-left: 3px solid var(--color-accent);
+}
+
+.timeline .outer {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.timeline .outer::before {
+  content: '';
+  position: absolute;
+  left: -1.8rem;
+  top: 0.75rem;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--color-accent);
+}
+
+.microblog-card {
+  background-color: var(--color-bg-standout);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  box-shadow: 0 2px 6px var(--color-shadow);
+  color: var(--color-text);
+  font-size: var(--font-md);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.microblog-card:hover,
+.microblog-card:focus-within {
+  box-shadow: 0 8px 20px rgba(210, 105, 30, 0.35);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.microblog-post-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-link);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.microblog-post-link:hover,
+.microblog-post-link:focus {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+.fediverse-post-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Optional: Adjust timeline vertical spacing on smaller screens */
 @media (max-width: 768px) {
   .timeline-container {
-    flex-direction: column; /* Stack items vertically */
-    padding: 10px; /* Reduce padding on smaller screens */
+    padding: 0 var(--space-sm);
   }
-
   .timeline {
-    margin: 0 auto; /* Center the timeline */
-    width: 100%; /* Make the timeline take up the full width */
+    padding-left: 1rem;
+    border-left-width: 2px;
   }
-}
-
-/* Media Query for Even Smaller Screens */
-@media (max-width: 480px) {
-  .timeline-container {
-    padding: 5px; /* Further reduce padding on very small screens */
+  .timeline .outer::before {
+    left: -1.4rem;
+    width: 10px;
+    height: 10px;
   }
-
-  .timeline {
-    margin: 0; /* Remove margins */
-    width: 100%; /* Ensure it takes up the full width */
-  }
-}
-
-/* Outer Layer with the timeline border */
-.outer {
-  border-left: 2px solid #333;
-}
-
-/* Card container */
-.card {
-  position: relative;
-  margin: 0 0 20px 20px;
-  padding: 10px;
-  background: var(--background-standout);
-  color: var(--text-color);
-  border-radius: 8px;
-  max-width: 400px;
-}
-
-.github-card {
-	background: transparent;
-	margin: 0 0 0 20px;
-}
-
-.music-card {
-  background: transparent;
-  margin: 0 0 5px 20px; /* Adjusted margins to reduce space */
-  padding: 5px; /* Reduced padding */
-}
-
-/* Information about the timeline */
-.info {
-}
-
-/* Title of the card */
-.title {
-  position: relative;
-}
-
-/* Timeline dot */
-.card::before {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 25px;
-  background: var(--background-color);
-  border-radius: 999px;
-  left: -29px;
-  border: 3px solid var(--background-color);
-}
-
-.post-icon {
-  position: absolute;
-  width: 25px;  /* Adjust the width as needed */
-  height: 25px; /* Adjust the height as needed */
-  left: -38px;  /* Adjust the position as needed */
-  top: 10px;
-  margin: 5px;
-  color: var(--text-color-link-visited);
-}
-
-.fediverse-post-icon {
-	position: absolute;
-  width: 25px;  /* Adjust the width as needed */
-  height: 25px; /* Adjust the height as needed */
-  left: -38px;  /* Adjust the position as needed */
-  top: 13px;
-  margin: 5px;
-  color: var(--text-color-link-visited);
-}
-
-.pixelfed-icon {
-	position: absolute;
-  width: 32px;  /* Adjust the width as needed */
-  height: 32px; /* Adjust the height as needed */
-  left: -42px;  /* Adjust the position as needed */
-  top: 7px;
-  margin: 5px;
-  color: var(--text-color-link-visited);
-}
-
-.running-icon {
-	position: absolute;
-  width: 28px;  /* Adjust the width as needed */
-  height: 28px; /* Adjust the height as needed */
-  left: -40px;  /* Adjust the position as needed */
-  top: 12px;
-  margin: 5px;
-  color: var(--text-color-link-visited);
-}
-
-
-.music-icon {
-	position: absolute;
-  width: 28px;  /* Adjust the width as needed */
-  height: 28px; /* Adjust the height as needed */
-  left: -40px;  /* Adjust the position as needed */
-  top: 7px;
-  margin: 5px;
-  color: var(--text-color-link-visited);
-}
-
-.post-date {
-  background: rgba(0, 0, 0, 0.1); 
-  padding: 5px 10px;
-  border-radius: 4px;
-	font-size: 0.55em;
-}
-
-.post-media {
-  max-width: 100%;
-  height: auto; 
-  border-radius: 8px;
-  display: block;
 }
 
 .notvisible {
@@ -821,6 +809,7 @@ footer .form input, footer .form button {
 				<ul class="nav">
 					<li class="nav-item"><a href="/">Home</a></li>
 					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/portfolio/">Portfolio</a></li>
 					<li class="nav-item"><a href="/bookmarks/">Bookmarks</a></li>
 					<li class="nav-item"><a href="/feeds/">Feeds</a></li>
 					<li class="nav-item"><a href="/food/">Food</a></li>
@@ -892,946 +881,6 @@ footer .form input, footer .form button {
 </div>
 <h2 id="content-i-consume" tabindex="-1">Content I Consume <a class="header-anchor" href="#content-i-consume">#</a></h2>
 <h4 id="sorted-by-most-recent-post" tabindex="-1">(Sorted by most recent post) <a class="header-anchor" href="#sorted-by-most-recent-post">#</a></h4>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Doug Dirt</p>
-<input type="checkbox" id="Doug-Dirt-checkbox" class="spoiler-checkbox">
-<label for="Doug-Dirt-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: sports</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.redsminorleagues.com/">https://www.redsminorleagues.com/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.redsminorleagues.com/2025/08/07/cincinnati-reds-promote-two-2025-draft-picks-to-make-their-pro-debut/">Reds promote two 2025 draft picks to make their pro debut</a></h4><p></p>
-<p></p><p>August 7th, 2025 5:10:20 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Jon Bois</p>
-<input type="checkbox" id="Jon-Bois-checkbox" class="spoiler-checkbox">
-<label for="Jon-Bois-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: sports, cfb, nfl, comedy</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.youtube.com/@jonbois">@jonbois</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/watch?v=1BZs005Hbgs">what year is it</a></h4><p></p>
-<p></p><p>July 8th, 2017 3:32:19 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://bsky.app/profile/jonbois.bsky.social">@jonbois.bsky.social</a> (bluesky)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://bsky.app/profile/jonbois.bsky.social/post/3lvt4lkk4ks2q">See more</a></h4><p></p>
-<p></p><p>August 7th, 2025 12:06:00 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Steven Haas</p>
-<input type="checkbox" id="Steven-Haas-checkbox" class="spoiler-checkbox">
-<label for="Steven-Haas-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: comedy, shortform</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.youtube.com/c/StevenHaas">@StevenHaas</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/shorts/y_OpmMDUzV4">Paying rent.... another way. #skit #sketchcomedy #comedysketch #skits</a></h4><p></p>
-<p></p><p>August 7th, 2025 10:15:10 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://www.threads.net/@stevenhaasinsta">@stevenhaasinsta@threads.net</a> (fediverse)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Scott Alexander</p>
-<input type="checkbox" id="Scott-Alexander-checkbox" class="spoiler-checkbox">
-<label for="Scott-Alexander-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: politics, humor, philosophy</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.astralcodexten.com/">https://www.astralcodexten.com/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.astralcodexten.com/p/dream-book-review-the-deal-with-trauma">Dream Book Review: The Deal With Trauma</a></h4><p></p>
-<p></p><p>August 7th, 2025 7:13:14 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Scott The Woz</p>
-<input type="checkbox" id="Scott-The-Woz-checkbox" class="spoiler-checkbox">
-<label for="Scott-The-Woz-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: gaming, retrogaming</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.youtube.com/@ScottTheWoz">@ScottTheWoz</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/watch?v=CS-CFpNIfRY">Now This is Therapy! - New Scott The Woz Youtooz Figures Available for Pre-Order</a></h4><p></p>
-<p></p><p>July 11th, 2025 8:45:00 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://www.youtube.com/@ScottsStash">@ScottsStash</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/watch?v=IqcB5v8FOU0">I Wanted the PSP So Bad as a Kid</a></h4><p></p>
-<p></p><p>August 6th, 2025 8:00:28 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://www.threads.net/@scottthewoz">@scottthewoz@threads.net</a> (fediverse)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">In Deep Geek</p>
-<input type="checkbox" id="In-Deep-Geek-checkbox" class="spoiler-checkbox">
-<label for="In-Deep-Geek-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: lotr, lordoftherings, gameofthrones, geek</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.youtube.com/@InDeepGeek">@InDeepGeek</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/watch?v=ha--Y1GNuXo">What if Frodo claimed the Ring?</a></h4><p></p>
-<p></p><p>August 6th, 2025 4:00:30 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Jim Nielsen</p>
-<input type="checkbox" id="Jim-Nielsen-checkbox" class="spoiler-checkbox">
-<label for="Jim-Nielsen-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: Tech/Programming</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="http://blog.jim-nielsen.com/">http://blog.jim-nielsen.com/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://blog.jim-nielsen.com/2025/writing-blog-posts-and-songs/">Writing: Blog Posts and Songs</a></h4><p></p>
-<p></p><p>August 6th, 2025 3:00:00 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Timothy Chambers</p>
-<input type="checkbox" id="Timothy-Chambers-checkbox" class="spoiler-checkbox">
-<label for="Timothy-Chambers-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: fediverse</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.timothychambers.net/">https://www.timothychambers.net/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.timothychambers.net/2025/08/06/updated-podcast-numbers-and-youtube.html">See more</a></h4><p></p>
-<p></p><p>August 6th, 2025 2:22:04 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://indieweb.social/@tchambers">@tchambers@indieweb.social</a> (fediverse)</li></p>
-<p></p>
-<p><li>
-<a href="https://www.threads.net/@timothyjchambers">@timothyjchambers@threads.net</a> (fediverse)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Terence Eden</p>
-<input type="checkbox" id="Terence-Eden-checkbox" class="spoiler-checkbox">
-<label for="Terence-Eden-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: general</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://shkspr.mobi/blog/">https://shkspr.mobi/blog/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://shkspr.mobi/blog/2025/08/i-bought-a-16-smartwatch-just-because-it-used-usb-c/">I bought a £16 smartwatch just because it used USB-C ★★★★☆</a></h4><p></p>
-<p></p><p>August 6th, 2025 7:34:34 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Molly White</p>
-<input type="checkbox" id="Molly-White-checkbox" class="spoiler-checkbox">
-<label for="Molly-White-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech, crypto, Further Reading</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.citationneeded.news/">https://www.citationneeded.news/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.citationneeded.news/curate-with-rss/">Curate your own newspaper with RSS</a></h4><p></p>
-<p></p><p>July 31st, 2025 12:05:16 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://www.mollywhite.net/reading/shortform/">https://www.mollywhite.net/reading/shortform/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://mollywhite.net/reading/books?search=System%20Collapse">System Collapse</a></h4><p></p>
-<p></p><p>August 4th, 2025 10:19:15 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Claudio Rimann</p>
-<input type="checkbox" id="Claudio-Rimann-checkbox" class="spoiler-checkbox">
-<label for="Claudio-Rimann-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://claudiorimann.com/">https://claudiorimann.com/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://claudiorimann.com/reading-list-100/">Reading List #100</a></h4><p></p>
-<p></p><p>August 4th, 2025 2:40:03 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Bill Fairchild</p>
-<input type="checkbox" id="Bill-Fairchild-checkbox" class="spoiler-checkbox">
-<label for="Bill-Fairchild-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: steamdeck, gaming</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.youtube.com/@BillFairchild">@NerdNest</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/watch?v=bD2vxutc2X4">Who's raising prices NEXT?</a></h4><p></p>
-<p></p><p>August 4th, 2025 10:26:02 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://www.youtube.com/@BillFairchild">@BillFairchild</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/shorts/6V9mjEkPGDo">Animated Captions can help grow your podcast #tutorial #podcasting #podcast  #videoeditingsoftware</a></h4><p></p>
-<p></p><p>June 22nd, 2025 10:14:46 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://www.threads.net/@BillFairchild">@BillFairchild@threads.net</a> (fediverse)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Strict Scrutiny</p>
-<input type="checkbox" id="Strict-Scrutiny-checkbox" class="spoiler-checkbox">
-<label for="Strict-Scrutiny-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: law, politics, scotus</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://crooked.com/podcast-series/strict-scrutiny/">https://crooked.com/podcast-series/strict-scrutiny/</a> (podcast)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://crooked.com/podcast/stacking-the-bench-with-creeps-kooks/">Stacking the Bench with Creeps &amp; Kooks</a></h4><p></p>
-<p></p><p>August 4th, 2025 6:05:54 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Jacky Alciné</p>
-<input type="checkbox" id="Jacky-Alciné-checkbox" class="spoiler-checkbox">
-<label for="Jacky-Alciné-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="http://jacky.wtf/essays/">http://jacky.wtf/essays/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.jacky.wtf/essays/2025/destacked/">Destacked: Why I Avoid Substack As Much as Possible</a></h4><p></p>
-<p></p><p>August 3rd, 2025 10:30:00 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Ian Betteridge</p>
-<input type="checkbox" id="Ian-Betteridge-checkbox" class="spoiler-checkbox">
-<label for="Ian-Betteridge-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://ianbetteridge.com/">https://ianbetteridge.com/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.ianbetteridge.com/ten-blue-links-peter-and-the-whales-edition/">Ten Blue Links, “Peter and the whales” edition</a></h4><p></p>
-<p></p><p>August 3rd, 2025 3:52:14 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Goodbye Please</p>
-<input type="checkbox" id="Goodbye-Please-checkbox" class="spoiler-checkbox">
-<label for="Goodbye-Please-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: general</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="http://blog.goodbyeplease.com/">http://blog.goodbyeplease.com/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://blog.goodbyeplease.com/2025/08/02/A-thousand-miles-without-leaving-the-ground/">A thousand miles without leaving the ground</a></h4><p></p>
-<p></p><p>August 2nd, 2025 9:35:00 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Ryan Barrett</p>
-<input type="checkbox" id="Ryan-Barrett-checkbox" class="spoiler-checkbox">
-<label for="Ryan-Barrett-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: fediverse, activitypub, bluesky</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://snarfed.org/">https://snarfed.org/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://snarfed.org/2025-08-02_55469">See more</a></h4><p></p>
-<p></p><p>August 2nd, 2025 12:42:27 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Bob Wulff</p>
-<input type="checkbox" id="Bob-Wulff-checkbox" class="spoiler-checkbox">
-<label for="Bob-Wulff-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: retrogaming, gaming, handhelds</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.youtube.com/@WulffDen">@WulffDen</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/watch?v=Jm-_OGUfwSc">Making the Switch 2 Pro Controller - ̗̀ CLICKIER ̖́-</a></h4><p></p>
-<p></p><p>July 31st, 2025 2:13:37 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://www.youtube.com/@BobWulff">@BobWulff</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/watch?v=GTlHU622YzI">6 months with Instagram's favorite camera - Fujifilm X100VI</a></h4><p></p>
-<p></p><p>March 6th, 2025 10:23:22 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://www.youtube.com/@WULFFDENPodcast">@WULFFDENPodcast</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/watch?v=l6JbM-kxvCw">Super Mario Sunshine (GameCube 2002) Endless Summer - The Backlog</a></h4><p></p>
-<p></p><p>August 2nd, 2025 10:01:10 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://www.threads.net/@thewulffden">@TheWulffDen@threads.net</a> (fediverse)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Tom 7</p>
-<input type="checkbox" id="Tom-7-checkbox" class="spoiler-checkbox">
-<label for="Tom-7-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: ai, machinelearning</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.youtube.com/@tom7">@tom7</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/watch?v=Y65FRxE7uMc">Badness 0 (Apostrophe‛s version)</a></h4><p></p>
-<p></p><p>June 6th, 2024 9:15:12 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="http://tom7.org/">http://tom7.org/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="http://radar.spacebar.org/f/a/weblog/comment/1/1243">I got sick, but my computer was fine</a></h4><p></p>
-<p></p><p>July 31st, 2025 11:24:40 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://mastodon.social/@tom7">@tom7@mastodon.social</a> (fediverse)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">ThisDaysPortion</p>
-<input type="checkbox" id="ThisDaysPortion-checkbox" class="spoiler-checkbox">
-<label for="ThisDaysPortion-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="http://thisdaysportion.com/">http://thisdaysportion.com/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.thisdaysportion.com/posts/indieweb-cant-be-inaccessible/">If your HTML app doesn’t support alt text it’s a non-starter, even if it is independent</a></h4><p></p>
-<p></p><p>July 30th, 2025 7:10:00 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Steven Lott</p>
-<input type="checkbox" id="Steven-Lott-checkbox" class="spoiler-checkbox">
-<label for="Steven-Lott-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://slott56.github.io/">https://slott56.github.io/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://slott56.github.io/2025-07-29-the_gloom_despair_latex.html">Gloom and Despair -- LaTeX Edition</a></h4><p></p>
-<p></p><p>July 29th, 2025 9:54:00 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Zeltik</p>
-<input type="checkbox" id="Zeltik-checkbox" class="spoiler-checkbox">
-<label for="Zeltik-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: zelda, nintendo</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.youtube.com/@Zeltik">@Zeltik</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/watch?v=I1_biJVB2bA">The Mystery of Mido - Ocarina of Time's Lost Sage</a></h4><p></p>
-<p></p><p>July 25th, 2025 2:00:16 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://www.threads.net/@zeltikinsta">@zeltikinsta@threads.net</a> (fediverse)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Drew Gooden</p>
-<input type="checkbox" id="Drew-Gooden-checkbox" class="spoiler-checkbox">
-<label for="Drew-Gooden-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: comedy</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.youtube.com/@drewisgooden">@drewisgooden</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/watch?v=SCkP9VVxKSE">The internet made me obsessed with protein</a></h4><p></p>
-<p></p><p>July 18th, 2025 5:32:17 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://www.threads.net/@drewisgooden">@drewisgooden@threads.net</a> (fediverse)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Mike McCue</p>
-<input type="checkbox" id="Mike-McCue-checkbox" class="spoiler-checkbox">
-<label for="Mike-McCue-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: flipboard, ActivityPub, fediverse</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://flipboard.social/@mike">@mike@flipboard.social</a> (fediverse)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://flipboard.social/@mike/114866664134708290">See more</a></h4><p></p>
-<p></p><p>July 17th, 2025 12:23:18 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://flipboard.com/@mike">@mike@flipboard.com</a> (fediverse)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Stefan Bohacek</p>
-<input type="checkbox" id="Stefan-Bohacek-checkbox" class="spoiler-checkbox">
-<label for="Stefan-Bohacek-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: activitypub, fediverse, datascience</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://stefanbohacek.online/@stefan">@stefan@stefanbohacek.online</a> (fediverse)</li></p>
-<p></p>
-<p><li>
-<a href="https://stefanbohacek.com">https://stefanbohacek.com</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://stefanbohacek.com/blog/on-celebrating-small-wins-during-autocracy/">On celebrating small wins during autocracy</a></h4><p></p>
-<p></p><p>July 15th, 2025 8:49:33 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Cahatstrophe</p>
-<input type="checkbox" id="Cahatstrophe-checkbox" class="spoiler-checkbox">
-<label for="Cahatstrophe-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: general</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="http://cahatstrophe.neocities.org/">http://cahatstrophe.neocities.org/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://cahatstrophe.neocities.org/blog/ShortVideos.html">Short Videos</a></h4><p></p>
-<p></p><p>July 14th, 2025 5:14:18 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">George Mandis</p>
-<input type="checkbox" id="George-Mandis-checkbox" class="spoiler-checkbox">
-<label for="George-Mandis-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://george.mand.is/">https://george.mand.is/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://george.mand.is/2025/07/building-a-go-link-toy-with-deno/">Building a Go Link Toy with Deno</a></h4><p></p>
-<p></p><p>July 12th, 2025 8:00:00 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Evan Prodromou</p>
-<input type="checkbox" id="Evan-Prodromou-checkbox" class="spoiler-checkbox">
-<label for="Evan-Prodromou-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: fediverse, activitypub</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://evanp.me/">https://evanp.me/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://evanp.me/2025/06/28/one-year-after/">One year after</a></h4><p></p>
-<p></p><p>June 28th, 2025 11:01:02 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://cosocial.ca/@evan">@evan@cosocial.ca</a> (fediverse)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Dot Social</p>
-<input type="checkbox" id="Dot-Social-checkbox" class="spoiler-checkbox">
-<label for="Dot-Social-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: flipboard, ActivityPub, fediverse</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://feeds.simplecast.com/kk8bweIK">https://feeds.simplecast.com/kk8bweIK</a> (podcast)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://dot-social.simplecast.com/episodes/longformers-_oBJHBEL">Rediscovering the Magic of the Blogosphere, with John O’Nolan and Matthias Pfefferle</a></h4><p></p>
-<p></p><p>June 27th, 2025 12:00:00 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://flipboard.video/video-channels/dot_social">@dot_social@flipboard.video</a> (fediverse)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">ShellSharks</p>
-<input type="checkbox" id="ShellSharks-checkbox" class="spoiler-checkbox">
-<label for="ShellSharks-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: fediverse</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://shellsharks.com/">https://shellsharks.com/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://shellsharks.com/gardenlog-2">Gardenlog: Blueberries, Blackberries, Oh My!</a></h4><p></p>
-<p></p><p>June 23rd, 2025 3:56:00 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Glarses</p>
-<input type="checkbox" id="Glarses-checkbox" class="spoiler-checkbox">
-<label for="Glarses-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: keyboards, mechanicalkeyboards, comedy</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://www.youtube.com/@Glarses">@Glarses</a> (youtube)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://www.youtube.com/shorts/TS-wIVoNcWI">tall keycaps</a></h4><p></p>
-<p></p><p>June 18th, 2025 5:21:49 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://instagram.com/glarsesyt">@glarsesyt</a> (instagram)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Tobias Revell</p>
-<input type="checkbox" id="Tobias-Revell-checkbox" class="spoiler-checkbox">
-<label for="Tobias-Revell-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://blog.tobiasrevell.com/">https://blog.tobiasrevell.com/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://blog.tobiasrevell.com/2025/05/28/box130-why-do-anything-new/">Box130: Why do anything new?</a></h4><p></p>
-<p></p><p>May 28th, 2025 2:35:00 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Discursive Anomalies</p>
-<input type="checkbox" id="Discursive-Anomalies-checkbox" class="spoiler-checkbox">
-<label for="Discursive-Anomalies-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://discursiveanomalies.com/">https://discursiveanomalies.com/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://discursiveanomalies.com/2025/05/14/prompt-engineering-for-people-in-a-hurry/">Prompt engineering for people in a hurry</a></h4><p></p>
-<p></p><p>May 14th, 2025 11:27:05 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">LongerSky</p>
-<input type="checkbox" id="LongerSky-checkbox" class="spoiler-checkbox">
-<label for="LongerSky-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: general</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="http://longersky.com/">http://longersky.com/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://longersky.com/2025/03/28/egg-disambiguation/">Egg (disambiguation)</a></h4><p></p>
-<p></p><p>March 28th, 2025 5:17:06 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Erin Kissane</p>
-<input type="checkbox" id="Erin-Kissane-checkbox" class="spoiler-checkbox">
-<label for="Erin-Kissane-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: fediverse</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://erinkissane.com/">https://erinkissane.com/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://erinkissane.com/atconf"> ATConf </a></h4><p></p>
-<p></p><p>March 22nd, 2025 8:00:00 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p><li>
-<a href="https://mas.to/@kissane">@kissane@mas.to</a> (fediverse)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Ben Myers</p>
-<input type="checkbox" id="Ben-Myers-checkbox" class="spoiler-checkbox">
-<label for="Ben-Myers-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://benmyers.dev/">https://benmyers.dev/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://benmyers.dev/blog/blog-questions-2025/">Tag, You’re It: Blog Questions 2025</a></h4><p></p>
-<p></p><p>March 20th, 2025 8:00:00 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Elias Mårtenson</p>
-<input type="checkbox" id="Elias-Mårtenson-checkbox" class="spoiler-checkbox">
-<label for="Elias-Mårtenson-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: Tech/Programming</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://blog.dhsdevelopments.com/">https://blog.dhsdevelopments.com/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://blog.dhsdevelopments.com/finding-words-using-kap?pk_campaign=rss-feed">Finding words using Kap</a></h4><p></p>
-<p></p><p>February 25th, 2025 10:18:57 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">AstraLuma</p>
-<input type="checkbox" id="AstraLuma-checkbox" class="spoiler-checkbox">
-<label for="AstraLuma-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://qwertyuiop.ninja/">https://qwertyuiop.ninja/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="http://qwertyuiop.ninja/2025/01/19/klipper.html">Ender 3 S1 and Klipper</a></h4><p></p>
-<p></p><p>January 18th, 2025 7:00:00 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Erlend Heggen</p>
-<input type="checkbox" id="Erlend-Heggen-checkbox" class="spoiler-checkbox">
-<label for="Erlend-Heggen-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: fediverse</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://blog.erlend.sh/">https://blog.erlend.sh/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://blog.erlend.sh/massively-multiplayer-governance?pk_campaign=rss-feed">Massively Multiplayer Governance</a></h4><p></p>
-<p></p><p>December 18th, 2024 10:00:06 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Mayank</p>
-<input type="checkbox" id="Mayank-checkbox" class="spoiler-checkbox">
-<label for="Mayank-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="http://mayank.co/blog/">http://mayank.co/blog/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://mayank.co/blog/css-reset-layer/">Your CSS reset should be layered</a></h4><p></p>
-<p></p><p>November 1st, 2024 8:00:00 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Jeff Casavant</p>
-<input type="checkbox" id="Jeff-Casavant-checkbox" class="spoiler-checkbox">
-<label for="Jeff-Casavant-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: tech, politics</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://casavant.org/">https://casavant.org/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="https://casavant.org/posts/2023-11-22-beetle-bailey/">Beetle Bailey</a></h4><p></p>
-<p></p><p>November 22nd, 2023 7:40:00 AM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Sam Casavant</p>
-<input type="checkbox" id="Sam-Casavant-checkbox" class="spoiler-checkbox">
-<label for="Sam-Casavant-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: comedy, tech</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="http://sam.casavant.org/">http://sam.casavant.org/</a> (blog)</li></p>
-<p></p><div class="blogroll-content"><p></p>
-<p></p><h4><a href="http://sam.casavant.org//2023/10/31/horrible-jokes.html">Horrible Jokes</a></h4><p></p>
-<p></p><p>October 30th, 2023 8:00:00 PM</p><p></p>
-<p></p></div><p></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Elena Rossini</p>
-<input type="checkbox" id="Elena-Rossini-checkbox" class="spoiler-checkbox">
-<label for="Elena-Rossini-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: fediverse</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://blog.elenarossini.com/">https://blog.elenarossini.com/</a> (blog)</li></p>
-<p></p>
-<p><li>
-<a href="https://mastodon.social/@_elena">@_elena@mastodon.social</a> (fediverse)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Jeff Sikes</p>
-<input type="checkbox" id="Jeff-Sikes-checkbox" class="spoiler-checkbox">
-<label for="Jeff-Sikes-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: fediverse</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="https://box464.com/">https://box464.com/</a> (blog)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
-<p></p><div class="spoiler-container blogroll">
-<p style="display: inline;">Cincy Jungle</p>
-<input type="checkbox" id="Cincy-Jungle-checkbox" class="spoiler-checkbox">
-<label for="Cincy-Jungle-checkbox" class="spoiler-label">
-<span class="arrow-down">▲</span>
-</label>
-<div class="spoiler-content">
-<p class="blogroll-tags">Tags: sports</p>
-<ul class="blogroll-profiles"><p></p>
-<p><li>
-<a href="http://cincyjungle.com/">http://cincyjungle.com/</a> (blog)</li></p>
-<p></p>
-<p></p></ul>
-</div>
-</div><p></p>
 <style>
 
     .spoiler-checkbox {
@@ -1937,6 +986,6 @@ footer .form input, footer .form button {
 
 		<footer></footer>
 
-		<!-- This page `/blogroll/` was built on 2025-08-07T21:44:20.536Z -->
+		<!-- This page `/blogroll/` was built on 2025-08-09T22:17:53.741Z -->
 	</body>
 </html>

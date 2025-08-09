@@ -1,0 +1,62 @@
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.project-box {
+  background: aqua;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  height: auto;
+}
+
+.project-box:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+.project-box h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.project-box p {
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.3;
+}
+
+.project-links a {
+  font-size: 0.85rem;
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+
+.project-links a:hover,
+.project-links a:focus {
+  text-decoration: underline;
+}
+
+.project-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.project-tags li {
+  background: orange;
+  color: black;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
