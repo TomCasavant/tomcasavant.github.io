@@ -83,6 +83,16 @@ module.exports = async function (eleventyConfig) {
     foodImages.sort((a, b) => new Date(b.date) - new Date(a.date))
   );
 
+  eleventyConfig.addCollection("projects", function (collectionApi) {
+    let items = collectionApi.getFilteredByGlob("./content/portfolio/projects/*.md");
+    console.log("Projects found:", items.length);
+    items.forEach(item => console.log(item.inputPath));
+    return items;
+  });
+  
+  // Copy CSS files to output
+  eleventyConfig.addPassthroughCopy("public/styles");
+
   // Markdown anchor config
   eleventyConfig.amendLibrary("md", (mdLib) => {
     mdLib.use(markdownItAnchor, {
