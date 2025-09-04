@@ -2,152 +2,402 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2015-03-02-programming-a-python-controller-for-pianobar-pandora-with-your-wii-remote/</loc>
+		<loc>https://tomcasavant.com/programming-a-python-controller-for-pianobar-pandora-with-your-wii-remote/</loc>
 		<lastmod>2015-03-02</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2015-03-12-setting-up-your-java-ide-for-dumb-phone-mobile-apps/</loc>
+		<loc>https://tomcasavant.com/setting-up-your-java-ide-for-and-34-dumb-and-34-phone-mobile-apps/</loc>
 		<lastmod>2015-03-12</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2015-04-03-making-a-chrome-extension/</loc>
+		<loc>https://tomcasavant.com/making-a-chrome-extension/</loc>
 		<lastmod>2015-04-03</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2016-07-21-twitter-profile-updater/</loc>
+		<loc>https://tomcasavant.com/twitter-profile-updater/</loc>
 		<lastmod>2016-07-21</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2017-02-22-markov-chain-a-harry-potter-quote-tweet-generator/</loc>
+		<loc>https://tomcasavant.com/markov-chain-and-58-a-harry-potter-quote-tweet-generator/</loc>
 		<lastmod>2017-02-22</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2017-03-30-cleverslack-a-cleverbot-slack-implementation/</loc>
+		<loc>https://tomcasavant.com/cleverslack-and-58-a-cleverbot-slack-implementation/</loc>
 		<lastmod>2017-03-30</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2017-03-30-playlist-creator-a-python-spotify-creation/</loc>
+		<loc>https://tomcasavant.com/playlist-creator-and-58-a-python-spotify-creation/</loc>
 		<lastmod>2017-03-30</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2017-04-05-autotldr-summarizing-news-on-twitter/</loc>
+		<loc>https://tomcasavant.com/autotldr-and-58-summarizing-news-on-twitter/</loc>
 		<lastmod>2017-04-05</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2017-09-02-slackarchiver-using-mongo-to-archive-slack-messages-featuring-docker/</loc>
+		<loc>https://tomcasavant.com/slackarchiver-and-58-using-mongo-to-archive-slack-messages-featuring-and-34-docker-and-34/</loc>
 		<lastmod>2017-09-02</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2017-09-16-slackarchiver-p-2-setting-up-the-database/</loc>
+		<loc>https://tomcasavant.com/slackarchiver-p-2-and-58-setting-up-the-database/</loc>
 		<lastmod>2017-09-16</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2017-09-17-slackarchiver-p-3-setting-up-your-docker/</loc>
+		<loc>https://tomcasavant.com/slackarchiver-p-3-and-58-setting-up-your-docker/</loc>
 		<lastmod>2017-09-17</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2018-06-11-superpower-generator-programming-an-alexa-skill-with-reddit-rss-feeds/</loc>
+		<loc>https://tomcasavant.com/superpower-generator-and-58-programming-an-alexa-skill-with-reddit-rss-feeds/</loc>
 		<lastmod>2018-06-11</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2019-01-26-hack-oh-io-2018/</loc>
+		<loc>https://tomcasavant.com/hack-oh-io-2018/</loc>
 		<lastmod>2019-01-26</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2019-01-28-nfl-win-chain-dijkstra-s-algorithm/</loc>
+		<loc>https://tomcasavant.com/nfl-win-chain-dijkstras-algorithm/</loc>
 		<lastmod>2019-01-28</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2019-03-01-make-oh-io-2019/</loc>
+		<loc>https://tomcasavant.com/make-oh-io-2019/</loc>
 		<lastmod>2019-03-01</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2019-04-18-generating-heat-maps-from-gpx-files/</loc>
+		<loc>https://tomcasavant.com/generating-heat-maps-from-gpx-files/</loc>
 		<lastmod>2019-04-18</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2019-04-19-a-curious-case-of-osu-financial-aid/</loc>
+		<loc>https://tomcasavant.com/a-curious-case-of-osu-financial-aid/</loc>
 		<lastmod>2019-04-19</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2019-08-25-converting-old-radio-to-bluetooth-radio/</loc>
+		<loc>https://tomcasavant.com/converting-old-radio-into-bluetooth-radio/</loc>
 		<lastmod>2019-08-25</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/Legacy/2019-12-28-markov-tweet-generator/</loc>
+		<loc>https://tomcasavant.com/markov-tweet-generator/</loc>
 		<lastmod>2019-12-28</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/2023/2023-01-05-ketchup-cake/</loc>
+		<loc>https://tomcasavant.com/ketchup-cake/</loc>
 		<lastmod>2023-01-05</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/2023/2023-01-11-subjective-ranked-sorting-in-python/</loc>
+		<loc>https://tomcasavant.com/subjective-ranked-sorting-in-python/</loc>
 		<lastmod>2023-01-11</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/2024/2024-03-14-hashtags-suck/</loc>
+		<loc>https://tomcasavant.com/the-problem-with-hashtags/</loc>
 		<lastmod>2024-03-14</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/2024/2024-03-24-minetest-activitypub-bridge/</loc>
+		<loc>https://tomcasavant.com/experimenting-with-activitypub-minetest-activitypub-bridge/</loc>
 		<lastmod>2024-03-14</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/blog/2024/2024-04-01-the-tomline/</loc>
+		<loc>https://tomcasavant.com/tomline/</loc>
 		<lastmod>2024-04-01</lastmod>
 	</url>
 	
 	<url>
+		<loc>https://tomcasavant.com/things-i-did-not-blog-about/</loc>
+		<lastmod>2024-05-29</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/2-904-hours-later-a-pokemon-saga/</loc>
+		<lastmod>2024-06-10</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/blogrolls-on-blogrolls-on-blogrolls/</loc>
+		<lastmod>2024-07-13</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/duckducksocial/</loc>
+		<lastmod>2024-08-21</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/surrender-index-bot/</loc>
+		<lastmod>2024-09-30</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/ohgo-wrapper/</loc>
+		<lastmod>2024-10-07</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/10-201-frames-fediverse-plays-pokemon-2nd-update/</loc>
+		<lastmod>2024-11-03</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/untitled-gaming-social/</loc>
+		<lastmod>2025-01-03</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/things-i-did-not-blog-about-2/</loc>
+		<lastmod>2025-03-31</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/i-posted-to-mastodon-1-mile-away-from-an-internet-connection/</loc>
+		<lastmod>2025-05-23</lastmod>
+	</url>
+	
+	<url>
 		<loc>https://tomcasavant.com/blog/</loc>
-		<lastmod>2024-05-16</lastmod>
+		<lastmod>2025-09-04</lastmod>
 	</url>
 	
 	<url>
-		<loc>https://tomcasavant.com/</loc>
-		<lastmod>2024-05-16</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://tomcasavant.com/tags/</loc>
-		<lastmod>2024-05-16</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://tomcasavant.com/running/</loc>
-		<lastmod>2024-05-16</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://tomcasavant.com/food/</loc>
-		<lastmod>2024-05-16</lastmod>
+		<loc>https://tomcasavant.com/blogroll/</loc>
+		<lastmod>2025-09-04</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://tomcasavant.com/bookmarks/</loc>
-		<lastmod>2024-05-16</lastmod>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/feeds/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/food/pizza-2/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/food/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/photography/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/photography/img_3958/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/portfolio/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/portfolio/projects/duckducksocial/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/portfolio/projects/giphy-maubot/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/portfolio/projects/groupy/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/portfolio/projects/ical-maubot/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/portfolio/projects/mastastic/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/portfolio/projects/mastodon-plays-gameboy/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/portfolio/projects/ohio-sites/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/portfolio/projects/poll-maubot/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/portfolio/projects/reddit-maubot/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/portfolio/projects/social-sync/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/portfolio/projects/surrender-index/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/running/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/mastodon/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/fediverse/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/search/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/client/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/matrix/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/giphy/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/maubot/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/lemmy/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/calendar/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/ical/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/meshtastic/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/poll/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/pokemon/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/rss/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/atom/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/ohio/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/reddit/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/bluesky/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/nfl/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/jon-bois/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/foodimages/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/photography/</loc>
+		<lastmod>2025-09-04</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://tomcasavant.com/tags/projects/</loc>
+		<lastmod>2025-09-04</lastmod>
 	</url>
 </urlset>

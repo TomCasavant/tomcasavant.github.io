@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Tagged “Atom”</title>
+		<meta name="description" content="Blog about things">
+		<link rel="webmention" href="https://webmention.io/tomcasavant.com/webmention">
+		<link rel="alternate" href="/blog.xml" type="application/rss+xml" title="Tom Casavant">
+		<link rel="alternate" href="/feed.json" type="application/json" title="Tom Casavant">
+		<link rel="blogroll" type="text/xml" href="/subscriptions.opml">
+
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+		<link rel="manifest" href="/img/favicons/site.webmanifest">
+		<link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileImage" content="/img/favicons/mstile-150x150.png">
+		<meta name="theme-color" content="#ffffff">
+		<meta name="fediverse:creator" content="@tom@tomkahe.com">
+		
+		<link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+		<style>.postlist { counter-reset: start-from 2 }
+/* Message Box */
+* { box-sizing: border-box; }
+/* Message Box */
+* { box-sizing: border-box; }
+.postlist { counter-reset: start-from 35 }
+/* Message Box */
+* { box-sizing: border-box; }
+/* ========================================================================== */
+/*                            CSS Variables & Themes                          */
+/* ========================================================================== */
+
+/* Base font families */
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-mono: Consolas, Menlo, Monaco, "Andale Mono", "Lucida Console",
+    monospace;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+
+  /* Font sizes */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+
+  /* Border radius */
+  --radius: 8px;
+
+  /* Colors — Light theme */
+  --color-bg: #fefefe;
+  --color-bg-standout: #fff8f1;
+  --color-text: #2a2a2a;
+  --color-text-muted: #555;
+  --color-text-link: #ad4e27;
+  --color-text-link-hover: #d2691e;
+  --color-border: #ddd;
+  --color-shadow: rgba(0, 0, 0, 0.05);
+
+  /* Accent */
+  --color-accent: #d2691e;
+
+  /* Syntax */
+  --syntax-tab-size: 2;
+}
+
+/* Dark theme overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-bg-standout: #1e1e1e;
+    --color-text: #e0e0e0;
+    --color-text-muted: #999;
+    --color-text-link: #ffa500;
+    --color-text-link-hover: #ffb733;
+    --color-border: #333;
+    --color-shadow: rgba(255, 255, 255, 0.1);
+    --color-accent: #ffa500;
+  }
+}
+
+/* ========================================================================== */
+/*                                Base Reset                                  */
+/* ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-md);
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+  overflow-y: scroll;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+p,
+li {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================================================== */
+/*                                Typography                                  */
+/* ========================================================================== */
+
+code,
+pre {
+  font-family: var(--font-mono);
+  background-color: var(--color-bg-standout);
+  border-radius: var(--radius);
+  padding: 0.15em 0.3em;
+  font-size: var(--font-sm);
+  color: var(--color-accent);
+}
+
+pre {
+  display: block;
+  padding: var(--space-md);
+  overflow-x: auto;
+  line-height: 1.4;
+  margin: var(--space-lg) 0;
+  white-space: pre-wrap;
+  tab-size: var(--syntax-tab-size);
+}
+
+a {
+  color: var(--color-text-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-text-link-hover);
+  outline: none;
+  text-decoration: underline;
+}
+
+/* ========================================================================== */
+/*                                Layout & Containers                         */
+/* ========================================================================== */
+
+main {
+  max-width: 60em;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+header {
+  display: flex;
+  align-items: center;    /* vertically center items */
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-md);
+  max-width: 60em;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--color-border);
+  /* no justify-content, so items stay grouped on the left */
+}
+
+.home-link {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  line-height: 1;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -3px;  /* nudge up to align with nav */
+}
+
+.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-md);
+  font-size: var(--font-md);
+  font-weight: 600;
+}
+
+.nav-item a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  line-height: 1.2;
+  padding: 0;
+}
+
+.nav-item a[aria-current='page'],
+.nav-item a:hover,
+.nav-item a:focus {
+  color: var(--color-text-link);
+  text-decoration: underline;
+}
+
+
+footer {
+  padding: var(--space-lg) var(--space-md);
+  font-size: var(--font-sm);
+  text-align: center;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ========================================================================== */
+/*                              Post List & Webmentions                       */
+/* ========================================================================== */
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+	position: relative;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	border: 1px solid #000;
+	text-align: center;
+	position: relative;
+	padding-bottom: 2.5em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 1em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	flex-basis: calc(100% - 1.5rem);
+}
+.postlist-link {
+	font-size: 1.6em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-subtitle {
+	font-size: 1em;
+	font-weight: 400;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-align: center;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Webmention container */
+.postlist-webmentions {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Webmention item */
+.webmention-item {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--color-text-link);
+  user-select: none;
+}
+
+/* Webmention SVG icons */
+.webmention-item svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--color-text-link);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Heart icon */
+.heart-icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--color-text-link);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Count text */
+.webmention-count {
+  margin-left: 0.1rem;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: var(--color-text-link);
+}
+
+/* ========================================================================== */
+/*                            SVG & Icon Styling                             */
+/* ========================================================================== */
+
+.message-box {
+  display: flex;
+  justify-content: center;   /* Center icons horizontally */
+  align-items: center;       /* Center icons vertically */
+  gap: 0.5rem;               /* Space between icons */
+}
+
+.message-box svg {
+  display: block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;        /* Inherit text color */
+  transition: fill 0.2s ease;
+}
+
+.message-box svg:last-child {
+  margin-right: 0;           /* Remove right margin on last icon */
+}
+
+/* Example individual icon tweaks (adjust if needed) */
+.bluesky-icon,
+.rss-icon {
+  transform: translateY(1px) scale(1.1);
+}
+
+.github-icon {
+  transform: scale(1.1);
+}
+
+.ipod-icon {
+  transform: translateY(1.5px) scale(1.5);
+}
+
+/* Form SVGs (e.g. search icon inside inputs) */
+.form svg {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  fill: var(--color-text-muted);
+  pointer-events: none; /* Prevents interfering with form */
+}
+
+/* Decorative SVG inside .well container */
+.well svg {
+  position: absolute;
+  bottom: 0;
+  right: 100px;
+  transform: rotate(45deg);
+  opacity: 0.15; /* Subtle effect */
+  pointer-events: none;
+}
+
+/* Adjust margin for specific templating layout */
+.tmpl-newspost .circles .content-780 {
+  margin: 0 auto;
+}
+
+/* ========================================================================== */
+/*                                Buttons & Links                            */
+/* ========================================================================== */
+
+.button,
+button,
+input[type='submit'] {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover,
+button:hover,
+input[type='submit']:hover {
+  background-color: #bf621e; /* Slightly darker accent */
+}
+
+.button:focus,
+button:focus,
+input[type='submit']:focus {
+  outline: 2px solid var(--color-text-link);
+  outline-offset: 2px;
+}
+
+/* ========================================================================== */
+/*                                Portfolio Grid                              */
+/* ========================================================================== */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.project-box {
+  background-color: var(--color-bg-standout);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px var(--color-shadow);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.project-box:hover,
+.project-box:focus-within {
+  box-shadow: 0 8px 20px rgba(214, 105, 30, 0.35);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.project-box h3 {
+  margin: 0;
+  font-size: var(--font-lg);
+  color: var(--color-text);
+}
+
+.project-box p {
+  flex-grow: 1;
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+}
+
+.project-links a {
+  font-size: var(--font-xs);
+  color: var(--color-text-link);
+  margin-right: var(--space-sm);
+  transition: color 0.2s ease;
+}
+
+.project-links a:hover,
+.project-links a:focus {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+.project-tags {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-sm) 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.project-tags li {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-size: var(--font-xs);
+  padding: 0.2em 0.5em;
+  border-radius: var(--radius);
+  text-transform: capitalize;
+}
+
+/* ========================================================================== */
+/*                              Tables & Lists                                */
+/* ========================================================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-md) 0;
+  font-family: var(--font-sans);
+}
+
+table th,
+table td {
+  padding: var(--space-sm);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  vertical-align: middle;
+}
+
+table tr:nth-child(even) {
+  background-color: var(--color-bg-standout);
+}
+
+/* ========================================================================== */
+/*                             Forms & Inputs                                 */
+/* ========================================================================== */
+
+input,
+textarea,
+select,
+button {
+  font-family: var(--font-sans);
+  font-size: var(--font-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-sm);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: border-color 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.3);
+}
+
+/* ========================================================================== */
+/*                             Utility & Helpers                              */
+/* ========================================================================== */
+
+.card {
+  background-color: var(--color-bg-standout);
+  border: 1px solid var(--color-border);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  max-width: 400px;
+  margin: var(--space-lg) auto; /* centers horizontally and adds vertical spacing */
+  color: var(--color-text);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-size: var(--font-md);
+}
+
+
+.card:hover,
+.card:focus-within {
+  box-shadow: 4px 4px 15px rgba(210, 105, 30, 0.4);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.bookmark-title {
+  margin: 0 0 var(--space-sm) 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--font-lg);
+}
+
+.bookmark-title a {
+  color: var(--color-text-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bookmark-title a:hover,
+.bookmark-title a:focus {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+.bookmark-summary {
+  margin: 0;
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Ensure spacing between multiple cards */
+.card + .card {
+  margin-top: var(--space-lg);
+}
+
+
+/* Visually hidden for accessibility */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Center text utility */
+.text-center {
+  text-align: center;
+}
+
+/* Margin and padding utilities */
+.m-0 {
+  margin: 0 !important;
+}
+.p-0 {
+  padding: 0 !important;
+}
+
+/* ========================================================================== */
+/*                               Responsive Design                            */
+/* ========================================================================== */
+
+@media (max-width: 768px) {
+  main {
+    padding: var(--space-md);
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+}
+
+.timeline-container {
+  max-width: 60em;
+  margin: var(--space-lg) auto;
+  padding: 0 var(--space-md);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: relative;
+  padding-left: 1.5rem; /* space for timeline line */
+  border-left: 3px solid var(--color-accent);
+}
+
+.timeline .outer {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.timeline .outer::before {
+  content: '';
+  position: absolute;
+  left: -1.8rem;
+  top: 0.75rem;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--color-accent);
+}
+
+.microblog-card {
+  background-color: var(--color-bg-standout);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  box-shadow: 0 2px 6px var(--color-shadow);
+  color: var(--color-text);
+  font-size: var(--font-md);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.microblog-card:hover,
+.microblog-card:focus-within {
+  box-shadow: 0 8px 20px rgba(210, 105, 30, 0.35);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.microblog-post-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-link);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.microblog-post-link:hover,
+.microblog-post-link:focus {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+.fediverse-post-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Optional: Adjust timeline vertical spacing on smaller screens */
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 0 var(--space-sm);
+  }
+  .timeline {
+    padding-left: 1rem;
+    border-left-width: 2px;
+  }
+  .timeline .outer::before {
+    left: -1.4rem;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.notvisible {
+	display: none;
+}</style>
+
+		
+		<!-- OpenGraph Meta Tags -->
+		<meta property="og:title" content="Tagged “Atom” - Tom Casavant">
+		<meta property="og:description" content="Blog about things">
+		
+		  <meta property="og:image" content="/img/opengraph/opengraph.png">
+		
+		
+		<meta property="og:url" content="/tags/atom/">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Tom Casavant">
+	</head>
+	<body>
+
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+
+		<style>
+		  .h-card {
+		    display: none;
+		  }
+		</style>
+	
+		<span class="h-card">
+		  <a class="u-url" rel="me" href="/img/images/tomface.png">Tom Casavant</a>
+		  <img class="u-photo" src="/img/images/tomface.png">
+			<img class="u-featured" src="img/opengraph/opengraph.png">
+		</span>
+
+			<a href="/" class="home-link">Tom Casavant</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/portfolio/">Portfolio</a></li>
+					<li class="nav-item"><a href="/bookmarks/">Bookmarks</a></li>
+					<li class="nav-item"><a href="/feeds/">Feeds</a></li>
+					<li class="nav-item"><a href="/food/">Food</a></li>
+					<li class="nav-item"><a href="/photography/">Photography</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			<!-- Delete this message, it will also remove the component CSS from the bundle -->
+<div class="message-box">
+
+	<a href="https://tomkahe.com/@tom" aria-label="Open Mastodon Feed" target="_blank" class="icon fediverse-icon" rel="noopener">
+	    <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+	        <title>Mastodon icon</title> 
+	        <path d="M 15.659 9.592 C 15.424 10.72 13.553 11.956 11.404 12.195 C 10.283 12.32 9.18 12.434 8.003 12.384 C 6.079 12.302 4.56 11.956 4.56 11.956 C 4.56 12.13 4.572 12.297 4.595 12.452 C 4.845 14.224 6.478 14.33 8.025 14.379 C 9.586 14.429 10.976 14.02 10.976 14.02 L 11.04 15.337 C 11.04 15.337 9.948 15.884 8.003 15.984 C 6.93 16.039 5.598 15.959 4.047 15.576 C 0.683 14.746 0.104 11.4 0.015 8.006 C -0.012 6.998 0.005 6.048 0.005 5.253 C 0.005 1.782 2.443 0.765 2.443 0.765 C 3.672 0.238 5.782 0.017 7.975 0 L 8.029 0 C 10.221 0.017 12.332 0.238 13.561 0.765 C 13.561 0.765 15.999 1.782 15.999 5.253 C 15.999 5.253 16.03 7.814 15.659 9.592 Z M 13.124 5.522 L 13.124 9.725 L 11.339 9.725 L 11.339 5.646 C 11.339 4.786 10.951 4.35 10.175 4.35 C 9.317 4.35 8.887 4.867 8.887 5.891 L 8.887 8.124 L 7.113 8.124 L 7.113 5.891 C 7.113 4.867 6.683 4.35 5.825 4.35 C 5.049 4.35 4.661 4.786 4.661 5.646 L 4.661 9.725 L 2.876 9.725 L 2.876 5.522 C 2.876 4.663 3.111 3.981 3.582 3.476 C 4.067 2.971 4.703 2.712 5.493 2.712 C 6.406 2.712 7.098 3.039 7.555 3.695 L 8 4.39 L 8.445 3.695 C 8.902 3.039 9.594 2.712 10.507 2.712 C 11.297 2.712 11.933 2.971 12.418 3.476 C 12.889 3.981 13.124 4.663 13.124 5.522 Z" style="stroke:none;stroke-miterlimit:10;fill-rule:evenodd;"></path>
+	    </svg>
+    </a>
+
+     <a class="icon linkedin-icon" href="https://linkedin.com/in/tfc" aria-label="Open LinkedIn profile" target="_blank" rel="noopener">
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <title>LinkedIn icon</title>
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+        </svg>
+     </a>
+     
+     <a class="icon github-icon" href="https://github.com/tomcasavant" aria-label="Open GitHub profile" target="_blank" rel="noopener me">
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <title>GitHub icon</title>
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+        </svg>
+     </a>
+	 <link rel="me" href="https://github.com/tomcasavant">
+
+		<a class="icon bluesky-icon" href="https://bsky.app/profile/tom.tomkahe.com" aria-label="Open Bluesky profile (bridged)" target="_blank" rel="noopener me">
+		    <svg role="img" width="24" height="24" viewBox="0 0 600 530" xmlns="http://www.w3.org/2000/svg">
+		        <title>Bluesky icon</title>
+		        <path d="m135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z"></path>
+		    </svg>
+		</a>
+    <a class="icon matrix-icon" href="https://matrix.to/#/@tom:casavant.org" aria-label="Open Matrix profile" target="_blank" rel="noopener me">
+        <svg role="img" version="1.1" viewBox="0 0 27.9 32" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            <title>Matrix (protocol) logo</title>
+            <g transform="translate(-.095 .005)">
+            <path d="m27.1 31.2v-30.5h-2.19v-0.732h3.04v32h-3.04v-0.732z"></path>
+            <path d="m8.23 10.4v1.54h0.044c0.385-0.564 0.893-1.03 1.49-1.37 0.58-0.323 1.25-0.485 1.99-0.485 0.72 0 1.38 0.14 1.97 0.42 0.595 0.279 1.05 0.771 1.36 1.48 0.338-0.5 0.796-0.941 1.38-1.32 0.58-0.383 1.27-0.574 2.06-0.574 0.602 0 1.16 0.074 1.67 0.22 0.514 0.148 0.954 0.383 1.32 0.707 0.366 0.323 0.653 0.746 0.859 1.27 0.205 0.522 0.308 1.15 0.308 1.89v7.63h-3.13v-6.46c0-0.383-0.015-0.743-0.044-1.08-0.0209-0.307-0.103-0.607-0.242-0.882-0.133-0.251-0.336-0.458-0.584-0.596-0.257-0.146-0.606-0.22-1.05-0.22-0.44 0-0.796 0.085-1.07 0.253-0.272 0.17-0.485 0.39-0.639 0.662-0.159 0.287-0.264 0.602-0.308 0.927-0.052 0.347-0.078 0.697-0.078 1.05v6.35h-3.13v-6.4c0-0.338-7e-3 -0.673-0.021-1-0.0114-0.314-0.0749-0.623-0.188-0.916-0.108-0.277-0.3-0.512-0.55-0.673-0.258-0.168-0.636-0.253-1.14-0.253-0.198 0.0083-0.394 0.042-0.584 0.1-0.258 0.0745-0.498 0.202-0.705 0.374-0.228 0.184-0.422 0.449-0.584 0.794-0.161 0.346-0.242 0.798-0.242 1.36v6.62h-3.13v-11.4z"></path>
+            <path d="m0.936 0.732v30.5h2.19v0.732h-3.04v-32h3.03v0.732z"></path>
+            </g>
+        </svg>
+    </a>
+
+    <a class="icon ipod-icon" href="https://mastodon.social/@TomsMusic">
+		<div aria-label="Open Music Feed" target="_blank" rel="noopener">
+	    	<svg role="img" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			<title>Music</title>
+			<path d="M22 4h-12c-1.105 0-2 0.896-2 2v20c0 1.104 0.895 2 2 2h12c1.104 0 2-0.896 2-2v-20c0-1.104-0.896-2-2-2zM16 26c-1.934 0-3.5-1.567-3.5-3.5 0-1.934 1.566-3.5 3.5-3.5s3.5 1.566 3.5 3.5c0 1.933-1.567 3.5-3.5 3.5zM22 17h-12l0.021-11h11.979v11zM16 20.5c-1.104 0-2 0.896-2 2s0.896 2 2 2 2-0.896 2-2-0.896-2-2-2z"></path>
+			</svg>
+	    </div>
+	</a>
+    
+     <a href="/feed.xml" aria-label="Open RSS feed" target="_blank" class="icon rss-icon" rel="noopener">
+         <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 -256 1792 1792">
+            <title>RSS icon</title>
+            <g transform="matrix(1,0,0,-1,212.61017,1346.1695)" id="g2991">
+                <path d="M 384,192 Q 384,112 328,56 272,0 192,0 112,0 56,56 0,112 0,192 q 0,80 56,136 56,56 136,56 80,0 136,-56 56,-56 56,-136 z M 896,69 Q 898,41 879,21 861,0 832,0 H 697 Q 672,0 654,16.5 636,33 634,58 612,287 449.5,449.5 287,612 58,634 33,636 16.5,654 0,672 0,697 v 135 q 0,29 21,47 17,17 43,17 h 5 Q 229,883 375,815.5 521,748 634,634 748,521 815.5,375 883,229 896,69 z m 512,-2 Q 1410,40 1390,20 1372,0 1344,0 H 1201 Q 1175,0 1156.5,17.5 1138,35 1137,60 1125,275 1036,468.5 947,662 804.5,804.5 662,947 468.5,1036 275,1125 60,1138 35,1139 17.5,1157.5 0,1176 0,1201 v 143 q 0,28 20,46 18,18 44,18 h 3 Q 329,1395 568.5,1288 808,1181 994,994 1181,808 1288,568.5 1395,329 1408,67 z"></path>
+            </g>
+         </svg>
+    </a>
+</div>
+<h1>Tagged “Atom”</h1>
+
+
+
+<ol reversed="" class="postlist">
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <li class="postlist-item">
+        <a href="/portfolio/projects/ohio-sites/" class="postlist-link">Ohio Sites</a>
+        <time class="postlist-date" datetime="2025-09-04">September 2025</time>
+        <p class="postlist-subtitle"></p>
+		<div class="postlist-webmentions">
+		    <div class="webmention-item">
+		        <svg class="heart-icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+		            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+		        </svg>
+		       <p class="webmention-count">  0 </p>
+		    </div>
+		    <div class="webmention-item">
+		        <svg width="16" height="16" viewBox="0 0 24 24" id="retweet-round" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line">
+		            <path id="primary" d="M18.46,7.11A6,6,0,0,1,15,18H10" style="fill: None; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
+		            <path id="primary-2" data-name="primary" d="M5.54,16.89A6,6,0,0,1,9,6h5" style="fill: None; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
+		            <polyline id="primary-3" data-name="primary" points="12 20 10 18 12 16" style="fill: None; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline>
+		            <polyline id="primary-4" data-name="primary" points="12 4 14 6 12 8" style="fill: None; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline>
+		        </svg>
+		       <p class="webmention-count">  0 </p>
+		    </div>
+		    <div class="webmention-item">
+		        <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="conversation" class="icon glyph">
+		            <path d="M18.82,8c-.8-3.46-4.3-6-8.32-6C5.81,2,2,5.36,2,9.5a6.82,6.82,0,0,0,1.06,3.63l-1,3.6a1,1,0,0,0,.3,1A1,1,0,0,0,3,18a1,1,0,0,0,.39-.08l3.66-1.56A9.6,9.6,0,0,0,10.5,17c4.69,0,8.5-3.36,8.5-7.5A6.27,6.27,0,0,0,18.82,8Z"></path>
+		            <path d="M21,22a1,1,0,0,1-.39-.08L17,20.36A9.6,9.6,0,0,1,13.5,21a8.44,8.44,0,0,1-8-5.1A1,1,0,0,1,6,14.61a1,1,0,0,1,1.29.58A6.44,6.44,0,0,0,13.5,19a7.55,7.55,0,0,0,3.05-.64,1,1,0,0,1,.8,0l2.11.9-.57-2a1,1,0,0,1,.15-.86,4.83,4.83,0,0,0,1-2.87,5.31,5.31,0,0,0-2.68-4.44,1,1,0,0,1,1.06-1.7A7.28,7.28,0,0,1,22,13.5a6.82,6.82,0,0,1-1.06,3.63l1,3.6a1,1,0,0,1-.3,1A1,1,0,0,1,21,22Z"></path>
+		        </svg>
+		        <p class="webmention-count"> 0 </p>
+		    </div>
+		</div>
+
+    </li>
+
+</ol>
+
+
+<p>See <a href="/tags/">all tags</a>.</p>
+
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/tags/atom/` was built on 2025-09-04T21:42:45.616Z -->
+	</body>
+</html>

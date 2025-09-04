@@ -1,0 +1,1228 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Generating Heat Maps from GPX Files</title>
+		<meta name="description" content="Blog about things">
+		<link rel="webmention" href="https://webmention.io/tomcasavant.com/webmention">
+		<link rel="alternate" href="/blog.xml" type="application/rss+xml" title="Tom Casavant">
+		<link rel="alternate" href="/feed.json" type="application/json" title="Tom Casavant">
+		<link rel="blogroll" type="text/xml" href="/subscriptions.opml">
+
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+		<link rel="manifest" href="/img/favicons/site.webmanifest">
+		<link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileImage" content="/img/favicons/mstile-150x150.png">
+		<meta name="theme-color" content="#ffffff">
+		<meta name="fediverse:creator" content="@tom@tomkahe.com">
+		
+		<link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+		<style>* { box-sizing: border-box; }
+/* Message Box */
+* { box-sizing: border-box; }
+.postlist { counter-reset: start-from 35 }
+/* Message Box */
+* { box-sizing: border-box; }
+/* ========================================================================== */
+/*                            CSS Variables & Themes                          */
+/* ========================================================================== */
+
+/* Base font families */
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-mono: Consolas, Menlo, Monaco, "Andale Mono", "Lucida Console",
+    monospace;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+
+  /* Font sizes */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+
+  /* Border radius */
+  --radius: 8px;
+
+  /* Colors — Light theme */
+  --color-bg: #fefefe;
+  --color-bg-standout: #fff8f1;
+  --color-text: #2a2a2a;
+  --color-text-muted: #555;
+  --color-text-link: #ad4e27;
+  --color-text-link-hover: #d2691e;
+  --color-border: #ddd;
+  --color-shadow: rgba(0, 0, 0, 0.05);
+
+  /* Accent */
+  --color-accent: #d2691e;
+
+  /* Syntax */
+  --syntax-tab-size: 2;
+}
+
+/* Dark theme overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-bg-standout: #1e1e1e;
+    --color-text: #e0e0e0;
+    --color-text-muted: #999;
+    --color-text-link: #ffa500;
+    --color-text-link-hover: #ffb733;
+    --color-border: #333;
+    --color-shadow: rgba(255, 255, 255, 0.1);
+    --color-accent: #ffa500;
+  }
+}
+
+/* ========================================================================== */
+/*                                Base Reset                                  */
+/* ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-md);
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+  overflow-y: scroll;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+p,
+li {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================================================== */
+/*                                Typography                                  */
+/* ========================================================================== */
+
+code,
+pre {
+  font-family: var(--font-mono);
+  background-color: var(--color-bg-standout);
+  border-radius: var(--radius);
+  padding: 0.15em 0.3em;
+  font-size: var(--font-sm);
+  color: var(--color-accent);
+}
+
+pre {
+  display: block;
+  padding: var(--space-md);
+  overflow-x: auto;
+  line-height: 1.4;
+  margin: var(--space-lg) 0;
+  white-space: pre-wrap;
+  tab-size: var(--syntax-tab-size);
+}
+
+a {
+  color: var(--color-text-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-text-link-hover);
+  outline: none;
+  text-decoration: underline;
+}
+
+/* ========================================================================== */
+/*                                Layout & Containers                         */
+/* ========================================================================== */
+
+main {
+  max-width: 60em;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+header {
+  display: flex;
+  align-items: center;    /* vertically center items */
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-md);
+  max-width: 60em;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--color-border);
+  /* no justify-content, so items stay grouped on the left */
+}
+
+.home-link {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  line-height: 1;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -3px;  /* nudge up to align with nav */
+}
+
+.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-md);
+  font-size: var(--font-md);
+  font-weight: 600;
+}
+
+.nav-item a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  line-height: 1.2;
+  padding: 0;
+}
+
+.nav-item a[aria-current='page'],
+.nav-item a:hover,
+.nav-item a:focus {
+  color: var(--color-text-link);
+  text-decoration: underline;
+}
+
+
+footer {
+  padding: var(--space-lg) var(--space-md);
+  font-size: var(--font-sm);
+  text-align: center;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ========================================================================== */
+/*                              Post List & Webmentions                       */
+/* ========================================================================== */
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+	position: relative;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	border: 1px solid #000;
+	text-align: center;
+	position: relative;
+	padding-bottom: 2.5em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 1em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	flex-basis: calc(100% - 1.5rem);
+}
+.postlist-link {
+	font-size: 1.6em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-subtitle {
+	font-size: 1em;
+	font-weight: 400;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-align: center;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Webmention container */
+.postlist-webmentions {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Webmention item */
+.webmention-item {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--color-text-link);
+  user-select: none;
+}
+
+/* Webmention SVG icons */
+.webmention-item svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--color-text-link);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Heart icon */
+.heart-icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--color-text-link);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Count text */
+.webmention-count {
+  margin-left: 0.1rem;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: var(--color-text-link);
+}
+
+/* ========================================================================== */
+/*                            SVG & Icon Styling                             */
+/* ========================================================================== */
+
+.message-box {
+  display: flex;
+  justify-content: center;   /* Center icons horizontally */
+  align-items: center;       /* Center icons vertically */
+  gap: 0.5rem;               /* Space between icons */
+}
+
+.message-box svg {
+  display: block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;        /* Inherit text color */
+  transition: fill 0.2s ease;
+}
+
+.message-box svg:last-child {
+  margin-right: 0;           /* Remove right margin on last icon */
+}
+
+/* Example individual icon tweaks (adjust if needed) */
+.bluesky-icon,
+.rss-icon {
+  transform: translateY(1px) scale(1.1);
+}
+
+.github-icon {
+  transform: scale(1.1);
+}
+
+.ipod-icon {
+  transform: translateY(1.5px) scale(1.5);
+}
+
+/* Form SVGs (e.g. search icon inside inputs) */
+.form svg {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  fill: var(--color-text-muted);
+  pointer-events: none; /* Prevents interfering with form */
+}
+
+/* Decorative SVG inside .well container */
+.well svg {
+  position: absolute;
+  bottom: 0;
+  right: 100px;
+  transform: rotate(45deg);
+  opacity: 0.15; /* Subtle effect */
+  pointer-events: none;
+}
+
+/* Adjust margin for specific templating layout */
+.tmpl-newspost .circles .content-780 {
+  margin: 0 auto;
+}
+
+/* ========================================================================== */
+/*                                Buttons & Links                            */
+/* ========================================================================== */
+
+.button,
+button,
+input[type='submit'] {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover,
+button:hover,
+input[type='submit']:hover {
+  background-color: #bf621e; /* Slightly darker accent */
+}
+
+.button:focus,
+button:focus,
+input[type='submit']:focus {
+  outline: 2px solid var(--color-text-link);
+  outline-offset: 2px;
+}
+
+/* ========================================================================== */
+/*                                Portfolio Grid                              */
+/* ========================================================================== */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.project-box {
+  background-color: var(--color-bg-standout);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px var(--color-shadow);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.project-box:hover,
+.project-box:focus-within {
+  box-shadow: 0 8px 20px rgba(214, 105, 30, 0.35);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.project-box h3 {
+  margin: 0;
+  font-size: var(--font-lg);
+  color: var(--color-text);
+}
+
+.project-box p {
+  flex-grow: 1;
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+}
+
+.project-links a {
+  font-size: var(--font-xs);
+  color: var(--color-text-link);
+  margin-right: var(--space-sm);
+  transition: color 0.2s ease;
+}
+
+.project-links a:hover,
+.project-links a:focus {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+.project-tags {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-sm) 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.project-tags li {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-size: var(--font-xs);
+  padding: 0.2em 0.5em;
+  border-radius: var(--radius);
+  text-transform: capitalize;
+}
+
+/* ========================================================================== */
+/*                              Tables & Lists                                */
+/* ========================================================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-md) 0;
+  font-family: var(--font-sans);
+}
+
+table th,
+table td {
+  padding: var(--space-sm);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  vertical-align: middle;
+}
+
+table tr:nth-child(even) {
+  background-color: var(--color-bg-standout);
+}
+
+/* ========================================================================== */
+/*                             Forms & Inputs                                 */
+/* ========================================================================== */
+
+input,
+textarea,
+select,
+button {
+  font-family: var(--font-sans);
+  font-size: var(--font-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-sm);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: border-color 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.3);
+}
+
+/* ========================================================================== */
+/*                             Utility & Helpers                              */
+/* ========================================================================== */
+
+.card {
+  background-color: var(--color-bg-standout);
+  border: 1px solid var(--color-border);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  max-width: 400px;
+  margin: var(--space-lg) auto; /* centers horizontally and adds vertical spacing */
+  color: var(--color-text);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-size: var(--font-md);
+}
+
+
+.card:hover,
+.card:focus-within {
+  box-shadow: 4px 4px 15px rgba(210, 105, 30, 0.4);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.bookmark-title {
+  margin: 0 0 var(--space-sm) 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--font-lg);
+}
+
+.bookmark-title a {
+  color: var(--color-text-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bookmark-title a:hover,
+.bookmark-title a:focus {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+.bookmark-summary {
+  margin: 0;
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Ensure spacing between multiple cards */
+.card + .card {
+  margin-top: var(--space-lg);
+}
+
+
+/* Visually hidden for accessibility */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Center text utility */
+.text-center {
+  text-align: center;
+}
+
+/* Margin and padding utilities */
+.m-0 {
+  margin: 0 !important;
+}
+.p-0 {
+  padding: 0 !important;
+}
+
+/* ========================================================================== */
+/*                               Responsive Design                            */
+/* ========================================================================== */
+
+@media (max-width: 768px) {
+  main {
+    padding: var(--space-md);
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+}
+
+.timeline-container {
+  max-width: 60em;
+  margin: var(--space-lg) auto;
+  padding: 0 var(--space-md);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: relative;
+  padding-left: 1.5rem; /* space for timeline line */
+  border-left: 3px solid var(--color-accent);
+}
+
+.timeline .outer {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.timeline .outer::before {
+  content: '';
+  position: absolute;
+  left: -1.8rem;
+  top: 0.75rem;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--color-accent);
+}
+
+.microblog-card {
+  background-color: var(--color-bg-standout);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  box-shadow: 0 2px 6px var(--color-shadow);
+  color: var(--color-text);
+  font-size: var(--font-md);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.microblog-card:hover,
+.microblog-card:focus-within {
+  box-shadow: 0 8px 20px rgba(210, 105, 30, 0.35);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.microblog-post-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-link);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.microblog-post-link:hover,
+.microblog-post-link:focus {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+.fediverse-post-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Optional: Adjust timeline vertical spacing on smaller screens */
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 0 var(--space-sm);
+  }
+  .timeline {
+    padding-left: 1rem;
+    border-left-width: 2px;
+  }
+  .timeline .outer::before {
+    left: -1.4rem;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.notvisible {
+	display: none;
+}</style>
+
+		
+		<!-- OpenGraph Meta Tags -->
+		<meta property="og:title" content="Generating Heat Maps from GPX Files - Tom Casavant">
+		<meta property="og:description" content="Blog about things">
+		
+		  <meta property="og:image" content="/img/opengraph/opengraph.png">
+		
+		
+		<meta property="og:url" content="/generating-heat-maps-from-gpx-files/">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Tom Casavant">
+	</head>
+	<body>
+
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+
+		<style>
+		  .h-card {
+		    display: none;
+		  }
+		</style>
+	
+		<span class="h-card">
+		  <a class="u-url" rel="me" href="/img/images/tomface.png">Tom Casavant</a>
+		  <img class="u-photo" src="/img/images/tomface.png">
+			<img class="u-featured" src="img/opengraph/opengraph.png">
+		</span>
+
+			<a href="/" class="home-link">Tom Casavant</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/portfolio/">Portfolio</a></li>
+					<li class="nav-item"><a href="/bookmarks/">Bookmarks</a></li>
+					<li class="nav-item"><a href="/feeds/">Feeds</a></li>
+					<li class="nav-item"><a href="/food/">Food</a></li>
+					<li class="nav-item"><a href="/photography/">Photography</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+<article class="h-entry">
+    <h1 class="p-name">Generating Heat Maps from GPX Files</h1>
+
+    <ul class="post-metadata">
+        <li><time class="dt-published" datetime="2019-04-18">18 April 2019</time></li>
+    </ul>
+
+    <div class="e-content">
+        <p><img src="https://media.githubusercontent.com/media/TomCasavant/tomcasavant.github.io/master/media/heatmap.png?raw=true" alt="" title="Final generated heat map"></p>
+<p>I own a smart watch (vivosport) that tracks my runs and other activities. The watch has a built-in GPS which will track my location. All of this data eventually gets transferred to Garmin, where I can view individual activities and the results of said activities.</p>
+<h2 id="getting-the-garmin-activity-data" tabindex="-1">Getting the Garmin Activity Data <a class="header-anchor" href="#getting-the-garmin-activity-data">#</a></h2>
+<p>Earlier this week I became interested as to whether or not I could view all my maps as a single heat map. The search brought me to an old Garmin forums page, where I was informed that the heat map functionality had long since been removed. There were two other options I found, using Strava to generate a heat map (unfortunately, this would involve signing up for their premium summit program) or generating a heat map from a series of gpx files (gpx being the gps filetype that each activity could output). Since I didn't desire to spend any money on this project I looked into the second option.</p>
+<p>The first issue I discovered was that, for no apparent reason, Garmin would not let me download all of my gpx files in bulk. Off I went to look for a solution to that problem (I figured, that if it comes to it I could just have a macro go through and download those for me, but that seemed inefficient). The first few github repositories I discovered just didn't work. Likely because Garmin's website security had changed in the years since those repos were created. Then I discovered <a href="https://github.com/petergardfjall/garminexport">garminexport</a> which turned out to be almost exactly what I wanted. The one issue was that it would go through and download every piece of data from every activity (rather than just the gpx files) but this was definitely something I could work with. It worked immediately and as such I was onto the next step.</p>
+<h2 id="generating-the-heat-map" tabindex="-1">Generating the Heat Map <a class="header-anchor" href="#generating-the-heat-map">#</a></h2>
+<p>This part proved to be more complex than I desired. I searched and searched until I came up with <a href="http://www.gpsheatmaps.com/about/">this website</a> which claimed it would generate heat maps from gpx files. I took my gpx files and submitted it to the website. The first thing I noticed was that it only accepted ~50 files. Which was unfortunate because I had many hundreds of files. The next thing I noticed was that it had no options to display the heat map on an actual map, which is what I wanted. The website's about page said that the creator planned to overlay the heat maps onto Google maps. I contacted the creator and was informed that this project was abandoned and that there were no plans to update it. Darn.</p>
+<p>That's when I decided to just make it myself. After a bit of research I decided to use the following libraries:</p>
+<ul>
+<li><a href="https://github.com/tkrajina/gpxpy">gpxpy</a> - To parse the .gpx files. (the gpx files were just glorified xml files, but this just made it easier for me)</li>
+<li><a href="https://github.com/pallets/click">click</a> - A library to develop an easy to use CLI for my project. Largely because I had heard about this at a recent Open Source Club meeting and I was intrigued.</li>
+</ul>
+<p>Note that I didn't use a google maps libraries. This is because I decided the best course of action was to develop an html file with javascript functions for manipulating the heatmap. Most of the my html setup came from Google's <a href="https://developers.google.com/maps/documentation/javascript/examples/layer-heatmap">Javascript API Documentation</a>.</p>
+<h3 id="the-code" tabindex="-1">The Code <a class="header-anchor" href="#the-code">#</a></h3>
+<p>The entirety of this project can be found on my github at <a href="https://github.com/TomCasavant/GPXtoHeatmap">https://github.com/TomCasavant/GPXtoHeatmap</a>.</p>
+<p>The first step to this project was getting all the points from the gpx files as such:</p>
+<pre><code>import gpxpy
+import click
+import os
+from configparser import SafeConfigParser
+
+def load_points(folder, filter):
+    &quot;&quot;&quot;Loads all gpx files into a list of points&quot;&quot;&quot;
+
+    coords = []
+    print (f&quot;Loading files with type {filter}...&quot;) #Loads files with progressbar
+    with click.progressbar(os.listdir(folder)) as bar:
+        for filename in bar:
+            if (filename.endswith(&quot;.gpx&quot;)):
+                #Verify file is a gpx file
+                gpx_file = open(f'{folder}/' + filename)
+                gpx = gpxpy.parse(gpx_file)
+                for track in gpx.tracks:
+                    if not filter or filter==track.type:
+                        for segment in track.segments:
+                            for point in segment.points:
+                            	coords.append([float(point.latitude), float(point.longitude)])
+
+    return (coords)
+</code></pre>
+<p>Things to note:</p>
+<ul>
+<li>The click library allows me to easily insert a progress bar into my project. The progress bar is used in place of the for loop. I could've placed this anywhere in the loop (i.e. I could've generated a progress bar for every track) but I figured it would be cleaner if I just had one progress bar for each file found.</li>
+<li>gpxpy parses the gpx file to allow me to get specific elements from the file (such as the tracks and the type)</li>
+<li>The filter variable will be used to filter based on the type of activity (if desired), activities can be anything that Garmin (or whatever company you associate with) tracks. I personally use mine to track the types 'walking', 'running', and 'cycling'.</li>
+<li>I've saved the points into a list of coordinates. These coordinates will be placed into the html file to generate the heat map.</li>
+</ul>
+<p>Next, I had to create the outline for the map. I created a separate text file for this purpose:</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Heatmaps&lt;/title&gt;
+    &lt;style&gt;
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #floating-panel {
+        background-color: #fff;
+        border: 1px solid #999;
+        left: 25%;
+        padding: 5px;
+        position: absolute;
+        top: 10px;
+        z-index: 5;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;div id=&quot;floating-panel&quot;&gt;
+      &lt;button onclick=&quot;toggleHeatmap()&quot;&gt;Toggle Heatmap&lt;/button&gt;
+      &lt;button onclick=&quot;changeGradient()&quot;&gt;Change gradient&lt;/button&gt;
+      &lt;button onclick=&quot;changeRadius()&quot;&gt;Change radius&lt;/button&gt;
+      &lt;button onclick=&quot;changeOpacity()&quot;&gt;Change opacity&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+
+      // This example requires the Visualization library. Include the libraries=visualization
+      // parameter when you first load the API. For example:
+      // &lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;libraries=visualization&quot;&gt;
+
+      var map, heatmap;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: {lat: 40, lng: -83},
+          mapTypeId: 'roadmap'
+        });
+
+        heatmap = new google.maps.visualization.HeatmapLayer({
+          data: getPoints(),
+          map: map,
+	  maxIntensity: 25,
+	  radius: 5,
+	  opacity:.4
+        });
+      }
+
+      function toggleHeatmap() {
+        heatmap.setMap(heatmap.getMap() ? null : map);
+      }
+     function changeGradient() {
+        var gradient = [
+          'rgba(0, 255, 255, 0)',
+          'rgba(0, 255, 255, 1)',
+          'rgba(0, 191, 255, 1)',
+          'rgba(0, 127, 255, 1)',
+          'rgba(0, 63, 255, 1)',
+          'rgba(0, 0, 255, 1)',
+          'rgba(0, 0, 223, 1)',
+          'rgba(0, 0, 191, 1)',
+          'rgba(0, 0, 159, 1)',
+          'rgba(0, 0, 127, 1)',
+          'rgba(63, 0, 91, 1)',
+          'rgba(127, 0, 63, 1)',
+          'rgba(191, 0, 31, 1)',
+          'rgba(255, 0, 0, 1)'
+        ]
+        heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+      }
+
+      function changeRadius() {
+        heatmap.set('radius', heatmap.get('radius') ? null : 1);
+      }
+
+      function changeOpacity() {
+        heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
+      }
+
+      function getPoints() {
+        return [LIST_OF_POINTS];
+        }
+      &lt;/script&gt;
+      &lt;script async defer
+          src=&quot;https://maps.googleapis.com/maps/api/js?key=API_KEY&amp;libraries=visualization&amp;callback=initMap&quot;&gt;&lt;/script&gt;
+      &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Again, most of this file comes from Google's official documentation. It allows the user to customize their map live, in case you want to change certain aspects of it. The major value I had to change in this file was the radius. Since my heat maps were more localized, I had to decrease the radius value to 5 in order to clearly see my heatmap when zoomed in. In the INIT function, I changed where the map started, this wasn't necessary because you can move around the map when you open it. But, it made it easier to focus on where my heat map is (I may in the change where the location begins based on where the heat map is generated, but I haven't gotten around to it yet). Finally, in the getPoints() function, I have it return LIST_OF_POINTS. This value is one of the values that we'll be changing in our python file. The other value is the API key in the <code>&lt;script src=...&gt;</code> line.</p>
+<p>Finally, we have to actually generate the completed html file. We'll need a config file and back in the python file we'll define 2 more functions: one to get the outline file and one to replace the LIST_OF_POINTS variable and generate a new file:</p>
+<p>config.ini</p>
+<pre><code>[GOOGLE]
+API_KEY = ####YOUR_API_KEY###
+</code></pre>
+<p>heatmap.py</p>
+<pre><code>parser = SafeConfigParser()
+parser.read('config.ini')
+API_KEY = parser.get('GOOGLE', 'API_KEY')
+
+def get_outline():
+    &quot;&quot;&quot;Reads in the html outline file&quot;&quot;&quot;
+    with open('map-outline.txt', 'r') as file:
+        outline = file.read()
+    return outline
+
+def generate_html(points, file_out):
+    &quot;&quot;&quot;Generates a new html file with points&quot;&quot;&quot;
+    f = open(f&quot;output/{file_out}.html&quot;, &quot;w&quot;)
+    outline = get_outline()
+    google_points = &quot;,\n&quot;.join([f&quot;new google.maps.LatLng({point[0]}, {point[1]})&quot; for point in points])
+    updated_content = outline.replace(&quot;LIST_OF_POINTS&quot;, google_points).replace(&quot;API_KEY&quot;, API_KEY)
+    f.write(updated_content)
+    f.close()
+</code></pre>
+<p>You can generate a google maps API key from here <a href="https://developers.google.com/maps/documentation/javascript/get-api-key">https://developers.google.com/maps/documentation/javascript/get-api-key</a>.</p>
+<p>Essentially, all you need to know is that get_outline() reads in the text file containing the html/javascript, then the generate_html() function takes that outline and fills it in with the appropriate content.</p>
+<p>Then to put it all together we make our main functions.</p>
+<pre><code>@click.command()
+@click.option(&quot;--output&quot;, default=&quot;map&quot;, help=&quot;Specify the name of the output file&quot;)
+@click.option(&quot;--input&quot;, default=&quot;gpx&quot;, help=&quot;Specify an input folder&quot;)
+@click.option(&quot;--filter&quot;, default=None, help=&quot;Specify a filter type&quot;, type=click.Choice(['running', 'cycling', 'walking']))
+def main(output, input, filter):
+    points = load_points(input, filter)
+    generate_html(points, output)
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+<p>Click allows us to define arguments from the command line. In this program I added three options '--output', '--input', and '--filter'. Which means a user could type in the following command to generate a heat map with bike routes from a folder called gpx_files and output it to output/my_heat_map.html.
+<code>python heatmap.py --output my_heat_map --input gpx_files --filter cycling</code></p>
+<p>That's it. The heat map gets generated and can be open in your web browser where you can manipulate it to your desire. Once again, all of this code can be found on my github at <a href="https://github.com/TomCasavant/GPXtoHeatmap">https://github.com/TomCasavant/GPXtoHeatmap</a>.</p>
+
+    </div>
+
+    <a href="/generating-heat-maps-from-gpx-files/" class="u-url"></a>
+    <ul class="links-nextprev"><li>Previous: <a href="/make-oh-io-2019/">Make OH/IO 2019</a></li><li>Next: <a href="/a-curious-case-of-osu-financial-aid/">A Curious Case of OSU Financial Aid</a></li>
+    </ul>
+
+		<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
+</article>
+
+<section>  
+  <h2>Webmentions</h2>  
+  
+  <div class="webmentions content-grid-sibling" id="webmentions">
+
+  
+  
+  
+  
+  
+  
+  
+
+
+<div class="webmentions__facepile">
+  <h3>2
+    Likes</h3>
+
+    
+
+      
+        <a class="h-card u-url link-u-exempt" href="https://mastodon.social/@mrpresidenttom/109628216907880065#favorited-by-109258568111855098" target="_blank" rel="noopener noreferrer">
+      
+
+      
+      <img src="https://webmention.io/avatar/files.mastodon.social/c6a07099591c3b341e627d7be00b725851e030fd05cead2f1b8eca0ffa6df430.jpg" alt="shauny" width="48" height="48" loading="lazy">
+      
+
+      
+        </a>
+      
+    
+
+      
+        <a class="h-card u-url link-u-exempt" href="https://mastodon.social/@mrpresidenttom/109628216907880065#favorited-by-109357236101402411" target="_blank" rel="noopener noreferrer">
+      
+
+      
+      <img src="https://webmention.io/avatar/files.mastodon.social/df2e43d9caaf120372f35b7842462d3b9ab87e61b9997983ebfa720b0fc041fc.png" alt="What song is Tom Listening To?" width="48" height="48" loading="lazy">
+      
+
+      
+        </a>
+      
+    
+</div>
+
+
+
+<div class="webmentions__facepile">
+  <h3>1 Retweet</h3>
+
+    
+      
+      <a class="h-card u-url link-u-exempt" href="https://mastodon.social/@mrpresidenttom/109628216907880065#reblogged-by-109357236101402411" target="_blank" rel="noopener noreferrer">
+      
+
+      
+      <img src="https://webmention.io/avatar/files.mastodon.social/df2e43d9caaf120372f35b7842462d3b9ab87e61b9997983ebfa720b0fc041fc.png" alt="What song is Tom Listening To?" width="48" height="48" loading="lazy">
+      
+      
+      </a>
+      
+    
+</div>
+
+
+
+<div class="webmention-replies">
+  <h3>3 Replies</h3>
+
+  
+    <article class="webmention " id="webmention-1592501">
+  <div class="webmention__meta">
+    
+      
+      <img src="https://webmention.io/avatar/files.mastodon.social/82dfcc8ba03b213e5af05d63251538b4f55f5a01d8660057eaa2d0eda350026e.jpg" alt="Tom Casavant" width="48" height="48" loading="lazy">
+      
+      <span>
+        <strong class="p-name">Tom Casavant</strong>
+      </span>
+    
+
+    
+        <time class="postlist-date" datetime="2023-01-04T00:57:51">
+            04 Jan 2023 at 12:57AM
+        </time>
+    
+  </div>
+  <p class="webmention-text">
+    @mrpresidenttom@mastodon.social
+Test
+    
+    <a href="https://social.tomcasavant.com/@MrPresidentTom/109628219182123703" target="_blank" rel="noopener noreferrer">
+      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
+    </a>
+    
+  </p>
+</article>
+
+  
+    <article class="webmention " id="webmention-1593852">
+  <div class="webmention__meta">
+    
+      
+      <img src="https://webmention.io/avatar/files.mastodon.social/df2e43d9caaf120372f35b7842462d3b9ab87e61b9997983ebfa720b0fc041fc.png" alt="What song is Tom Listening To?" width="48" height="48" loading="lazy">
+      
+      <span>
+        <strong class="p-name">What song is Tom Listening To?</strong>
+      </span>
+    
+
+    
+        <time class="postlist-date" datetime="2023-01-05T02:10:29">
+            05 Jan 2023 at 02:10AM
+        </time>
+    
+  </div>
+  <p class="webmention-text">
+    @mrpresidenttom
+Test 2
+    
+    <a href="https://mastodon.social/@TomsMusic/109634167068084054" target="_blank" rel="noopener noreferrer">
+      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
+    </a>
+    
+  </p>
+</article>
+
+  
+    <article class="webmention " id="webmention-1595795">
+  <div class="webmention__meta">
+    
+      
+      <img src="https://webmention.io/avatar/files.mastodon.social/82dfcc8ba03b213e5af05d63251538b4f55f5a01d8660057eaa2d0eda350026e.jpg" alt="Tom Casavant" width="48" height="48" loading="lazy">
+      
+      <span>
+        <strong class="p-name">Tom Casavant</strong>
+      </span>
+    
+
+    
+        <time class="postlist-date" datetime="2023-01-05T15:34:32">
+            05 Jan 2023 at 03:34PM
+        </time>
+    
+  </div>
+  <p class="webmention-text">
+    @mrpresidenttom@mastodon.social
+Final test
+    
+    <a href="https://social.tomcasavant.com/@MrPresidentTom/109637328739261489" target="_blank" rel="noopener noreferrer">
+      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
+    </a>
+    
+  </p>
+</article>
+
+  
+</div>
+
+
+<p>These are <a href="https://indieweb.org/Webmention">webmentions</a> via the <a href="https://indieweb.org/">IndieWeb</a> and <a href="https://webmention.io/">webmention.io</a>. Mention this post from your site:</p>
+
+<form action="https://webmention.io/tomcasavant.com/webmention" method="post" class="form-webmention">
+    <label for="form-webmention-source">URL</label><br>
+    <input id="form-webmention-source" type="url" name="source" placeholder="https://example.com" required="">
+    <input type="hidden" name="target" value="https://tomcasavant.com/generating-heat-maps-from-gpx-files/">
+    <input type="submit" class="button button-small" value="Send Webmention">
+  </form>
+</div>
+
+</section>
+
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/generating-heat-maps-from-gpx-files/` was built on 2025-09-04T21:42:45.424Z -->
+	</body>
+</html>
