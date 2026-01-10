@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Musings on AI</title>
+		<meta name="description" content="Blog about things">
+		<link rel="webmention" href="https://webmention.io/tomcasavant.com/webmention">
+		<link rel="alternate" href="/blog.xml" type="application/rss+xml" title="Tom Casavant">
+		<link rel="alternate" href="/feed.json" type="application/json" title="Tom Casavant">
+		<link rel="blogroll" type="text/xml" href="/subscriptions.opml">
+
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+		<link rel="manifest" href="/img/favicons/site.webmanifest">
+		<link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileImage" content="/img/favicons/mstile-150x150.png">
+		<meta name="theme-color" content="#ffffff">
+		<meta name="fediverse:creator" content="@tom@tomkahe.com">
+		
+		<link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+		<style>* { box-sizing: border-box; }
+/* Message Box */
+* { box-sizing: border-box; }
+.postlist { counter-reset: start-from 35 }
+/* Message Box */
+* { box-sizing: border-box; }
+/* ========================================================================== */
+/*                            CSS Variables & Themes                          */
+/* ========================================================================== */
+
+/* Base font families */
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-mono: Consolas, Menlo, Monaco, "Andale Mono", "Lucida Console",
+    monospace;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+
+  /* Font sizes */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+
+  /* Border radius */
+  --radius: 8px;
+
+  /* Colors — Light theme */
+  --color-bg: #fefefe;
+  --color-bg-standout: #fff8f1;
+  --color-text: #2a2a2a;
+  --color-text-muted: #555;
+  --color-text-link: #ad4e27;
+  --color-text-link-hover: #d2691e;
+  --color-border: #ddd;
+  --color-shadow: rgba(0, 0, 0, 0.05);
+
+  /* Accent */
+  --color-accent: #d2691e;
+
+  /* Syntax */
+  --syntax-tab-size: 2;
+}
+
+/* Dark theme overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-bg-standout: #1e1e1e;
+    --color-text: #e0e0e0;
+    --color-text-muted: #999;
+    --color-text-link: #ffa500;
+    --color-text-link-hover: #ffb733;
+    --color-border: #333;
+    --color-shadow: rgba(255, 255, 255, 0.1);
+    --color-accent: #ffa500;
+  }
+}
+
+/* ========================================================================== */
+/*                                Base Reset                                  */
+/* ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-md);
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+  overflow-y: scroll;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+p,
+li {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================================================== */
+/*                                Typography                                  */
+/* ========================================================================== */
+
+code,
+pre {
+  font-family: var(--font-mono);
+  background-color: var(--color-bg-standout);
+  border-radius: var(--radius);
+  padding: 0.15em 0.3em;
+  font-size: var(--font-sm);
+  color: var(--color-accent);
+}
+
+pre {
+  display: block;
+  padding: var(--space-md);
+  overflow-x: auto;
+  line-height: 1.4;
+  margin: var(--space-lg) 0;
+  white-space: pre-wrap;
+  tab-size: var(--syntax-tab-size);
+}
+
+a {
+  color: var(--color-text-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-text-link-hover);
+  outline: none;
+  text-decoration: underline;
+}
+
+/* ========================================================================== */
+/*                                Layout & Containers                         */
+/* ========================================================================== */
+
+main {
+  max-width: 60em;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+header {
+  display: flex;
+  align-items: center;    /* vertically center items */
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-md);
+  max-width: 60em;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--color-border);
+  /* no justify-content, so items stay grouped on the left */
+}
+
+.home-link {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  line-height: 1;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -3px;  /* nudge up to align with nav */
+}
+
+.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-md);
+  font-size: var(--font-md);
+  font-weight: 600;
+}
+
+.nav-item a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  line-height: 1.2;
+  padding: 0;
+}
+
+.nav-item a[aria-current='page'],
+.nav-item a:hover,
+.nav-item a:focus {
+  color: var(--color-text-link);
+  text-decoration: underline;
+}
+
+
+footer {
+  padding: var(--space-lg) var(--space-md);
+  font-size: var(--font-sm);
+  text-align: center;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ========================================================================== */
+/*                              Post List & Webmentions                       */
+/* ========================================================================== */
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+	position: relative;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	border: 1px solid #000;
+	text-align: center;
+	position: relative;
+	padding-bottom: 2.5em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 1em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	flex-basis: calc(100% - 1.5rem);
+}
+.postlist-link {
+	font-size: 1.6em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-subtitle {
+	font-size: 1em;
+	font-weight: 400;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-align: center;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Webmention container */
+.postlist-webmentions {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Webmention item */
+.webmention-item {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--color-text-link);
+  user-select: none;
+}
+
+/* Webmention SVG icons */
+.webmention-item svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--color-text-link);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Heart icon */
+.heart-icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--color-text-link);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Count text */
+.webmention-count {
+  margin-left: 0.1rem;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: var(--color-text-link);
+}
+
+/* ========================================================================== */
+/*                            SVG & Icon Styling                             */
+/* ========================================================================== */
+
+.message-box {
+  display: flex;
+  justify-content: center;   /* Center icons horizontally */
+  align-items: center;       /* Center icons vertically */
+  gap: 0.5rem;               /* Space between icons */
+}
+
+.message-box svg {
+  display: block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  fill: currentColor;        /* Inherit text color */
+  transition: fill 0.2s ease;
+}
+
+.message-box svg:last-child {
+  margin-right: 0;           /* Remove right margin on last icon */
+}
+
+/* Example individual icon tweaks (adjust if needed) */
+.bluesky-icon,
+.rss-icon {
+  transform: translateY(1px) scale(1.1);
+}
+
+.github-icon {
+  transform: scale(1.1);
+}
+
+.ipod-icon {
+  transform: translateY(1.5px) scale(1.5);
+}
+
+/* Form SVGs (e.g. search icon inside inputs) */
+.form svg {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  fill: var(--color-text-muted);
+  pointer-events: none; /* Prevents interfering with form */
+}
+
+/* Decorative SVG inside .well container */
+.well svg {
+  position: absolute;
+  bottom: 0;
+  right: 100px;
+  transform: rotate(45deg);
+  opacity: 0.15; /* Subtle effect */
+  pointer-events: none;
+}
+
+/* Adjust margin for specific templating layout */
+.tmpl-newspost .circles .content-780 {
+  margin: 0 auto;
+}
+
+/* ========================================================================== */
+/*                                Buttons & Links                            */
+/* ========================================================================== */
+
+.button,
+button,
+input[type='submit'] {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover,
+button:hover,
+input[type='submit']:hover {
+  background-color: #bf621e; /* Slightly darker accent */
+}
+
+.button:focus,
+button:focus,
+input[type='submit']:focus {
+  outline: 2px solid var(--color-text-link);
+  outline-offset: 2px;
+}
+
+/* ========================================================================== */
+/*                                Portfolio Grid                              */
+/* ========================================================================== */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.project-box {
+  background-color: var(--color-bg-standout);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px var(--color-shadow);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.project-box:hover,
+.project-box:focus-within {
+  box-shadow: 0 8px 20px rgba(214, 105, 30, 0.35);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.project-box h3 {
+  margin: 0;
+  font-size: var(--font-lg);
+  color: var(--color-text);
+}
+
+.project-box p {
+  flex-grow: 1;
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+}
+
+.project-links a {
+  font-size: var(--font-xs);
+  color: var(--color-text-link);
+  margin-right: var(--space-sm);
+  transition: color 0.2s ease;
+}
+
+.project-links a:hover,
+.project-links a:focus {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+.project-tags {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-sm) 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.project-tags li {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-size: var(--font-xs);
+  padding: 0.2em 0.5em;
+  border-radius: var(--radius);
+  text-transform: capitalize;
+}
+
+/* ========================================================================== */
+/*                              Tables & Lists                                */
+/* ========================================================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-md) 0;
+  font-family: var(--font-sans);
+}
+
+table th,
+table td {
+  padding: var(--space-sm);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  vertical-align: middle;
+}
+
+table tr:nth-child(even) {
+  background-color: var(--color-bg-standout);
+}
+
+/* ========================================================================== */
+/*                             Forms & Inputs                                 */
+/* ========================================================================== */
+
+input,
+textarea,
+select,
+button {
+  font-family: var(--font-sans);
+  font-size: var(--font-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-sm);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  transition: border-color 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.3);
+}
+
+/* ========================================================================== */
+/*                             Utility & Helpers                              */
+/* ========================================================================== */
+
+.card {
+  background-color: var(--color-bg-standout);
+  border: 1px solid var(--color-border);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  max-width: 400px;
+  margin: var(--space-lg) auto; /* centers horizontally and adds vertical spacing */
+  color: var(--color-text);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-size: var(--font-md);
+}
+
+
+.card:hover,
+.card:focus-within {
+  box-shadow: 4px 4px 15px rgba(210, 105, 30, 0.4);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.bookmark-title {
+  margin: 0 0 var(--space-sm) 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--font-lg);
+}
+
+.bookmark-title a {
+  color: var(--color-text-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.bookmark-title a:hover,
+.bookmark-title a:focus {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+.bookmark-summary {
+  margin: 0;
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Ensure spacing between multiple cards */
+.card + .card {
+  margin-top: var(--space-lg);
+}
+
+
+/* Visually hidden for accessibility */
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Center text utility */
+.text-center {
+  text-align: center;
+}
+
+/* Margin and padding utilities */
+.m-0 {
+  margin: 0 !important;
+}
+.p-0 {
+  padding: 0 !important;
+}
+
+/* ========================================================================== */
+/*                               Responsive Design                            */
+/* ========================================================================== */
+
+@media (max-width: 768px) {
+  main {
+    padding: var(--space-md);
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+}
+
+.timeline-container {
+  max-width: 60em;
+  margin: var(--space-lg) auto;
+  padding: 0 var(--space-md);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: relative;
+  padding-left: 1.5rem; /* space for timeline line */
+  border-left: 3px solid var(--color-accent);
+}
+
+.timeline .outer {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.timeline .outer::before {
+  content: '';
+  position: absolute;
+  left: -1.8rem;
+  top: 0.75rem;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--color-accent);
+}
+
+.microblog-card {
+  background-color: var(--color-bg-standout);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  box-shadow: 0 2px 6px var(--color-shadow);
+  color: var(--color-text);
+  font-size: var(--font-md);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.microblog-card:hover,
+.microblog-card:focus-within {
+  box-shadow: 0 8px 20px rgba(210, 105, 30, 0.35);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.microblog-post-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-link);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.microblog-post-link:hover,
+.microblog-post-link:focus {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+.fediverse-post-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Optional: Adjust timeline vertical spacing on smaller screens */
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 0 var(--space-sm);
+  }
+  .timeline {
+    padding-left: 1rem;
+    border-left-width: 2px;
+  }
+  .timeline .outer::before {
+    left: -1.4rem;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.notvisible {
+	display: none;
+}</style>
+
+		
+		<!-- OpenGraph Meta Tags -->
+		<meta property="og:title" content="Musings on AI - Tom Casavant">
+		<meta property="og:description" content="Blog about things">
+		
+		  <meta property="og:image" content="/img/opengraph/opengraph.png">
+		
+		
+		<meta property="og:url" content="/musings-on-ai/">
+		<meta property="og:type" content="article">
+		<meta property="og:site_name" content="Tom Casavant">
+	</head>
+	<body>
+
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+
+		<style>
+		  .h-card {
+		    display: none;
+		  }
+		</style>
+	
+		<span class="h-card">
+		  <a class="u-url" rel="me" href="/img/images/tomface.png">Tom Casavant</a>
+		  <img class="u-photo" src="/img/images/tomface.png">
+			<img class="u-featured" src="img/opengraph/opengraph.png">
+		</span>
+
+			<a href="/" class="home-link">Tom Casavant</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/">Home</a></li>
+					<li class="nav-item"><a href="/blog/">Archive</a></li>
+					<li class="nav-item"><a href="/portfolio/">Portfolio</a></li>
+					<li class="nav-item"><a href="/bookmarks/">Bookmarks</a></li>
+					<li class="nav-item"><a href="/feeds/">Feeds</a></li>
+					<li class="nav-item"><a href="/food/">Food</a></li>
+					<li class="nav-item"><a href="/photography/">Photography</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+<article class="h-entry">
+    <h1 class="p-name">Musings on AI</h1>
+
+    <ul class="post-metadata">
+        <li><time class="dt-published" datetime="2026-01-10">10 January 2026</time></li>
+    </ul>
+
+    <div class="e-content">
+        <p>For the past few months, I’ve been trying to write a blog post about my thoughts on AI. I’ve written three drafts of this and trashed each one. It’s part of the reason I haven’t published anything since early last year. The issue I kept running into is that there are so many conversations about AI that each time I wrote about it, the scope expanded so far that it became incredibly uninteresting to write and likely twice as boring to read.</p>
+<p>So last weekend, while watching the Bengals season finale against the Browns, I decided to brute-force a stream of consciousness approach (while I’ll never be able to prove it, the first paragraph of that piece included a prediction for the end of that Bengals game that came true almost word-for-word). I wrote out every thought I had about AI so I could collapse that into a single subject that I actually wanted to talk about.</p>
+<p>I ended up with a little over 3,000 words that touched on climate change, education, programming, non-consensual pornography, terminology, online arguments, marketing, comedy, copyright, the economy, security, intelligence, journalism, Luddites and my love for technology, medicine and cancer research, ethics, monopolies, and how I’m such a bad writer. Over the last week, I’ve tried to pare that down to the key points I wanted to make, and I struggled to do so until reading an article from a tech journalist and subsequently “hacking” (using the term <em>very</em> loosely here) that journalist. After that, I managed to pull everything into a much more focused post.</p>
+<h2 id="terminology" tabindex="-1">Terminology <a class="header-anchor" href="#terminology">#</a></h2>
+<p>Wanted to get this out of the way early, when I refer to 'AI', I will primarily be using this to describe LLMs and derivative technology (and if there's an alternative usage I'll try clarify that at that time). While I think it's probably valuable to discuss other forms of AI and algorithmic content early drafts around that tended to get extremely out of scope.</p>
+<h2 id="context" tabindex="-1">Context <a class="header-anchor" href="#context">#</a></h2>
+<p>Earlier this week, I read a post from a journalist discussing the use of a coding agent to generate a website, and presenting it as evidence that this marked the beginning of the end for programmers, a concept that’s been brought up time and time again. I had a hunch that this website had the exact same problem LLM-generated scripts have had since ChatGPT launched several years ago. So I went to their website, found an interesting widget, right-clicked and viewed the source, did a Ctrl+F for API_KEY, and found their Last.fm API key embedded in the site.</p>
+<p>I did my due diligence, notified them that they had leaked an API key, and let them know that they should reset the key in their account to prevent abuse. A few hours later, they thanked me and let me know that they used Claude to fix the mistake (I verified this, and it appeared to have been fixed). From this exchange, I learned a few things about my priorities around AI. To be clear, I consider this journalist to be an incredibly intelligent person, and a far better writer than I am, even though I expect this will read like I am ragging on them at times.</p>
+<h2 id="ethics" tabindex="-1">Ethics <a class="header-anchor" href="#ethics">#</a></h2>
+<p>The first thing I recognized was that I don’t have any particularly deep feelings about the ethics of other people using AI, and that’s something I first realized early on in the AI hype cycle. In my head, it gets grouped into “things I won’t do, but you can if you want.” There are plenty of other things that fall into that category:</p>
+<ul>
+<li>I use Linux instead of Windows</li>
+<li>I use open social media platforms instead of Facebook, Twitter, Instagram, TikTok, Reddit, Substack, etc</li>
+<li>I use open messaging platforms instead of WhatsApp, Messenger, and GroupMe</li>
+<li>I use Android over Apple (though it’s gotten to a point where I consider Android to be just as unethical as Apple, and I’m not entirely sure if I’m ready or capable of moving to a more open mobile platform)</li>
+<li>I use DuckDuckGo over Google</li>
+<li>I use Firefox over Chrome (this one also feels like it’s beginning to cross the line into “I need to start using an alternative to Firefox,” and that change seems more likely to happen sometime this year)</li>
+<li>My thermostat is set very low in the winter, and I take short showers.</li>
+</ul>
+<p>I’m not going to try to force anyone to do any of the above, even if they probably should. It’s not like I’m perfect (though if you ask me in person, I’ll probably claim otherwise). I believe becoming a vegetarian is far more impactful on the environment than avoiding ChatGPT, but I haven’t decided to make that leap yet.</p>
+<p>The point is, the fact that this journalist was using AI wasn’t something I was upset about.</p>
+<p>People who depend on AI often agree with me on many of those other points. Some AI skeptics might claim that by using AI, those people suddenly become climate-denying monopolists, and that’s just not something I see as true. My ethics-based concerns lie mainly with the AI companies themselves.</p>
+<h2 id="security-and-the-ai-narrative" tabindex="-1">Security and The AI Narrative <a class="header-anchor" href="#security-and-the-ai-narrative">#</a></h2>
+<p>(I tried to come up with a less inflamatory sounding label than &quot;The AI Narrative&quot; but failed, so please do not think of it as a more intense description than it is meant to be)</p>
+<p>For those not in the tech space, an API Key (or Application Programming Interface) is basically a password that lets you interface with some piece of software. In Last.FM's case, the API key lets me see this journalist's music listening histor or something as generic as getting the top songs across the Last.FM platform. Which probably isn't a huge deal, the original widget on their site was just showing their most recent listened to song so it's not like I have significantly more data than I did before I got access to the key. The worst thing I can probably do is start using this key and force his account to hit rate limits (a rate limit is basically when an account has used the API too often in a short amount of time, so the software stops responding to requests from that account). But, imagine for a second that instead of a Last.FM API key, I had obtained a key used to pull in data from their social media account, then suddenly I could potentially write posts on their behalf (you can see how that could be bad, the puns I post could destroy their reputation irreparably). Anyways, to avoid this developers will typically hide the API key instead of publishing it directly to their website.</p>
+<p>It's not the leak that frustrates me, however. Sure, it exposes a larger problem with LLMs that has been around since coding with LLMs began, but the reason LLMs do this is because they are trained on code, written by humans, which leaked API keys as well. I have personally contacted several people on Github when I've noticed that their project has published an API key, this is not a new proble and any reasonably well-trained developer who used Claude to generate code would probably catch that mistake pretty quickly. What worries me is what happened after. In that initial email I had told them what they needed to do to that API key to rectify this leak (remove it from their account). Days later, however, that key still gives me access to their account. While I won't ever touch that key again, their website was up for days before I looked at it so who knows who else has access? This is something that an actual developer would have immediately dealt with, but I expect this will never get fixed.</p>
+<p>And this is where we get to the narrative that’s repeated year after year: that AI enables you to do things that would otherwise take months (<em>or years</em>) of training. That it can already replace software developers, lawyers, doctors, therapists, authors, teachers, or mathematicians. I keep reading articles that say this is the year AI replaces X, Y, or Z. I read those same articles last year, and the year before that.</p>
+<p>I’m not under the illusion that AI will never be good enough to replace people in any industry. I just wish the entire AI hype cycle would take a step back and pause before telling people to unconditionally trust the output of these LLMs, especially when those same people aren’t trained to recognize when something is wrong with it. Maybe this concern extends to the internet more broadly and not just AI output, but for most of my life I’ve consistently heard things like: “don’t trust everything you read on Twitter,” “don’t copy-paste random Stack Overflow code,” or “don’t use Wikipedia as a source&quot;. And yet AI companies and pro-AI writers seem determined to make the opposite point-that this is the year you’ll be able to vibe-code your own website and never have to think about the code at all.</p>
+<h2 id="conclusion" tabindex="-1">Conclusion <a class="header-anchor" href="#conclusion">#</a></h2>
+<p>Look, maybe I’m wrong. Nobody can predict the future. Maybe 2026 is the year we finally replace 20 million software developers with 5 million skilled prompters, but I just don’t see it happening. And I worry that we’re moving closer and closer to a security nightmare as AI-generated code becomes easier to make by people less likely to understand it.</p>
+<h2 id="citations-ish" tabindex="-1">Citations-ish <a class="header-anchor" href="#citations-ish">#</a></h2>
+<p>I figured I'd provide a list of everything I've read about AI over the course of the last few years to give you an idea of the headspace I'm in. I went through my browser(s) history (as far as I could) and various groupchats I'm in and compiled as many resources as I could though I'm sure this isn't all of it:</p>
+<ul>
+<li><a href="https://www.wired.com/story/grok-is-generating-sexual-content-far-more-graphic-than-whats-on-x/">https://www.wired.com/story/grok-is-generating-sexual-content-far-more-graphic-than-whats-on-x/</a></li>
+<li><a href="https://yaleclimateconnections.org/2025/09/what-you-need-to-know-about-ai-and-climate-change/">https://yaleclimateconnections.org/2025/09/what-you-need-to-know-about-ai-and-climate-change/</a></li>
+<li><a href="https://www.boston.com/news/education/2025/09/17/mcas-essays-scored-incorrectly-ai-mishap/">https://www.boston.com/news/education/2025/09/17/mcas-essays-scored-incorrectly-ai-mishap/</a></li>
+<li><a href="https://andymasley.substack.com/p/the-ai-water-issue-is-fake">https://andymasley.substack.com/p/the-ai-water-issue-is-fake</a></li>
+<li><a href="https://www.wheresyoured.at/costs/">https://www.wheresyoured.at/costs/</a></li>
+<li><a href="https://mathstodon.xyz/@tao/114881418225852441">https://mathstodon.xyz/@tao/114881418225852441</a></li>
+<li><a href="https://mathstodon.xyz/@tao/115316787727719049">https://mathstodon.xyz/@tao/115316787727719049</a></li>
+<li><a href="https://mikelovesrobots.substack.com/p/wheres-the-shovelware-why-ai-coding">https://mikelovesrobots.substack.com/p/wheres-the-shovelware-why-ai-coding</a></li>
+<li><a href="https://www.gamingonlinux.com/2025/10/fedora-linux-project-agrees-to-allow-ai-assisted-contributions-with-a-new-policy/">https://www.gamingonlinux.com/2025/10/fedora-linux-project-agrees-to-allow-ai-assisted-contributions-with-a-new-policy/</a></li>
+<li><a href="https://www.anildash.com/2025/10/17/the-majority-ai-view/">https://www.anildash.com/2025/10/17/the-majority-ai-view/</a></li>
+<li><a href="https://www.normaltech.ai/p/ai-as-normal-technology">https://www.normaltech.ai/p/ai-as-normal-technology</a></li>
+<li><a href="https://brooklyn.bearblog.dev/ai-futures/">https://brooklyn.bearblog.dev/ai-futures/</a></li>
+<li><a href="https://samsaffron.com/archive/2025/10/27/your-vibe-coded-slop-pr-is-not-welcome">https://samsaffron.com/archive/2025/10/27/your-vibe-coded-slop-pr-is-not-welcome</a></li>
+<li><a href="https://github.com/cloud-hypervisor/cloud-hypervisor/blob/main/CONTRIBUTING.md">https://github.com/cloud-hypervisor/cloud-hypervisor/blob/main/CONTRIBUTING.md</a></li>
+<li><a href="https://gist.github.com/bagder/07f7581f6e3d78ef37dfbfc81fd1d1cd">https://gist.github.com/bagder/07f7581f6e3d78ef37dfbfc81fd1d1cd</a></li>
+<li><a href="https://www.nytimes.com/2025/10/28/style/48-hours-without-ai.html">https://www.nytimes.com/2025/10/28/style/48-hours-without-ai.html</a></li>
+<li><a href="https://colah.github.io/notes/bio-analogies/">https://colah.github.io/notes/bio-analogies/</a></li>
+<li><a href="https://garymarcus.substack.com/p/too-big-to-fail">https://garymarcus.substack.com/p/too-big-to-fail</a></li>
+<li><a href="https://seangoedecke.com/ai-enterprise-projects-fail/">https://seangoedecke.com/ai-enterprise-projects-fail/</a></li>
+<li><a href="https://venturebeat.com/ai/sakana-ais-cto-says-hes-absolutely-sick-of-transformers-the-tech-that-powers">https://venturebeat.com/ai/sakana-ais-cto-says-hes-absolutely-sick-of-transformers-the-tech-that-powers</a></li>
+<li><a href="https://joshbrake.substack.com/p/llms-are-not-intelligent">https://joshbrake.substack.com/p/llms-are-not-intelligent</a></li>
+<li><a href="https://arxiv.org/abs/1911.01547">https://arxiv.org/abs/1911.01547</a></li>
+<li><a href="https://arxiv.org/abs/2402.01781">https://arxiv.org/abs/2402.01781</a></li>
+<li><a href="https://xcancel.com/fchollet/status/1755250582334709970">https://xcancel.com/fchollet/status/1755250582334709970</a></li>
+<li><a href="https://arxiv.org/abs/2503.04490v1">https://arxiv.org/abs/2503.04490v1</a></li>
+<li><a href="https://arxiv.org/abs/2507.07935">https://arxiv.org/abs/2507.07935</a></li>
+<li><a href="https://blog.mathieuacher.com/GPT5-IllegalChessBench/">https://blog.mathieuacher.com/GPT5-IllegalChessBench/</a></li>
+<li><a href="https://www.nature.com/articles/s41746-024-01127-3">https://www.nature.com/articles/s41746-024-01127-3</a></li>
+<li><a href="https://www.lesswrong.com/posts/zAcYRJP9CZcYXTs7o/what-was-so-great-about-move-37">https://www.lesswrong.com/posts/zAcYRJP9CZcYXTs7o/what-was-so-great-about-move-37</a></li>
+<li><a href="https://www.pnas.org/doi/10.1073/pnas.2406675122">https://www.pnas.org/doi/10.1073/pnas.2406675122</a></li>
+<li><a href="https://kczat.medium.com/limits-to-super-intelligence-a0c7b5ff22e6">https://kczat.medium.com/limits-to-super-intelligence-a0c7b5ff22e6</a></li>
+<li><a href="https://arxiv.org/abs/2411.05943v2">https://arxiv.org/abs/2411.05943v2</a></li>
+<li><a href="https://thezvi.substack.com/p/openai-moves-to-complete-potentially?r=67wny">https://thezvi.substack.com/p/openai-moves-to-complete-potentially?r=67wny</a></li>
+<li><a href="https://www.lesswrong.com/posts/2pkNCvBtK6G6FKoNn">https://www.lesswrong.com/posts/2pkNCvBtK6G6FKoNn</a></li>
+<li><a href="https://justismills.substack.com/p/ai-self-portraits-arent-accurate">https://justismills.substack.com/p/ai-self-portraits-arent-accurate</a></li>
+<li><a href="https://whenaiseemsconscious.org/">https://whenaiseemsconscious.org/</a></li>
+<li><a href="https://justismills.substack.com/p/ai-cant-write-good-fiction">https://justismills.substack.com/p/ai-cant-write-good-fiction</a></li>
+<li><a href="https://ethanmarcotte.com/wrote/the-line-and-the-stream/">https://ethanmarcotte.com/wrote/the-line-and-the-stream/</a></li>
+<li><a href="https://ethanmarcotte.com/wrote/against-stocking-frames/">https://ethanmarcotte.com/wrote/against-stocking-frames/</a></li>
+<li><a href="https://www.forbes.com/sites/dereknewton/2025/09/27/national-test-scores-are-down-is-generative-ai-partly-to-blame/">https://www.forbes.com/sites/dereknewton/2025/09/27/national-test-scores-are-down-is-generative-ai-partly-to-blame/</a></li>
+<li><a href="https://jstrainor.substack.com/p/are-students-using-chatgpt-or-is">https://jstrainor.substack.com/p/are-students-using-chatgpt-or-is</a></li>
+<li><a href="https://www.currentaffairs.org/news/ai-is-destroying-the-university-and-learning-itself">https://www.currentaffairs.org/news/ai-is-destroying-the-university-and-learning-itself</a></li>
+<li><a href="https://boston.conman.org/2025/12/02.1">https://boston.conman.org/2025/12/02.1</a></li>
+<li><a href="https://arstechnica.com/ai/2025/12/microsoft-slashes-ai-sales-growth-targets-as-customers-resist-unproven-agents/">https://arstechnica.com/ai/2025/12/microsoft-slashes-ai-sales-growth-targets-as-customers-resist-unproven-agents/</a></li>
+<li><a href="https://embracethered.com/blog/posts/2025/the-normalization-of-deviance-in-ai/">https://embracethered.com/blog/posts/2025/the-normalization-of-deviance-in-ai/</a></li>
+<li><a href="https://www.anthropic.com/research/small-samples-poison">https://www.anthropic.com/research/small-samples-poison</a></li>
+<li><a href="https://mathstodon.xyz/@tao/115855840223258103">https://mathstodon.xyz/@tao/115855840223258103</a></li>
+<li><a href="https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems">https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems</a></li>
+<li><a href="https://blog.samaltman.com/reflections">https://blog.samaltman.com/reflections</a></li>
+<li><a href="https://blog.samaltman.com/the-gentle-singularity">https://blog.samaltman.com/the-gentle-singularity</a></li>
+<li><a href="https://www.theverge.com/ai-artificial-intelligence/795171/openai-devday-sam-altman-sora-launch-copyright">https://www.theverge.com/ai-artificial-intelligence/795171/openai-devday-sam-altman-sora-launch-copyright</a></li>
+<li><a href="https://www.cnbc.com/2025/08/19/sam-altman-on-gpt-6-people-want-memory.html">https://www.cnbc.com/2025/08/19/sam-altman-on-gpt-6-people-want-memory.html</a></li>
+<li><a href="https://blog.samaltman.com/abundant-intelligence">https://blog.samaltman.com/abundant-intelligence</a></li>
+<li><a href="https://www.cbsnews.com/news/judge-approves-1-5-billion-dollar-settlement-anthropic-pirated-books/">https://www.cbsnews.com/news/judge-approves-1-5-billion-dollar-settlement-anthropic-pirated-books/</a></li>
+<li><a href="https://www.nytimes.com/2025/09/29/opinion/anthropic-chatbot-lawsuit-books.html?unlocked_article_code=1.pk8.fTTk.Nk5G8tp1CxTs">https://www.nytimes.com/2025/09/29/opinion/anthropic-chatbot-lawsuit-books.html?unlocked_article_code=1.pk8.fTTk.Nk5G8tp1CxTs</a></li>
+<li><a href="https://www.theverge.com/podcast/784865/ai-safety-military-defense-openai-anthropic-ethics">https://www.theverge.com/podcast/784865/ai-safety-military-defense-openai-anthropic-ethics</a></li>
+<li><a href="https://www.reuters.com/business/openai-anthropic-eye-investor-funds-settle-ai-lawsuits-ft-reports-2025-10-08/">https://www.reuters.com/business/openai-anthropic-eye-investor-funds-settle-ai-lawsuits-ft-reports-2025-10-08/</a></li>
+<li><a href="https://www.wired.com/story/anthropic-settlement-lawsuit-copyright/">https://www.wired.com/story/anthropic-settlement-lawsuit-copyright/</a></li>
+<li><a href="https://werd.io/this-is-how-much-anthropic-and-cursor-spend-on-amazon-web-services/">https://werd.io/this-is-how-much-anthropic-and-cursor-spend-on-amazon-web-services/</a></li>
+<li><a href="https://www.theverge.com/podcast/838023/anthropic-societal-impact-trump-woke-ai-interview">https://www.theverge.com/podcast/838023/anthropic-societal-impact-trump-woke-ai-interview</a></li>
+<li><a href="https://www.anthropic.com/research/introspection">https://www.anthropic.com/research/introspection</a></li>
+<li><a href="https://openai.com/index/why-language-models-hallucinate/">https://openai.com/index/why-language-models-hallucinate/</a></li>
+<li><a href="https://news.mit.edu/2025/large-language-models-reason-about-diverse-data-general-way-0219">https://news.mit.edu/2025/large-language-models-reason-about-diverse-data-general-way-0219</a></li>
+<li><a href="https://openaipublic.blob.core.windows.net/neuron-explainer/paper/index.html">https://openaipublic.blob.core.windows.net/neuron-explainer/paper/index.html</a></li>
+<li><a href="https://medium.com/@yaswanthreddy3775/are-large-language-models-just-fancy-autocomplete-machines-15060a9a4a52">https://medium.com/@yaswanthreddy3775/are-large-language-models-just-fancy-autocomplete-machines-15060a9a4a52</a></li>
+<li><a href="https://cset.georgetown.edu/article/the-surprising-power-of-next-word-prediction-large-language-models-explained-part-1/">https://cset.georgetown.edu/article/the-surprising-power-of-next-word-prediction-large-language-models-explained-part-1/</a></li>
+<li><a href="https://arxiv.org/html/2511.15304v1">https://arxiv.org/html/2511.15304v1</a></li>
+<li><a href="https://www.theverge.com/ai-artificial-intelligence/827820/large-language-models-ai-intelligence-neuroscience-problems">https://www.theverge.com/ai-artificial-intelligence/827820/large-language-models-ai-intelligence-neuroscience-problems</a></li>
+<li><a href="https://www.vincentschmalbach.com/does-temperature-0-guarantee-deterministic-llm-outputs/">https://www.vincentschmalbach.com/does-temperature-0-guarantee-deterministic-llm-outputs/</a></li>
+<li><a href="https://ai.stackexchange.com/questions/43314/why-are-llms-able-to-reproduce-bodies-of-known-text-exactly">https://ai.stackexchange.com/questions/43314/why-are-llms-able-to-reproduce-bodies-of-known-text-exactly</a></li>
+<li><a href="https://medium.com/@alain94040/llms-are-not-just-autocomplete-a-simple-proof-a4880dd25a5b">https://medium.com/@alain94040/llms-are-not-just-autocomplete-a-simple-proof-a4880dd25a5b</a></li>
+<li><a href="https://codemanship.wordpress.com/2025/09/30/comprehension-debt-the-ticking-time-bomb-of-llm-generated-code/">https://codemanship.wordpress.com/2025/09/30/comprehension-debt-the-ticking-time-bomb-of-llm-generated-code/</a></li>
+<li><a href="https://vgel.me/posts/seahorse/">https://vgel.me/posts/seahorse/</a></li>
+<li><a href="https://medium.com/@sepp.ruchti/are-llms-thinking-what-geoffrey-hinton-thinks-3dc12f5dffd6">https://medium.com/@sepp.ruchti/are-llms-thinking-what-geoffrey-hinton-thinks-3dc12f5dffd6</a></li>
+<li><a href="https://garymarcus.substack.com/p/llms-dont-do-formal-reasoning-and">https://garymarcus.substack.com/p/llms-dont-do-formal-reasoning-and</a></li>
+<li><a href="https://garymarcus.substack.com/p/a-knockout-blow-for-llms">https://garymarcus.substack.com/p/a-knockout-blow-for-llms</a></li>
+<li><a href="https://www.snellman.net/blog/archive/2025-06-02-llms-are-cheap/">https://www.snellman.net/blog/archive/2025-06-02-llms-are-cheap/</a></li>
+<li><a href="https://simonwillison.net/2025/Jun/6/six-months-in-llms/">https://simonwillison.net/2025/Jun/6/six-months-in-llms/</a></li>
+<li><a href="https://llm-brain-rot.github.io/">https://llm-brain-rot.github.io/</a></li>
+<li><a href="https://www.secwest.net/strawberry">https://www.secwest.net/strawberry</a></li>
+<li><a href="https://xcancel.com/fchollet/status/1755270681359716611#m">https://xcancel.com/fchollet/status/1755270681359716611#m</a></li>
+<li><a href="https://www.youtube.com/watch?v=4lKyNdZz3Vw">https://www.youtube.com/watch?v=4lKyNdZz3Vw</a></li>
+<li><a href="https://www.youtube.com/watch?v=90C3XVjUMqE">https://www.youtube.com/watch?v=90C3XVjUMqE</a></li>
+<li><a href="https://forum.effectivealtruism.org/posts/MGpJpN3mELxwyfv8t/francois-chollet-on-why-llms-won-t-scale-to-agi">https://forum.effectivealtruism.org/posts/MGpJpN3mELxwyfv8t/francois-chollet-on-why-llms-won-t-scale-to-agi</a></li>
+<li><a href="https://fchollet.substack.com/p/how-i-think-about-llm-prompt-engineering">https://fchollet.substack.com/p/how-i-think-about-llm-prompt-engineering</a></li>
+<li><a href="https://www.superannotate.com/blog/llm-active-learning">https://www.superannotate.com/blog/llm-active-learning</a></li>
+<li><a href="https://springboards.ai/blog-posts/you-cant-ask-an-llm-to-be-more-random">https://springboards.ai/blog-posts/you-cant-ask-an-llm-to-be-more-random</a></li>
+<li><a href="https://www.mindprison.cc/p/why-llms-dont-ask-for-calculators">https://www.mindprison.cc/p/why-llms-dont-ask-for-calculators</a></li>
+<li><a href="https://the-decoder.com/new-research-finds-llms-report-subjective-experience-most-when-roleplay-is-reduced/">https://the-decoder.com/new-research-finds-llms-report-subjective-experience-most-when-roleplay-is-reduced/</a></li>
+<li><a href="https://arxiv.org/abs/2410.13722v1">https://arxiv.org/abs/2410.13722v1</a></li>
+<li><a href="https://simonwillison.net/2025/Dec/31/the-year-in-llms/">https://simonwillison.net/2025/Dec/31/the-year-in-llms/</a></li>
+<li><a href="https://www.youtube.com/watch?v=VctsqOo8wsc">https://www.youtube.com/watch?v=VctsqOo8wsc</a></li>
+<li><a href="https://www.youtube.com/watch?v=7SytuSS3sIc">https://www.youtube.com/watch?v=7SytuSS3sIc</a></li>
+<li><a href="https://www.youtube.com/watch?v=F5ajyr5VzS0">https://www.youtube.com/watch?v=F5ajyr5VzS0</a></li>
+<li><a href="https://embracethered.com/blog/posts/2025/39c3-agentic-probllms-exploiting-computer-use-and-coding-agents/">https://embracethered.com/blog/posts/2025/39c3-agentic-probllms-exploiting-computer-use-and-coding-agents/</a></li>
+<li><a href="https://github.com/tailwindlabs/tailwindcss.com/pull/2388#issuecomment-3717222957">https://github.com/tailwindlabs/tailwindcss.com/pull/2388#issuecomment-3717222957</a></li>
+<li><a href="https://muxup.com/2026q1/per-query-energy-consumption-of-llms">https://muxup.com/2026q1/per-query-energy-consumption-of-llms</a></li>
+<li><a href="https://simonwillison.net/2026/Jan/8/llm-predictions-for-2026/">https://simonwillison.net/2026/Jan/8/llm-predictions-for-2026/</a></li>
+<li><a href="https://www.theregister.com/2025/05/07/curl_ai_bug_reports/">https://www.theregister.com/2025/05/07/curl_ai_bug_reports/</a></li>
+<li><a href="https://www.linkedin.com/posts/danielstenberg_hackerone-curl-activity-7324820893862363136-glb1/?rcm=ACoAABvgIC0Bx1xUu-E97QUzl6wtDuTtUHlFX7g">https://www.linkedin.com/posts/danielstenberg_hackerone-curl-activity-7324820893862363136-glb1/?rcm=ACoAABvgIC0Bx1xUu-E97QUzl6wtDuTtUHlFX7g</a></li>
+<li><a href="https://sethmlarson.dev/slop-security-reports">https://sethmlarson.dev/slop-security-reports</a></li>
+<li><a href="https://garymarcus.substack.com/p/deconstructing-geoffrey-hintons-weakest">https://garymarcus.substack.com/p/deconstructing-geoffrey-hintons-weakest</a></li>
+<li><a href="https://www.wheresyoured.at/openai-onetrillion/">https://www.wheresyoured.at/openai-onetrillion/</a></li>
+<li><a href="https://www.wheresyoured.at/sic/">https://www.wheresyoured.at/sic/</a></li>
+<li><a href="https://www.wheresyoured.at/the-case-against-generative-ai/">https://www.wheresyoured.at/the-case-against-generative-ai/</a></li>
+<li><a href="https://www.wheresyoured.at/the-haters-gui/">https://www.wheresyoured.at/the-haters-gui/</a></li>
+<li><a href="https://www.wheresyoured.at/2025-a-retrospective/">https://www.wheresyoured.at/2025-a-retrospective/</a></li>
+<li><a href="https://www.wheresyoured.at/the-enshittifinancial-crisis/">https://www.wheresyoured.at/the-enshittifinancial-crisis/</a></li>
+<li><a href="https://tom7.org/bovex/">https://tom7.org/bovex/</a></li>
+<li><a href="https://www.lesswrong.com/posts/D7PumeYTDPfBTp3i7/the-waluigi-effect-mega-post">https://www.lesswrong.com/posts/D7PumeYTDPfBTp3i7/the-waluigi-effect-mega-post</a></li>
+<li><a href="https://github-roast.pages.dev/">https://github-roast.pages.dev/</a></li>
+<li><a href="https://calcgpt.io/">https://calcgpt.io/</a></li>
+<li><a href="https://arxiv.org/abs/2405.15012">https://arxiv.org/abs/2405.15012</a></li>
+<li><a href="https://fortune.com/2025/10/07/deloitte-ai-australia-government-report-hallucinations-technology-290000-refund/">https://fortune.com/2025/10/07/deloitte-ai-australia-government-report-hallucinations-technology-290000-refund/</a></li>
+<li><a href="https://www.computerworld.com/article/4059383/openai-admits-ai-hallucinations-are-mathematically-inevitable-not-just-engineering-flaws.html">https://www.computerworld.com/article/4059383/openai-admits-ai-hallucinations-are-mathematically-inevitable-not-just-engineering-flaws.html</a></li>
+<li><a href="https://tech.slashdot.org/story/25/09/30/2028215/openais-new-social-video-app-will-let-you-deepfake-your-friends">https://tech.slashdot.org/story/25/09/30/2028215/openais-new-social-video-app-will-let-you-deepfake-your-friends</a></li>
+<li><a href="https://www.techinasia.com/news/openais-revenue-rises-16-to-4-3b-in-h1-2025">https://www.techinasia.com/news/openais-revenue-rises-16-to-4-3b-in-h1-2025</a></li>
+<li><a href="https://www.youtube.com/watch?v=TWpg1RmzAbc">https://www.youtube.com/watch?v=TWpg1RmzAbc</a></li>
+<li><a href="https://www.youtube.com/watch?v=9Ch4a6ffPZY">https://www.youtube.com/watch?v=9Ch4a6ffPZY</a></li>
+<li><a href="https://www.youtube.com/watch?v=nMwiQE8Nsjc">https://www.youtube.com/watch?v=nMwiQE8Nsjc</a></li>
+<li><a href="https://www.youtube.com/watch?v=W2xZxYaGlfs">https://www.youtube.com/watch?v=W2xZxYaGlfs</a></li>
+<li><a href="https://www.cnbc.com/2025/10/07/openais-sora-2-must-stop-allowing-copyright-infringement-mpa-says.html">https://www.cnbc.com/2025/10/07/openais-sora-2-must-stop-allowing-copyright-infringement-mpa-says.html</a></li>
+<li><a href="https://archive.is/Pagn7">https://archive.is/Pagn7</a></li>
+<li><a href="https://webtechnology.news/openai-turns-chatgpt-into-a-web-app-platform/">https://webtechnology.news/openai-turns-chatgpt-into-a-web-app-platform/</a></li>
+<li><a href="https://github.com/openai/whisper/discussions/2608">https://github.com/openai/whisper/discussions/2608</a></li>
+<li><a href="https://futurism.com/artificial-intelligence/openai-sora-trouble-backlash-copyright">https://futurism.com/artificial-intelligence/openai-sora-trouble-backlash-copyright</a></li>
+<li><a href="https://thezvi.substack.com/p/openai-15-more-on-openais-paranoid">https://thezvi.substack.com/p/openai-15-more-on-openais-paranoid</a></li>
+<li><a href="https://techcrunch.com/2025/10/19/openais-embarrassing-math/">https://techcrunch.com/2025/10/19/openais-embarrassing-math/</a></li>
+<li><a href="https://www.youtube.com/watch?v=COOAssGkF6I">https://www.youtube.com/watch?v=COOAssGkF6I</a></li>
+<li><a href="https://www.youtube.com/watch?v=Q0TpWitfxPk">https://www.youtube.com/watch?v=Q0TpWitfxPk</a></li>
+<li><a href="https://www.oneusefulthing.org/p/something-new-on-openais-strawberry">https://www.oneusefulthing.org/p/something-new-on-openais-strawberry</a></li>
+<li><a href="https://adrianroselli.com/2025/10/openai-aria-and-seo-making-the-web-worse.html">https://adrianroselli.com/2025/10/openai-aria-and-seo-making-the-web-worse.html</a></li>
+<li><a href="https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content">https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content</a></li>
+<li><a href="https://www.ft.com/content/ad94db4c-95a0-4c65-bd8d-3b43e1251091">https://www.ft.com/content/ad94db4c-95a0-4c65-bd8d-3b43e1251091</a></li>
+<li><a href="https://www.theverge.com/news/859309/grok-undressing-limit-access-gaslighting">https://www.theverge.com/news/859309/grok-undressing-limit-access-gaslighting</a></li>
+<li><a href="https://www.linkedin.com/posts/galenh_principal-software-engineer-coreai-microsoft-activity-7407863239289729024-WTzf/">https://www.linkedin.com/posts/galenh_principal-software-engineer-coreai-microsoft-activity-7407863239289729024-WTzf/</a></li>
+<li><a href="https://techcrunch.com/2025/09/25/elon-musks-xai-offers-grok-to-federal-government-for-42-cents/">https://techcrunch.com/2025/09/25/elon-musks-xai-offers-grok-to-federal-government-for-42-cents/</a></li>
+<li><a href="https://www.404media.co/elon-musk-could-drink-piss-better-than-any-human-in-history-grok-says/">https://www.404media.co/elon-musk-could-drink-piss-better-than-any-human-in-history-grok-says/</a></li>
+<li><a href="https://www.scottsmitelli.com/articles/altoids-by-the-fistful/">https://www.scottsmitelli.com/articles/altoids-by-the-fistful/</a></li>
+<li><a href="https://medium.com/@finneganarthurnotes/sam-altman-just-unveiled-a-story-written-by-an-ai-it-sucks-99875653df91">https://medium.com/@finneganarthurnotes/sam-altman-just-unveiled-a-story-written-by-an-ai-it-sucks-99875653df91</a></li>
+<li><a href="https://time.com/7343213/ai-mental-health-therapy-risks/">https://time.com/7343213/ai-mental-health-therapy-risks/</a></li>
+<li><a href="https://simonwillison.net/2025/May/20/ai-energy-footprint/#atom-everything">https://simonwillison.net/2025/May/20/ai-energy-footprint/#atom-everything</a></li>
+<li><a href="https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/">https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/</a></li>
+<li><a href="https://news.mit.edu/2025/explained-generative-ai-environmental-impact-0117">https://news.mit.edu/2025/explained-generative-ai-environmental-impact-0117</a></li>
+<li><a href="https://www.reuters.com/world/google-ai-firm-settle-florida-mothers-lawsuit-over-sons-suicide-2026-01-07/">https://www.reuters.com/world/google-ai-firm-settle-florida-mothers-lawsuit-over-sons-suicide-2026-01-07/</a></li>
+<li><a href="https://iee.psu.edu/news/blog/why-ai-uses-so-much-energy-and-what-we-can-do-about-it">https://iee.psu.edu/news/blog/why-ai-uses-so-much-energy-and-what-we-can-do-about-it</a></li>
+<li><a href="https://pluralistic.net/2025/12/05/pop-that-bubble/#u-washington">https://pluralistic.net/2025/12/05/pop-that-bubble/#u-washington</a></li>
+<li><a href="https://sightlessscribbles.com/the-colonization-of-confidence/">https://sightlessscribbles.com/the-colonization-of-confidence/</a></li>
+</ul>
+<hr>
+
+    </div>
+
+    <a href="/musings-on-ai/" class="u-url"></a>
+    <ul class="links-nextprev"><li>Previous: <a href="/i-posted-to-mastodon-1-mile-away-from-an-internet-connection/">I Posted to Mastodon 1 Mile Away from an Internet Connection</a></li>
+    </ul>
+
+		<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
+</article>
+
+<section>  
+  <h2>Webmentions</h2>  
+  
+  <div class="webmentions content-grid-sibling" id="webmentions">
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<p>These are <a href="https://indieweb.org/Webmention">webmentions</a> via the <a href="https://indieweb.org/">IndieWeb</a> and <a href="https://webmention.io/">webmention.io</a>. Mention this post from your site:</p>
+
+<form action="https://webmention.io/tomcasavant.com/webmention" method="post" class="form-webmention">
+    <label for="form-webmention-source">URL</label><br>
+    <input id="form-webmention-source" type="url" name="source" placeholder="https://example.com" required="">
+    <input type="hidden" name="target" value="https://tomcasavant.com/musings-on-ai/">
+    <input type="submit" class="button button-small" value="Send Webmention">
+  </form>
+</div>
+
+</section>
+
+
+		</main>
+
+		<footer></footer>
+
+		<!-- This page `/musings-on-ai/` was built on 2026-01-10T20:54:53.509Z -->
+	</body>
+</html>
