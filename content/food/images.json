@@ -1,4 +1,16 @@
 [
+	{
+      "file": "./images/chocolate-chip-chip-cookies.jpg",
+      "caption": "Chocolate chip cookies made with crumbled kettle chips",
+      "date": "2026-01-03",
+      "orientation": "portrait"
+    },
+    {
+      "file": "./images/chocolate-chip-chip-cookies-2.jpg",
+      "caption": "Chocolate chip cookies made with crumbled kettle chips",
+      "date": "2026-01-03",
+      "orientation": "portrait"
+    },
     {
       "file": "./images/apples-in-pasta-sauce.jpg",
       "caption": "Someone put Apple Slices in my Pasta Sauce",
