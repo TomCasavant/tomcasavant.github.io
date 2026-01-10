@@ -34,7 +34,7 @@ I’m not going to try to force anyone to do any of the above, even if they prob
 
 The point is, the fact that this journalist was using AI wasn’t something I was upset about.
 
-People who depend on AI often agree with me on many of those other points. Some AI skeptics might claim that by using AI, those people suddenly become climate-denying monopolists, and that’s just not something I see as true. My ethics-based concerns lie mainly with the AI companies themselves.
+People who depend on AI often agree with me on many of those other points. Some AI skeptics might claim that by using AI, those people suddenly become climate-change-denying monopolists, and that’s just not something I see as true. My ethics-based concerns lie mainly with the AI companies themselves.
  
  ## Security and The AI Narrative
  (I tried to come up with a less inflamatory sounding label than "The AI Narrative" but failed, so please do not think of it as a more intense description than it is meant to be)
