@@ -56,10 +56,11 @@
 {% if repliesSize > 0 %}
 <div class="webmention-replies">
   <h3>{{ repliesSize }} {% if repliesSize == "1" %}Reply{% else %}Replies{% endif %}</h3>
-
+  (Temporarily removed webmention replies from being show while I re-work how this looks)
+  {#
   {% for webmention in replies %}
     {% include 'webmention.njk' %}
-  {% endfor %}
+  {% endfor %} #}
 </div>
 {% endif %}
 
