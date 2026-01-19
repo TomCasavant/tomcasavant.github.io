@@ -21,40 +21,39 @@
 		
 		<link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
 		<style>* { box-sizing: border-box; }
-/* Message Box */
 * { box-sizing: border-box; }
 .postlist { counter-reset: start-from 35 }
-/* Message Box */
-* { box-sizing: border-box; }
-/* ========================================================================== */
-/*                            CSS Variables & Themes                          */
-/* ========================================================================== */
 
-/* Base font families */
+* { box-sizing: border-box; }
+
+
+
+
+
 :root {
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   --font-mono: Consolas, Menlo, Monaco, "Andale Mono", "Lucida Console",
     monospace;
 
-  /* Spacing scale */
+  
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 2.5rem;
 
-  /* Font sizes */
+  
   --font-xs: 0.75rem;
   --font-sm: 0.875rem;
   --font-md: 1rem;
   --font-lg: 1.25rem;
   --font-xl: 1.5rem;
 
-  /* Border radius */
+  
   --radius: 8px;
 
-  /* Colors — Light theme */
+  
   --color-bg: #fefefe;
   --color-bg-standout: #fff8f1;
   --color-text: #2a2a2a;
@@ -64,14 +63,14 @@
   --color-border: #ddd;
   --color-shadow: rgba(0, 0, 0, 0.05);
 
-  /* Accent */
+  
   --color-accent: #d2691e;
 
-  /* Syntax */
+  
   --syntax-tab-size: 2;
 }
 
-/* Dark theme overrides */
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg: #121212;
@@ -86,9 +85,9 @@
   }
 }
 
-/* ========================================================================== */
-/*                                Base Reset                                  */
-/* ========================================================================== */
+
+
+
 
 *,
 *::before,
@@ -135,9 +134,9 @@ p:last-child {
   margin-bottom: 0;
 }
 
-/* ========================================================================== */
-/*                                Typography                                  */
-/* ========================================================================== */
+
+
+
 
 code,
 pre {
@@ -172,9 +171,9 @@ a:focus {
   text-decoration: underline;
 }
 
-/* ========================================================================== */
-/*                                Layout & Containers                         */
-/* ========================================================================== */
+
+
+
 
 main {
   max-width: 60em;
@@ -184,13 +183,13 @@ main {
 
 header {
   display: flex;
-  align-items: center;    /* vertically center items */
+  align-items: center;    
   gap: var(--space-md);
   padding: var(--space-md) var(--space-md);
   max-width: 60em;
   margin: 0 auto;
   border-bottom: 1px solid var(--color-border);
-  /* no justify-content, so items stay grouped on the left */
+  
 }
 
 .home-link {
@@ -201,7 +200,7 @@ header {
   margin: 0;
   padding: 0;
   position: relative;
-  top: -3px;  /* nudge up to align with nav */
+  top: -3px;  
 }
 
 .nav {
@@ -237,11 +236,6 @@ footer {
   border-top: 1px solid var(--color-border);
 }
 
-/* ========================================================================== */
-/*                              Post List & Webmentions                       */
-/* ========================================================================== */
-
-/* Posts list */
 .postlist {
 	list-style: none;
 	padding: 0;
@@ -262,14 +256,14 @@ footer {
 .postlist-item:before {
 	display: inline-block;
 	pointer-events: none;
-	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	
 	line-height: 100%;
 	text-align: right;
 	margin-left: -1.5rem;
 }
 .postlist-date,
 .postlist-item:before {
-	font-size: 1em; /* 13px /16 */
+	font-size: 1em; 
 	color: var(--color-gray-90);
 }
 .postlist-date {
@@ -277,7 +271,7 @@ footer {
 	flex-basis: calc(100% - 1.5rem);
 }
 .postlist-link {
-	font-size: 1.6em; /* 19px /16 */
+	font-size: 1.6em; 
 	font-weight: 700;
 	flex-basis: calc(100% - 1.5rem);
 	padding-left: .25em;
@@ -298,19 +292,15 @@ footer {
 	font-weight: bold;
 }
 
-/* Webmention container */
 .postlist-webmentions {
   position: absolute;
   right: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 0.5rem;
   display: flex;
   gap: 0.5rem;
-  justify-content: flex-end;
   align-items: center;
 }
 
-/* Webmention item */
 .webmention-item {
   display: flex;
   align-items: center;
@@ -320,7 +310,6 @@ footer {
   user-select: none;
 }
 
-/* Webmention SVG icons */
 .webmention-item svg {
   width: 16px;
   height: 16px;
@@ -331,7 +320,6 @@ footer {
   stroke-linejoin: round;
 }
 
-/* Heart icon */
 .heart-icon {
   width: 24px;
   height: 24px;
@@ -342,7 +330,6 @@ footer {
   stroke-linejoin: round;
 }
 
-/* Count text */
 .webmention-count {
   margin-left: 0.1rem;
   font-size: 0.85rem;
@@ -350,15 +337,11 @@ footer {
   color: var(--color-text-link);
 }
 
-/* ========================================================================== */
-/*                            SVG & Icon Styling                             */
-/* ========================================================================== */
-
 .message-box {
   display: flex;
-  justify-content: center;   /* Center icons horizontally */
-  align-items: center;       /* Center icons vertically */
-  gap: 0.5rem;               /* Space between icons */
+  justify-content: center;   
+  align-items: center;       
+  gap: 0.5rem;               
 }
 
 .message-box svg {
@@ -366,15 +349,15 @@ footer {
   vertical-align: middle;
   width: 24px;
   height: 24px;
-  fill: currentColor;        /* Inherit text color */
+  fill: currentColor;        
   transition: fill 0.2s ease;
 }
 
 .message-box svg:last-child {
-  margin-right: 0;           /* Remove right margin on last icon */
+  margin-right: 0;           
 }
 
-/* Example individual icon tweaks (adjust if needed) */
+
 .bluesky-icon,
 .rss-icon {
   transform: translateY(1px) scale(1.1);
@@ -388,7 +371,7 @@ footer {
   transform: translateY(1.5px) scale(1.5);
 }
 
-/* Form SVGs (e.g. search icon inside inputs) */
+
 .form svg {
   position: absolute;
   top: 5px;
@@ -396,27 +379,38 @@ footer {
   width: 20px;
   height: 20px;
   fill: var(--color-text-muted);
-  pointer-events: none; /* Prevents interfering with form */
+  pointer-events: none; 
 }
 
-/* Decorative SVG inside .well container */
+
 .well svg {
   position: absolute;
   bottom: 0;
   right: 100px;
   transform: rotate(45deg);
-  opacity: 0.15; /* Subtle effect */
+  opacity: 0.15; 
   pointer-events: none;
 }
 
-/* Adjust margin for specific templating layout */
+
 .tmpl-newspost .circles .content-780 {
   margin: 0 auto;
 }
 
-/* ========================================================================== */
-/*                                Buttons & Links                            */
-/* ========================================================================== */
+.video-container {
+  width: 100%;
+}
+
+.video-container video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+
+
 
 .button,
 button,
@@ -434,7 +428,7 @@ input[type='submit'] {
 .button:hover,
 button:hover,
 input[type='submit']:hover {
-  background-color: #bf621e; /* Slightly darker accent */
+  background-color: #bf621e; 
 }
 
 .button:focus,
@@ -444,9 +438,9 @@ input[type='submit']:focus {
   outline-offset: 2px;
 }
 
-/* ========================================================================== */
-/*                                Portfolio Grid                              */
-/* ========================================================================== */
+
+
+
 
 .portfolio-grid {
   display: grid;
@@ -517,9 +511,9 @@ input[type='submit']:focus {
   text-transform: capitalize;
 }
 
-/* ========================================================================== */
-/*                              Tables & Lists                                */
-/* ========================================================================== */
+
+
+
 
 table {
   width: 100%;
@@ -540,9 +534,9 @@ table tr:nth-child(even) {
   background-color: var(--color-bg-standout);
 }
 
-/* ========================================================================== */
-/*                             Forms & Inputs                                 */
-/* ========================================================================== */
+
+
+
 
 input,
 textarea,
@@ -567,9 +561,9 @@ button:focus {
   box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.3);
 }
 
-/* ========================================================================== */
-/*                             Utility & Helpers                              */
-/* ========================================================================== */
+
+
+
 
 .card {
   background-color: var(--color-bg-standout);
@@ -578,7 +572,7 @@ button:focus {
   border-radius: var(--radius);
   padding: var(--space-md);
   max-width: 400px;
-  margin: var(--space-lg) auto; /* centers horizontally and adds vertical spacing */
+  margin: var(--space-lg) auto; 
   color: var(--color-text);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   font-size: var(--font-md);
@@ -619,13 +613,13 @@ button:focus {
   line-height: 1.4;
 }
 
-/* Ensure spacing between multiple cards */
+
 .card + .card {
   margin-top: var(--space-lg);
 }
 
 
-/* Visually hidden for accessibility */
+
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -636,12 +630,12 @@ button:focus {
   width: 1px;
 }
 
-/* Center text utility */
+
 .text-center {
   text-align: center;
 }
 
-/* Margin and padding utilities */
+
 .m-0 {
   margin: 0 !important;
 }
@@ -649,9 +643,9 @@ button:focus {
   padding: 0 !important;
 }
 
-/* ========================================================================== */
-/*                               Responsive Design                            */
-/* ========================================================================== */
+
+
+
 
 @media (max-width: 768px) {
   main {
@@ -690,7 +684,7 @@ button:focus {
   flex-direction: column;
   gap: var(--space-md);
   position: relative;
-  padding-left: 1.5rem; /* space for timeline line */
+  padding-left: 1.5rem; 
   border-left: 3px solid var(--color-accent);
 }
 
@@ -752,7 +746,7 @@ button:focus {
   flex-shrink: 0;
 }
 
-/* Optional: Adjust timeline vertical spacing on smaller screens */
+
 @media (max-width: 768px) {
   .timeline-container {
     padding: 0 var(--space-sm);
@@ -868,7 +862,7 @@ server that uses the Steam API to fetch new screenshots and publish them to foll
 <table>
 <thead>
 <tr>
-<th style="text-align:center"><a href="/img/ESJvrvIwjP-635.png"><picture><source type="image/avif" srcset="/img/ESJvrvIwjP-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/ESJvrvIwjP-600.webp 600w" sizes="100vw"><img alt="Screenshot of the UGS profile as visible from my Mastodon server." loading="lazy" decoding="async" class="u-photo visible" src="/img/ESJvrvIwjP-600.png" width="600" height="852"></picture></a></th>
+<th style="text-align:center"><a href="/img/ESJvrvIwjP-635.png"><picture><source type="image/avif" srcset="/img/ESJvrvIwjP-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/ESJvrvIwjP-600.webp 600w" sizes="100vw"><img alt="Screenshot of the UGS profile as visible from my Mastodon server." title="Screenshot of the UGS profile as visible from my Mastodon server." loading="lazy" decoding="async" class="u-photo visible" src="/img/ESJvrvIwjP-600.png" width="600" height="852"></picture></a></th>
 </tr>
 </thead>
 </table>
@@ -1542,553 +1536,7 @@ I also have my instance running up on a Linode server at <a href="https://ugs.to
 
 <div class="webmention-replies">
   <h3>19 Replies</h3>
-
-  
-    <article class="webmention " id="webmention-1871870">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/96e6f33aca9c9d847e9069fce6096d3430ac48893309a3b73a61da3733cbe24c.jpg" alt="Tom Casavant" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Tom Casavant</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-03T20:06:23+00:00">
-            03 Jan 2025 at 08:06PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    The demo account, which will most assuredly break within minutes of this post is theoretically able to be followed here: @MrPresidentTom
-    
-    <a href="https://tomkahe.com/@tom/113766221938517019" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871871">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/96e6f33aca9c9d847e9069fce6096d3430ac48893309a3b73a61da3733cbe24c.jpg" alt="Tom Casavant" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Tom Casavant</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-03T20:38:44+00:00">
-            03 Jan 2025 at 08:38PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    That demo account is also slowly backfilling screenshots from my account, which, according to my careful calculations, will take like 90 days.
-
-Interestingly, the account is from 2012, but it appears I never took a screenshot and uploaded it until I got...
-    
-    <a href="https://tomkahe.com/@tom/113766349166958035" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871872">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/db1d635fb4356e493a52ae26f48c9f875d733a757cb82141ea43b0221d79f2d5.png" alt="Nicholas R" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Nicholas R</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-03T21:09:35+00:00">
-            03 Jan 2025 at 09:09PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom
-
-@gaming 
-
-This is what is great about #OpenSource software and protocols like #ActivityPub.
-
-In the #network domain there are open protocols such as #BGP #MPLS #OSPF #IS-IS . These protocols enable the global Internet including #Mastodon and...
-    
-    <a href="https://mastos.online/@nicholasr/113766470487085719" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871873">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/49584b29f3ec534f9d7de0376fb0e5dbaec4cf9e8c2b1a8d42da1899da500995.jpg" alt="Evan Prodromou" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Evan Prodromou</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-03T21:21:17+00:00">
-            03 Jan 2025 at 09:21PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom nice!
-    
-    <a href="https://cosocial.ca/@evan/113766516465618040" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871875">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/aed5e8649720cdd9f0a377c707628f8e0fbd6d380ee7b4e2d7f90a1d378bfb2c.jpg" alt="Greg Wiggleton :uni_globe:" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Greg Wiggleton :uni_globe:</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-03T21:27:24+00:00">
-            03 Jan 2025 at 09:27PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom I like that idea.
-    
-    <a href="https://worldkey.io/@GregWiggleton/113766540525085743" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871877">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/91f39aa3445f494da5217087381d2a4dad4d6cb634ee7754b4d71baca7f91625.jpg" alt="Dan Keck" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Dan Keck</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-03T21:27:58+00:00">
-            03 Jan 2025 at 09:27PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom
-This could fill a niche for sure. Hope the development continues to go well.
-    
-    <a href="https://a11y.social/@dankeck/113766542773812882" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871878">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/7b7490f158594c98ef8b38fb31585fcb8a63c4da23834f42e19cb6aac52b2a84.jpg" alt="Andy Nicolaides" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Andy Nicolaides</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-03T21:32:16+00:00">
-            03 Jan 2025 at 09:32PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom ooh that sounds awesome.
-    
-    <a href="https://micro.blog/Andyn/54148584" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871876">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/96e6f33aca9c9d847e9069fce6096d3430ac48893309a3b73a61da3733cbe24c.jpg" alt="Tom Casavant" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Tom Casavant</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-03T23:05:46+00:00">
-            03 Jan 2025 at 11:05PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @dankeck thanks!
-    
-    <a href="https://tomkahe.com/@tom/113766927366866329" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871874">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/96e6f33aca9c9d847e9069fce6096d3430ac48893309a3b73a61da3733cbe24c.jpg" alt="Tom Casavant" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Tom Casavant</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-03T23:06:02+00:00">
-            03 Jan 2025 at 11:06PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @evan thanks!
-    
-    <a href="https://tomkahe.com/@tom/113766928409128585" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871879">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/27cf62084be49a582095c6b6eb27d7e74de9027305962efcc972a6f4c9f74993.png" alt="Andy Piper" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Andy Piper</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-04T00:25:00+00:00">
-            04 Jan 2025 at 12:25AM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom Tom! I love this! It is exactly the wrong end of my day for me to dig in to it right now, but I’ll take a look this weekend!
-    
-    <a href="https://macaw.social/@andypiper/113767238869507470" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871881">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/82dff0f0641cc1061b48088633ad22755a99d20aec77f485187b0acdfd3203ee.jpg" alt="Tanguy ⧓ Herrmann" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Tanguy ⧓ Herrmann</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-04T00:33:19+00:00">
-            04 Jan 2025 at 12:33AM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom saw a screenshot from a game I haven&#39;t heard in 2 decades, and now I feel old. God dammit!
-????
-    
-    <a href="https://hachyderm.io/@dolanor/113767271599330570" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871882">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/84e52cd5948b1703373be3168d106ab84c60f7e02ca8a98fd10350eae467a51a.png" alt="Bob Dendry (Join Our Server!)" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Bob Dendry (Join Our Server!)</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-04T00:36:47+00:00">
-            04 Jan 2025 at 12:36AM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom this is such a cool idea - love it!
-    
-    <a href="https://masto.fediverse.games/@BobDendry/113767285226302299" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871880">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/96e6f33aca9c9d847e9069fce6096d3430ac48893309a3b73a61da3733cbe24c.jpg" alt="Tom Casavant" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Tom Casavant</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-04T02:58:06+00:00">
-            04 Jan 2025 at 02:58AM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @andypiper thanks! It&#39;s still a bit janky, but it solves a problem I&#39;ve had for awhile
-    
-    <a href="https://tomkahe.com/@tom/113767840905825351" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871868">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/49584b29f3ec534f9d7de0376fb0e5dbaec4cf9e8c2b1a8d42da1899da500995.jpg" alt="Evan Prodromou" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Evan Prodromou</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-04T04:04:47+00:00">
-            04 Jan 2025 at 04:04AM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom In my book I have a whole section about the opportunity of federated game social networking.
-    
-    <a href="https://cosocial.ca/@evan/113768103137974143" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871883">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/e6919ac3b4bd2ab3d5787ca980a14f4e29a5a597c9036fba32fce3b26b24e38a.png" alt="Julian Fietkau" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Julian Fietkau</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-04T09:28:48+00:00">
-            04 Jan 2025 at 09:28AM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom Definitely a very cool project! ????
-
-I talked to someone months ago about the possibility of an ActivityPub bridge for Steam and what sorts of sharing functionalities that might enable, but I don&#39;t clearly remember who it was. Was it @Natanox?
-    
-    <a href="https://fietkau.social/@julian/113769377223145445" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871884">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/4b678fe3d9de6fac7a8896dba822d09a34815befd91312604674e58e0cfee923.png" alt="silverpill" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">silverpill</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-04T14:09:54+00:00">
-            04 Jan 2025 at 02:09PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom @MrPresidentTom@ugs.tomkahe.com doesn&#39;t workcurl -H &#39;Accept: application/ld+json; profile=&quot;https://www.w3.org/ns/activitystreams&quot;&#39; https://ugs.tomkahe.com/user/8869bc26-e9f5-4670-85a2-56c272512bd6
-Instead of sending ActivityPub actor, the server...
-    
-    <a href="https://mitra.social/objects/019431a6-ab84-c22d-afdf-7bb97d65fc18" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871885">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/96e6f33aca9c9d847e9069fce6096d3430ac48893309a3b73a61da3733cbe24c.jpg" alt="Tom Casavant" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Tom Casavant</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-04T14:24:16+00:00">
-            04 Jan 2025 at 02:24PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @silverpill Thanks! Yeah, I was literally just looking at that 5 minutes ago. Yesterday evening I thought I had fixed it to handle ld+json, it was originally only working for application/json, but it seems I actually changed it to redirect both of those....
-    
-    <a href="https://tomkahe.com/@tom/113770539018089014" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871867">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/96e6f33aca9c9d847e9069fce6096d3430ac48893309a3b73a61da3733cbe24c.jpg" alt="Tom Casavant" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Tom Casavant</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-04T14:26:11+00:00">
-            04 Jan 2025 at 02:26PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @evan Awesome! I&#39;ve had your book on my wish-list for awhile now but haven&#39;t quite gotten to it yet
-    
-    <a href="https://tomkahe.com/@tom/113770546563815082" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1871869">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/tomkahe.com/96e6f33aca9c9d847e9069fce6096d3430ac48893309a3b73a61da3733cbe24c.jpg" alt="Tom Casavant" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Tom Casavant</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2025-01-04T14:59:43+00:00">
-            04 Jan 2025 at 02:59PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    I forgot about the existence of FediTest, fixed up the webfinger issues and @MrPresidentTom seems to work in Pixelfed now
-FediTest | FediTest
-    
-    <a href="https://tomkahe.com/@tom/113770678407781227" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
+  (Temporarily removed webmention replies from being show while I re-work how this looks)
   
 </div>
 
@@ -2110,6 +1558,6 @@ FediTest | FediTest
 
 		<footer></footer>
 
-		<!-- This page `/untitled-gaming-social/` was built on 2026-01-19T16:01:21.576Z -->
+		<!-- This page `/untitled-gaming-social/` was built on 2026-01-19T16:20:05.471Z -->
 	</body>
 </html>

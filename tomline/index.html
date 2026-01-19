@@ -21,40 +21,39 @@
 		
 		<link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
 		<style>* { box-sizing: border-box; }
-/* Message Box */
 * { box-sizing: border-box; }
 .postlist { counter-reset: start-from 35 }
-/* Message Box */
-* { box-sizing: border-box; }
-/* ========================================================================== */
-/*                            CSS Variables & Themes                          */
-/* ========================================================================== */
 
-/* Base font families */
+* { box-sizing: border-box; }
+
+
+
+
+
 :root {
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   --font-mono: Consolas, Menlo, Monaco, "Andale Mono", "Lucida Console",
     monospace;
 
-  /* Spacing scale */
+  
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 2.5rem;
 
-  /* Font sizes */
+  
   --font-xs: 0.75rem;
   --font-sm: 0.875rem;
   --font-md: 1rem;
   --font-lg: 1.25rem;
   --font-xl: 1.5rem;
 
-  /* Border radius */
+  
   --radius: 8px;
 
-  /* Colors — Light theme */
+  
   --color-bg: #fefefe;
   --color-bg-standout: #fff8f1;
   --color-text: #2a2a2a;
@@ -64,14 +63,14 @@
   --color-border: #ddd;
   --color-shadow: rgba(0, 0, 0, 0.05);
 
-  /* Accent */
+  
   --color-accent: #d2691e;
 
-  /* Syntax */
+  
   --syntax-tab-size: 2;
 }
 
-/* Dark theme overrides */
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg: #121212;
@@ -86,9 +85,9 @@
   }
 }
 
-/* ========================================================================== */
-/*                                Base Reset                                  */
-/* ========================================================================== */
+
+
+
 
 *,
 *::before,
@@ -135,9 +134,9 @@ p:last-child {
   margin-bottom: 0;
 }
 
-/* ========================================================================== */
-/*                                Typography                                  */
-/* ========================================================================== */
+
+
+
 
 code,
 pre {
@@ -172,9 +171,9 @@ a:focus {
   text-decoration: underline;
 }
 
-/* ========================================================================== */
-/*                                Layout & Containers                         */
-/* ========================================================================== */
+
+
+
 
 main {
   max-width: 60em;
@@ -184,13 +183,13 @@ main {
 
 header {
   display: flex;
-  align-items: center;    /* vertically center items */
+  align-items: center;    
   gap: var(--space-md);
   padding: var(--space-md) var(--space-md);
   max-width: 60em;
   margin: 0 auto;
   border-bottom: 1px solid var(--color-border);
-  /* no justify-content, so items stay grouped on the left */
+  
 }
 
 .home-link {
@@ -201,7 +200,7 @@ header {
   margin: 0;
   padding: 0;
   position: relative;
-  top: -3px;  /* nudge up to align with nav */
+  top: -3px;  
 }
 
 .nav {
@@ -237,11 +236,6 @@ footer {
   border-top: 1px solid var(--color-border);
 }
 
-/* ========================================================================== */
-/*                              Post List & Webmentions                       */
-/* ========================================================================== */
-
-/* Posts list */
 .postlist {
 	list-style: none;
 	padding: 0;
@@ -262,14 +256,14 @@ footer {
 .postlist-item:before {
 	display: inline-block;
 	pointer-events: none;
-	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	
 	line-height: 100%;
 	text-align: right;
 	margin-left: -1.5rem;
 }
 .postlist-date,
 .postlist-item:before {
-	font-size: 1em; /* 13px /16 */
+	font-size: 1em; 
 	color: var(--color-gray-90);
 }
 .postlist-date {
@@ -277,7 +271,7 @@ footer {
 	flex-basis: calc(100% - 1.5rem);
 }
 .postlist-link {
-	font-size: 1.6em; /* 19px /16 */
+	font-size: 1.6em; 
 	font-weight: 700;
 	flex-basis: calc(100% - 1.5rem);
 	padding-left: .25em;
@@ -298,19 +292,15 @@ footer {
 	font-weight: bold;
 }
 
-/* Webmention container */
 .postlist-webmentions {
   position: absolute;
   right: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 0.5rem;
   display: flex;
   gap: 0.5rem;
-  justify-content: flex-end;
   align-items: center;
 }
 
-/* Webmention item */
 .webmention-item {
   display: flex;
   align-items: center;
@@ -320,7 +310,6 @@ footer {
   user-select: none;
 }
 
-/* Webmention SVG icons */
 .webmention-item svg {
   width: 16px;
   height: 16px;
@@ -331,7 +320,6 @@ footer {
   stroke-linejoin: round;
 }
 
-/* Heart icon */
 .heart-icon {
   width: 24px;
   height: 24px;
@@ -342,7 +330,6 @@ footer {
   stroke-linejoin: round;
 }
 
-/* Count text */
 .webmention-count {
   margin-left: 0.1rem;
   font-size: 0.85rem;
@@ -350,15 +337,11 @@ footer {
   color: var(--color-text-link);
 }
 
-/* ========================================================================== */
-/*                            SVG & Icon Styling                             */
-/* ========================================================================== */
-
 .message-box {
   display: flex;
-  justify-content: center;   /* Center icons horizontally */
-  align-items: center;       /* Center icons vertically */
-  gap: 0.5rem;               /* Space between icons */
+  justify-content: center;   
+  align-items: center;       
+  gap: 0.5rem;               
 }
 
 .message-box svg {
@@ -366,15 +349,15 @@ footer {
   vertical-align: middle;
   width: 24px;
   height: 24px;
-  fill: currentColor;        /* Inherit text color */
+  fill: currentColor;        
   transition: fill 0.2s ease;
 }
 
 .message-box svg:last-child {
-  margin-right: 0;           /* Remove right margin on last icon */
+  margin-right: 0;           
 }
 
-/* Example individual icon tweaks (adjust if needed) */
+
 .bluesky-icon,
 .rss-icon {
   transform: translateY(1px) scale(1.1);
@@ -388,7 +371,7 @@ footer {
   transform: translateY(1.5px) scale(1.5);
 }
 
-/* Form SVGs (e.g. search icon inside inputs) */
+
 .form svg {
   position: absolute;
   top: 5px;
@@ -396,27 +379,38 @@ footer {
   width: 20px;
   height: 20px;
   fill: var(--color-text-muted);
-  pointer-events: none; /* Prevents interfering with form */
+  pointer-events: none; 
 }
 
-/* Decorative SVG inside .well container */
+
 .well svg {
   position: absolute;
   bottom: 0;
   right: 100px;
   transform: rotate(45deg);
-  opacity: 0.15; /* Subtle effect */
+  opacity: 0.15; 
   pointer-events: none;
 }
 
-/* Adjust margin for specific templating layout */
+
 .tmpl-newspost .circles .content-780 {
   margin: 0 auto;
 }
 
-/* ========================================================================== */
-/*                                Buttons & Links                            */
-/* ========================================================================== */
+.video-container {
+  width: 100%;
+}
+
+.video-container video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+
+
 
 .button,
 button,
@@ -434,7 +428,7 @@ input[type='submit'] {
 .button:hover,
 button:hover,
 input[type='submit']:hover {
-  background-color: #bf621e; /* Slightly darker accent */
+  background-color: #bf621e; 
 }
 
 .button:focus,
@@ -444,9 +438,9 @@ input[type='submit']:focus {
   outline-offset: 2px;
 }
 
-/* ========================================================================== */
-/*                                Portfolio Grid                              */
-/* ========================================================================== */
+
+
+
 
 .portfolio-grid {
   display: grid;
@@ -517,9 +511,9 @@ input[type='submit']:focus {
   text-transform: capitalize;
 }
 
-/* ========================================================================== */
-/*                              Tables & Lists                                */
-/* ========================================================================== */
+
+
+
 
 table {
   width: 100%;
@@ -540,9 +534,9 @@ table tr:nth-child(even) {
   background-color: var(--color-bg-standout);
 }
 
-/* ========================================================================== */
-/*                             Forms & Inputs                                 */
-/* ========================================================================== */
+
+
+
 
 input,
 textarea,
@@ -567,9 +561,9 @@ button:focus {
   box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.3);
 }
 
-/* ========================================================================== */
-/*                             Utility & Helpers                              */
-/* ========================================================================== */
+
+
+
 
 .card {
   background-color: var(--color-bg-standout);
@@ -578,7 +572,7 @@ button:focus {
   border-radius: var(--radius);
   padding: var(--space-md);
   max-width: 400px;
-  margin: var(--space-lg) auto; /* centers horizontally and adds vertical spacing */
+  margin: var(--space-lg) auto; 
   color: var(--color-text);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   font-size: var(--font-md);
@@ -619,13 +613,13 @@ button:focus {
   line-height: 1.4;
 }
 
-/* Ensure spacing between multiple cards */
+
 .card + .card {
   margin-top: var(--space-lg);
 }
 
 
-/* Visually hidden for accessibility */
+
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -636,12 +630,12 @@ button:focus {
   width: 1px;
 }
 
-/* Center text utility */
+
 .text-center {
   text-align: center;
 }
 
-/* Margin and padding utilities */
+
 .m-0 {
   margin: 0 !important;
 }
@@ -649,9 +643,9 @@ button:focus {
   padding: 0 !important;
 }
 
-/* ========================================================================== */
-/*                               Responsive Design                            */
-/* ========================================================================== */
+
+
+
 
 @media (max-width: 768px) {
   main {
@@ -690,7 +684,7 @@ button:focus {
   flex-direction: column;
   gap: var(--space-md);
   position: relative;
-  padding-left: 1.5rem; /* space for timeline line */
+  padding-left: 1.5rem; 
   border-left: 3px solid var(--color-accent);
 }
 
@@ -752,7 +746,7 @@ button:focus {
   flex-shrink: 0;
 }
 
-/* Optional: Adjust timeline vertical spacing on smaller screens */
+
 @media (max-width: 768px) {
   .timeline-container {
     padding: 0 var(--space-sm);
@@ -835,7 +829,7 @@ button:focus {
 <table>
 <thead>
 <tr>
-<th style="text-align:center"><a href="/img/Zx8pSuzG7o-484.png"><picture><source type="image/avif" srcset="/img/Zx8pSuzG7o-484.avif 484w" sizes="100vw"><source type="image/webp" srcset="/img/Zx8pSuzG7o-484.webp 484w" sizes="100vw"><img alt="Screenshot of the Tomline in action" loading="lazy" decoding="async" class="u-photo visible" src="/img/Zx8pSuzG7o-484.png" width="484" height="404"></picture></a></th>
+<th style="text-align:center"><a href="/img/Zx8pSuzG7o-484.png"><picture><source type="image/avif" srcset="/img/Zx8pSuzG7o-484.avif 484w" sizes="100vw"><source type="image/webp" srcset="/img/Zx8pSuzG7o-484.webp 484w" sizes="100vw"><img alt="Screenshot of the Tomline in action" title="Screenshot of the Tomline in action" loading="lazy" decoding="async" class="u-photo visible" src="/img/Zx8pSuzG7o-484.png" width="484" height="404"></picture></a></th>
 </tr>
 </thead>
 <tbody>
@@ -848,7 +842,7 @@ button:focus {
 <table>
 <thead>
 <tr>
-<th style="text-align:center"><a href="/img/kunt_XYJur-6200.jpeg"><picture><source type="image/avif" srcset="/img/kunt_XYJur-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/kunt_XYJur-600.webp 600w" sizes="100vw"><img alt="Blake's review of the Tomline" loading="lazy" decoding="async" class="u-photo visible" src="/img/kunt_XYJur-600.jpeg" width="600" height="348"></picture></a></th>
+<th style="text-align:center"><a href="/img/kunt_XYJur-6200.jpeg"><picture><source type="image/avif" srcset="/img/kunt_XYJur-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/kunt_XYJur-600.webp 600w" sizes="100vw"><img alt="Blake's review of the Tomline" title="Blake's review of the Tomline" loading="lazy" decoding="async" class="u-photo visible" src="/img/kunt_XYJur-600.jpeg" width="600" height="348"></picture></a></th>
 </tr>
 </thead>
 <tbody>
@@ -860,7 +854,7 @@ button:focus {
 <table>
 <thead>
 <tr>
-<th style="text-align:center"><a href="/img/qdDGoNCzV--6000.jpeg"><picture><source type="image/avif" srcset="/img/qdDGoNCzV--600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/qdDGoNCzV--600.webp 600w" sizes="100vw"><img alt="Kurt's review of the Tomline" loading="lazy" decoding="async" class="u-photo visible" src="/img/qdDGoNCzV--600.jpeg" width="600" height="306"></picture></a></th>
+<th style="text-align:center"><a href="/img/qdDGoNCzV--6000.jpeg"><picture><source type="image/avif" srcset="/img/qdDGoNCzV--600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/qdDGoNCzV--600.webp 600w" sizes="100vw"><img alt="Kurt's review of the Tomline" title="Kurt's review of the Tomline" loading="lazy" decoding="async" class="u-photo visible" src="/img/qdDGoNCzV--600.jpeg" width="600" height="306"></picture></a></th>
 </tr>
 </thead>
 <tbody>
@@ -872,7 +866,7 @@ button:focus {
 <table>
 <thead>
 <tr>
-<th style="text-align:center"><a href="/img/hpqDR0xo_g-5487.jpeg"><picture><source type="image/avif" srcset="/img/hpqDR0xo_g-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/hpqDR0xo_g-600.webp 600w" sizes="100vw"><img alt="Ashley's review of the Tomline" loading="lazy" decoding="async" class="u-photo visible" src="/img/hpqDR0xo_g-600.jpeg" width="600" height="355"></picture></a></th>
+<th style="text-align:center"><a href="/img/hpqDR0xo_g-5487.jpeg"><picture><source type="image/avif" srcset="/img/hpqDR0xo_g-600.avif 600w" sizes="100vw"><source type="image/webp" srcset="/img/hpqDR0xo_g-600.webp 600w" sizes="100vw"><img alt="Ashley's review of the Tomline" title="Ashley's review of the Tomline" loading="lazy" decoding="async" class="u-photo visible" src="/img/hpqDR0xo_g-600.jpeg" width="600" height="355"></picture></a></th>
 </tr>
 </thead>
 <tbody>
@@ -1638,181 +1632,7 @@ button:focus {
 
 <div class="webmention-replies">
   <h3>6 Replies</h3>
-
-  
-    <article class="webmention " id="webmention-1833432">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/s3.us-east-2.amazonaws.com/fb4098d362c87a1a6512bea56a177676a70727a6d98a6d0fa3866adf4d2030a6.jpg" alt="Andy Piper" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Andy Piper</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2024-04-01T11:13:51+00:00">
-            01 Apr 2024 at 11:13AM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom fun!
-
-When I started at Twitter (UK) we had 5 Toms (out of 100 people at the time, I was UK employee 100). They ended up having their own spot on the feature wall at reception when we moved to the bespoke office. #TooManyToms
-toomanytoms
-    
-    <a href="https://macaw.social/@andypiper/112195667996914429" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1833433">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/s3.us-east-2.amazonaws.com/fb4098d362c87a1a6512bea56a177676a70727a6d98a6d0fa3866adf4d2030a6.jpg" alt="Andy Piper" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Andy Piper</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2024-04-01T11:24:25+00:00">
-            01 Apr 2024 at 11:24AM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    (I decided that although this is Twitter-related, I want to share it, because this was a good memory of my time there, and I want to keep those alive, as much as I want to thing it is now to die)
-    
-    <a href="https://macaw.social/@andypiper/112195709521371622" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1833434">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/s3.us-east-2.amazonaws.com/a134b9df0f52cbfc57f0850a81ed98f140162d41eff16ce4c52aaa0cda68af94.jpg" alt="amykhar" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">amykhar</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2024-04-01T12:03:06+00:00">
-            01 Apr 2024 at 12:03PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom Back when Twitter first created lists, I had a list of people called Bob.  I think it was one of the few things I enjoyed on Twitter.
-    
-    <a href="https://phpc.social/@amykhar/112195861617314849" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1833435">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/s3.us-east-2.amazonaws.com/8202340d3c0a837eb394ec32d0d01310989ddedab8a9719b725688622677169a.jpg" alt="Jeni Tehan" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Jeni Tehan</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2024-04-01T12:53:40+00:00">
-            01 Apr 2024 at 12:53PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom I found this written on the wall in my garage. Was it you?
-    
-    <a href="https://drupal.community/@jeni/112196060497619001" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1833431">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/s3.us-east-2.amazonaws.com/96e6f33aca9c9d847e9069fce6096d3430ac48893309a3b73a61da3733cbe24c.jpg" alt="Tom Casavant" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">Tom Casavant</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2024-04-01T13:37:52+00:00">
-            01 Apr 2024 at 01:37PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    In case you were too lazy to click on the link here are the client testimonials, definitively proving the Tomline is the only way to browse the fediverse
-aprilfools
-fediverse
-mastodon
-    
-    <a href="https://tomkahe.com/@tom/112196234280847454" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
-  
-    <article class="webmention " id="webmention-1833436">
-  <div class="webmention__meta">
-    
-      
-      <img src="https://avatars.webmention.io/s3.us-east-2.amazonaws.com/77f9b18f04d518695a545d724ec4b255f5b03473a91ae015316baad33e06d518.png" alt="yes, it&#39;s me, liza ???????? ???? ????" width="48" height="48" loading="lazy">
-      
-      <span>
-        <strong class="p-name">yes, it&#39;s me, liza ???????? ???? ????</strong>
-      </span>
-    
-
-    
-        <time class="postlist-date" datetime="2024-04-01T14:25:16+00:00">
-            01 Apr 2024 at 02:25PM
-        </time>
-    
-  </div>
-  <p class="webmention-text">
-    @tom LOL i love this
-    
-    <a href="https://mastodon.social/@blogdiva/112196420668885786" target="_blank" rel="noopener noreferrer">
-      source <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="10px"><path fill="currentColor" d="M432 320h-32a16 16 0 00-16 16v112H64V128h144a16 16 0 0016-16V80a16 16 0 00-16-16H48a48 48 0 00-48 48v352a48 48 0 0048 48h352a48 48 0 0048-48V336a16 16 0 00-16-16zM488 0H360c-21.37 0-32.05 25.91-17 41l35.73 35.73L135 320.37a24 24 0 000 34L157.67 377a24 24 0 0034 0l243.61-243.68L471 169c15 15 41 4.5 41-17V24a24 24 0 00-24-24z"></path></svg>
-    </a>
-    
-  </p>
-</article>
-
+  (Temporarily removed webmention replies from being show while I re-work how this looks)
   
 </div>
 
@@ -1834,6 +1654,6 @@ mastodon
 
 		<footer></footer>
 
-		<!-- This page `/tomline/` was built on 2026-01-19T16:01:21.574Z -->
+		<!-- This page `/tomline/` was built on 2026-01-19T16:20:05.465Z -->
 	</body>
 </html>

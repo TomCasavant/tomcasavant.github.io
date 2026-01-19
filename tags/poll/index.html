@@ -23,40 +23,39 @@
 		<style>.postlist { counter-reset: start-from 3 }
 /* Message Box */
 * { box-sizing: border-box; }
-/* Message Box */
 * { box-sizing: border-box; }
 .postlist { counter-reset: start-from 35 }
-/* Message Box */
-* { box-sizing: border-box; }
-/* ========================================================================== */
-/*                            CSS Variables & Themes                          */
-/* ========================================================================== */
 
-/* Base font families */
+* { box-sizing: border-box; }
+
+
+
+
+
 :root {
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   --font-mono: Consolas, Menlo, Monaco, "Andale Mono", "Lucida Console",
     monospace;
 
-  /* Spacing scale */
+  
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 2.5rem;
 
-  /* Font sizes */
+  
   --font-xs: 0.75rem;
   --font-sm: 0.875rem;
   --font-md: 1rem;
   --font-lg: 1.25rem;
   --font-xl: 1.5rem;
 
-  /* Border radius */
+  
   --radius: 8px;
 
-  /* Colors — Light theme */
+  
   --color-bg: #fefefe;
   --color-bg-standout: #fff8f1;
   --color-text: #2a2a2a;
@@ -66,14 +65,14 @@
   --color-border: #ddd;
   --color-shadow: rgba(0, 0, 0, 0.05);
 
-  /* Accent */
+  
   --color-accent: #d2691e;
 
-  /* Syntax */
+  
   --syntax-tab-size: 2;
 }
 
-/* Dark theme overrides */
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg: #121212;
@@ -88,9 +87,9 @@
   }
 }
 
-/* ========================================================================== */
-/*                                Base Reset                                  */
-/* ========================================================================== */
+
+
+
 
 *,
 *::before,
@@ -137,9 +136,9 @@ p:last-child {
   margin-bottom: 0;
 }
 
-/* ========================================================================== */
-/*                                Typography                                  */
-/* ========================================================================== */
+
+
+
 
 code,
 pre {
@@ -174,9 +173,9 @@ a:focus {
   text-decoration: underline;
 }
 
-/* ========================================================================== */
-/*                                Layout & Containers                         */
-/* ========================================================================== */
+
+
+
 
 main {
   max-width: 60em;
@@ -186,13 +185,13 @@ main {
 
 header {
   display: flex;
-  align-items: center;    /* vertically center items */
+  align-items: center;    
   gap: var(--space-md);
   padding: var(--space-md) var(--space-md);
   max-width: 60em;
   margin: 0 auto;
   border-bottom: 1px solid var(--color-border);
-  /* no justify-content, so items stay grouped on the left */
+  
 }
 
 .home-link {
@@ -203,7 +202,7 @@ header {
   margin: 0;
   padding: 0;
   position: relative;
-  top: -3px;  /* nudge up to align with nav */
+  top: -3px;  
 }
 
 .nav {
@@ -239,11 +238,6 @@ footer {
   border-top: 1px solid var(--color-border);
 }
 
-/* ========================================================================== */
-/*                              Post List & Webmentions                       */
-/* ========================================================================== */
-
-/* Posts list */
 .postlist {
 	list-style: none;
 	padding: 0;
@@ -264,14 +258,14 @@ footer {
 .postlist-item:before {
 	display: inline-block;
 	pointer-events: none;
-	/*content: "" counter(start-from, decimal-leading-zero) ". ";*/
+	
 	line-height: 100%;
 	text-align: right;
 	margin-left: -1.5rem;
 }
 .postlist-date,
 .postlist-item:before {
-	font-size: 1em; /* 13px /16 */
+	font-size: 1em; 
 	color: var(--color-gray-90);
 }
 .postlist-date {
@@ -279,7 +273,7 @@ footer {
 	flex-basis: calc(100% - 1.5rem);
 }
 .postlist-link {
-	font-size: 1.6em; /* 19px /16 */
+	font-size: 1.6em; 
 	font-weight: 700;
 	flex-basis: calc(100% - 1.5rem);
 	padding-left: .25em;
@@ -300,19 +294,15 @@ footer {
 	font-weight: bold;
 }
 
-/* Webmention container */
 .postlist-webmentions {
   position: absolute;
   right: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 0.5rem;
   display: flex;
   gap: 0.5rem;
-  justify-content: flex-end;
   align-items: center;
 }
 
-/* Webmention item */
 .webmention-item {
   display: flex;
   align-items: center;
@@ -322,7 +312,6 @@ footer {
   user-select: none;
 }
 
-/* Webmention SVG icons */
 .webmention-item svg {
   width: 16px;
   height: 16px;
@@ -333,7 +322,6 @@ footer {
   stroke-linejoin: round;
 }
 
-/* Heart icon */
 .heart-icon {
   width: 24px;
   height: 24px;
@@ -344,7 +332,6 @@ footer {
   stroke-linejoin: round;
 }
 
-/* Count text */
 .webmention-count {
   margin-left: 0.1rem;
   font-size: 0.85rem;
@@ -352,15 +339,11 @@ footer {
   color: var(--color-text-link);
 }
 
-/* ========================================================================== */
-/*                            SVG & Icon Styling                             */
-/* ========================================================================== */
-
 .message-box {
   display: flex;
-  justify-content: center;   /* Center icons horizontally */
-  align-items: center;       /* Center icons vertically */
-  gap: 0.5rem;               /* Space between icons */
+  justify-content: center;   
+  align-items: center;       
+  gap: 0.5rem;               
 }
 
 .message-box svg {
@@ -368,15 +351,15 @@ footer {
   vertical-align: middle;
   width: 24px;
   height: 24px;
-  fill: currentColor;        /* Inherit text color */
+  fill: currentColor;        
   transition: fill 0.2s ease;
 }
 
 .message-box svg:last-child {
-  margin-right: 0;           /* Remove right margin on last icon */
+  margin-right: 0;           
 }
 
-/* Example individual icon tweaks (adjust if needed) */
+
 .bluesky-icon,
 .rss-icon {
   transform: translateY(1px) scale(1.1);
@@ -390,7 +373,7 @@ footer {
   transform: translateY(1.5px) scale(1.5);
 }
 
-/* Form SVGs (e.g. search icon inside inputs) */
+
 .form svg {
   position: absolute;
   top: 5px;
@@ -398,27 +381,38 @@ footer {
   width: 20px;
   height: 20px;
   fill: var(--color-text-muted);
-  pointer-events: none; /* Prevents interfering with form */
+  pointer-events: none; 
 }
 
-/* Decorative SVG inside .well container */
+
 .well svg {
   position: absolute;
   bottom: 0;
   right: 100px;
   transform: rotate(45deg);
-  opacity: 0.15; /* Subtle effect */
+  opacity: 0.15; 
   pointer-events: none;
 }
 
-/* Adjust margin for specific templating layout */
+
 .tmpl-newspost .circles .content-780 {
   margin: 0 auto;
 }
 
-/* ========================================================================== */
-/*                                Buttons & Links                            */
-/* ========================================================================== */
+.video-container {
+  width: 100%;
+}
+
+.video-container video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+
+
 
 .button,
 button,
@@ -436,7 +430,7 @@ input[type='submit'] {
 .button:hover,
 button:hover,
 input[type='submit']:hover {
-  background-color: #bf621e; /* Slightly darker accent */
+  background-color: #bf621e; 
 }
 
 .button:focus,
@@ -446,9 +440,9 @@ input[type='submit']:focus {
   outline-offset: 2px;
 }
 
-/* ========================================================================== */
-/*                                Portfolio Grid                              */
-/* ========================================================================== */
+
+
+
 
 .portfolio-grid {
   display: grid;
@@ -519,9 +513,9 @@ input[type='submit']:focus {
   text-transform: capitalize;
 }
 
-/* ========================================================================== */
-/*                              Tables & Lists                                */
-/* ========================================================================== */
+
+
+
 
 table {
   width: 100%;
@@ -542,9 +536,9 @@ table tr:nth-child(even) {
   background-color: var(--color-bg-standout);
 }
 
-/* ========================================================================== */
-/*                             Forms & Inputs                                 */
-/* ========================================================================== */
+
+
+
 
 input,
 textarea,
@@ -569,9 +563,9 @@ button:focus {
   box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.3);
 }
 
-/* ========================================================================== */
-/*                             Utility & Helpers                              */
-/* ========================================================================== */
+
+
+
 
 .card {
   background-color: var(--color-bg-standout);
@@ -580,7 +574,7 @@ button:focus {
   border-radius: var(--radius);
   padding: var(--space-md);
   max-width: 400px;
-  margin: var(--space-lg) auto; /* centers horizontally and adds vertical spacing */
+  margin: var(--space-lg) auto; 
   color: var(--color-text);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   font-size: var(--font-md);
@@ -621,13 +615,13 @@ button:focus {
   line-height: 1.4;
 }
 
-/* Ensure spacing between multiple cards */
+
 .card + .card {
   margin-top: var(--space-lg);
 }
 
 
-/* Visually hidden for accessibility */
+
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -638,12 +632,12 @@ button:focus {
   width: 1px;
 }
 
-/* Center text utility */
+
 .text-center {
   text-align: center;
 }
 
-/* Margin and padding utilities */
+
 .m-0 {
   margin: 0 !important;
 }
@@ -651,9 +645,9 @@ button:focus {
   padding: 0 !important;
 }
 
-/* ========================================================================== */
-/*                               Responsive Design                            */
-/* ========================================================================== */
+
+
+
 
 @media (max-width: 768px) {
   main {
@@ -692,7 +686,7 @@ button:focus {
   flex-direction: column;
   gap: var(--space-md);
   position: relative;
-  padding-left: 1.5rem; /* space for timeline line */
+  padding-left: 1.5rem; 
   border-left: 3px solid var(--color-accent);
 }
 
@@ -754,7 +748,7 @@ button:focus {
   flex-shrink: 0;
 }
 
-/* Optional: Adjust timeline vertical spacing on smaller screens */
+
 @media (max-width: 768px) {
   .timeline-container {
     padding: 0 var(--space-sm);
@@ -978,6 +972,6 @@ button:focus {
 
 		<footer></footer>
 
-		<!-- This page `/tags/poll/` was built on 2026-01-19T16:01:21.768Z -->
+		<!-- This page `/tags/poll/` was built on 2026-01-19T16:20:05.651Z -->
 	</body>
 </html>
