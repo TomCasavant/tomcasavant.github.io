@@ -21,7 +21,7 @@ Earlier this week, I read a post from a journalist discussing the use of a codin
 I did my due diligence, notified them that they had leaked an API key, and let them know that they should reset the key in their account to prevent abuse. A few hours later, they thanked me and let me know that they used Claude to fix the mistake (I verified this, and it appeared to have been fixed). From this exchange, I learned a few things about my priorities around AI. To be clear, I consider this journalist to be an incredibly intelligent person, and a far better writer than I am, even though I expect this will read like I am ragging on them at times.
 
 ## Ethics
-The first thing I recognized was that I don’t have any particularly deep feelings about the ethics of other people using AI, and that’s something I first realized early on in the AI hype cycle. In my head, it gets grouped into “things I won’t do, but you can if you want.” There are plenty of other things that fall into that category:
+The first thing I recognized was that I don’t have any particularly deep feelings about the ethics of other people using AI to generate code, and that’s something I first realized early on in the AI hype cycle. In my head, it gets grouped into “things I won’t do, but you can if you want.” There are plenty of other things that fall into that category:
 - I use Linux instead of Windows
 - I use open social media platforms instead of Facebook, Twitter, Instagram, TikTok, Reddit, Substack, etc
 - I use open messaging platforms instead of WhatsApp, Messenger, and GroupMe
@@ -32,9 +32,9 @@ The first thing I recognized was that I don’t have any particularly deep feeli
 
 I’m not going to try to force anyone to do any of the above, even if they probably should. It’s not like I’m perfect (though if you ask me in person, I’ll probably claim otherwise). I believe becoming a vegetarian is far more impactful on the environment than avoiding ChatGPT, but I haven’t decided to make that leap yet.
 
-The point is, the fact that this journalist was using AI wasn’t something I was upset about.
+The point is, the fact that this journalist was using AI to build this site wasn’t something I was upset about.
 
-People who depend on AI often agree with me on many of those other points. Some AI skeptics might claim that by using AI, those people suddenly become climate-denying monopolists, and that’s just not something I see as true. My ethics-based concerns lie mainly with the AI companies themselves.
+People who depend on AI often agree with me on many of those other points. Some AI skeptics might claim that by using AI, those people suddenly become climate-change-denying monopolists, and that’s just not something I see as true. My ethics-based concerns lie mainly with the AI companies themselves.
  
  ## Security and The AI Narrative
  (I tried to come up with a less inflamatory sounding label than "The AI Narrative" but failed, so please do not think of it as a more intense description than it is meant to be)
